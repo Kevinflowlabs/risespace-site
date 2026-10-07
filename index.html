@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RISE Space: Together we rise</title>
+<meta name="description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta name="theme-color" content="#05070C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RISE Space: Together we rise">
+<meta property="og:description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta property="og:image" content="assets/invite.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preload" as="video" href="assets/hangar.mp4" type="video/mp4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#05070C}
+a{color:#F2EFE9}a:hover{color:#F7CC2E}
+.rs{--gold:#F7CC2E;--void:#05070C;--ink:#0A0D14;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.rs *{box-sizing:border-box}
+.rs img,.rs video{display:block}
+.rs h1,.rs h2,.rs h3,.rs p{margin:0}
+.rs .serif{font-family:var(--serif);font-weight:400;letter-spacing:-.01em}
+.rs .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px}
+.rs .gold{color:var(--gold)}
+.rs .ph{font-family:var(--mono);font-size:.82em;letter-spacing:.04em;color:var(--gold);background:rgba(247,204,46,.08);outline:1px dashed rgba(247,204,46,.55);outline-offset:2px;padding:0 .3em;white-space:nowrap}
+
+/* header */
+.rs-head{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;padding:18px var(--gut);background:linear-gradient(180deg,rgba(5,7,12,.78),rgba(5,7,12,0));pointer-events:none}
+.rs-head > *{pointer-events:auto}
+.rs-head .logo{height:30px;width:auto}
+.rs-nav{display:flex;gap:26px;margin-left:12px}
+.rs-nav a{font-size:13px;letter-spacing:.04em;text-decoration:none;color:rgba(242,239,233,.78);padding:12px 0;transition:color .25s}
+.rs-nav a:hover{color:var(--bone)}
+.rs-cta{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border:1px solid rgba(247,204,46,.6);border-radius:999px;font-size:13px;letter-spacing:.04em;text-decoration:none;color:var(--bone);background:rgba(5,7,12,.35);backdrop-filter:blur(10px);transition:background .25s,border-color .25s}
+.rs-cta:hover{background:var(--gold);color:#05070C;border-color:var(--gold)}
+.rs-cta i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.rs-cta:hover i{background:#05070C;box-shadow:none}
+@media (max-width:960px){.rs-nav{display:none}.rs-head .logo{height:24px}}
+
+/* chapter rail */
+.rs-rail{position:fixed;right:clamp(14px,2vw,30px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:4px}
+.rs-rail a{display:flex;align-items:center;justify-content:flex-end;gap:12px;min-height:30px;text-decoration:none;color:var(--mute);font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.rs-rail a span{opacity:0;transform:translateX(6px);transition:opacity .35s,transform .35s}
+.rs-rail a b{display:block;width:14px;height:1px;background:currentColor;transition:width .35s,background .35s}
+.rs-rail a[data-on="1"]{color:var(--bone)}
+.rs-rail a[data-on="1"] span{opacity:1;transform:none}
+.rs-rail a[data-on="1"] b{width:34px;background:var(--gold)}
+.rs-rail:hover a span{opacity:1;transform:none}
+@media (max-width:760px){.rs-rail{display:none}}
+
+/* sound toggle */
+.snd{position:fixed;right:clamp(16px,2vw,30px);bottom:clamp(16px,3vh,30px);z-index:60;display:flex;align-items:center;justify-content:center;gap:10px;height:48px;min-width:48px;padding:0 16px;border:1px solid rgba(242,239,233,.28);border-radius:999px;background:rgba(5,7,12,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--bone);cursor:pointer;transition:border-color .25s,background .25s}
+.snd:hover{border-color:var(--gold);background:rgba(5,7,12,.8)}
+.snd:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.snd svg{width:18px;height:18px;flex:0 0 auto}
+.snd .eq{display:flex;align-items:flex-end;gap:2px;height:12px}
+.snd .eq i{display:block;width:2px;height:100%;background:var(--gold);transform-origin:bottom;animation:eq 1.1s ease-in-out infinite}
+.snd .eq i:nth-child(2){animation-delay:-.35s}
+.snd .eq i:nth-child(3){animation-delay:-.7s}
+.snd .eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.snd .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+@media (max-width:760px){.snd .lbl{display:none}}
+@media (prefers-reduced-motion:reduce){.snd .eq i{animation:none;transform:scaleY(.6)}}
+
+/* scroll scenes */
+.scene{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--void)}
+.media,.layer{position:absolute;inset:0}
+.media video,.layer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.layer{opacity:0;transition:opacity .9s ease}
+.layer[data-on="1"]{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,7,12,.55) 0%,rgba(5,7,12,0) 26%,rgba(5,7,12,0) 52%,rgba(5,7,12,.86) 100%)}
+.shade.side{background:linear-gradient(90deg,rgba(5,7,12,.78) 0%,rgba(5,7,12,.2) 46%,rgba(5,7,12,0) 70%),linear-gradient(180deg,rgba(5,7,12,.5),rgba(5,7,12,0) 30%,rgba(5,7,12,0) 70%,rgba(5,7,12,.7))}
+.cap{position:absolute;left:var(--gut);bottom:13vh;max-width:min(680px,calc(100% - 2*var(--gut)));opacity:0;transform:translateY(30px);filter:blur(8px);transition:opacity .8s ease,transform 1.1s cubic-bezier(.16,.8,.2,1),filter .8s ease;pointer-events:none;z-index:5}
+.cap[data-on="1"]{opacity:1;transform:none;filter:blur(0)}
+.cap.right{left:auto;right:calc(var(--gut) + 40px);text-align:left}
+.cap .mono{color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.cap .mono:before{content:"";width:28px;height:1px;background:var(--gold)}
+.cap h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6.6vw,108px);line-height:.94;letter-spacing:-.015em;text-wrap:balance}
+.cap p{margin-top:22px;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(242,239,233,.8);max-width:44ch;text-wrap:pretty}
+@media (max-width:760px){.cap,.cap.right{left:var(--gut);right:var(--gut);bottom:10vh}}
+
+/* corner brackets */
+.brk{position:absolute;inset:clamp(70px,9vh,96px) var(--gut) clamp(24px,4vh,40px);pointer-events:none;z-index:4}
+.brk i{position:absolute;width:18px;height:18px;border-color:rgba(242,239,233,.45);border-style:solid;border-width:0}
+.brk i:nth-child(1){left:0;top:0;border-left-width:1px;border-top-width:1px}
+.brk i:nth-child(2){right:0;top:0;border-right-width:1px;border-top-width:1px}
+.brk i:nth-child(3){left:0;bottom:0;border-left-width:1px;border-bottom-width:1px}
+.brk i:nth-child(4){right:0;bottom:0;border-right-width:1px;border-bottom-width:1px}
+.tag{position:absolute;z-index:6;font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,239,233,.62);display:flex;gap:18px;align-items:center}
+.tag.tl{left:calc(var(--gut) + 30px);top:calc(clamp(70px,9vh,96px) + 4px)}
+.tag.br{right:calc(var(--gut) + 150px);bottom:calc(clamp(24px,4vh,40px) + 4px)}
+.tag .live{display:inline-flex;align-items:center;gap:8px;color:var(--gold)}
+.tag .live:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.scrollbar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(242,239,233,.08);z-index:7}
+.scrollbar i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--gold)}
+
+/* hangar */
+#hangar .media video{transform:scale(calc(1.06 - .06 * var(--open,0)))}
+#hangar .shade{opacity:var(--open,0)}
+.veil{position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(60% 55% at 50% 48%,rgba(5,7,12,.62),rgba(5,7,12,.28) 70%),linear-gradient(180deg,rgba(5,7,12,.55),rgba(5,7,12,0) 30%,rgba(5,7,12,0) 70%,rgba(5,7,12,.6));opacity:calc(1 - var(--logo,0))}
+.mark{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(36px,7vh,70px);opacity:calc(1 - var(--logo,0));transform:translate3d(0,calc(var(--logo,0) * -8vh),0) scale(calc(1 + var(--logo,0) * .05));pointer-events:none}
+.mark img{width:clamp(250px,36vw,580px);height:auto;filter:drop-shadow(0 0 40px rgba(247,204,46,.18)) drop-shadow(0 12px 40px rgba(0,0,0,.7))}
+.cue{display:flex;flex-direction:column;align-items:center;gap:14px;color:rgba(242,239,233,.7)}
+.cue i{display:block;width:1px;height:44px;background:linear-gradient(180deg,var(--gold),rgba(247,204,46,0));animation:cue 2.2s cubic-bezier(.6,0,.3,1) infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+.hero-cap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 var(--gut) 14vh;text-align:center;opacity:0;transform:translateY(30px);filter:blur(10px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.16,.8,.2,1),filter 1s;pointer-events:none}
+.hero-cap[data-on="1"]{opacity:1;transform:none;filter:blur(0)}
+.hero-cap h1{font-family:var(--serif);font-weight:400;font-size:clamp(68px,11.5vw,200px);line-height:.86;letter-spacing:-.02em}
+.hero-cap h1 em{font-style:italic;color:var(--gold)}
+.hero-cap p{margin-top:26px;font-size:clamp(16px,1.4vw,20px);color:rgba(242,239,233,.82)}
+
+/* porthole */
+#port{--wx:max(0px,calc((1 - var(--win,0)) * (50vw - 13vh)));--wy:calc((1 - var(--win,0)) * 17vh);--wr:calc((1 - var(--win,0)) * 13vh)}
+.porthole{position:absolute;inset:0;clip-path:inset(var(--wy) var(--wx) round var(--wr));-webkit-clip-path:inset(var(--wy) var(--wx) round var(--wr))}
+.porthole .layer video{transform:scale(calc(1.4 - .4 * var(--win,0)))}
+.ring{position:absolute;top:var(--wy);bottom:var(--wy);left:var(--wx);right:var(--wx);border-radius:var(--wr);border:1px solid rgba(247,204,46,.55);box-shadow:0 0 0 14px rgba(242,239,233,.025),0 0 0 15px rgba(242,239,233,.08),0 0 120px rgba(247,204,46,.14);opacity:calc(1 - var(--win,0) * 1.4);pointer-events:none}
+.ring-label{position:absolute;left:0;right:0;top:calc(var(--wy) - 44px);text-align:center;color:rgba(242,239,233,.6);opacity:calc(1 - var(--win,0) * 3)}
+.ring-label.b{top:auto;bottom:calc(var(--wy) - 44px);color:var(--gold)}
+
+/* statement */
+.statement{position:relative;padding:clamp(120px,20vh,220px) var(--gut);background:radial-gradient(70% 60% at 85% 0%,rgba(127,182,214,.07),rgba(127,182,214,0) 60%),var(--void)}
+.statement .big{font-family:var(--serif);font-size:clamp(46px,7vw,124px);line-height:.95;letter-spacing:-.02em;max-width:15ch;text-wrap:balance}
+.statement .big em{font-style:italic;color:var(--gold)}
+.statement .lede{margin-top:34px;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:var(--dim);max-width:46ch}
+.pillars{margin-top:clamp(70px,10vh,120px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));border-top:1px solid var(--line)}
+.pillars > div{padding:30px 30px 10px 0;border-right:1px solid var(--line);margin-right:30px}
+.pillars > div:last-child{border-right:0}
+.pillars h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.6vw,38px);line-height:1.05;margin:16px 0 12px}
+.pillars p{font-size:15px;line-height:1.55;color:var(--dim);max-width:34ch}
+@media (max-width:760px){.pillars > div{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding-bottom:30px}}
+
+/* launch HUD */
+.panel{position:absolute;z-index:6;left:var(--gut);top:clamp(110px,17vh,170px);width:min(370px,calc(100% - 2*var(--gut)));padding:22px 24px 14px;border:1px solid var(--line);background:rgba(5,7,12,.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);opacity:0;transform:translateY(16px);transition:opacity .7s,transform .9s cubic-bezier(.16,.8,.2,1)}
+.panel[data-on="1"]{opacity:1;transform:none}
+.panel .row{display:flex;justify-content:space-between;align-items:center;color:var(--dim)}
+.count{font-family:var(--mono);font-size:clamp(34px,3.4vw,50px);letter-spacing:.02em;margin:14px 0 18px;color:var(--bone);font-variant-numeric:tabular-nums;min-height:1.2em}
+.chk{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:14px;color:var(--mute);transition:color .4s}
+.chk i{width:8px;height:8px;border-radius:50%;border:1px solid currentColor;flex:0 0 auto;transition:background .4s,box-shadow .4s,border-color .4s}
+.chk em{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.2em;opacity:0;transition:opacity .4s}
+.chk[data-on="1"]{color:var(--bone)}
+.chk[data-on="1"] i{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold)}
+.chk[data-on="1"] em{opacity:1;color:var(--gold)}
+@media (max-width:760px){.panel{top:86px;padding:16px 18px 8px}.chk{padding:9px 0;font-size:13px}}
+
+/* ascent */
+#ascent .media video{transform:scale(1.13);transform-origin:0% 100%}
+.sky{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,7,12,.82) 0%,rgba(5,7,12,.35) 30%,rgba(5,7,12,0) 55%,rgba(5,7,12,.55) 100%)}
+.alti{position:absolute;z-index:6;left:var(--gut);top:clamp(110px,16vh,160px);bottom:clamp(110px,16vh,150px);width:150px}
+.alti .track{position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,rgba(242,239,233,.5),rgba(242,239,233,.18))}
+.alti .fill{position:absolute;left:0;bottom:0;width:1px;height:calc(var(--alt,0) * 100%);background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.alti .oz{position:absolute;left:-3px;width:7px;bottom:50%;top:0;background:repeating-linear-gradient(180deg,rgba(127,182,214,.55) 0 2px,rgba(127,182,214,0) 2px 5px)}
+.tick{position:absolute;left:0;display:flex;align-items:center;gap:10px;transform:translateY(50%);font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:rgba(242,239,233,.5)}
+.tick:before{content:"";width:8px;height:1px;background:rgba(242,239,233,.5)}
+.mk{position:absolute;left:0;display:flex;align-items:center;gap:10px;transform:translateY(50%);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9FC8E0;white-space:nowrap}
+.mk:before{content:"";width:22px;height:1px;background:#9FC8E0}
+.ind{position:absolute;left:-6px;bottom:calc(var(--alt,0) * 100%);width:13px;height:13px;margin-bottom:-6px;border-radius:50%;border:1px solid var(--gold);background:rgba(247,204,46,.25);box-shadow:0 0 18px var(--gold)}
+.tele{position:absolute;z-index:6;left:var(--gut);bottom:clamp(22px,4vh,40px);display:grid;grid-template-columns:repeat(4,auto);gap:0;border:1px solid var(--line);background:rgba(5,7,12,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.tele > div{padding:12px 20px;border-right:1px solid var(--line)}
+.tele > div:last-child{border-right:0}
+.tele .k{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-bottom:6px}
+.tele .v{font-family:var(--mono);font-size:clamp(15px,1.4vw,20px);color:var(--bone);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tele .v.big{color:var(--gold)}
+.lcard{position:absolute;z-index:6;right:calc(var(--gut) + 40px);top:50%;width:min(470px,40vw);transform:translateY(calc(-50% + 30px));opacity:0;filter:blur(8px);transition:opacity .8s,transform 1s cubic-bezier(.16,.8,.2,1),filter .8s;pointer-events:none}
+.lcard[data-on="1"]{opacity:1;transform:translateY(-50%);filter:blur(0)}
+.lcard .mono{color:#9FC8E0;margin-bottom:20px;display:block}
+.lcard .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:14px;display:block}
+.lcard h3{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.95;letter-spacing:-.015em}
+.lcard p{margin-top:20px;font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:rgba(242,239,233,.82)}
+@media (max-width:900px){
+.alti{width:46px;top:96px;bottom:auto;height:42vh}
+.alti .mk{display:none}
+.lcard{left:calc(var(--gut) + 64px);right:var(--gut);width:auto;top:96px;transform:translateY(30px)}
+.lcard[data-on="1"]{transform:none}
+.lcard h3{font-size:38px}
+.tele{grid-template-columns:repeat(2,auto);right:var(--gut)}
+.tele > div:nth-child(2){border-right:0}
+.tele > div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+
+/* full-bleed banner */
+.banner{position:relative;height:88vh;min-height:520px;overflow:hidden}
+.banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner .shade{background:linear-gradient(180deg,rgba(5,7,12,.7),rgba(5,7,12,.1) 30%,rgba(5,7,12,.2) 60%,rgba(5,7,12,.92))}
+.banner .say{position:absolute;left:var(--gut);right:var(--gut);bottom:12vh}
+.banner .say p{font-family:var(--serif);font-size:clamp(40px,5.4vw,92px);line-height:.98;letter-spacing:-.015em;max-width:18ch;text-wrap:balance}
+
+/* sections */
+.sec{padding:clamp(100px,16vh,180px) var(--gut)}
+.sec-head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:30px 60px;align-items:end;margin-bottom:clamp(50px,8vh,90px)}
+.sec-head .mono{color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.sec-head .mono:before{content:"";width:28px;height:1px;background:var(--gold)}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.6vw,96px);line-height:.95;letter-spacing:-.02em;text-wrap:balance}
+.sec-head p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--dim);max-width:46ch}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr));gap:0;border:1px solid var(--line)}
+.split .shot{position:relative;min-height:440px;background:#000;overflow:hidden}
+.split .shot video,.split .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .shot video.contain{object-fit:contain}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-left:1px solid var(--line)}
+.spec{padding:clamp(24px,3vw,40px);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.spec:nth-child(2n){border-right:0}
+.spec:nth-last-child(-n+2){border-bottom:0}
+.spec .num{font-family:var(--serif);font-size:clamp(40px,4.2vw,68px);line-height:1;letter-spacing:-.02em}
+.spec .num small{font-size:.45em;color:var(--dim);margin-left:4px;letter-spacing:0}
+.spec p{margin-top:12px;font-size:14px;line-height:1.5;color:var(--dim);max-width:26ch}
+@media (max-width:620px){.specs{grid-template-columns:minmax(0,1fr);border-left:0}.spec{border-right:0}.spec:nth-last-child(2){border-bottom:1px solid var(--line)}}
+.feat{padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--line)}
+.feat h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.4vw,54px);line-height:1;letter-spacing:-.015em;margin-bottom:26px}
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:#C9CDD4}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list li b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;color:var(--gold);padding-top:4px;min-width:26px}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:0 24px;border:1px solid rgba(242,239,233,.32);border-radius:999px;text-decoration:none;font-size:14px;letter-spacing:.03em;color:var(--bone);transition:background .25s,border-color .25s,color .25s;background:transparent;font-family:var(--sans);cursor:pointer}
+.btn:hover{border-color:var(--gold);color:var(--bone);background:rgba(247,204,46,.08)}
+.btn.solid{background:var(--gold);border-color:var(--gold);color:#05070C;font-weight:500}
+.btn.solid:hover{background:#FFE07A;color:#05070C}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:20px}
+.card{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);background:var(--ink);overflow:hidden}
+.card .img{position:relative;aspect-ratio:16/10;overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
+.card:hover .img img{transform:scale(1.05)}
+.card .body{padding:28px 28px 30px;display:flex;flex-direction:column;flex:1}
+.card .mono{color:var(--mute);margin-bottom:16px}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.6vw,40px);line-height:1.02;margin-bottom:14px}
+.card p{font-size:15px;line-height:1.55;color:var(--dim);margin-bottom:26px}
+.card .btn{margin-top:auto;align-self:flex-start}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chips span{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:#C9CDD4}
+
+/* record */
+.recbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:clamp(60px,9vh,100px)}
+.recbar > div{padding:30px 24px 30px 0}
+.recbar .num{font-family:var(--serif);font-size:clamp(38px,3.6vw,58px);line-height:1;letter-spacing:-.02em}
+.recbar .num .ph{font-size:.4em;white-space:normal;display:inline-block;line-height:1.3}
+.recbar p{margin-top:10px;font-size:14px;line-height:1.5;color:var(--dim);max-width:28ch}
+.records{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rec{position:relative;background:var(--void);min-height:400px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.rec img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;transition:opacity .6s,transform 1.4s cubic-bezier(.16,.8,.2,1)}
+.rec:hover img{opacity:.85;transform:scale(1.04)}
+.rec:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,12,0) 30%,rgba(5,7,12,.92) 100%)}
+.rec .t{position:relative;z-index:1;padding:26px}
+.rec .num{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase}
+.rec h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,1.9vw,30px);line-height:1.1;margin-top:12px;text-wrap:balance}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:28px;margin-top:clamp(70px,10vh,120px)}
+.person img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .6s}
+.person:hover img{filter:grayscale(0)}
+.person h3{font-family:var(--serif);font-weight:400;font-size:28px;margin-top:18px}
+.person p{font-size:13px;color:var(--dim);margin-top:6px}
+
+/* reserve */
+.reserve{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr));border:1px solid var(--line)}
+.reserve .shot{position:relative;min-height:560px;overflow:hidden}
+.reserve .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reserve .shot .shade{background:linear-gradient(180deg,rgba(5,7,12,0) 40%,rgba(5,7,12,.9))}
+.reserve .shot .say{position:absolute;left:clamp(24px,3vw,44px);right:clamp(24px,3vw,44px);bottom:clamp(24px,3vw,44px)}
+.reserve .shot .say p{font-family:var(--serif);font-size:clamp(32px,3vw,46px);line-height:1.02}
+.form{padding:clamp(28px,4vw,60px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px;align-content:center;background:var(--ink)}
+.form .full{grid-column:1 / -1}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.field input,.field select{min-height:50px;padding:0 16px;background:rgba(242,239,233,.03);border:1px solid rgba(242,239,233,.2);border-radius:2px;color:var(--bone);font-family:var(--sans);font-size:15px;outline:none;transition:border-color .25s}
+.field select option{background:#0A0D14}
+.field input:focus,.field select:focus{border-color:var(--gold)}
+.opt{display:flex;gap:12px;align-items:center;font-size:14px;color:var(--dim);min-height:44px}
+.opt input{width:18px;height:18px;accent-color:#F7CC2E}
+.form .fine{font-size:13px;line-height:1.6;color:var(--mute)}
+@media (max-width:620px){.form{grid-template-columns:minmax(0,1fr)}}
+.press{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:30px 60px;align-items:end;padding:clamp(40px,6vw,80px);border:1px solid var(--line);background:radial-gradient(80% 120% at 100% 0%,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink)}
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:26px 40px;padding:70px var(--gut) 40px;border-top:1px solid var(--line)}
+.foot img{height:40px;width:auto;margin-right:auto}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 28px}
+.foot nav a{font-size:14px;text-decoration:none;color:var(--dim);padding:10px 0}
+.foot nav a:hover{color:var(--bone)}
+.legal{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-top:30px;border-top:1px solid var(--line)}
+.legal a{color:var(--mute);text-decoration:none}
+.legal a:hover{color:var(--bone)}
+@media (prefers-reduced-motion:reduce){.cue i,.tag .live:before{animation:none}.cap,.layer,.lcard,.hero-cap,.panel{transition-duration:.01s}}
+
+.snd .ic-off,.snd .lbl{display:none}
+.snd[data-sound="off"] .ic-off,.snd[data-sound="off"] .lbl{display:block}
+.snd[data-sound="off"] .ic-on,.snd[data-sound="off"] .eq{display:none}
+.snd[data-playing="0"] .eq{display:none}
+@media (max-width:760px){.snd[data-sound="off"] .lbl{display:none}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="rs" id="rs-root">
+
+<header class="rs-head">
+<a href="#hangar" aria-label="RISE Space home"><img class="logo" src="assets/logo.png" alt="RISE Space"></a>
+<nav class="rs-nav" aria-label="Primary">
+<a href="#port">The Flight</a>
+<a href="#spaceship">Spaceship</a>
+<a href="#venue">Space Venue</a>
+<a href="#about">About</a>
+<a href="#press">Press</a>
+</nav>
+<a class="rs-cta" href="#reserve"><i></i>Reserve a seat</a>
+</header>
+
+<nav class="rs-rail" aria-label="Flight chapters">
+
+<a href="#hangar" data-ch="hangar"><span>01 · Hangar</span><b></b></a>
+
+<a href="#port" data-ch="port"><span>02 · Port</span><b></b></a>
+
+<a href="#launch" data-ch="launch"><span>03 · Launch</span><b></b></a>
+
+<a href="#ascent" data-ch="ascent"><span>04 · Ascent</span><b></b></a>
+
+<a href="#apogee" data-ch="apogee"><span>05 · Apogee</span><b></b></a>
+
+<a href="#return" data-ch="return"><span>06 · Return</span><b></b></a>
+
+</nav>
+
+<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
+<button class="snd" type="button" data-audio-btn="" id="snd" aria-label="Mute background music" aria-pressed="false" data-sound="on" data-playing="0">
+<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+<svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 6a8.5 8.5 0 0 1 0 12"></path></svg>
+<svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M17 9.5l5 5"></path><path d="M22 9.5l-5 5"></path></svg>
+<span class="lbl">Sound off</span>
+</button>
+
+<!-- 01 HANGAR -->
+<section id="hangar" class="scene" data-scene="hangar" data-vars="logo:.02,.2;open:.36,.5" style="height: 380vh">
+<div class="stage">
+<div class="media"><video data-scrub="" data-map="0:0,.04:0,.42:3.1,1:14.5" data-a="0" data-b="1" data-t0="0" data-t1="14.5" src="assets/hangar.mp4" poster="assets/hangar-poster.jpg" preload="auto" muted="" playsinline=""></video></div>
+<div class="veil"></div>
+<div class="shade"></div>
+<div class="mark">
+<img src="assets/logo.png" alt="RISE Space">
+<div class="cue"><span class="mono">Scroll to open the hangar</span><i></i></div>
+</div>
+<div class="cap" data-range=".44,.68">
+<div class="mono">01 · The Spaceship</div>
+<h2>The largest windows ever flown to space.</h2>
+<p>Built, tested and flying. Meet the capsule that carries eight passengers and a captain to the edge of space.</p>
+</div>
+<div class="hero-cap" data-range=".72,2">
+<h1>Together we <em>rise.</em></h1>
+<p>Opening space to more people than ever before.</p>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- 02 PORT -->
+<section id="port" class="scene" data-scene="port" data-vars="win:0,.24" style="height: 460vh">
+<div class="stage">
+<div class="porthole">
+<div class="layer" data-range="-1,.52"><video data-scrub="" data-a=".02" data-b=".52" data-t0="0" data-t1="7.9" src="assets/deck.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="layer" data-range=".52,2"><video data-scrub="" data-a=".52" data-b="1" data-t0="0" data-t1="9.4" src="assets/port.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="shade side"></div>
+</div>
+<div class="ring"></div>
+<div class="ring-label mono">Viewport · 5.25 ft × 2 ft</div>
+<div class="ring-label b mono">Keep scrolling</div>
+<div class="brk"><i></i><i></i><i></i><i></i></div>
+<div class="tag tl"><span class="live">Rec</span><span>Chapter 02 · Port</span></div>
+<div class="cap" data-range=".24,.5">
+<div class="mono">02 · Load-in</div>
+<h2>The spaceship goes to sea.</h2>
+<p>At port, the spaceship is lowered onto the deck of our launch vessel. The ship becomes the spaceport: every RISE flight lifts off from the open ocean.</p>
+</div>
+<div class="cap" data-range=".56,.8">
+<div class="mono">02 · Departure</div>
+<h2>The harbor sees you off.</h2>
+<p>Fireboat salutes, families on the pier, and the ship turning toward the horizon with you aboard.</p>
+</div>
+<div class="cap" data-range=".84,2">
+<div class="mono">02 · Marine spaceport</div>
+<h2>Next stop: open water.</h2>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" aria-label="Our mission">
+<div class="mono gold">The mission</div>
+<p class="big" style="margin-top: 30px">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
+<p class="lede">We are opening space to more people than ever before, to have the profound experience of seeing Earth from space, gently, comfortably, and together.</p>
+<div class="pillars">
+<div><span class="mono gold">No rocket</span><h3>Lifted by a Space Balloon.</h3><p>A smooth, gentle spaceflight with no high g-forces. NASA and our team have flown thousands of balloons to the edge of space.</p></div>
+<div><span class="mono gold">No rush</span><h3>Hours at the edge of space.</h3><p>Not minutes of weightless panic. Hours to look out, take it in, and share it with the people beside you.</p></div>
+<div><span class="mono gold">No footprint</span><h3>A carbon-neutral spaceflight.</h3><p>The spaceflight is carbon neutral, from lift-off at sea to splashdown.</p></div>
+</div>
+</section>
+
+<!-- 03 LAUNCH -->
+<section id="launch" class="scene" data-scene="launch" style="height: 440vh">
+<div class="stage">
+<div class="layer" data-range="-1,.6"><video data-scrub="" data-a="0" data-b=".6" data-t0="0" data-t1="15.3" src="assets/launch.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="layer" data-range=".6,2"><video data-scrub="" data-a=".6" data-b="1" data-t0="0" data-t1="11.9" src="assets/liftoff.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="shade side"></div>
+<div class="brk"><i></i><i></i><i></i><i></i></div>
+<div class="panel" data-range="-1,.62">
+<div class="row"><span class="mono">Launch sequence</span><span class="mono gold">03</span></div>
+<div class="count" data-count=""></div>
+
+<div class="chk" data-at="0.03"><i></i><span>Spaceship secured on deck</span><em>Go</em></div>
+
+<div class="chk" data-at="0.13"><i></i><span>Space Balloon inflation</span><em>Go</em></div>
+
+<div class="chk" data-at="0.25"><i></i><span>Final checks · go for launch</span><em>Go</em></div>
+
+<div class="chk" data-at="0.38"><i></i><span>Release</span><em>Go</em></div>
+
+</div>
+<div class="cap right" data-range=".46,.78">
+<div class="mono">03 · Gentle launch</div>
+<h2>No rocket. No g-forces.</h2>
+<p>The Space Balloon lifts the spaceship gently off the deck of the marine spaceport, and the spaceflight is carbon neutral.</p>
+</div>
+<div class="cap right" data-range=".8,2">
+<div class="mono">03 · Lift-off</div>
+<h2>Float to the edge of space at cycling speed.</h2>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- 04 ASCENT -->
+<section id="ascent" class="scene" data-scene="ascent" style="height: 820vh">
+<div class="stage">
+<div class="media"><video data-scrub="" data-alt="" data-a="0" data-b=".94" data-t0="0.4" data-t1="23.2" src="assets/ascent.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="sky"></div>
+<div class="tag tl" style="left: auto; right: calc(var(--gut) + 40px)"><span class="live">Flight footage</span><span>04 · Ascent</span></div>
+<div class="alti" aria-hidden="true">
+<div class="track"></div>
+<div class="oz"></div>
+<div class="fill"></div>
+
+<div class="tick" style="bottom: 0.0%">0</div>
+
+<div class="tick" style="bottom: 20.0%">20k</div>
+
+<div class="tick" style="bottom: 40.0%">40k</div>
+
+<div class="tick" style="bottom: 60.0%">60k</div>
+
+<div class="tick" style="bottom: 80.0%">80k</div>
+
+<div class="tick" style="bottom: 100.0%">100k</div>
+
+
+<div class="mk" style="bottom: 35.0%; left: 64px">Airliners</div>
+
+<div class="mk" style="bottom: 39.0%; left: 64px">Tropopause</div>
+
+<div class="mk" style="bottom: 62.0%; left: 64px">Armstrong limit</div>
+
+<div class="mk" style="bottom: 100.0%; left: 64px">Edge of space</div>
+
+<div class="ind"></div>
+</div>
+
+<div class="lcard" data-alt-range="-1,30000">
+<span class="n">01 / 07 · 0 – 39,000 ft</span>
+<span class="mono">Troposphere</span>
+<h3>Through the weather.</h3>
+<p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p>
+</div>
+
+<div class="lcard" data-alt-range="30000,39000">
+<span class="n">02 / 07 · ≈ 35,000 ft</span>
+<span class="mono">Cruising altitude</span>
+<h3>Above the airliners.</h3>
+<p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p>
+</div>
+
+<div class="lcard" data-alt-range="39000,50000">
+<span class="n">03 / 07 · ≈ 39,000 ft</span>
+<span class="mono">Tropopause</span>
+<h3>Where the weather ends.</h3>
+<p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p>
+</div>
+
+<div class="lcard" data-alt-range="50000,62000">
+<span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span>
+<span class="mono">Stratosphere · Ozone layer</span>
+<h3>Inside the ozone layer.</h3>
+<p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p>
+</div>
+
+<div class="lcard" data-alt-range="62000,80000">
+<span class="n">05 / 07 · ≈ 62,000 ft</span>
+<span class="mono">Armstrong limit</span>
+<h3>Beyond the Armstrong limit.</h3>
+<p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p>
+</div>
+
+<div class="lcard" data-alt-range="80000,97000">
+<span class="n">06 / 07 · ≈ 80,000 ft</span>
+<span class="mono">Black sky</span>
+<h3>Blue turns to black.</h3>
+<p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p>
+</div>
+
+<div class="lcard" data-alt-range="97000,999999">
+<span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span>
+<span class="mono">The edge of space</span>
+<h3>The edge of space.</h3>
+<p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p>
+</div>
+
+<div class="tele" role="group" aria-label="Live flight telemetry">
+<div><span class="k">Altitude</span><span class="v big" data-tel="ft"></span></div>
+<div><span class="k">Kilometres</span><span class="v" data-tel="km"></span></div>
+<div><span class="k">Outside air</span><span class="v" data-tel="temp"></span></div>
+<div><span class="k">Air above you</span><span class="v" data-tel="air"></span></div>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- 05 APOGEE -->
+<section id="apogee" class="scene" data-scene="apogee" style="height: 400vh">
+<div class="stage">
+<div class="media"><video data-scrub="" data-a="0" data-b="1" data-t0="0" data-t1="21.8" src="assets/apogee.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="shade"></div>
+<div class="brk"><i></i><i></i><i></i><i></i></div>
+<div class="tag br"><span>Video captured during RISE spaceship flight</span></div>
+<div class="cap" data-range=".06,.44">
+<div class="mono">05 · Apogee · 100,000 ft</div>
+<h2>Hours at the edge of space.</h2>
+<p>The curve of the Earth fills the largest windows ever flown to space, and there is no rush to leave.</p>
+</div>
+<div class="cap" data-range=".52,2">
+<div class="mono">05 · The overview effect</div>
+<h2>See Earth whole.</h2>
+<p>Astronauts describe a lasting shift in perspective that comes from seeing our planet as one thin, bright world in the dark. This is the view that does it.</p>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- BANNER -->
+<section class="banner" aria-label="The view">
+<video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
+<div class="shade"></div>
+<div class="say"><p>The profound experience of seeing Earth in the infinity of the cosmos.</p></div>
+</section>
+
+<!-- SPACESHIP -->
+<section id="spaceship" class="sec" aria-label="The spaceship">
+<div class="sec-head">
+<div><div class="mono">The Spaceship</div><h2>A smooth and safe spaceflight, without rockets.</h2></div>
+<p>Designed, built and operated to rigorous FAA and NASA standards. The spaceship is lifted by a Space Balloon: the safe way to space, flown thousands of times by NASA and our team.</p>
+</div>
+<div class="split">
+<div class="shot"><video class="contain" data-loop="" src="assets/capsule.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
+<div class="specs">
+<div class="spec"><div class="num">8 <small>+ captain</small></div><p>Passengers per flight, with room to move</p></div>
+<div class="spec"><div class="num">340°</div><p>Panoramic views from the cabin</p></div>
+<div class="spec"><div class="num">2,144 <small>cu ft</small></div><p>The largest-volume space capsule ever flown</p></div>
+<div class="spec"><div class="num">5.25 <small>× 2 ft</small></div><p>The largest windows ever flown to space</p></div>
+<div class="spec"><div class="num">16 <small>ft</small></div><p>Diameter of the spacious cabin</p></div>
+<div class="spec"><div class="num">FAA · NASA</div><p>Standards the spaceship is designed, built and operated to</p></div>
+</div>
+</div>
+<div class="split" style="margin-top: 20px">
+<div class="feat">
+<span class="mono gold" style="margin-bottom: 18px">Spaceship interior</span>
+<h3>A lounge at the edge of space.</h3>
+<ul class="list">
+<li><b>01</b><span>Seats up to eight passengers and a captain</span></li>
+<li><b>02</b><span>Refreshments bar and a world-class culinary program</span></li>
+<li><b>03</b><span>WiFi for live streaming and posting from space</span></li>
+<li><b>04</b><span>The Space Spa: a luxurious restroom with the best view in our solar system</span></li>
+<li><b>05</b><span>Interior configured around your occasion, with custom livery and exterior lighting</span></li>
+</ul>
+</div>
+<div class="shot"><video data-loop="" src="assets/interior.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
+</div>
+</section>
+
+<!-- 06 RETURN -->
+<section id="return" class="scene" data-scene="return" style="height: 420vh">
+<div class="stage">
+<div class="layer" data-range="-1,.46"><video data-scrub="" data-a="0" data-b=".46" data-t0="0" data-t1="7.1" src="assets/descent.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="layer" data-range=".46,2"><video data-scrub="" data-a=".46" data-b="1" data-t0="0" data-t1="9.5" src="assets/splash.mp4" preload="auto" muted="" playsinline=""></video></div>
+<div class="shade"></div>
+<div class="brk"><i></i><i></i><i></i><i></i></div>
+<div class="cap" data-range=".06,.42">
+<div class="mono">06 · Descent</div>
+<h2>As gently as it took you up.</h2>
+<p>The Space Balloon brings the spaceship back down slowly and smoothly, with the view the whole way.</p>
+</div>
+<div class="cap" data-range=".54,2">
+<div class="mono">06 · Splashdown</div>
+<h2>Welcome home.</h2>
+<p>Disembark on the ship's deck and carry your journey with you for a lifetime.</p>
+</div>
+<div class="scrollbar"><i></i></div>
+</div>
+</section>
+
+<!-- EXPERIENCES + VENUE -->
+<section id="venue" class="sec" aria-label="Experiences">
+<div class="sec-head">
+<div><div class="mono">More than a flight</div><h2>One cabin. Every kind of occasion.</h2></div>
+<p>A flexible platform at the edge of space, configured around the moments worth marking, for one guest, a full cabin, or an audience of millions.</p>
+</div>
+<div class="cards">
+<article class="card">
+<div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div>
+<div class="body"><span class="mono">For travelers</span><h3>Spaceflight Experience</h3><p>Hours at the edge of space, in a cabin built for looking out. Seats are limited and allocated in order.</p><a class="btn solid" href="#reserve">Claim your seat</a></div>
+</article>
+<article class="card">
+<div class="img"><img src="assets/card-venue.jpg" alt="A live broadcast event inside the RISE cabin"></div>
+<div class="body"><span class="mono">For events &amp; brands</span><h3>Space Venue</h3><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p><a class="btn" href="#reserve">Enquire about your event</a></div>
+</article>
+<article class="card">
+<div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div>
+<div class="body"><span class="mono">For institutions</span><h3>Research &amp; Government</h3><p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p><a class="btn" href="#reserve">Talk to our team</a></div>
+</article>
+</div>
+<div class="split" style="margin-top: 20px">
+<div class="shot"><video data-loop="" src="assets/venue.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
+<div class="feat">
+<span class="mono gold" style="margin-bottom: 18px">Space Venue</span>
+<h3>Special moments, broadcast to the world.</h3>
+<p style="font-size: 16px; line-height: 1.6; color: #A3A8B1; margin-bottom: 26px">The cabin is a blank page. If you have something in mind, a broadcast, a gathering, an experiment, a moment that matters, we will work out how to make it happen.</p>
+<div class="chips"><span>Global broadcasts</span><span>Weddings</span><span>Dining</span><span>Wellness</span><span>Private gatherings</span><span>Research</span></div>
+<div class="btns"><a class="btn" href="#reserve">Tell us your idea</a></div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT / RECORD -->
+<section id="about" class="sec" aria-label="About RISE" style="padding-top: 40px">
+<div class="sec-head">
+<div><div class="mono">Flight proven</div><h2>Not a concept. A flight program.</h2></div>
+<p>RISE is built, flying and backed by investors. The team behind it has set records, created industries and made history in human spaceflight.</p>
+</div>
+<div class="recbar">
+<div><div class="num">2024</div><p>Successful demonstration flight of the fully operational spaceship</p></div>
+<div><div class="num"><span class="ph">[FLIGHTS FLOWN]</span></div><p>Successful RISE flights to date</p></div>
+<div><div class="num">100+</div><p>Space Balloon flights flown by the RISE team</p></div>
+<div><div class="num"><span class="ph">[NEXT WINDOW]</span></div><p>Next passenger launch window</p></div>
+</div>
+<div class="records">
+
+<article class="rec"><img src="assets/rec-flights.jpg" alt="A Space Balloon launching at sunrise"><div class="t"><div class="num">Over 100 flights</div><h3>Space Balloon flights flown by the RISE team</h3></div></article>
+
+<article class="rec"><img src="assets/rec-dive.jpg" alt="A space dive from a balloon"><div class="t"><div class="num">41.5 km · 136,000 ft</div><h3>Highest human flight and space dive from a balloon</h3></div></article>
+
+<article class="rec"><img src="assets/rec-dragon.jpg" alt="A balloon lifting a Dragon capsule"><div class="t"><div class="num">10,000 kg · 22,000 lb</div><h3>Heaviest payload ever flown by balloon: a Dragon capsule to 45,000 ft</h3></div></article>
+
+<article class="rec"><img src="assets/rec-neptune.jpg" alt="A capsule launched from a ship at sea"><div class="t"><div class="num">6,600 kg to 30 km</div><h3>Heaviest payload launched to 100,000 ft</h3></div></article>
+
+<article class="rec"><img src="assets/rec-capsule.jpg" alt="The space capsule in its hangar"><div class="t"><div class="num">2,144 cu ft</div><h3>Largest-volume space capsule, with the largest windows ever flown to space</h3></div></article>
+
+<article class="rec"><img src="assets/rec-biosphere.jpg" alt="Biosphere 2 at dusk"><div class="t"><div class="num">Two years inside</div><h3>Designed, built and lived longest in Biosphere 2, the most closed bioregenerative prototype space base</h3></div></article>
+
+<article class="rec"><img src="assets/rec-iss.jpg" alt="The International Space Station"><div class="t"><div class="num">98% recovered</div><h3>Technology on most U.S. crewed spacecraft, including the highest water recycle rate on the ISS</h3></div></article>
+
+<article class="rec"><img src="assets/rec-spin.jpg" alt="A large spin vacuum chamber in the desert"><div class="t"><div class="num">SpinLaunch</div><h3>Developed the largest spin vacuum chamber ever operated</h3></div></article>
+
+</div>
+<div class="people">
+
+<div class="person"><img src="assets/f-mehta.jpg" alt="Ravé Mehta"><h3>Ravé Mehta</h3><p>Chairman and Chief Executive Officer</p></div>
+
+<div class="person"><img src="assets/f-maccallum.jpg" alt="Taber MacCallum"><h3>Taber MacCallum</h3><p>Chief Technology Officer</p></div>
+
+<div class="person"><img src="assets/f-yaney.jpg" alt="Jonathan Yaney"><h3>Jonathan Yaney</h3><p>Chief Operating Officer</p></div>
+
+<div class="person"><img src="assets/f-poynter.jpg" alt="Jane Poynter"><h3>Jane Poynter</h3><p>Chief Product Officer</p></div>
+
+</div>
+</section>
+
+<!-- RESERVE -->
+<section id="reserve" class="sec" aria-label="Reserve a seat" style="padding-top: 40px">
+<div class="sec-head">
+<div><div class="mono">Plan your flight</div><h2>Your seat at the edge of space.</h2></div>
+<p>Seats are limited and allocated in order. Tell us how you'd like to fly and a RISE flight advisor will walk you through dates, preparation and what to expect.</p>
+</div>
+<div class="reserve">
+<div class="shot"><img src="assets/invite.jpg" alt="The RISE spaceship above the curve of the Earth"><div class="shade"></div><div class="say"><span class="mono gold">Seats from <span class="ph">[TICKET PRICE]</span></span><p style="margin-top: 16px">Some things you have to see for yourself.</p></div></div>
+<form class="form" id="rs-form">
+<div class="field"><label for="rs-first">First name</label><input id="rs-first" type="text" autocomplete="given-name"></div>
+<div class="field"><label for="rs-last">Last name</label><input id="rs-last" type="text" autocomplete="family-name"></div>
+<div class="field"><label for="rs-email">Email</label><input id="rs-email" type="email" autocomplete="email"></div>
+<div class="field"><label for="rs-phone">Phone (optional)</label><input id="rs-phone" type="tel" autocomplete="tel"></div>
+<div class="field full"><label for="rs-how">How would you like to fly?</label><select id="rs-how"><option>A seat on a shared flight</option><option>The entire cabin, up to eight guests</option><option>A Space Venue event</option><option>A research or government program</option></select></div>
+<div class="field full"><label for="rs-when">Preferred timing</label><select id="rs-when"><option>As soon as possible</option><option>Within the next 12 months</option><option>In one to two years</option><option>I'm flexible</option></select></div>
+<label class="opt full" for="rs-news"><input id="rs-news" type="checkbox">Send me flight news, launch invitations and the moment seats open</label>
+<div class="full" style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center"><button class="btn solid" type="submit">Request your seat</button><span class="fine">Deposit: <span class="ph">[DEPOSIT TERMS]</span></span></div>
+<p class="full mono gold" id="rs-sent" hidden>Request received. A flight advisor will be in touch.</p>
+</form>
+</div>
+</section>
+
+<!-- PRESS -->
+<section id="press" class="sec" aria-label="Press" style="padding-top: 0">
+<div class="press">
+<div><div class="mono gold" style="margin-bottom: 22px">Newsroom</div><h2 class="serif" style="font-size: clamp(40px, 4.6vw, 76px); line-height: .95">For media.</h2></div>
+<div>
+<p style="font-size: 17px; line-height: 1.6; color: #A3A8B1; max-width: 46ch">Flight footage, stills, founder bios and mission facts from RISE flights are available for editorial use. Press inquiries: <span class="ph">[PRESS EMAIL]</span></p>
+<div class="btns"><a class="btn solid" href="#press">Download media assets</a><a class="btn" href="#press">Press inquiries</a></div>
+</div>
+</div>
+</section>
+
+<footer class="foot">
+<img src="assets/logo.png" alt="RISE Space">
+<nav aria-label="Footer">
+<a href="#port">The Flight</a><a href="#spaceship">Spaceship</a><a href="#venue">Space Venue</a><a href="#about">About</a><a href="#press">Media assets</a><a href="#reserve">Contact us</a>
+</nav>
+<div class="legal"><span>© RISE 2026</span><a href="#hangar">Privacy</a><a href="#hangar">Terms</a></div>
+</footer>
+
+</div>
+<script>
+(function () {
+  class DCLogic {
+    constructor(props) { this.props = props || {}; this.state = {}; }
+    setState(patch) { Object.assign(this.state, patch); if (this.onState) this.onState(); }
+  }
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sent: false, soundOn: true, playing: false };
+    this.root = null;
+    this.frame = 0;
+    this.setRoot = (el) => { this.root = el; if (el) this.collect(); };
+    this.tick = this.tick.bind(this);
+    this.unlock = this.unlock.bind(this);
+    this.startAudio = this.startAudio.bind(this);
+    this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];    this.toggleSound = () => {
+      const a = this.audio; if (!a) return;
+      if (this.state.soundOn && !a.paused) {
+        a.muted = true; this.setState({ soundOn: false });
+      } else {
+        a.muted = false; this.fadeIn(); this.setState({ soundOn: true });
+      }
+    };
+    this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
+  }
+
+  componentDidMount() {
+    this.win = (this.root && this.root.ownerDocument && this.root.ownerDocument.defaultView) || window;
+    this.collect();
+    this.win.addEventListener('pointerdown', this.unlock, { passive: true });
+    this.win.addEventListener('touchstart', this.unlock, { passive: true });
+    this.raf = this.win.requestAnimationFrame(this.tick);
+    this.audio = this.root && this.root.querySelector('audio[data-bg]');
+    if (this.audio) {
+      this.audio.loop = true;
+      this.audio.volume = 0;
+      this.onPlaying = () => this.setState({ playing: true });
+      this.onPaused = () => this.setState({ playing: false });
+      this.audio.addEventListener('playing', this.onPlaying);
+      this.audio.addEventListener('pause', this.onPaused);
+      this.mountedAt = Date.now();
+      this.audioEvents.forEach((ev) => this.win.addEventListener(ev, this.startAudio, { capture: true, passive: true }));
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.win) {
+      this.win.cancelAnimationFrame(this.raf);
+      this.win.removeEventListener('pointerdown', this.unlock);
+      this.win.removeEventListener('touchstart', this.unlock);
+      this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
+    }
+    clearInterval(this.fadeT);
+    if (this.audio) {
+      this.audio.removeEventListener('playing', this.onPlaying);
+      this.audio.removeEventListener('pause', this.onPaused);
+      this.audio.pause();
+    }
+  }
+
+  // Music never starts until the visitor scrolls. Scrolling arms it and tries to play;
+  // browsers that refuse sound on a scroll alone start it on the next click, tap or key.
+  startAudio(e) {
+    const a = this.audio;
+    if (!a || !this.state.soundOn || !e) return;
+    if (e.target && e.target.closest && e.target.closest('[data-audio-btn]')) return;
+    if (!a.paused) { this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true)); return; }
+    const scrollKeys = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'End', 'Home'];
+    const passive = e.type === 'scroll' || e.type === 'wheel' || e.type === 'touchmove';
+    if (passive && Date.now() - this.mountedAt < 600) return;
+    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) this.armed = true;
+    if (!this.armed) return;
+    if (passive) { if (Date.now() - (this.lastTry || 0) < 700) return; this.lastTry = Date.now(); }
+    this.fadeIn();
+  }
+
+  fadeIn() {
+    const a = this.audio; if (!a) return;
+    const target = 0.39;
+    if (a.paused) {
+      a.volume = 0;
+      const pr = a.play();
+      if (pr && pr.catch) pr.catch(() => {});
+    }
+    clearInterval(this.fadeT);
+    this.fadeT = setInterval(() => {
+      if (a.paused) return;
+      a.volume = Math.min(target, a.volume + 0.03);
+      if (a.volume >= target) clearInterval(this.fadeT);
+    }, 60);
+  }
+
+  unlock() {
+    if (this.unlocked || !this.scenes) return;
+    this.unlocked = true;
+    this.scenes.forEach((s) => s.scrubs.forEach((o) => {
+      const v = o.v; const pr = v.play && v.play();
+      if (pr && pr.then) pr.then(() => v.pause()).catch(() => {});
+    }));
+  }
+
+  collect() {
+    const root = this.root; if (!root) return;
+    const nums = (s) => String(s || '').split(',').map(parseFloat);
+    this.scenes = Array.prototype.map.call(root.querySelectorAll('[data-scene]'), (el) => {
+      const vars = String(el.getAttribute('data-vars') || '').split(';').filter(Boolean).map((x) => {
+        const parts = x.split(':'); const r = nums(parts[1]); return { name: '--' + parts[0].trim(), a: r[0], b: r[1] };
+      });
+      const q = (sel) => Array.prototype.slice.call(el.querySelectorAll(sel));
+      const scrubs = q('video[data-scrub]').map((v) => {
+        v.muted = true; v.playsInline = true; v.setAttribute('playsinline', '');
+        const mp = v.getAttribute('data-map'); const map = mp ? mp.split(',').map((x) => x.split(':').map(parseFloat)) : null;
+        return { v, map, a: +v.getAttribute('data-a'), b: +v.getAttribute('data-b'), t0: +v.getAttribute('data-t0'), t1: +v.getAttribute('data-t1'), alt: v.hasAttribute('data-alt') };
+      });
+      return {
+        el, id: el.getAttribute('data-scene'), stage: el.querySelector('.stage'), vars, scrubs,
+        ranges: q('[data-range]').map((n) => { const r = nums(n.getAttribute('data-range')); return { n, a: r[0], b: r[1] }; }),
+        ats: q('[data-at]').map((n) => ({ n, at: parseFloat(n.getAttribute('data-at')) })),
+        alts: q('[data-alt-range]').map((n) => { const r = nums(n.getAttribute('data-alt-range')); return { n, a: r[0], b: r[1] }; }),
+        count: el.querySelector('[data-count]'),
+        tel: { ft: el.querySelector('[data-tel="ft"]'), km: el.querySelector('[data-tel="km"]'), temp: el.querySelector('[data-tel="temp"]'), air: el.querySelector('[data-tel="air"]') }
+      };
+    });
+    this.rail = Array.prototype.slice.call(root.querySelectorAll('[data-ch]'));
+    Array.prototype.forEach.call(root.querySelectorAll('video[data-loop]'), (v) => {
+      v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', '');
+      const pr = v.play && v.play(); if (pr && pr.catch) pr.catch(() => {});
+    });
+  }
+
+  setOn(n, on) { const val = on ? '1' : '0'; if (n._on !== val) { n._on = val; n.setAttribute('data-on', val); } }
+
+  altAt(t) {
+    const k = [[0, 0], [2.6, 1500], [3.4, 14000], [5.6, 24000], [7.2, 36000], [9.2, 50000], [11.6, 62000], [13.6, 74000], [15.8, 84000], [17.4, 97000], [18.4, 100000], [99, 100000]];
+    for (let i = 1; i < k.length; i++) {
+      if (t <= k[i][0]) { const a = k[i - 1], b = k[i]; return a[1] + (b[1] - a[1]) * ((t - a[0]) / (b[0] - a[0])); }
+    }
+    return 100000;
+  }
+
+  isa(ft) {
+    const h = ft * 0.3048; let T, P;
+    if (h < 11000) { T = 288.15 - 0.0065 * h; P = 101325 * Math.pow(T / 288.15, 5.25588); }
+    else if (h < 20000) { T = 216.65; P = 22632.1 * Math.exp(-0.000157688 * (h - 11000)); }
+    else { T = 216.65 + 0.001 * (h - 20000); P = 5474.89 * Math.pow(T / 216.65, -34.1632); }
+    return { c: T - 273.15, pct: P / 101325 * 100 };
+  }
+
+  tick() {
+    this.raf = this.win.requestAnimationFrame(this.tick);
+    this.frame++;
+    if (!this.scenes || this.frame % 90 === 0) this.collect();
+    if (!this.scenes) return;
+    const clamp = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
+    const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+    let active = null;
+    this.scenes.forEach((s) => {
+      const r = s.el.getBoundingClientRect();
+      const sh = (s.stage && s.stage.getBoundingClientRect().height) || this.win.innerHeight;
+      const span = r.height - sh;
+      const p = span > 0 ? clamp(-r.top / span) : 0;
+      const near = r.top < sh * 1.5 && r.bottom > -sh * 0.5;
+      if (r.top <= sh * 0.5 && r.bottom > sh * 0.5) active = s.id;
+      if (s._p === p && s._init) return;
+      s._p = p; s._init = true;
+      s.el.style.setProperty('--p', p.toFixed(4));
+      s.vars.forEach((v) => s.el.style.setProperty(v.name, ease(clamp((p - v.a) / (v.b - v.a))).toFixed(4)));
+      s.ranges.forEach((o) => this.setOn(o.n, p >= o.a && p < o.b));
+      s.ats.forEach((o) => this.setOn(o.n, p >= o.at));
+      if (s.count) {
+        const end = 0.42; let txt;
+        if (p >= end) txt = 'Lift-off';
+        else txt = 'T– 00:00:' + String(Math.max(1, Math.ceil(10 * (1 - p / end)))).padStart(2, '0');
+        if (s.count._t !== txt) { s.count._t = txt; s.count.textContent = txt; }
+      }
+      if (!near) return;
+      s.scrubs.forEach((o) => {
+        if (o.map) {
+          const m = o.map; let t = m[m.length - 1][1];
+          for (let i = 1; i < m.length; i++) { if (p <= m[i][0]) { const k = (p - m[i - 1][0]) / ((m[i][0] - m[i - 1][0]) || 1); t = m[i - 1][1] + (m[i][1] - m[i - 1][1]) * clamp(k); break; } }
+          o.target = t;
+        } else o.target = o.t0 + clamp((p - o.a) / (o.b - o.a)) * (o.t1 - o.t0);
+      });
+    });
+    this.scenes.forEach((s) => {
+      s.scrubs.forEach((o) => {
+        const v = o.v; if (o.target == null) return;
+        const d = v.duration; let tgt = o.target; if (d && tgt > d - 0.05) tgt = d - 0.05;
+        o.cur = o.cur == null ? tgt : o.cur + (tgt - o.cur) * 0.16;
+        if (Math.abs(o.cur - tgt) < 0.002) o.cur = tgt;
+        if (v.readyState >= 1 && !v.seeking && Math.abs(v.currentTime - o.cur) > 0.015) { try { v.currentTime = o.cur; } catch (e) {} }
+        if (o.alt) {
+          const ft = this.altAt(o.cur);
+          if (o._ft !== Math.round(ft)) {
+            o._ft = Math.round(ft);
+            s.el.style.setProperty('--alt', (ft / 100000).toFixed(4));
+            const a = this.isa(ft);
+            if (s.tel.ft) s.tel.ft.textContent = Math.round(ft / 100) * 100 >= 1000 ? (Math.round(ft / 100) * 100).toLocaleString('en-US') + ' ft' : Math.round(ft) + ' ft';
+            if (s.tel.km) s.tel.km.textContent = (ft * 0.0003048).toFixed(1) + ' km';
+            if (s.tel.temp) s.tel.temp.textContent = (a.c < 0 ? '−' : '') + Math.abs(Math.round(a.c)) + ' °C';
+            if (s.tel.air) s.tel.air.textContent = (a.pct >= 10 ? Math.round(a.pct) : a.pct.toFixed(1)) + '%';
+            s.alts.forEach((c) => this.setOn(c.n, ft >= c.a && ft < c.b));
+          }
+        }
+      });
+    });
+    if (this.rail) this.rail.forEach((n) => this.setOn(n, n.getAttribute('data-ch') === active));
+  }
+
+  renderVals() {
+    const pct = (ft) => (ft / 1000).toFixed(1) + '%';
+    return {
+      accent: this.props.accent ?? '#F7CC2E',
+      setRoot: this.setRoot,
+      submit: this.submit,
+      sent: this.state.sent,
+      toggleSound: this.toggleSound,
+      soundOn: this.state.soundOn,
+      soundOff: !this.state.soundOn,
+      playing: !!this.state.playing,      soundLabel: this.state.soundOn ? 'Mute background music' : 'Turn background music on',
+      chapters: [
+        { id: 'hangar', n: '01', label: 'Hangar' },
+        { id: 'port', n: '02', label: 'Port' },
+        { id: 'launch', n: '03', label: 'Launch' },
+        { id: 'ascent', n: '04', label: 'Ascent' },
+        { id: 'apogee', n: '05', label: 'Apogee' },
+        { id: 'return', n: '06', label: 'Return' }
+      ],
+      checklist: [
+        { at: 0.03, t: 'Spaceship secured on deck' },
+        { at: 0.13, t: 'Space Balloon inflation' },
+        { at: 0.25, t: 'Final checks · go for launch' },
+        { at: 0.38, t: 'Release' }
+      ],
+      ticks: [0, 20000, 40000, 60000, 80000, 100000].map((ft) => ({ pos: pct(ft), label: ft === 0 ? '0' : (ft / 1000) + 'k' })),
+      marks: [
+        { pos: pct(35000), label: 'Airliners' },
+        { pos: pct(39000), label: 'Tropopause' },
+        { pos: pct(62000), label: 'Armstrong limit' },
+        { pos: pct(100000), label: 'Edge of space' }
+      ],
+      layers: [
+        { n: '01', range: '-1,30000', alt: '0 – 39,000 ft', name: 'Troposphere', title: 'Through the weather.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
+        { n: '02', range: '30000,39000', alt: '≈ 35,000 ft', name: 'Cruising altitude', title: 'Above the airliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
+        { n: '03', range: '39000,50000', alt: '≈ 39,000 ft', name: 'Tropopause', title: 'Where the weather ends.', body: 'The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.' },
+        { n: '04', range: '50000,62000', alt: '≈ 50,000 – 115,000 ft', name: 'Stratosphere · Ozone layer', title: 'Inside the ozone layer.', body: 'The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.' },
+        { n: '05', range: '62000,80000', alt: '≈ 62,000 ft', name: 'Armstrong limit', title: 'Beyond the Armstrong limit.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
+        { n: '06', range: '80000,97000', alt: '≈ 80,000 ft', name: 'Black sky', title: 'Blue turns to black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
+        { n: '07', range: '97000,999999', alt: '≈ 100,000 ft · 30 km', name: 'The edge of space', title: 'The edge of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' }
+      ],
+      records: [
+        { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: 'Over 100 flights', title: 'Space Balloon flights flown by the RISE team' },
+        { img: 'assets/rec-dive.jpg', alt: 'A space dive from a balloon', stat: '41.5 km · 136,000 ft', title: 'Highest human flight and space dive from a balloon' },
+        { img: 'assets/rec-dragon.jpg', alt: 'A balloon lifting a Dragon capsule', stat: '10,000 kg · 22,000 lb', title: 'Heaviest payload ever flown by balloon: a Dragon capsule to 45,000 ft' },
+        { img: 'assets/rec-neptune.jpg', alt: 'A capsule launched from a ship at sea', stat: '6,600 kg to 30 km', title: 'Heaviest payload launched to 100,000 ft' },
+        { img: 'assets/rec-capsule.jpg', alt: 'The space capsule in its hangar', stat: '2,144 cu ft', title: 'Largest-volume space capsule, with the largest windows ever flown to space' },
+        { img: 'assets/rec-biosphere.jpg', alt: 'Biosphere 2 at dusk', stat: 'Two years inside', title: 'Designed, built and lived longest in Biosphere 2, the most closed bioregenerative prototype space base' },
+        { img: 'assets/rec-iss.jpg', alt: 'The International Space Station', stat: '98% recovered', title: 'Technology on most U.S. crewed spacecraft, including the highest water recycle rate on the ISS' },
+        { img: 'assets/rec-spin.jpg', alt: 'A large spin vacuum chamber in the desert', stat: 'SpinLaunch', title: 'Developed the largest spin vacuum chamber ever operated' }
+      ],
+      founders: [
+        { img: 'assets/f-mehta.jpg', name: 'Ravé Mehta', role: 'Chairman and Chief Executive Officer' },
+        { img: 'assets/f-maccallum.jpg', name: 'Taber MacCallum', role: 'Chief Technology Officer' },
+        { img: 'assets/f-yaney.jpg', name: 'Jonathan Yaney', role: 'Chief Operating Officer' },
+        { img: 'assets/f-poynter.jpg', name: 'Jane Poynter', role: 'Chief Product Officer' }
+      ]
+    };
+  }
+}
+
+  var c = new Component({});
+  var root = document.getElementById('rs-root');
+  var btn = document.getElementById('snd');
+  var sent = document.getElementById('rs-sent');
+  c.onState = function () {
+    var on = c.state.soundOn !== false;
+    btn.setAttribute('data-sound', on ? 'on' : 'off');
+    btn.setAttribute('data-playing', c.state.playing ? '1' : '0');
+    btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+    btn.setAttribute('aria-label', on ? 'Mute background music' : 'Turn background music on');
+    if (sent) sent.hidden = !c.state.sent;
+  };
+  c.setRoot(root);
+  c.componentDidMount();
+  btn.addEventListener('click', function () { c.toggleSound(); });
+  var form = document.getElementById('rs-form');
+  if (form) form.addEventListener('submit', function (e) { c.submit(e); });
+  c.onState();
+})();
+</script>
+</body>
+</html>
