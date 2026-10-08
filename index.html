@@ -13,7 +13,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="preload" as="video" href="assets/hangar.mp4" type="video/mp4">
+<link rel="preload" as="image" href="assets/earth.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
@@ -115,6 +115,49 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .hero-cap h1{font-family:var(--serif);font-weight:400;font-size:clamp(68px,11.5vw,200px);line-height:.86;letter-spacing:-.02em}
 .hero-cap h1 em{font-style:italic;color:var(--gold)}
 .hero-cap p{margin-top:26px;font-size:clamp(16px,1.4vw,20px);color:rgba(242,239,233,.82)}
+
+/* opening: earth reveal */
+.ostage{background:radial-gradient(120% 80% at 50% 110%,#08101f 0%,#05070C 55%)}
+.stars{position:absolute;inset:0;pointer-events:none;transform:translate3d(0,calc(var(--cam,0) * -5vh),0);opacity:calc(.35 + .65 * var(--line,0))}
+.stars i{position:absolute;left:0;top:0;width:1px;height:1px;border-radius:50%}
+.stars .s1{box-shadow:32.38vw 9.35vh 0 0.4px rgba(242,239,233,0.18),82.13vw 5.84vh 0 0.4px rgba(242,239,233,0.18),50.74vw 2.32vh 0 0px rgba(242,239,233,0.40),24.07vw 34.16vh 0 0px rgba(242,239,233,0.65),12.38vw 13.84vh 0 0.4px rgba(242,239,233,0.50),6.19vw 36.30vh 0 0px rgba(242,239,233,0.74),4.66vw 53.23vh 0 0px rgba(242,239,233,0.40),54.07vw 35.40vh 0 0.4px rgba(242,239,233,0.64),18.07vw 36.06vh 0 0.4px rgba(242,239,233,0.26),9.74vw 44.15vh 0 0.4px rgba(242,239,233,0.19),20.60vw 42.18vh 0 0px rgba(242,239,233,0.62),46.56vw 57.25vh 0 0px rgba(242,239,233,0.33),79.44vw 43.34vh 0 0px rgba(242,239,233,0.20),30.02vw 30.70vh 0 0px rgba(242,239,233,0.59),28.79vw 60.77vh 0 0px rgba(242,239,233,0.46),16.50vw 21.21vh 0 0px rgba(242,239,233,0.40),96.20vw 4.81vh 0 0.4px rgba(242,239,233,0.49),87.55vw 19.45vh 0 0.4px rgba(242,239,233,0.36),49.67vw 49.41vh 0 0px rgba(242,239,233,0.65),94.47vw 29.39vh 0 0.4px rgba(242,239,233,0.19),73.12vw 19.20vh 0 0.4px rgba(242,239,233,0.75),82.19vw 17.64vh 0 0px rgba(242,239,233,0.68),34.70vw 58.32vh 0 0px rgba(242,239,233,0.25),11.71vw 3.66vh 0 0px rgba(242,239,233,0.23),24.76vw 24.24vh 0 0px rgba(242,239,233,0.20),44.92vw 34.07vh 0 0px rgba(242,239,233,0.64),86.40vw 17.26vh 0 0px rgba(242,239,233,0.74),68.27vw 23.59vh 0 0px rgba(242,239,233,0.24),17.62vw 14.38vh 0 0px rgba(242,239,233,0.16),83.11vw 11.31vh 0 0px rgba(242,239,233,0.15),41.89vw 22.89vh 0 0.4px rgba(242,239,233,0.34),12.55vw 53.27vh 0 0.4px rgba(242,239,233,0.54),73.98vw 28.31vh 0 0.4px rgba(242,239,233,0.63),39.24vw 24.74vh 0 0px rgba(242,239,233,0.44),40.04vw 11.82vh 0 0px rgba(242,239,233,0.41),10.99vw 37.25vh 0 0px rgba(242,239,233,0.15),15.13vw 6.29vh 0 0px rgba(242,239,233,0.52),7.03vw 12.89vh 0 0px rgba(242,239,233,0.24),25.23vw 21.54vh 0 0px rgba(242,239,233,0.43),11.54vw 30.26vh 0 0px rgba(242,239,233,0.44),31.19vw 8.94vh 0 0.4px rgba(242,239,233,0.36),26.48vw 51.39vh 0 0px rgba(242,239,233,0.46),20.52vw 59.03vh 0 0px rgba(242,239,233,0.24),54.32vw 1.68vh 0 0.4px rgba(242,239,233,0.33),64.29vw 5.64vh 0 0px rgba(242,239,233,0.46),90.83vw 22.05vh 0 0px rgba(242,239,233,0.47),77.91vw 20.44vh 0 0px rgba(242,239,233,0.52),78.84vw 47.02vh 0 0px rgba(242,239,233,0.63),81.83vw 45.87vh 0 0px rgba(242,239,233,0.27),49.28vw 45.32vh 0 0px rgba(242,239,233,0.62),47.22vw 12.01vh 0 0.4px rgba(242,239,233,0.72),44.72vw 58.10vh 0 0px rgba(242,239,233,0.72),36.46vw 13.67vh 0 0px rgba(242,239,233,0.43),33.77vw 29.92vh 0 0.4px rgba(242,239,233,0.65),47.95vw 40.48vh 0 0.4px rgba(242,239,233,0.20),66.06vw 56.41vh 0 0.4px rgba(242,239,233,0.60),47.80vw 11.07vh 0 0.4px rgba(242,239,233,0.35),80.08vw 60.24vh 0 0px rgba(242,239,233,0.43),74.34vw 5.26vh 0 0px rgba(242,239,233,0.25),12.70vw 9.37vh 0 0px rgba(242,239,233,0.63),14.62vw 51.24vh 0 0px rgba(242,239,233,0.54),35.04vw 34.02vh 0 0px rgba(242,239,233,0.16),79.94vw 45.03vh 0 0px rgba(242,239,233,0.47),93.36vw 26.90vh 0 0px rgba(242,239,233,0.65),21.10vw 15.61vh 0 0px rgba(242,239,233,0.45),76.37vw 20.21vh 0 0.4px rgba(242,239,233,0.40),13.11vw 56.42vh 0 0px rgba(242,239,233,0.69),66.25vw 50.53vh 0 0.4px rgba(242,239,233,0.40),91.77vw 31.10vh 0 0.4px rgba(242,239,233,0.24),51.05vw 54.11vh 0 0px rgba(242,239,233,0.52),77.60vw 9.29vh 0 0px rgba(242,239,233,0.43),72.52vw 34.50vh 0 0px rgba(242,239,233,0.56),53.07vw 29.91vh 0 0px rgba(242,239,233,0.68),5.68vw 11.86vh 0 0px rgba(242,239,233,0.61),50.77vw 34.83vh 0 0px rgba(242,239,233,0.42),61.25vw 31.34vh 0 0.4px rgba(242,239,233,0.27),27.72vw 31.51vh 0 0px rgba(242,239,233,0.45),24.77vw 32.44vh 0 0px rgba(242,239,233,0.70),89.28vw 12.56vh 0 0px rgba(242,239,233,0.23),12.16vw 27.41vh 0 0px rgba(242,239,233,0.55),42.83vw 13.19vh 0 0px rgba(242,239,233,0.62),89.70vw 9.58vh 0 0.4px rgba(242,239,233,0.54),36.62vw 15.69vh 0 0px rgba(242,239,233,0.73),21.96vw 59.06vh 0 0px rgba(242,239,233,0.68),16.28vw 41.41vh 0 0px rgba(242,239,233,0.25),43.15vw 31.97vh 0 0px rgba(242,239,233,0.40),35.66vw 5.72vh 0 0px rgba(242,239,233,0.16),55.41vw 27.31vh 0 0px rgba(242,239,233,0.38),51.74vw 18.32vh 0 0px rgba(242,239,233,0.22),91.85vw 14.17vh 0 0px rgba(242,239,233,0.20)}
+.stars .s2{box-shadow:27.19vw 56.17vh 0 0px rgba(242,239,233,0.23),12.96vw 26.18vh 0 0.4px rgba(242,239,233,0.40),25.86vw 9.26vh 0 0.4px rgba(242,239,233,0.32),70.04vw 5.55vh 0 0px rgba(242,239,233,0.39),18.33vw 55.51vh 0 0px rgba(242,239,233,0.43),63.44vw 49.70vh 0 0px rgba(242,239,233,0.33),22.24vw 16.40vh 0 0px rgba(242,239,233,0.29),33.92vw 34.29vh 0 0px rgba(242,239,233,0.34),4.32vw 43.99vh 0 0px rgba(242,239,233,0.44),26.19vw 11.23vh 0 0px rgba(242,239,233,0.34),53.11vw 12.76vh 0 0px rgba(242,239,233,0.30),17.79vw 21.51vh 0 0px rgba(242,239,233,0.45),3.69vw 1.14vh 0 0.4px rgba(242,239,233,0.32),18.95vw 29.44vh 0 0px rgba(242,239,233,0.18),81.89vw 26.80vh 0 0px rgba(242,239,233,0.31),88.87vw 60.16vh 0 0px rgba(242,239,233,0.36),98.24vw 21.25vh 0 0.4px rgba(242,239,233,0.37),13.97vw 61.35vh 0 0px rgba(242,239,233,0.40),1.43vw 38.78vh 0 0px rgba(242,239,233,0.28),5.54vw 41.24vh 0 0px rgba(242,239,233,0.41),67.05vw 17.48vh 0 0px rgba(242,239,233,0.36),4.52vw 11.49vh 0 0px rgba(242,239,233,0.28),26.32vw 59.63vh 0 0.4px rgba(242,239,233,0.25),3.44vw 54.71vh 0 0px rgba(242,239,233,0.26),0.11vw 23.66vh 0 0px rgba(242,239,233,0.23),65.60vw 15.39vh 0 0px rgba(242,239,233,0.18),81.70vw 8.92vh 0 0.4px rgba(242,239,233,0.16),2.25vw 18.86vh 0 0px rgba(242,239,233,0.18),95.76vw 52.90vh 0 0px rgba(242,239,233,0.35),71.60vw 54.50vh 0 0px rgba(242,239,233,0.38),72.07vw 30.64vh 0 0px rgba(242,239,233,0.37),64.32vw 2.71vh 0 0.4px rgba(242,239,233,0.42),62.73vw 45.50vh 0 0.4px rgba(242,239,233,0.19),52.38vw 31.27vh 0 0px rgba(242,239,233,0.40),58.41vw 55.36vh 0 0.4px rgba(242,239,233,0.44),64.29vw 5.28vh 0 0px rgba(242,239,233,0.19),36.07vw 6.50vh 0 0px rgba(242,239,233,0.32),62.78vw 38.83vh 0 0.4px rgba(242,239,233,0.22),26.38vw 28.33vh 0 0px rgba(242,239,233,0.37),50.30vw 33.18vh 0 0.4px rgba(242,239,233,0.31);animation:twinkle 5s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.35}}
+.ebox{--bw:max(100vw,177.75vh);position:absolute;width:var(--bw);aspect-ratio:2261/1272;left:calc(50% - var(--bw) * .4904);top:calc(64% - var(--bw) * .2311);transform-origin:49.04% 41.07%;transform:scale(calc(1.6 - .6 * var(--cam,0)));pointer-events:none}
+.ebox .earth{position:absolute;inset:0;width:100%;height:100%;opacity:min(1,calc(var(--earth,0) * 1.6));-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 calc(40% + var(--earth,0) * 62%),rgba(0,0,0,0) calc(56% + var(--earth,0) * 62%));mask-image:linear-gradient(180deg,#000 0%,#000 calc(40% + var(--earth,0) * 62%),rgba(0,0,0,0) calc(56% + var(--earth,0) * 62%))}
+.airglow{position:absolute;left:0;right:0;top:41.07%;height:64%;transform:translateY(-50%);background:radial-gradient(closest-side,rgba(80,160,255,.3),rgba(80,160,255,.08) 55%,rgba(80,160,255,0));opacity:calc(var(--line,0) * (1 - .55 * var(--earth,0)))}
+.limb{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.limb path{fill:none;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--line,0))}
+.limb .haze path{stroke:#2F7DFF;stroke-width:70;opacity:.42}
+.limb .glow path{stroke:#62B4FF;stroke-width:9;opacity:.95}
+.limb .core path{stroke:#D7EEFF;stroke-width:1.6;vector-effect:non-scaling-stroke}
+.limb .core{opacity:calc(1 - .45 * var(--earth,0))}
+.alt-label{position:absolute;left:0;right:0;top:calc(64% - 56px);text-align:center;color:#9FC8E0;opacity:calc(var(--label,0) * (1 - var(--earth,0)));pointer-events:none}
+.cap-wrap{position:absolute;z-index:4;right:14vw;top:8vh;height:58vh;aspect-ratio:472/557;transform:translate3d(0,calc((1 - var(--cap,0)) * 96vh),0) rotate(calc((1 - var(--cap,0)) * -3deg)) scale(calc(.92 + .08 * var(--cap,0)));opacity:min(1,calc(var(--cap,0) * 6));pointer-events:none}
+.cap-inner{position:absolute;inset:0;animation:bob 8s ease-in-out infinite}
+.cap-inner img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 40px 70px rgba(0,0,0,.65)) drop-shadow(0 0 30px rgba(98,180,255,.18))}
+.tethers{position:absolute;left:0;width:100%;bottom:97%;height:140vh;overflow:visible}
+.tethers line{stroke:rgba(215,232,255,.38);stroke-width:1;vector-effect:non-scaling-stroke}
+@keyframes bob{50%{transform:translate3d(0,-10px,0) rotate(-.6deg)}}
+.o-head{position:absolute;z-index:5;left:var(--gut);top:clamp(120px,19vh,210px);max-width:min(780px,50vw);opacity:0;transform:translateY(30px);filter:blur(10px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.16,.8,.2,1),filter 1s;pointer-events:none}
+.o-head[data-on="1"]{opacity:1;transform:none;filter:blur(0)}
+.o-head .mono{color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.o-head .mono:before{content:"";width:28px;height:1px;background:var(--gold)}
+.o-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,7.4vw,128px);line-height:.92;letter-spacing:-.02em;text-wrap:balance}
+.o-head h1 em{font-style:italic;color:var(--gold)}
+.o-head p{margin-top:26px;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:rgba(242,239,233,.8);max-width:40ch}
+.ostage .mark img{filter:drop-shadow(0 0 36px rgba(247,204,46,.14))}
+.ofade{position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(180deg,rgba(5,7,12,0),#05070C);pointer-events:none;opacity:var(--dim,0)}
+@media (max-width:760px){
+.ebox{top:calc(72% - var(--bw) * .2311)}
+.alt-label{top:calc(72% - 52px)}
+.cap-wrap{height:24vh;right:3vw;top:10vh}
+.o-head{top:auto;bottom:31vh;left:var(--gut);right:var(--gut);max-width:none}
+.o-head h1{font-size:44px}
+.o-head .mono{margin-bottom:16px}
+.o-head p{margin-top:16px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){.cap-inner,.stars .s2{animation:none}}
 
 /* porthole */
 #port{--wx:max(0px,calc((1 - var(--win,0)) * (50vw - 13vh)));--wy:calc((1 - var(--win,0)) * 17vh);--wr:calc((1 - var(--win,0)) * 13vh)}
@@ -297,7 +340,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <div class="rs" id="rs-root">
 
 <header class="rs-head">
-<a href="#hangar" aria-label="RISE Space home"><img class="logo" src="assets/logo.png" alt="RISE Space"></a>
+<a href="#opening" aria-label="RISE Space home"><img class="logo" src="assets/logo.png" alt="RISE Space"></a>
 <nav class="rs-nav" aria-label="Primary">
 <a href="#port">The Flight</a>
 <a href="#spaceship">Spaceship</a>
@@ -310,7 +353,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 
 <nav class="rs-rail" aria-label="Flight chapters">
 
-<a href="#hangar" data-ch="hangar"><span>01 · Hangar</span><b></b></a>
+<a href="#opening" data-ch="opening"><span>01 · Opening</span><b></b></a>
 
 <a href="#port" data-ch="port"><span>02 · Port</span><b></b></a>
 
@@ -332,28 +375,48 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <span class="lbl">Sound off</span>
 </button>
 
-<!-- 01 HANGAR -->
-<section id="hangar" class="scene" data-scene="hangar" data-vars="logo:.02,.2;open:.36,.5" style="height: 380vh">
-<div class="stage">
-<div class="media"><video data-scrub="" data-map="0:0,.04:0,.42:3.1,1:14.5" data-a="0" data-b="1" data-t0="0" data-t1="14.5" src="assets/hangar.mp4" poster="assets/hangar-poster.jpg" preload="auto" muted="" playsinline=""></video></div>
-<div class="veil"></div>
-<div class="shade"></div>
+<!-- 01 OPENING: EARTH REVEAL -->
+
+<section id="opening" class="scene" data-scene="opening" data-vars="logo:.03,.15;line:.07,.3;label:.16,.28;earth:.26,.56;cam:.1,.8;cap:.4,.88;dim:.9,1" style="height: 440vh">
+<div class="stage ostage">
+<div class="stars" aria-hidden="true"><i class="s1"></i><i class="s2"></i></div>
+<div class="ebox" aria-hidden="true">
+<img class="earth" src="assets/earth.webp" alt="">
+<div class="airglow"></div>
+<svg class="limb" viewBox="0 0 2261 1272" preserveAspectRatio="none">
+<defs>
+<filter id="rs-limb-haze" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="24"></feGaussianBlur></filter>
+<filter id="rs-limb-glow" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter>
+</defs>
+<g class="haze" filter="url(#rs-limb-haze)"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
+<g class="glow" filter="url(#rs-limb-glow)"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
+<g class="core"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
+</svg>
+</div>
+<div class="alt-label mono">The edge of space · 100,000 ft</div>
+<div class="cap-wrap">
+<div class="cap-inner">
+<svg class="tethers" viewBox="0 0 100 300" preserveAspectRatio="none" aria-hidden="true"><line x1="39" y1="300" x2="50" y2="0"></line><line x1="44" y1="300" x2="50" y2="0"></line><line x1="50" y1="300" x2="50" y2="0"></line><line x1="56" y1="300" x2="50" y2="0"></line><line x1="61" y1="300" x2="50" y2="0"></line></svg>
+<img src="assets/capsule-lit.webp" alt="The RISE spaceship at the edge of space">
+</div>
+</div>
 <div class="mark">
 <img src="assets/logo.png" alt="RISE Space">
-<div class="cue"><span class="mono">Scroll to open the hangar</span><i></i></div>
+<div class="cue"><span class="mono">Scroll to begin</span><i></i></div>
 </div>
-<div class="cap" data-range=".44,.68">
-<div class="mono">01 · The Spaceship</div>
-<h2>The largest windows ever flown to space.</h2>
-<p>Built, tested and flying. Meet the capsule that carries eight passengers and a captain to the edge of space.</p>
+<div class="o-head" data-range=".64,2">
+<div class="mono">RISE Space · The edge of space</div>
+<h1>Some views change <em>everything.</em></h1>
+<p>Hours at 100,000 feet, aboard a spaceship lifted gently by a Space Balloon. No rocket. Just the view.</p>
 </div>
-<div class="hero-cap" data-range=".72,2">
-<h1>Together we <em>rise.</em></h1>
-<p>Opening space to more people than ever before.</p>
-</div>
+<div class="ofade"></div>
 <div class="scrollbar"><i></i></div>
 </div>
 </section>
+
+
+<!-- 01 OPENING: HANGAR DOORS -->
+
 
 <!-- 02 PORT -->
 <section id="port" class="scene" data-scene="port" data-vars="win:0,.24" style="height: 460vh">
@@ -721,7 +784,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <nav aria-label="Footer">
 <a href="#port">The Flight</a><a href="#spaceship">Spaceship</a><a href="#venue">Space Venue</a><a href="#about">About</a><a href="#press">Media assets</a><a href="#reserve">Contact us</a>
 </nav>
-<div class="legal"><span>© RISE 2026</span><a href="#hangar">Privacy</a><a href="#hangar">Terms</a></div>
+<div class="legal"><span>© RISE 2026</span><a href="#opening">Privacy</a><a href="#opening">Terms</a></div>
 </footer>
 
 </div>
@@ -937,9 +1000,13 @@ class Component extends DCLogic {
   }
 
   renderVals() {
+    const earth = (this.props.opening ?? 'Earth reveal') !== 'Hangar doors';
     const pct = (ft) => (ft / 1000).toFixed(1) + '%';
     return {
       accent: this.props.accent ?? '#F7CC2E',
+      earthOpen: earth,
+      hangarOpen: !earth,
+      firstId: earth ? 'opening' : 'hangar',
       setRoot: this.setRoot,
       submit: this.submit,
       sent: this.state.sent,
@@ -948,7 +1015,7 @@ class Component extends DCLogic {
       soundOff: !this.state.soundOn,
       playing: !!this.state.playing,      soundLabel: this.state.soundOn ? 'Mute background music' : 'Turn background music on',
       chapters: [
-        { id: 'hangar', n: '01', label: 'Hangar' },
+        earth ? { id: 'opening', n: '01', label: 'Opening' } : { id: 'hangar', n: '01', label: 'Hangar' },
         { id: 'port', n: '02', label: 'Port' },
         { id: 'launch', n: '03', label: 'Launch' },
         { id: 'ascent', n: '04', label: 'Ascent' },
