@@ -158,6 +158,15 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .o-head p{margin-top:16px;font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){.cap-inner,.stars .s2{animation:none}}
+.ebox,.cabin,.cap-wrap,.stars,.media video,.layer video{will-change:transform}
+@media (hover:none) and (pointer:coarse){
+.limb .haze{display:none}
+.limb .glow{filter:none}
+.limb .glow path{stroke-width:16;opacity:.32}
+#port .hlayer video{filter:none}
+.panel,.tele,.snd,.rs-cta{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(5,7,12,.8)}
+.stars .s2{animation:none}
+}
 
 /* chapter 2: hangar to harbor */
 #port .hlayer video{transform:scale(calc(1.06 - .06 * var(--open,0) + .34 * var(--wipe,0)));filter:blur(calc(var(--wipe,0) * 10px)) brightness(calc(1 - .55 * var(--wipe,0)))}
@@ -834,7 +843,14 @@ class Component extends DCLogic {
     this.win.addEventListener('pointerdown', this.unlock, { passive: true });
     this.win.addEventListener('touchstart', this.unlock, { passive: true });
     this.onIntent = this.onIntent.bind(this);
-    ['wheel', 'keydown', 'pointerdown', 'touchstart', 'touchmove', 'touchend'].forEach((ev) => this.win.addEventListener(ev, this.onIntent, { capture: true, passive: false }));
+    this.onScrollEvt = () => {
+      const g = this.glide;
+      if (g && Math.abs(g.sc.scrollTop - g.expect) < 4) return;
+      this.lastNative = performance.now();
+    };
+    this.win.addEventListener('scroll', this.onScrollEvt, { capture: true, passive: true });
+    ['wheel', 'keydown', 'pointerdown'].forEach((ev) => this.win.addEventListener(ev, this.onIntent, { capture: true, passive: false }));
+    ['touchstart', 'touchmove', 'touchend', 'touchcancel'].forEach((ev) => this.win.addEventListener(ev, this.onIntent, { capture: true, passive: true }));
     this.raf = this.win.requestAnimationFrame(this.tick);
     this.audio = this.root && this.root.querySelector('audio[data-bg]');
     if (this.audio) {
@@ -854,7 +870,8 @@ class Component extends DCLogic {
       this.win.cancelAnimationFrame(this.raf);
       this.win.removeEventListener('pointerdown', this.unlock);
       this.win.removeEventListener('touchstart', this.unlock);
-      ['wheel', 'keydown', 'pointerdown', 'touchstart', 'touchmove', 'touchend'].forEach((ev) => this.win.removeEventListener(ev, this.onIntent, true));
+      ['wheel', 'keydown', 'pointerdown', 'touchstart', 'touchmove', 'touchend', 'touchcancel'].forEach((ev) => this.win.removeEventListener(ev, this.onIntent, true));
+      this.win.removeEventListener('scroll', this.onScrollEvt, true);
       this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
     }
     clearInterval(this.fadeT);
@@ -973,7 +990,43 @@ class Component extends DCLogic {
     return true;
   }
 
-  stopGlide() { this.glide = null; }
+  stopGlide() { this.glide = null; this.autoArmed = false; }
+
+  // Touch screens: never fight the browser's own scrolling. A finger on the glass pauses the
+  // glide and the visitor's swipe (with its natural momentum) moves the page; once the page
+  // settles the glide picks up again on its own. A tap stops it; swiping up again resumes it.
+  onTouch(e) {
+    this.touchMode = true;
+    if (e.type === 'touchstart') {
+      const y = e.touches[0].clientY;
+      this.touching = true; this.ty = y; this.tmoved = 0;
+      this.wasGliding = !!this.glide; this.glide = null;
+      return;
+    }
+    if (e.type === 'touchmove') {
+      const y = e.touches[0].clientY; const d = (this.ty == null ? y : this.ty) - y;
+      this.tmoved = (this.tmoved || 0) + Math.abs(d); this.ty = y;
+      if (d > 1) this.autoArmed = true;
+      else if (d < -1) this.autoArmed = false;
+      this.lastNative = performance.now();
+      return;
+    }
+    // touchend / touchcancel
+    this.touching = false;
+    this.lastNative = performance.now();
+    if ((this.tmoved || 0) < 10) {
+      const t = e.target;
+      const ui = t && t.closest && t.closest('a,button,input,select,textarea,label,[data-audio-btn]');
+      if (!ui) this.autoArmed = false;        // a tap on the page stops the glide
+    }
+  }
+
+  maybeResume() {
+    if (!this.touchMode || this.glide || !this.autoArmed || this.touching) return;
+    if (performance.now() - (this.lastNative || 0) < 200) return;   // wait for momentum to settle
+    const s = this.sceneToGlide();
+    if (s && this.startGlide(s)) this.glide.v = 0;
+  }
 
   // Extra distance from the visitor's own scrolling: eased in on top of the steady glide.
   pushGlide(px) { if (this.glide) this.glide.boost = Math.min(this.glide.boost + px, this.win.innerHeight * 3); }
@@ -988,7 +1041,7 @@ class Component extends DCLogic {
     const remain = r.bottom - sh;
     if (remain <= 1) { this.glide = null; return; }
     const speed = (this.props.autoSpeed ?? 40) * sh / 100 * (parseFloat(g.s.el.getAttribute('data-glide')) || 1);
-    g.v += (speed - g.v) * Math.min(1, dt * 2.2);
+    g.v += (speed - g.v) * Math.min(1, dt * (this.touchMode ? 3 : 2.2));
     let step = g.v * dt * Math.max(0.22, Math.min(1, remain / (sh * 0.4)));
     if (g.boost > 0.5) { const take = g.boost * Math.min(1, dt * 6); g.boost -= take; step += take; } else g.boost = 0;
     if (step > remain) step = remain;
@@ -1018,21 +1071,12 @@ class Component extends DCLogic {
       if (e.pointerType === 'touch') return;
       if (e.target && e.target.closest && e.target.closest('a,button,input,select,textarea,label,[data-audio-btn]')) return;
       this.stopGlide(); return;
-    } else if (e.type === 'touchstart') {
-      this.ty = e.touches[0].clientY; this.tmoved = 0; return;
-    } else if (e.type === 'touchmove') {
-      const y = e.touches[0].clientY; const d = (this.ty == null ? y : this.ty) - y;
-      this.tmoved = (this.tmoved || 0) + Math.abs(d); this.ty = y;
-      px = d; dir = d > 0.5 ? 1 : d < -0.5 ? -1 : 0;
-    } else if (e.type === 'touchend') {
-      if ((this.tmoved || 0) < 8 && this.glide) {
-        const t = e.target;
-        if (!(t && t.closest && t.closest('a,button,input,select,textarea,label,[data-audio-btn]'))) this.stopGlide();
-      }
-      return;
+    } else if (e.type === 'touchstart' || e.type === 'touchmove' || e.type === 'touchend' || e.type === 'touchcancel') {
+      this.onTouch(e); return;
     }
     if (dir < 0) { this.stopGlide(); return; }
     if (dir > 0) {
+      this.autoArmed = true;
       if (this.glide) { if (e.cancelable) e.preventDefault(); this.pushGlide(px); return; }
       const s = this.sceneToGlide();
       if (s && this.startGlide(s)) { if (e.cancelable) e.preventDefault(); this.pushGlide(px); }
@@ -1061,7 +1105,7 @@ class Component extends DCLogic {
     this.raf = this.win.requestAnimationFrame(this.tick);
     this.frame++;
     if (!this.scenes || this.frame % 90 === 0) this.collect();
-    if (this.glide) this.stepGlide();
+    if (this.glide) this.stepGlide(); else this.maybeResume();
     if (!this.scenes) return;
     const clamp = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
     const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
@@ -1100,7 +1144,7 @@ class Component extends DCLogic {
         const d = v.duration; let tgt = o.target; if (d && tgt > d - 0.05) tgt = d - 0.05;
         o.cur = o.cur == null ? tgt : o.cur + (tgt - o.cur) * 0.16;
         if (Math.abs(o.cur - tgt) < 0.002) o.cur = tgt;
-        if (v.readyState >= 1 && !v.seeking && Math.abs(v.currentTime - o.cur) > 0.015) { try { v.currentTime = o.cur; } catch (e) {} }
+        if (v.readyState >= 1 && !v.seeking && Math.abs(v.currentTime - o.cur) > (this.touchMode ? 0.034 : 0.015)) { try { v.currentTime = o.cur; } catch (e) {} }
         if (o.alt) {
           const ft = this.altAt(o.cur);
           if (o._ft !== Math.round(ft)) {
