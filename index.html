@@ -10,7 +10,6 @@
 <meta property="og:title" content="RISE Space: Together we rise">
 <meta property="og:description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
-
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preload" as="image" href="assets/earth.webp">
@@ -29,17 +28,37 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .rs .ph{font-family:var(--mono);font-size:.82em;letter-spacing:.04em;color:var(--gold);background:rgba(247,204,46,.08);outline:1px dashed rgba(247,204,46,.55);outline-offset:2px;padding:0 .3em;white-space:nowrap}
 
 /* header */
-.rs-head{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;padding:18px var(--gut);background:linear-gradient(180deg,rgba(5,7,12,.78),rgba(5,7,12,0));pointer-events:none}
-.rs-head > *{pointer-events:auto}
-.rs-head .logo{height:30px;width:auto}
-.rs-nav{display:flex;gap:26px;margin-left:12px}
-.rs-nav a{font-size:13px;letter-spacing:.04em;text-decoration:none;color:rgba(242,239,233,.78);padding:12px 0;transition:color .25s}
-.rs-nav a:hover{color:var(--bone)}
-.rs-cta{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border:1px solid rgba(247,204,46,.6);border-radius:999px;font-size:13px;letter-spacing:.04em;text-decoration:none;color:var(--bone);background:rgba(5,7,12,.35);backdrop-filter:blur(10px);transition:background .25s,border-color .25s}
-.rs-cta:hover{background:var(--gold);color:#05070C;border-color:var(--gold)}
-.rs-cta i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
-.rs-cta:hover i{background:#05070C;box-shadow:none}
-@media (max-width:960px){.rs-nav{display:none}.rs-head .logo{height:24px}}
+/* ===== site navigation (shared across pages) ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;gap:28px;padding:16px var(--gut);transition:background .4s,box-shadow .4s,padding .4s;background:linear-gradient(180deg,rgba(5,7,12,.75),rgba(5,7,12,0))}
+.nav[data-solid="1"]{background:rgba(5,7,12,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding-top:10px;padding-bottom:10px}
+.nav-brand{display:flex;align-items:center;min-height:44px}
+.nav-brand img{height:30px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px;margin-left:18px}
+.nav-link{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;font-size:13.5px;letter-spacing:.03em;text-decoration:none;color:rgba(242,239,233,.78);transition:color .25s}
+.nav-link:after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,.8,.2,1)}
+a.nav-link:hover{color:var(--bone)}
+a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
+.nav-link[aria-current="page"]{color:var(--bone)}
+.nav-link.is-soon{color:rgba(242,239,233,.42);cursor:default}
+.nav-link em{font-style:normal;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);border:1px solid rgba(242,239,233,.16);border-radius:999px;padding:2px 6px}
+.nav-cta{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border:1px solid rgba(247,204,46,.6);border-radius:999px;font-size:13px;letter-spacing:.04em;text-decoration:none;color:var(--bone);transition:background .25s,color .25s}
+.nav-cta i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.nav-cta:hover{background:var(--gold);color:#05070C}
+.nav-cta:hover i{background:#05070C;box-shadow:none}
+.nav-burger{display:none;position:relative;width:46px;height:46px;border:1px solid rgba(242,239,233,.24);border-radius:50%;background:rgba(5,7,12,.4);cursor:pointer}
+.nav-burger i{position:absolute;left:14px;right:14px;height:1px;background:var(--bone);transition:transform .35s,top .35s}
+.nav-burger i:nth-child(1){top:19px}.nav-burger i:nth-child(2){top:26px}
+.nav-burger[aria-expanded="true"] i:nth-child(1){top:22px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] i:nth-child(2){top:22px;transform:rotate(-45deg)}
+.sheet{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:96px var(--gut) 40px;background:radial-gradient(90% 60% at 80% 0%,rgba(98,180,255,.12),rgba(98,180,255,0) 60%),#05070C;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.sheet[data-open="true"]{opacity:1;visibility:visible}
+.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(38px,9vw,64px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
+.sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
+.sheet span.s{color:rgba(242,239,233,.35)}
+.sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
+@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:24px}}
+@media (min-width:981px){.sheet{display:none}}
 
 /* chapter rail */
 .rs-rail{position:fixed;right:clamp(14px,2vw,30px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:4px}
@@ -130,7 +149,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .limb path{fill:none;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--line,0))}
 .limb .haze path{stroke:#2F7DFF;stroke-width:70;opacity:.42}
 .limb .glow path{stroke:#62B4FF;stroke-width:9;opacity:.95}
-.limb .core path{stroke:#D7EEFF;stroke-width:1.6;vector-effect:non-scaling-stroke}
+.limb .core path{stroke:#D7EEFF;stroke-width:2.4}
 .limb .core{opacity:calc(1 - .45 * var(--earth,0))}
 .alt-label{position:absolute;z-index:4;left:0;right:0;top:calc(50% - 50px);text-align:center;color:#9FC8E0;opacity:calc(var(--label,0) * (1 - var(--earth,0)));pointer-events:none}
 .cabin{--cw:max(112vw,160vh);position:absolute;z-index:3;width:var(--cw);aspect-ratio:2400/1599;left:calc(50% - var(--cw) * .455);top:calc(50% - var(--cw) / 1.501 * .478);transform-origin:45.5% 47.8%;transform:scale(calc(1 + var(--thru,0) * var(--thru,0) * 7));opacity:calc(1 - max(0, var(--thru,0) - .3) * 2.2);pointer-events:none}
@@ -353,52 +372,50 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .legal a{color:var(--mute);text-decoration:none}
 .legal a:hover{color:var(--bone)}
 @media (prefers-reduced-motion:reduce){.cue i,.tag .live:before{animation:none}.cap,.layer,.lcard,.hero-cap,.panel{transition-duration:.01s}}
-
-.snd .ic-off,.snd .lbl{display:none}
-.snd[data-sound="off"] .ic-off,.snd[data-sound="off"] .lbl{display:block}
-.snd[data-sound="off"] .ic-on,.snd[data-sound="off"] .eq{display:none}
-.snd[data-playing="0"] .eq{display:none}
-@media (max-width:760px){.snd[data-sound="off"] .lbl{display:none}}
-[hidden]{display:none!important}
 </style>
 </head>
 <body>
-<div class="rs" id="rs-root">
+<div id="app"></div>
+<template id="tpl">
 
-<header class="rs-head">
-<a href="#opening" aria-label="RISE Space home"><img class="logo" src="assets/logo.png" alt="RISE Space"></a>
-<nav class="rs-nav" aria-label="Primary">
-<a href="#port">The Flight</a>
-<a href="#spaceship">Spaceship</a>
-<a href="#venue">Space Venue</a>
-<a href="#about">About</a>
-<a href="#press">Press</a>
+<div class="rs" ref="{{ setRoot }}" style="--gold: {{ accent }}">
+
+<header class="nav" data-solid="0">
+<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/logo.png" alt="RISE Space"></a>
+<nav class="nav-links" aria-label="Primary">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="nav-link is-soon" aria-disabled="true">{{ n.label }}<em>Soon</em></span></sc-if>
+</sc-for>
 </nav>
-<a class="rs-cta" href="#reserve"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="#reserve"><i></i>Reserve a seat</a>
+<button class="nav-burger" type="button" aria-label="Menu" aria-controls="rs-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
 </header>
+<div class="sheet" id="rs-menu" data-open="{{ menuOpen }}">
+<a href="index.html" onClick="{{ closeMenu }}">Home</a>
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" onClick="{{ closeMenu }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="s">{{ n.label }} <small>Soon</small></span></sc-if>
+</sc-for>
+<a class="nav-cta" href="#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
+</div>
 
 <nav class="rs-rail" aria-label="Flight chapters">
-
-<a href="#opening" data-ch="opening"><span>01 · Opening</span><b></b></a>
-
-<a href="#port" data-ch="port"><span>02 · Hangar</span><b></b></a>
-
-<a href="#launch" data-ch="launch"><span>03 · Launch</span><b></b></a>
-
-<a href="#ascent" data-ch="ascent"><span>04 · Ascent</span><b></b></a>
-
-<a href="#apogee" data-ch="apogee"><span>05 · Apogee</span><b></b></a>
-
-<a href="#return" data-ch="return"><span>06 · Return</span><b></b></a>
-
+<sc-for list="{{ chapters }}" as="c" hint-placeholder-count="6">
+<a href="#{{ c.id }}" data-ch="{{ c.id }}"><span>{{ c.n }} · {{ c.label }}</span><b></b></a>
+</sc-for>
 </nav>
 
 <audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
-<button class="snd" type="button" data-audio-btn="" id="snd" aria-label="Mute background music" aria-pressed="false" data-sound="on" data-playing="0">
-<span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-<svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 6a8.5 8.5 0 0 1 0 12"></path></svg>
-<svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M17 9.5l5 5"></path><path d="M22 9.5l-5 5"></path></svg>
+<button class="snd" type="button" data-audio-btn="" onClick="{{ toggleSound }}" aria-label="{{ soundLabel }}" aria-pressed="{{ soundOff }}">
+<sc-if value="{{ soundOn }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ playing }}" hint-placeholder-val="{{ true }}"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></sc-if>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 6a8.5 8.5 0 0 1 0 12"></path></svg>
+</sc-if>
+<sc-if value="{{ soundOff }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M17 9.5l5 5"></path><path d="M22 9.5l-5 5"></path></svg>
 <span class="lbl">Sound off</span>
+</sc-if>
 </button>
 
 <!-- 01 OPENING: VIEW FROM THE CABIN -->
@@ -500,15 +517,9 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <div class="panel" data-range="-1,.62">
 <div class="row"><span class="mono">Launch sequence</span><span class="mono gold">03</span></div>
 <div class="count" data-count=""></div>
-
-<div class="chk" data-at="0.03"><i></i><span>Spaceship secured on deck</span><em>Go</em></div>
-
-<div class="chk" data-at="0.13"><i></i><span>Space Balloon inflation</span><em>Go</em></div>
-
-<div class="chk" data-at="0.25"><i></i><span>Final checks · go for launch</span><em>Go</em></div>
-
-<div class="chk" data-at="0.38"><i></i><span>Release</span><em>Go</em></div>
-
+<sc-for list="{{ checklist }}" as="item" hint-placeholder-count="4">
+<div class="chk" data-at="{{ item.at }}"><i></i><span>{{ item.t }}</span><em>Go</em></div>
+</sc-for>
 </div>
 <div class="cap right" data-range=".46,.78">
 <div class="mono">03 · Gentle launch</div>
@@ -533,80 +544,22 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <div class="track"></div>
 <div class="oz"></div>
 <div class="fill"></div>
-
-<div class="tick" style="bottom: 0.0%">0</div>
-
-<div class="tick" style="bottom: 20.0%">20k</div>
-
-<div class="tick" style="bottom: 40.0%">40k</div>
-
-<div class="tick" style="bottom: 60.0%">60k</div>
-
-<div class="tick" style="bottom: 80.0%">80k</div>
-
-<div class="tick" style="bottom: 100.0%">100k</div>
-
-
-<div class="mk" style="bottom: 35.0%; left: 64px">Airliners</div>
-
-<div class="mk" style="bottom: 39.0%; left: 64px">Tropopause</div>
-
-<div class="mk" style="bottom: 62.0%; left: 64px">Armstrong limit</div>
-
-<div class="mk" style="bottom: 100.0%; left: 64px">Edge of space</div>
-
+<sc-for list="{{ ticks }}" as="t" hint-placeholder-count="6">
+<div class="tick" style="bottom: {{ t.pos }}">{{ t.label }}</div>
+</sc-for>
+<sc-for list="{{ marks }}" as="m" hint-placeholder-count="4">
+<div class="mk" style="bottom: {{ m.pos }}; left: 64px">{{ m.label }}</div>
+</sc-for>
 <div class="ind"></div>
 </div>
-
-<div class="lcard" data-alt-range="-1,30000">
-<span class="n">01 / 07 · 0 – 39,000 ft</span>
-<span class="mono">Troposphere</span>
-<h3>Through the weather.</h3>
-<p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p>
+<sc-for list="{{ layers }}" as="l" hint-placeholder-count="7">
+<div class="lcard" data-alt-range="{{ l.range }}">
+<span class="n">{{ l.n }} / 07 · {{ l.alt }}</span>
+<span class="mono">{{ l.name }}</span>
+<h3>{{ l.title }}</h3>
+<p>{{ l.body }}</p>
 </div>
-
-<div class="lcard" data-alt-range="30000,39000">
-<span class="n">02 / 07 · ≈ 35,000 ft</span>
-<span class="mono">Cruising altitude</span>
-<h3>Above the airliners.</h3>
-<p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p>
-</div>
-
-<div class="lcard" data-alt-range="39000,50000">
-<span class="n">03 / 07 · ≈ 39,000 ft</span>
-<span class="mono">Tropopause</span>
-<h3>Where the weather ends.</h3>
-<p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p>
-</div>
-
-<div class="lcard" data-alt-range="50000,62000">
-<span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span>
-<span class="mono">Stratosphere · Ozone layer</span>
-<h3>Inside the ozone layer.</h3>
-<p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p>
-</div>
-
-<div class="lcard" data-alt-range="62000,80000">
-<span class="n">05 / 07 · ≈ 62,000 ft</span>
-<span class="mono">Armstrong limit</span>
-<h3>Beyond the Armstrong limit.</h3>
-<p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p>
-</div>
-
-<div class="lcard" data-alt-range="80000,97000">
-<span class="n">06 / 07 · ≈ 80,000 ft</span>
-<span class="mono">Black sky</span>
-<h3>Blue turns to black.</h3>
-<p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p>
-</div>
-
-<div class="lcard" data-alt-range="97000,999999">
-<span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span>
-<span class="mono">The edge of space</span>
-<h3>The edge of space.</h3>
-<p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p>
-</div>
-
+</sc-for>
 <div class="tele" role="group" aria-label="Live flight telemetry">
 <div><span class="k">Altitude</span><span class="v big" data-tel="ft"></span></div>
 <div><span class="k">Kilometres</span><span class="v" data-tel="km"></span></div>
@@ -749,21 +702,9 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <div><div class="num"><span class="ph">[NEXT WINDOW]</span></div><p>Next passenger launch window</p></div>
 </div>
 <div class="records">
-
-<article class="rec"><img src="assets/rec-flights.jpg" alt="A Space Balloon launching at sunrise"><div class="t"><div class="num">Over 100 flights</div><h3>Space Balloon flights flown by the RISE team</h3></div></article>
-
-<article class="rec"><img src="assets/rec-dive.jpg" alt="A space dive from a balloon"><div class="t"><div class="num">41.5 km · 136,000 ft</div><h3>Highest human flight and space dive from a balloon</h3></div></article>
-
-<article class="rec"><img src="assets/rec-dragon.jpg" alt="A balloon lifting a Dragon capsule"><div class="t"><div class="num">10,000 kg · 22,000 lb</div><h3>Heaviest payload ever flown by balloon: a Dragon capsule to 45,000 ft</h3></div></article>
-
-<article class="rec"><img src="assets/rec-neptune.jpg" alt="A capsule launched from a ship at sea"><div class="t"><div class="num">6,600 kg to 30 km</div><h3>Heaviest payload launched to 100,000 ft</h3></div></article>
-
-<article class="rec"><img src="assets/rec-capsule.jpg" alt="The space capsule in its hangar"><div class="t"><div class="num">2,144 cu ft</div><h3>Largest-volume space capsule, with the largest windows ever flown to space</h3></div></article>
-
-<article class="rec"><img src="assets/rec-biosphere.jpg" alt="Biosphere 2 at dusk"><div class="t"><div class="num">Two years inside</div><h3>Designed, built and lived longest in Biosphere 2, the most closed bioregenerative prototype space base</h3></div></article>
-
-<article class="rec"><img src="assets/rec-iss.jpg" alt="The International Space Station"><div class="t"><div class="num">98% recovered</div><h3>Technology on most U.S. crewed spacecraft, including the highest water recycle rate on the ISS</h3></div></article>
-
+<sc-for list="{{ records }}" as="r" hint-placeholder-count="8">
+<article class="rec"><img src="{{ r.img }}" alt="{{ r.alt }}"><div class="t"><div class="num">{{ r.stat }}</div><h3>{{ r.title }}</h3></div></article>
+</sc-for>
 </div>
 </section>
 
@@ -775,7 +716,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 </div>
 <div class="reserve">
 <div class="shot"><img src="assets/invite.jpg" alt="The RISE spaceship above the curve of the Earth"><div class="shade"></div><div class="say"><span class="mono gold">Seats from <span class="ph">[TICKET PRICE]</span></span><p style="margin-top: 16px">Some things you have to see for yourself.</p></div></div>
-<form class="form" id="rs-form">
+<form class="form" onSubmit="{{ submit }}">
 <div class="field"><label for="rs-first">First name</label><input id="rs-first" type="text" autocomplete="given-name"></div>
 <div class="field"><label for="rs-last">Last name</label><input id="rs-last" type="text" autocomplete="family-name"></div>
 <div class="field"><label for="rs-email">Email</label><input id="rs-email" type="email" autocomplete="email"></div>
@@ -784,7 +725,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <div class="field full"><label for="rs-when">Preferred timing</label><select id="rs-when"><option>As soon as possible</option><option>Within the next 12 months</option><option>In one to two years</option><option>I'm flexible</option></select></div>
 <label class="opt full" for="rs-news"><input id="rs-news" type="checkbox">Send me flight news, launch invitations and the moment seats open</label>
 <div class="full" style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center"><button class="btn solid" type="submit">Request your seat</button><span class="fine">Deposit: <span class="ph">[DEPOSIT TERMS]</span></span></div>
-<p class="full mono gold" id="rs-sent" hidden>Request received. A flight advisor will be in touch.</p>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}"><p class="full mono gold">Request received. A flight advisor will be in touch.</p></sc-if>
 </form>
 </div>
 </section>
@@ -805,21 +746,22 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 <nav aria-label="Footer">
 <a href="#port">The Flight</a><a href="#spaceship">Spaceship</a><a href="#venue">Space Venue</a><a href="#about">About</a><a href="#press">Media assets</a><a href="#reserve">Contact us</a>
 </nav>
-<div class="legal"><span>© RISE 2026</span><a href="#opening">Privacy</a><a href="#opening">Terms</a></div>
+<div class="legal"><span>© RISE 2026</span><a href="#{{ firstId }}">Privacy</a><a href="#{{ firstId }}">Terms</a></div>
 </footer>
 
 </div>
+</template>
+<script src="assets/vendor/react.production.min.js"></script>
+<script src="assets/vendor/react-dom.production.min.js"></script>
+<script src="assets/vendor/dc-lite.js"></script>
 <script>
-(function () {
-  class DCLogic {
-    constructor(props) { this.props = props || {}; this.state = {}; }
-    setState(patch) { Object.assign(this.state, patch); if (this.onState) this.onState(); }
-  }
 
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { sent: false, soundOn: true, playing: false };
+    this.state = { sent: false, soundOn: true, playing: false, menuOpen: false };
+    this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+    this.closeMenu = () => this.setState({ menuOpen: false });
     this.root = null;
     this.frame = 0;
     this.setRoot = (el) => { this.root = el; if (el) this.collect(); };
@@ -1104,6 +1046,10 @@ class Component extends DCLogic {
   tick() {
     this.raf = this.win.requestAnimationFrame(this.tick);
     this.frame++;
+    if (this.root && this.frame % 6 === 0) {
+      const nav = this.root.querySelector('.nav');
+      if (nav) { const solid = this.root.getBoundingClientRect().top < -40 ? '1' : '0'; if (nav.getAttribute('data-solid') !== solid) nav.setAttribute('data-solid', solid); }
+    }
     if (!this.scenes || this.frame % 90 === 0) this.collect();
     if (this.glide) this.stepGlide(); else this.maybeResume();
     if (!this.scenes) return;
@@ -1168,6 +1114,16 @@ class Component extends DCLogic {
     return {
       accent: this.props.accent ?? '#F7CC2E',
       firstId: 'opening',
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      nav: [
+        { key: 'spaceflight', label: 'Spaceflight', href: 'spaceflight.html', ready: true },
+        { key: 'spaceship', label: 'Spaceship', href: 'spaceship.html', ready: true },
+        { key: 'venue', label: 'Space Venue', href: 'space-venue.html', ready: true },
+        { key: 'about', label: 'About', href: 'about.html', ready: true },
+        { key: 'shop', label: 'Shop', href: 'shop.html', ready: true }
+      ].map((n) => ({ ...n, soon: !n.ready, current: 'false' })),
       setRoot: this.setRoot,
       submit: this.submit,
       sent: this.state.sent,
@@ -1218,25 +1174,7 @@ class Component extends DCLogic {
   }
 }
 
-  var c = new Component({});
-  var root = document.getElementById('rs-root');
-  var btn = document.getElementById('snd');
-  var sent = document.getElementById('rs-sent');
-  c.onState = function () {
-    var on = c.state.soundOn !== false;
-    btn.setAttribute('data-sound', on ? 'on' : 'off');
-    btn.setAttribute('data-playing', c.state.playing ? '1' : '0');
-    btn.setAttribute('aria-pressed', on ? 'false' : 'true');
-    btn.setAttribute('aria-label', on ? 'Mute background music' : 'Turn background music on');
-    if (sent) sent.hidden = !c.state.sent;
-  };
-  c.setRoot(root);
-  c.componentDidMount();
-  btn.addEventListener('click', function () { c.toggleSound(); });
-  var form = document.getElementById('rs-form');
-  if (form) form.addEventListener('submit', function (e) { c.submit(e); });
-  c.onState();
-})();
+mountArtboard('tpl', 'app', Component);
 </script>
 </body>
 </html>

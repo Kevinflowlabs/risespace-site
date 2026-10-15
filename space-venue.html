@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Space Venue · RISE Space</title>
+<meta name="description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta name="theme-color" content="#05070C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Space Venue · RISE Space">
+<meta property="og:description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta property="og:image" content="assets/invite.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preload" as="image" href="assets/venue-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#05070C}
+a{color:#F2EFE9}a:hover{color:#F7CC2E}
+.sf{--gold:#F7CC2E;--void:#05070C;--ink:#0A0D14;--ink2:#0E121A;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--sky:#9FC8E0;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.sf *{box-sizing:border-box}
+.sf img,.sf video{display:block}
+.sf h1,.sf h2,.sf h3,.sf p{margin:0}
+.sf .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.22em;font-size:11px}
+.sf .gold{color:var(--gold)}
+.sf .ph{font-family:var(--mono);font-size:.86em;letter-spacing:.04em;color:var(--gold);background:rgba(247,204,46,.08);outline:1px dashed rgba(247,204,46,.55);outline-offset:2px;padding:0 .3em;white-space:nowrap}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--gold);margin-bottom:24px}
+.eyebrow:before{content:"";width:28px;height:1px;background:var(--gold)}
+
+/* ===== site navigation (shared across pages) ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;gap:28px;padding:16px var(--gut);transition:background .4s,box-shadow .4s,padding .4s;background:linear-gradient(180deg,rgba(5,7,12,.75),rgba(5,7,12,0))}
+.nav[data-solid="1"]{background:rgba(5,7,12,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding-top:10px;padding-bottom:10px}
+.nav-brand{display:flex;align-items:center;min-height:44px}
+.nav-brand img{height:30px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px;margin-left:18px}
+.nav-link{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;font-size:13.5px;letter-spacing:.03em;text-decoration:none;color:rgba(242,239,233,.78);transition:color .25s}
+.nav-link:after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,.8,.2,1)}
+a.nav-link:hover{color:var(--bone)}
+a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
+.nav-link[aria-current="page"]{color:var(--bone)}
+.nav-link.is-soon{color:rgba(242,239,233,.42);cursor:default}
+.nav-link em{font-style:normal;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);border:1px solid rgba(242,239,233,.16);border-radius:999px;padding:2px 6px}
+.nav-cta{margin-left:auto;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border:1px solid rgba(247,204,46,.6);border-radius:999px;font-size:13px;letter-spacing:.04em;text-decoration:none;color:var(--bone);transition:background .25s,color .25s}
+.nav-cta i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.nav-cta:hover{background:var(--gold);color:#05070C}
+.nav-cta:hover i{background:#05070C;box-shadow:none}
+.nav-burger{display:none;position:relative;width:46px;height:46px;border:1px solid rgba(242,239,233,.24);border-radius:50%;background:rgba(5,7,12,.4);cursor:pointer}
+.nav-burger i{position:absolute;left:14px;right:14px;height:1px;background:var(--bone);transition:transform .35s,top .35s}
+.nav-burger i:nth-child(1){top:19px}.nav-burger i:nth-child(2){top:26px}
+.nav-burger[aria-expanded="true"] i:nth-child(1){top:22px;transform:rotate(45deg)}
+.nav-burger[aria-expanded="true"] i:nth-child(2){top:22px;transform:rotate(-45deg)}
+.sheet{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:96px var(--gut) 40px;background:radial-gradient(90% 60% at 80% 0%,rgba(98,180,255,.12),rgba(98,180,255,0) 60%),#05070C;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.sheet[data-open="true"]{opacity:1;visibility:visible}
+.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(38px,9vw,64px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
+.sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
+.sheet span.s{color:rgba(242,239,233,.35)}
+.sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
+@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:24px}}
+@media (min-width:981px){.sheet{display:none}}
+
+/* ===== buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:0 26px;border:1px solid rgba(242,239,233,.32);border-radius:999px;text-decoration:none;font-family:var(--sans);font-size:14px;letter-spacing:.03em;color:var(--bone);background:transparent;cursor:pointer;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.btn:hover{border-color:var(--gold);background:rgba(247,204,46,.08);color:var(--bone)}
+.btn.solid{background:var(--gold);border-color:var(--gold);color:#05070C;font-weight:500}
+.btn.solid:hover{background:#FFE07A;color:#05070C}
+.btn svg{width:16px;height:16px}
+
+/* ===== reveal on scroll ===== */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.16,.8,.2,1)}
+[data-reveal][data-in="1"]{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}}
+
+/* ===== hero ===== */
+.hero{position:relative;min-height:clamp(640px,92svh,980px);display:flex;align-items:flex-end;overflow:hidden;padding:140px var(--gut) clamp(60px,10vh,110px)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:heroPush 24s ease-in-out infinite alternate}
+@keyframes heroPush{to{transform:scale(1.12)}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,12,.85) 0%,rgba(5,7,12,.35) 55%,rgba(5,7,12,.1) 100%),linear-gradient(180deg,rgba(5,7,12,.6) 0%,rgba(5,7,12,0) 30%,rgba(5,7,12,0) 60%,#05070C 100%)}
+.hero-in{position:relative;z-index:1;max-width:820px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8.4vw,144px);line-height:.9;letter-spacing:-.02em;text-wrap:balance;animation:rise 1.2s .15s cubic-bezier(.16,.8,.2,1) both}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .lede{margin-top:28px;font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:rgba(242,239,233,.84);max-width:46ch;animation:rise 1.2s .35s cubic-bezier(.16,.8,.2,1) both}
+.hero .eyebrow{animation:rise 1s 0s cubic-bezier(.16,.8,.2,1) both}
+.hero .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;animation:rise 1.2s .5s cubic-bezier(.16,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-tag{position:absolute;z-index:1;right:var(--gut);bottom:clamp(60px,10vh,110px);color:rgba(242,239,233,.55);display:flex;align-items:center;gap:10px}
+.hero-tag:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+@media (max-width:760px){.hero-tag{display:none}}
+
+/* ===== stats ===== */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));margin:0 var(--gut);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:34px 26px 34px 0;border-right:1px solid var(--line);margin-right:26px}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--serif);font-size:clamp(46px,4.6vw,76px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .n small{font-size:.42em;color:var(--dim);margin-left:6px;letter-spacing:0}
+.stat p{margin-top:12px;font-size:14px;line-height:1.5;color:var(--dim);max-width:24ch}
+@media (max-width:760px){.stat{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:26px 0}.stat:last-child{border-bottom:0}}
+
+/* ===== section heads ===== */
+.sec{padding:clamp(100px,14vh,170px) var(--gut) 0}
+.head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:24px 60px;align-items:end;margin-bottom:clamp(44px,7vh,80px)}
+.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:.95;letter-spacing:-.02em;text-wrap:balance}
+.head p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--dim);max-width:46ch}
+
+/* ===== onboard cards ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px}
+.card{position:relative;min-height:460px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;outline:none}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.02);transition:transform 1.4s cubic-bezier(.16,.8,.2,1),filter .6s}
+.card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,12,.05) 30%,rgba(5,7,12,.92) 100%);transition:background .6s}
+.card:hover img,.card:hover video,.card:focus-within img{transform:scale(1.09)}
+.card .t{padding:26px}
+.card .mono{color:var(--gold)}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.4vw,40px);line-height:1;margin-top:12px}
+.card p{font-size:14.5px;line-height:1.55;color:rgba(242,239,233,.78);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.16,.8,.2,1),opacity .5s,margin .6s}
+.card:hover p,.card:focus-within p{max-height:120px;opacity:1;margin-top:12px}
+@media (hover:none){.card p{max-height:none;opacity:1;margin-top:12px}}
+.card .line{position:absolute;left:26px;right:26px;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,.8,.2,1)}
+.card:hover .line{transform:scaleX(1)}
+
+/* ===== safety band ===== */
+.safe{position:relative;margin-top:clamp(100px,14vh,170px);overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:40px;padding:clamp(70px,10vh,120px) var(--gut);min-height:620px}
+.safe .bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.safe:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,7,12,.92),rgba(5,7,12,.55) 55%,rgba(5,7,12,.2)),linear-gradient(180deg,#05070C,rgba(5,7,12,0) 18%,rgba(5,7,12,0) 80%,#05070C)}
+.safe h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,84px);line-height:.95;letter-spacing:-.02em;max-width:14ch}
+.safe p{margin-top:24px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.82);max-width:44ch}
+.safe ul{list-style:none;margin:30px 0 0;padding:0;max-width:520px}
+.safe li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#D5D8DE}
+.safe li b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;color:var(--gold)}
+.safe .balloon{justify-self:center;height:min(560px,70vh);width:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));animation:float 8s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+@media (max-width:860px){.safe{grid-template-columns:minmax(0,1fr)}.safe .balloon{display:none}}
+
+/* ===== faq ===== */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 80px;align-items:start}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px;padding:18px 0;cursor:pointer;font-family:var(--serif);font-size:clamp(22px,2vw,30px);line-height:1.15}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{position:relative;flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,239,233,.24);transition:transform .4s,border-color .3s,background .3s}
+.faq summary i:before,.faq summary i:after{content:"";position:absolute;left:11px;right:11px;top:17px;height:1px;background:var(--bone)}
+.faq summary i:after{transform:rotate(90deg);transition:transform .4s}
+.faq details[open] summary i{border-color:var(--gold);background:rgba(247,204,46,.1)}
+.faq details[open] summary i:after{transform:rotate(0)}
+.faq summary:hover{color:var(--gold)}
+.faq .a{padding:0 60px 26px 0;font-size:16px;line-height:1.65;color:var(--dim);animation:rise .5s ease both}
+@media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .a{padding-right:0}}
+
+/* ===== join ===== */
+.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));border:1px solid var(--line);margin-top:clamp(100px,14vh,170px)}
+.join .shot{position:relative;min-height:520px;overflow:hidden}
+.join .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.join:hover .shot img{transform:scale(1.06)}
+.join .body{padding:clamp(30px,4vw,64px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
+.join h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.2vw,70px);line-height:.96;letter-spacing:-.02em}
+.join .body>p{margin-top:20px;font-size:16px;line-height:1.6;color:var(--dim);max-width:44ch}
+.form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-top:30px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.field input,.field select{min-height:52px;padding:0 16px;background:rgba(242,239,233,.03);border:1px solid rgba(242,239,233,.22);border-radius:2px;color:var(--bone);font-family:var(--sans);font-size:15px;outline:none;transition:border-color .25s}
+.field select option{background:#0A0D14}
+.field input:focus,.field select:focus{border-color:var(--gold)}
+.form .full{grid-column:1 / -1}
+.form .btn{align-self:end}
+.ok{margin-top:22px;display:flex;align-items:center;gap:12px;color:var(--gold);animation:rise .6s ease both}
+.ok b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#05070C}
+.ok b svg{width:14px;height:14px}
+.fine{margin-top:16px;font-size:13px;color:var(--mute)}
+@media (max-width:560px){.form{grid-template-columns:minmax(0,1fr)}}
+
+/* ===== footer (shared) ===== */
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:26px 40px;padding:70px var(--gut) 40px;margin-top:clamp(100px,14vh,160px);border-top:1px solid var(--line)}
+.foot .logo{height:40px;width:auto;margin-right:auto}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 26px}
+.foot nav a,.foot nav span{font-size:14px;text-decoration:none;color:var(--dim);padding:10px 0}
+.foot nav span{color:var(--mute)}
+.foot nav a:hover{color:var(--bone)}
+.legal{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-top:30px;border-top:1px solid var(--line)}
+.legal a{color:var(--mute);text-decoration:none}
+.legal a:hover{color:var(--bone)}
+
+/* ===== page: Space Venue ===== */
+.hero.short{min-height:clamp(560px,78svh,860px)}
+.hero .hero-in{max-width:880px}
+.split2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:0;border:1px solid var(--line)}
+.split2 .media{position:relative;min-height:460px;background:#000;overflow:hidden}
+.split2 .media video,.split2 .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split2 .txt{padding:clamp(28px,4vw,60px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
+.split2 h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:.98;letter-spacing:-.015em}
+.split2 p{margin-top:18px;font-size:16px;line-height:1.65;color:var(--dim);max-width:44ch}
+.list{list-style:none;margin:26px 0 0;padding:0}
+.list li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#D5D8DE}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list li b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;color:var(--gold);min-width:24px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{min-height:46px;padding:0 20px;border:1px solid rgba(242,239,233,.2);border-radius:999px;background:transparent;color:var(--dim);font-family:var(--sans);font-size:14px;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.tab:hover{color:var(--bone);border-color:rgba(242,239,233,.45)}
+.tab[aria-selected="true"]{background:var(--bone);color:#05070C;border-color:var(--bone)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(242,239,233,.26);background:rgba(5,7,12,.4);color:var(--bone);cursor:pointer;transition:border-color .25s,background .25s}
+.icon-btn:hover{border-color:var(--gold);background:rgba(247,204,46,.1)}
+.icon-btn svg{width:18px;height:18px}
+.textlink{display:inline-flex;align-items:center;gap:10px;margin-top:26px;color:var(--bone);text-decoration:none;font-size:14px;letter-spacing:.03em;border-bottom:1px solid rgba(247,204,46,.5);padding-bottom:6px;align-self:flex-start;transition:gap .3s,color .3s}
+.textlink:hover{gap:16px;color:var(--gold)}
+.textlink svg{width:16px;height:16px}
+
+.occ{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1px solid var(--line);background:var(--ink)}
+.occ-list{display:flex;flex-direction:column;padding:14px 0}
+.occ-item{display:flex;align-items:baseline;gap:18px;width:100%;padding:20px clamp(22px,3vw,40px);border:0;border-left:2px solid transparent;background:none;color:var(--dim);text-align:left;cursor:pointer;font-family:var(--serif);font-size:clamp(26px,2.4vw,38px);line-height:1.1;transition:color .3s,border-color .3s,background .3s}
+.occ-item b{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.18em;color:var(--mute)}
+.occ-item:hover{color:var(--bone)}
+.occ-item[aria-selected="true"]{color:var(--bone);border-left-color:var(--gold);background:linear-gradient(90deg,rgba(247,204,46,.08),rgba(247,204,46,0))}
+.occ-item[aria-selected="true"] b{color:var(--gold)}
+.occ-view{position:relative;min-height:600px;overflow:hidden}
+.occ-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s ease,transform 1.6s cubic-bezier(.16,.8,.2,1)}
+.occ-view img[data-on="true"]{opacity:1;transform:none}
+.occ-view:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,12,0) 45%,rgba(5,7,12,.9))}
+.occ-cap{position:absolute;left:clamp(22px,3vw,40px);right:clamp(22px,3vw,40px);bottom:clamp(22px,3vw,40px);z-index:1}
+.occ-cap p{display:none;font-size:clamp(17px,1.4vw,21px);line-height:1.5;max-width:40ch;color:var(--bone)}
+.occ-cap p[data-on="true"]{display:block;animation:rise .7s cubic-bezier(.16,.8,.2,1) both}
+@media (max-width:860px){.occ{grid-template-columns:minmax(0,1fr)}.occ-list{flex-direction:row;overflow-x:auto;padding:0;border-bottom:1px solid var(--line);scrollbar-width:none}.occ-item{flex:0 0 auto;border-left:0;border-bottom:2px solid transparent;font-size:22px;padding:18px}.occ-item[aria-selected="true"]{border-bottom-color:var(--gold);background:none}.occ-view{min-height:420px}}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0;border-top:1px solid var(--line)}
+.step{padding:34px 30px 30px 0;border-right:1px solid var(--line);margin-right:30px}
+.step:last-child{border-right:0}
+.step .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold)}
+.step h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.4vw,38px);line-height:1.05;margin-top:16px}
+.step p{margin-top:12px;font-size:15px;line-height:1.6;color:var(--dim);max-width:34ch}
+@media (max-width:760px){.step{border-right:0;margin-right:0;border-bottom:1px solid var(--line)}}
+.enq{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:1px solid var(--line)}
+.enq .media{position:relative;min-height:560px;background:#000;overflow:hidden}
+.enq .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.enq .media .say{position:absolute;left:clamp(22px,3vw,44px);right:clamp(22px,3vw,44px);bottom:clamp(22px,3vw,44px)}
+.enq .media .say h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,3.6vw,62px);line-height:.98;letter-spacing:-.015em}
+.enq .media .say p{margin-top:16px;font-size:15.5px;line-height:1.6;color:rgba(242,239,233,.8);max-width:40ch}
+.enq form,.enq .done{padding:clamp(28px,4vw,56px);background:var(--ink);display:flex;flex-direction:column;gap:22px}
+.lbl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.chipset{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chipbtn{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid rgba(242,239,233,.22);background:transparent;color:#C9CDD4;font-family:var(--sans);font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s,border-color .25s}
+.chipbtn:hover{border-color:rgba(242,239,233,.5)}
+.chipbtn[aria-pressed="true"]{background:rgba(247,204,46,.12);border-color:var(--gold);color:var(--bone)}
+.chipbtn[aria-pressed="true"]:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.stepper{display:inline-flex;align-items:center;gap:6px;margin-top:10px;border:1px solid rgba(242,239,233,.22);border-radius:999px;padding:4px}
+.stepper button{width:42px;height:42px;border-radius:50%;border:0;background:rgba(242,239,233,.06);color:var(--bone);font-size:20px;cursor:pointer}
+.stepper button:hover{background:rgba(247,204,46,.18)}
+.stepper output{min-width:120px;text-align:center;font-family:var(--serif);font-size:24px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field textarea{min-height:110px;padding:14px 16px;background:rgba(242,239,233,.03);border:1px solid rgba(242,239,233,.22);border-radius:2px;color:var(--bone);font-family:var(--sans);font-size:15px;outline:none;resize:vertical}
+.field textarea:focus{border-color:var(--gold)}
+.done h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.4vw,56px);line-height:1}
+.done p{font-size:16px;line-height:1.6;color:var(--dim)}
+@media (max-width:860px){.enq{grid-template-columns:minmax(0,1fr)}.enq .media{min-height:380px}.grid2{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div class="sf" id="top" ref="{{ setRoot }}">
+
+<!-- SITE NAVIGATION -->
+<header class="nav" data-solid="0">
+<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/logo.png" alt="RISE Space"></a>
+<nav class="nav-links" aria-label="Primary">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="nav-link is-soon" aria-disabled="true">{{ n.label }}<em>Soon</em></span></sc-if>
+</sc-for>
+</nav>
+<a class="nav-cta" href="#reserve"><i></i>Reserve a seat</a>
+<button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
+</header>
+<div class="sheet" id="sf-menu" data-open="{{ menuOpen }}">
+<a href="index.html" onClick="{{ closeMenu }}">Home</a>
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" onClick="{{ closeMenu }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="s">{{ n.label }} <small>Soon</small></span></sc-if>
+</sc-for>
+<a class="nav-cta" href="#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
+</div>
+
+<!-- HERO -->
+<section class="hero short" aria-label="Space Venue">
+<video data-loop="" src="assets/venue.mp4" poster="assets/venue-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
+<div class="hero-in">
+<div class="mono eyebrow">Space Venue</div>
+<h1>The first and only <em>venue in space.</em></h1>
+<p class="lede">Special moments broadcast to the world, from a cabin at the edge of space. Weddings, global media events, dinners and celebrations, configured around you.</p>
+<div class="btns"><a class="btn solid" href="#enquire">Plan your event</a><a class="btn" href="#occasions">See what’s possible<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg></a></div>
+</div>
+<div class="hero-tag mono">Live from the edge of space</div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="sec" id="occasions" aria-label="Occasions">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">One cabin</div><h2>Every kind of occasion.</h2></div>
+<p>A flexible platform at the edge of space, configured around the moments worth marking. Choose one to see it.</p>
+</div>
+<div class="occ" data-reveal="">
+<div class="occ-list" role="tablist" aria-label="Occasions">
+<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6">
+<button class="occ-item" type="button" role="tab" aria-selected="{{ o.on }}" onClick="{{ o.pick }}" onMouseEnter="{{ o.pick }}"><b>{{ o.n }}</b>{{ o.label }}</button>
+</sc-for>
+</div>
+<div class="occ-view">
+<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6"><img src="{{ o.img }}" alt="{{ o.alt }}" data-on="{{ o.on }}"></sc-for>
+<div class="occ-cap" aria-live="polite">
+<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6"><p data-on="{{ o.on }}">{{ o.body }}</p></sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" aria-label="How it works">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">How it works</div><h2>From first idea to the edge of space.</h2></div>
+<p>Every Space Venue flight is planned with you, from the guest list to the lighting on the outside of the spaceship.</p>
+</div>
+<div class="steps" data-reveal="">
+<div class="step"><span class="n">01</span><h3>Tell us the moment</h3><p>A broadcast, a gathering, an experiment, a moment that matters. Share what you have in mind.</p></div>
+<div class="step"><span class="n">02</span><h3>We shape the cabin</h3><p>The interior is customizable to suit the occasion, with custom livery and exterior lighting.</p></div>
+<div class="step"><span class="n">03</span><h3>Share it with the world</h3><p>WiFi for live streaming means your moment can be seen live, wherever your audience is.</p></div>
+</div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="sec" id="enquire" aria-label="Plan your event">
+<div class="enq" data-reveal="">
+<div class="media">
+<video data-loop="" src="assets/capsule.mp4" autoplay="" loop="" muted="" playsinline=""></video>
+<div class="say"><div class="mono eyebrow">Enquire</div><h2>Tell us what you want to do up there.</h2><p>The cabin is a blank page. If you have something in mind, we will work out how to make it happen.</p></div>
+</div>
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ send }}">
+<div><span class="lbl">The occasion</span>
+<div class="chipset" role="group" aria-label="Occasion">
+<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6"><button class="chipbtn" type="button" aria-pressed="{{ o.chosen }}" onClick="{{ o.toggle }}">{{ o.label }}</button></sc-for>
+</div></div>
+<div><span class="lbl">Guests on board</span><br>
+<div class="stepper"><button type="button" aria-label="Fewer guests" onClick="{{ less }}">−</button><output aria-live="polite">{{ guestLabel }}</output><button type="button" aria-label="More guests" onClick="{{ more }}">+</button></div></div>
+<div class="grid2">
+<div class="field"><label for="sv-name">Name</label><input id="sv-name" type="text" autocomplete="name"></div>
+<div class="field"><label for="sv-email">Email</label><input id="sv-email" type="email" autocomplete="email" required=""></div>
+</div>
+<div class="field"><label for="sv-when">Timing</label><select id="sv-when"><option>As soon as possible</option><option>Within the next 12 months</option><option>In one to two years</option><option>I'm flexible</option></select></div>
+<div class="field"><label for="sv-msg">Your idea</label><textarea id="sv-msg" placeholder="What would you like to make happen at the edge of space?"></textarea></div>
+<div><button class="btn solid" type="submit">Request a proposal</button></div>
+</form>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div class="done">
+<div class="ok"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></b><span class="mono">Request received</span></div>
+<h3>We'll be in touch.</h3>
+<p>{{ summary }}</p>
+<p>A member of our Space Venue team will follow up with ideas, dates and a proposal.</p>
+</div>
+</sc-if>
+</div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="foot">
+<img class="logo" src="assets/logo.png" alt="RISE Space">
+<nav aria-label="Footer">
+<a href="index.html">Home</a>
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+<sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}">{{ n.label }}</a></sc-if>
+<sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span>{{ n.label }}</span></sc-if>
+</sc-for>
+</nav>
+<div class="legal"><span>© RISE 2026</span><a href="#top">Privacy</a><a href="#top">Terms</a><span>Press: <span class="ph">[PRESS EMAIL]</span></span></div>
+</footer>
+
+</div>
+</template>
+<script src="assets/vendor/react.production.min.js"></script>
+<script src="assets/vendor/react-dom.production.min.js"></script>
+<script src="assets/vendor/dc-lite.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false, joined: false, occ: 0, chosen: [false, true, false, false, false, false], guests: 2, sent: false };
+    this.root = null;
+    this.setRoot = (el) => { this.root = el; };
+    this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+    this.closeMenu = () => this.setState({ menuOpen: false });
+    this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
+    this.pickOcc = (i) => () => { if (this.state.occ !== i) this.setState({ occ: i }); };
+    this.toggleOcc = (i) => () => { const c = this.state.chosen.slice(); c[i] = !c[i]; this.setState({ chosen: c }); };
+    this.less = () => this.setState({ guests: Math.max(1, this.state.guests - 1) });
+    this.more = () => this.setState({ guests: Math.min(8, this.state.guests + 1) });
+    this.send = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
+  }
+
+  componentDidMount() {
+    const root = this.root; if (!root) return;
+    this.win = root.ownerDocument.defaultView || window;
+    this.playLoops();
+    if ('IntersectionObserver' in this.win) {
+      this.io = new this.win.IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (!en.isIntersecting) return;
+          en.target.setAttribute('data-in', '1');
+          Array.prototype.forEach.call(en.target.querySelectorAll('[data-count]'), (n) => this.countUp(n));
+          this.io.unobserve(en.target);
+        });
+      }, { threshold: 0.15 });
+      Array.prototype.forEach.call(root.querySelectorAll('[data-reveal]'), (n) => this.io.observe(n));
+    } else {
+      Array.prototype.forEach.call(root.querySelectorAll('[data-reveal]'), (n) => n.setAttribute('data-in', '1'));
+    }
+    this.onScroll = () => {
+      const nav = root.querySelector('.nav');
+      if (nav) { const solid = root.getBoundingClientRect().top < -40 ? '1' : '0'; if (nav.getAttribute('data-solid') !== solid) nav.setAttribute('data-solid', solid); }
+      if (this.pageScroll) this.pageScroll();
+    };
+    this.win.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
+    this.onScroll();
+
+  }
+
+  componentDidUpdate() { this.playLoops(); if (this.pageUpdate) this.pageUpdate(); }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    if (this.win && this.onScroll) this.win.removeEventListener('scroll', this.onScroll, true);
+    if (this.pageUnmount) this.pageUnmount();
+  }
+
+  // every looping video that is showing plays; hidden ones (inactive tabs) pause
+  playLoops() {
+    if (!this.root) return;
+    Array.prototype.forEach.call(this.root.querySelectorAll('video[data-loop]'), (v) => {
+      v.muted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline', '');
+      const hidden = v.closest('[data-on="false"]');
+      if (hidden) { if (!v.paused) v.pause(); return; }
+      if (v.paused) { if (v.preload !== 'auto') v.preload = 'auto'; const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    });
+  }
+
+  countUp(n) {
+    const end = parseFloat(n.getAttribute('data-count')); const comma = n.getAttribute('data-fmt') === 'comma';
+    const t0 = performance.now(); const dur = 1600;
+    const fmt = (x) => comma ? Math.round(x).toLocaleString('en-US') : String(Math.round(x));
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / dur); const e = 1 - Math.pow(1 - k, 3);
+      n.textContent = fmt(end * e);
+      if (k < 1) this.win.requestAnimationFrame(step);
+    };
+    n.textContent = fmt(0);
+    this.win.requestAnimationFrame(step);
+  }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot,
+      nav: [
+      { key: 'spaceflight', label: 'Spaceflight', href: 'spaceflight.html' },
+      { key: 'spaceship', label: 'Spaceship', href: 'spaceship.html' },
+      { key: 'venue', label: 'Space Venue', href: 'space-venue.html' },
+      { key: 'about', label: 'About', href: 'about.html' },
+      { key: 'shop', label: 'Shop', href: 'shop.html' }
+    ].map((n) => ({ ...n, ready: true, soon: false, current: n.key === 'venue' ? 'page' : 'false' })),
+      menuOpen: this.state.menuOpen,
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      joined: this.state.joined,
+      notJoined: !this.state.joined,
+      join: this.join,
+      occs: [
+        { label: 'Global broadcasts', img: 'assets/occ-broadcast.jpg', alt: 'A live DJ broadcast from the RISE cabin', body: 'Go live from the edge of space to audiences around the planet, with WiFi built for live streaming.' },
+        { label: 'Weddings', img: 'assets/v-wedding.jpg', alt: 'A wedding setting in the cabin above the Earth', body: 'Exchange vows with the curve of the Earth behind you and the people you love beside you.' },
+        { label: 'Dining', img: 'assets/v-dining.jpg', alt: 'A dinner table set at the edge of space', body: 'A world-class culinary program, served at a table above the clouds.' },
+        { label: 'Wellness', img: 'assets/occ-wellness.jpg', alt: 'A wellness setting in the cabin', body: 'Stillness, perspective and the quietest view there is.' },
+        { label: 'Private gatherings', img: 'assets/occ-gathering.jpg', alt: 'A lounge set for a private gathering', body: 'The whole cabin, configured for you and up to seven guests.' },
+        { label: 'Research', img: 'assets/occ-research.jpg', alt: 'A research lab configuration of the cabin', body: 'Fly experiments to the edge of space at flight rates never before possible.' }
+      ].map((o, i) => ({ ...o, n: '0' + (i + 1), on: i === this.state.occ, pick: this.pickOcc(i), chosen: !!this.state.chosen[i], toggle: this.toggleOcc(i) })),
+      guestLabel: this.state.guests + (this.state.guests === 1 ? ' guest' : ' guests'),
+      less: this.less,
+      more: this.more,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      send: this.send,
+      summary: (() => {
+        const names = ['global broadcast', 'wedding', 'dinner', 'wellness flight', 'private gathering', 'research flight'].filter((n, i) => this.state.chosen[i]);
+        const what = names.length ? names.join(', ').replace(/, ([^,]*)$/, ' and $1') : 'Space Venue flight';
+        return 'Your ' + what + ' for ' + this.state.guests + (this.state.guests === 1 ? ' guest' : ' guests') + ' is on our list.';
+      })(),
+    };
+  }
+}
+
+mountArtboard('tpl', 'app', Component);
+</script>
+</body>
+</html>
