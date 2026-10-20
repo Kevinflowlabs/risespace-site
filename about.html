@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>About · RISE Space</title>
-<meta name="description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta name="description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta name="theme-color" content="#05070C">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About · RISE Space">
-<meta property="og:description" content="RISE Space flies passengers to the edge of space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta property="og:description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
@@ -121,11 +121,14 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* ===== safety band ===== */
 .safe{position:relative;margin-top:clamp(100px,14vh,170px);overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:40px;padding:clamp(70px,10vh,120px) var(--gut);min-height:620px}
-.safe .bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
-.safe:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,7,12,.92),rgba(5,7,12,.55) 55%,rgba(5,7,12,.2)),linear-gradient(180deg,#05070C,rgba(5,7,12,0) 18%,rgba(5,7,12,0) 80%,#05070C)}
+.safe .bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:75% 50%}
+.safe:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,7,12,.9),rgba(5,7,12,.55) 38%,rgba(5,7,12,0) 62%),linear-gradient(180deg,#05070C,rgba(5,7,12,0) 14%,rgba(5,7,12,0) 86%,#05070C)}
+.safe .ref{position:absolute;right:var(--gut);bottom:clamp(24px,4vh,40px);color:rgba(242,239,233,.7);display:flex;gap:10px;align-items:center}
+.safe .ref:before{content:"";width:18px;height:1px;background:var(--gold)}
+@media (max-width:860px){.safe{padding-top:0;gap:28px}.safe:before{display:none}.safe .bg{position:relative;inset:auto;z-index:0;order:-1;width:calc(100% + 2 * var(--gut));height:auto;aspect-ratio:16/10;margin:0 calc(-1 * var(--gut));object-position:80% 50%}.safe .ref{top:calc(62.5vw - 40px);bottom:auto}}
 .safe h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,84px);line-height:.95;letter-spacing:-.02em;max-width:14ch}
 .safe p{margin-top:24px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.82);max-width:44ch}
-.safe ul{list-style:none;margin:30px 0 0;padding:0;max-width:520px}
+.safe ul{list-style:none;margin:30px 0 0;padding:0;max-width:560px}
 .safe li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#D5D8DE}
 .safe li b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;color:var(--gold)}
 .safe .balloon{justify-self:center;height:min(560px,70vh);width:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));animation:float 8s ease-in-out infinite}
@@ -179,6 +182,14 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .legal{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-top:30px;border-top:1px solid var(--line)}
 .legal a{color:var(--mute);text-decoration:none}
 .legal a:hover{color:var(--bone)}
+.social{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-top:28px;border-top:1px solid var(--line)}
+.social .mono{color:var(--mute);margin-right:10px}
+.soc{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,239,233,.2);color:var(--dim);text-decoration:none;transition:color .25s,border-color .25s,background .25s,transform .25s}
+.soc svg{width:18px;height:18px}
+.soc:hover{color:#05070C;background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
+.soc.todo{cursor:default}
+.social + .legal{border-top:0;padding-top:20px}
+@media (max-width:560px){.social .mono{flex:0 0 100%;margin:0 0 6px}}
 
 /* ===== page: About ===== */
 .hero.short{min-height:clamp(560px,78svh,860px)}
@@ -205,30 +216,36 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .textlink svg{width:16px;height:16px}
 
 .manifesto{padding:clamp(120px,18vh,220px) var(--gut);background:radial-gradient(80% 60% at 50% 0%,rgba(98,180,255,.08),rgba(98,180,255,0) 60%)}
-.manifesto p{font-family:var(--serif);font-size:clamp(40px,5.6vw,96px);line-height:1.02;letter-spacing:-.02em;max-width:20ch}
+.manifesto p{font-family:var(--serif);font-size:clamp(36px,4.8vw,84px);line-height:1.04;letter-spacing:-.02em;max-width:22ch}
 .manifesto .w{color:rgba(242,239,233,.16);transition:color .35s ease}
 .manifesto .w[data-lit="1"]{color:var(--bone)}
 .manifesto .w.g[data-lit="1"]{color:var(--gold);font-style:italic}
 .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gut);padding:4px var(--gut) 24px;margin:0 calc(-1 * var(--gut));scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
-.rec{position:relative;flex:0 0 min(420px,82vw);min-height:520px;scroll-snap-align:start;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
-.rec img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
-.rec:hover img{transform:scale(1.06)}
-.rec:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,12,0) 35%,rgba(5,7,12,.94))}
-.rec .t{padding:28px}
+.rec{position:relative;flex:0 0 min(420px,82vw);scroll-snap-align:start;overflow:hidden;border:1px solid var(--line);background:var(--ink);display:flex;flex-direction:column}
+.rec .ph-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#0b0f18}
+.rec .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
+.rec:hover .ph-img img{transform:scale(1.05)}
+.rec .t{flex:1;padding:24px 26px 28px;border-top:2px solid var(--gold)}
 .rec .num{font-family:var(--serif);font-size:clamp(36px,3vw,50px);line-height:1;color:var(--gold)}
-.rec h3{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.5;margin-top:12px;color:rgba(242,239,233,.86);max-width:30ch}
+.rec h3{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.5;margin-top:10px;color:rgba(242,239,233,.86);max-width:32ch}
 .rail-ctrl{display:flex;align-items:center;gap:12px;margin-top:10px}
 .rail-ctrl .prog{flex:1;height:2px;background:rgba(242,239,233,.1);position:relative}
 .rail-ctrl .prog i{position:absolute;left:0;top:0;bottom:0;width:20%;background:var(--gold);transition:left .2s,width .2s}
-.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:18px}
-.story{position:relative;border:1px solid var(--line);background:var(--ink);overflow:hidden;text-decoration:none;color:var(--bone);display:flex;flex-direction:column}
-.story .img{position:relative;aspect-ratio:16/10;overflow:hidden}
-.story .img img,.story .img video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
-.story:hover .img img,.story:hover .img video{transform:scale(1.05)}
-.story .t{padding:26px 26px 30px}
-.story .mono{color:var(--mute)}
-.story h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.2vw,34px);line-height:1.08;margin-top:12px}
+.founders{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:1000px){.founders{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.founders{grid-template-columns:minmax(0,1fr)}}
+.fd{border:1px solid var(--line);background:var(--ink);display:flex;flex-direction:column}
+.fd .ph-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:#0b0f18}
+.fd .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
+.fd:hover .ph-img img{transform:scale(1.04)}
+.fd .t{flex:1;display:flex;flex-direction:column;padding:22px 22px 24px}
+.fd h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.1vw,32px);line-height:1.05}
+.fd .role{margin-top:8px;font-size:14px;line-height:1.5;color:var(--dim)}
+.fd .li{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;color:var(--bone);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.fd .li svg{width:18px;height:18px;color:var(--gold);flex:0 0 auto}
+.fd .li span{border-bottom:1px solid rgba(242,239,233,.25);padding-bottom:2px;transition:border-color .2s}
+.fd .li:hover span,.fd .li:focus-visible span{border-color:var(--gold)}
 .press{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:30px 60px;align-items:end;margin-top:18px;padding:clamp(34px,5vw,64px);border:1px solid var(--line);background:radial-gradient(80% 120% at 100% 0%,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink)}
 .press h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:.95}
 .press p{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
@@ -275,7 +292,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="mono eyebrow">About</div>
 <h1>This is <em>RISE.</em></h1>
 <p class="lede">A meticulous team on Earth, making magic happen in space.</p>
-<div class="btns"><a class="btn solid" href="#records">Our track record</a><a class="btn" href="#press">Press &amp; media</a></div>
+<div class="btns"><a class="btn solid" href="#founders">Meet our founders</a><a class="btn" href="#records">Our track record</a></div>
 </div>
 <div class="hero-tag mono">RISE demonstration flight</div>
 </section>
@@ -283,19 +300,32 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <!-- MANIFESTO -->
 <section class="manifesto" id="manifesto" aria-label="Our mission">
 <div class="mono eyebrow">The mission</div>
-<p><span class="w">Fewer</span> <span class="w">than</span> <span class="w g">800</span> <span class="w">people</span> <span class="w">have</span> <span class="w">ever</span> <span class="w">been</span> <span class="w">to</span> <span class="w">space.</span> <span class="w">We</span> <span class="w">are</span> <span class="w">opening</span> <span class="w">it</span> <span class="w">to</span> <span class="w g">more</span> <span class="w g">people</span> <span class="w g">than</span> <span class="w g">ever</span> <span class="w g">before.</span></p>
+<p><span class="w">We</span> <span class="w">are</span> <span class="w">opening</span> <span class="w">space</span> <span class="w">to</span> <span class="w">more</span> <span class="w">people</span> <span class="w">than</span> <span class="w">ever</span> <span class="w">before</span> <span class="w">to</span> <span class="w">have</span> <span class="w">the</span> <span class="w">life-changing</span> <span class="w">experience</span> <span class="w">of</span> <span class="w g">seeing</span> <span class="w g">Earth</span> <span class="w g">in</span> <span class="w g">space.</span></p>
+</section>
+
+<!-- FOUNDERS -->
+<section class="sec" id="founders" aria-label="Founders" style="padding-top: 20px">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">Leadership</div><h2>Meet our Founders</h2></div>
+<p>RISE leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+</div>
+<div class="founders" data-reveal="">
+<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4">
+<article class="fd"><div class="ph-img"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></div><div class="t"><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></article>
+</sc-for>
+</div>
 </section>
 
 <!-- RECORDS -->
-<section class="sec" id="records" aria-label="Records" style="padding-top: 20px">
+<section class="sec" id="records" aria-label="Records">
 <div class="head" data-reveal="">
 <div><div class="mono eyebrow">Flight proven</div><h2>Records, industries and history.</h2></div>
 <p>Our team has set records, created industries and made history. Drag or use the arrows to browse their accomplishments.</p>
 </div>
 <div data-reveal="">
 <div class="rail" data-rail="">
-<sc-for list="{{ records }}" as="r" hint-placeholder-count="7">
-<article class="rec"><img src="{{ r.img }}" alt="{{ r.alt }}"><div class="t"><div class="num">{{ r.stat }}</div><h3>{{ r.title }}</h3></div></article>
+<sc-for list="{{ records }}" as="r" hint-placeholder-count="8">
+<article class="rec"><div class="ph-img"><img src="{{ r.img }}" alt="{{ r.alt }}" draggable="false"></div><div class="t"><div class="num">{{ r.stat }}</div><h3>{{ r.title }}</h3></div></article>
 </sc-for>
 </div>
 <div class="rail-ctrl">
@@ -306,16 +336,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- UPDATES + PRESS -->
-<section class="sec" id="press" aria-label="Updates and press">
-<div class="head" data-reveal="">
-<div><div class="mono eyebrow">Updates</div><h2>News from the program.</h2></div>
-<p>The latest from RISE, plus everything journalists need to tell the story.</p>
-</div>
-<div class="news" data-reveal="">
-<article class="story"><div class="img"><img src="assets/florida.jpg" alt="A Space Balloon above Florida"></div><div class="t"><span class="mono">Update</span><h3>RISE lands in Florida</h3></div></article>
-<article class="story"><div class="img"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3></div></article>
-</div>
+<!-- PRESS -->
+<section class="sec" id="press" aria-label="Press and media">
 <div class="press" data-reveal="">
 <div><div class="mono eyebrow">Newsroom</div><h2>For media.</h2></div>
 <div><p>Flight footage, stills, founder bios and mission facts from RISE flights are available for editorial use. Press inquiries: <span class="ph">[PRESS EMAIL]</span></p>
@@ -367,6 +389,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span>{{ n.label }}</span></sc-if>
 </sc-for>
 </nav>
+<div class="social" aria-label="RISE on social media"><span class="mono">Follow the mission</span><a class="soc" href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener" aria-label="RISE on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"></path></svg></a><span class="soc todo" role="img" aria-label="RISE on LinkedIn (link coming soon)" title="LinkedIn: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Facebook (link coming soon)" title="Facebook: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.6c0-.85.2-1.3 1.5-1.3H17V2.2c-.3-.05-1.4-.2-2.6-.2C11.8 2 10 3.6 10 6.5v2H7.2v3.4H10V22h4V11.9h2.9l.45-3.4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Instagram (link coming soon)" title="Instagram: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"></circle></svg></span><span class="soc todo" role="img" aria-label="RISE on X (link coming soon)" title="X: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"></path></svg></span></div>
 <div class="legal"><span>© RISE 2026</span><a href="#top">Privacy</a><a href="#top">Terms</a><span>Press: <span class="ph">[PRESS EMAIL]</span></span></div>
 </footer>
 
@@ -503,13 +526,20 @@ class Component extends DCLogic {
       notJoined: !this.state.joined,
       join: this.join,
       records: [
-        { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: '100+', title: 'Space Balloon flights flown by the RISE team' },
-        { img: 'assets/rec-dive.jpg', alt: 'A space dive from a balloon', stat: '41.5 km', title: 'Highest human flight and space dive from a balloon: 136,000 ft' },
+        { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: '100+', title: 'Space Balloon flights flown by team members' },
+        { img: 'assets/rec-dive-centered.jpg', alt: 'A space dive from a balloon', stat: '41.5 km', title: 'Highest human flight and space dive from a balloon: 136,000 ft' },
         { img: 'assets/rec-dragon.jpg', alt: 'A balloon lifting a Dragon capsule', stat: '10,000 kg', title: 'Heaviest payload ever flown by balloon: a Dragon capsule to 45,000 ft' },
         { img: 'assets/rec-neptune.jpg', alt: 'A capsule launched from a ship at sea', stat: '6,600 kg', title: 'Heaviest payload launched to 30 km / 100,000 ft' },
         { img: 'assets/rec-capsule.jpg', alt: 'The space capsule in its hangar', stat: '2,144 cu ft', title: 'Largest-volume space capsule, with the largest windows ever flown to space' },
         { img: 'assets/rec-biosphere.jpg', alt: 'Biosphere 2 at dusk', stat: '2 years', title: 'Designed, built and lived longest in Biosphere 2, the most closed bioregenerative prototype space base' },
-        { img: 'assets/rec-iss.jpg', alt: 'The International Space Station', stat: '98%', title: 'Water recovered on the ISS, with technology on most U.S. crewed spacecraft' }
+        { img: 'assets/rec-iss.jpg', alt: 'The International Space Station', stat: '98%', title: 'Water recovered on the ISS, with technology on most U.S. crewed spacecraft' },
+        { img: 'assets/rec-spin.jpg', alt: 'A large spin vacuum chamber in the desert', stat: 'SpinLaunch', title: 'Developed the largest spin vacuum chamber ever operated' }
+      ],
+      founders: [
+        { img: 'assets/team-mehta.jpg', name: 'Ravé Mehta', role: 'Chairman and Chief Executive Officer', li: 'https://www.linkedin.com/in/ravemehta/' },
+        { img: 'assets/team-maccallum.jpg', name: 'Taber MacCallum', role: 'Chief Technology Officer', li: 'https://www.linkedin.com/in/tabermaccallum/' },
+        { img: 'assets/team-poynter.jpg', name: 'Jane Poynter', role: 'Chief Product Officer', li: 'https://www.linkedin.com/in/jane-poynter/' },
+        { img: 'assets/team-yaney.jpg', name: 'Jonathan Yaney', role: 'Chief Operating Officer', li: 'https://www.linkedin.com/in/jonathanyaney/' }
       ],
       railPrev: this.railPrev,
       railNext: this.railNext,
