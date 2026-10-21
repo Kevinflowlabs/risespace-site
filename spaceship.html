@@ -215,14 +215,18 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .textlink:hover{gap:16px;color:var(--gold)}
 .textlink svg{width:16px;height:16px}
 
+.hero:after{background:linear-gradient(90deg,rgba(5,7,12,.55) 0%,rgba(5,7,12,.14) 42%,rgba(5,7,12,0) 66%),linear-gradient(180deg,rgba(5,7,12,.38) 0%,rgba(5,7,12,0) 20%,rgba(5,7,12,0) 70%,#05070C 100%)}
+.hero h1,.hero .lede{text-shadow:0 2px 24px rgba(5,7,12,.55)}
 .explore{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);background:radial-gradient(70% 70% at 35% 45%,rgba(98,180,255,.14),rgba(98,180,255,0) 70%),linear-gradient(180deg,#070A12,#0B1424)}
-.craftbox{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 30px 30px;min-height:640px}
-.capsule{position:relative;width:min(380px,72%);aspect-ratio:471/564}
+.craftbox{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(150px,15vw,190px) 30px 50px;min-height:700px}
+.capsule{position:relative;width:min(360px,64%);aspect-ratio:471/564}
 .capsule img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .9s ease,transform 1.2s cubic-bezier(.16,.8,.2,1);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
 .capsule img[data-on="false"]{opacity:0;transform:scale(.97)}
 .capsule .floaty{position:absolute;inset:0;animation:float 7s ease-in-out infinite}
+.cables{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.cables line{stroke:rgba(242,239,233,.45);stroke-width:1.2;vector-effect:non-scaling-stroke}
 @keyframes float{50%{transform:translateY(-12px)}}
-.spot{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:0;background:none;cursor:pointer;padding:0}
+.spot{position:absolute;z-index:2;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;border:0;background:none;cursor:pointer;padding:0}
 .spot i{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--bone);box-shadow:0 0 0 4px rgba(242,239,233,.18);transition:background .3s,box-shadow .3s,transform .3s}
 .spot:before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px solid rgba(242,239,233,.6);animation:ping 2.4s ease-out infinite}
 @keyframes ping{from{transform:scale(.5);opacity:1}to{transform:scale(1.6);opacity:0}}
@@ -230,34 +234,80 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .spot[aria-pressed="true"] i{background:var(--gold);box-shadow:0 0 0 6px rgba(247,204,46,.2),0 0 24px rgba(247,204,46,.7)}
 .spot[aria-pressed="true"]:before{border-color:var(--gold)}
 .spot:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.livery{display:flex;gap:8px;margin-top:34px}
 .detail{padding:clamp(28px,4vw,60px);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--line)}
 .detail .count{color:var(--mute);margin-bottom:22px}
 .detail-item{display:none}
 .detail-item[data-on="true"]{display:block;animation:rise .7s cubic-bezier(.16,.8,.2,1) both}
-.detail-item h3{font-family:var(--serif);font-weight:400;font-size:clamp(38px,3.8vw,64px);line-height:.96;letter-spacing:-.015em}
+.detail-item .k{color:#9FC8E0;display:block;margin-bottom:14px}
+.detail-item h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.5vw,60px);line-height:.98;letter-spacing:-.015em}
 .detail-item p{margin-top:18px;font-size:16px;line-height:1.65;color:rgba(242,239,233,.82);max-width:42ch}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chips span{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-size:12.5px;color:#C9CDD4}
 .spot-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
 .spot-list button{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--dim);font-family:var(--sans);font-size:13px;cursor:pointer;transition:color .3s,border-color .3s}
+.spot-list button:hover{color:var(--bone)}
 .spot-list button[aria-pressed="true"]{color:var(--gold);border-color:rgba(247,204,46,.6)}
-@media (max-width:860px){.explore{grid-template-columns:minmax(0,1fr)}.detail{border-left:0;border-top:1px solid var(--line)}.craftbox{min-height:520px}}
-.ipanel{display:none}
-.ipanel[data-on="true"]{display:grid;animation:rise .7s cubic-bezier(.16,.8,.2,1) both}
-.gal{position:absolute;inset:0}
-.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.05);transition:opacity .9s ease,transform 1.4s cubic-bezier(.16,.8,.2,1)}
-.gal img[data-on="true"]{opacity:1;transform:none}
-.gal-ctrl{position:absolute;right:18px;bottom:18px;display:flex;align-items:center;gap:8px;z-index:2}
-.dots{display:flex;gap:6px;margin-right:8px}
-.dots i{display:block;width:18px;height:2px;background:rgba(242,239,233,.3);transition:background .3s,width .3s}
-.dots i[data-on="true"]{background:var(--gold);width:30px}
-.own{position:relative;margin-top:clamp(100px,14vh,170px);padding:clamp(80px,12vh,140px) var(--gut);overflow:hidden;isolation:isolate;text-align:center}
-.own img.bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover}
-.own:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05070C,rgba(5,7,12,.55) 30%,rgba(5,7,12,.55) 70%,#05070C)}
-.own h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,104px);line-height:.94;letter-spacing:-.02em;max-width:14ch;margin:0 auto}
-.own p{margin:24px auto 0;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.84);max-width:46ch}
-.own .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:34px}
+@media (max-width:860px){.explore{grid-template-columns:minmax(0,1fr)}.detail{border-left:0;border-top:1px solid var(--line)}.craftbox{min-height:0;padding-bottom:40px}}
+/* cabin explorer */
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.mpanel{display:none}
+.mpanel[data-on="true"]{display:block;animation:rise .7s cubic-bezier(.16,.8,.2,1) both}
+.cab{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);border:1px solid var(--line);background:var(--ink)}
+.cabstage{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.cabstage[data-drag="true"]{cursor:grabbing}
+.cabstage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cabstage .hs{transition:opacity .4s ease,transform .4s ease}
+.cabstage .hs[data-show="false"]{opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.6)}
+.hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);white-space:nowrap;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgba(5,7,12,.55);border:1px solid rgba(242,239,233,.2);color:var(--bone);font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;pointer-events:none;transition:opacity .5s}
+.hint svg{width:16px;height:16px;color:var(--gold)}
+.hint[data-on="false"]{opacity:0}
+.cabnav{position:absolute;right:16px;top:16px;display:flex;gap:8px;z-index:3}
+.cab .detail{border-left:1px solid var(--line)}
+.cab .spot-list{margin-top:26px}
+@media (max-width:960px){.cab{grid-template-columns:minmax(0,1fr)}.cab .detail{border-left:0;border-top:1px solid var(--line)}}
+.custom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:760px){.custom{grid-template-columns:minmax(0,1fr)}}
+.cc{border:1px solid var(--line);background:var(--ink);display:flex;flex-direction:column}
+.cc .media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.cc .media video,.cc .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:16px;top:16px;z-index:1;padding:7px 12px;border-radius:999px;background:rgba(5,7,12,.6);border:1px solid rgba(247,204,46,.55);color:var(--gold);font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.cc .t{padding:24px 26px 28px}
+.cc h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.4vw,38px);line-height:1.02}
+.cc p{margin-top:12px;font-size:15.5px;line-height:1.6;color:var(--dim);max-width:44ch}
+.note{margin-top:18px;display:flex;gap:12px;align-items:baseline;font-size:14px;line-height:1.6;color:var(--dim)}
+.note b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+/* make your mark */
+.mark{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--line);background:radial-gradient(60% 70% at 30% 50%,rgba(247,204,46,.08),rgba(247,204,46,0) 70%),linear-gradient(180deg,#070A12,#0B1424)}
+.mark .craftbox{padding-top:56px;min-height:640px}
+.mark .txt{padding:clamp(30px,4.4vw,72px);display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--line)}
+.mark h2{font-family:var(--serif);font-weight:400;font-size:clamp(42px,4.6vw,78px);line-height:.95;letter-spacing:-.02em}
+.mark p{margin-top:22px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.82);max-width:42ch}
+.mark .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.livery{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:34px}
+.yourmark{position:absolute;left:22%;right:22%;top:62%;height:20%;display:flex;align-items:center;justify-content:center;border:1.5px dashed rgba(247,204,46,.85);border-radius:12px;color:#5f4800;font-weight:500;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:rgba(247,204,46,.1);transition:opacity .6s}
+.yourmark[data-on="false"]{opacity:0}
+@media (max-width:860px){.mark{grid-template-columns:minmax(0,1fr)}.mark .txt{border-left:0;border-top:1px solid var(--line)}.mark .craftbox{min-height:0}}
+/* tallest */
+.tallg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr);border:1px solid var(--line);background:linear-gradient(180deg,#070A12,#0B1424)}
+.tall{padding:clamp(18px,2.4vw,34px);overflow-x:auto}
+.tall svg{display:block;width:100%;min-width:640px;height:auto}
+.tall .grid line{stroke:rgba(242,239,233,.1);stroke-dasharray:3 6}
+.tall .ground{stroke:rgba(242,239,233,.45)}
+.tall .ln{fill:none;stroke:rgba(242,239,233,.78);stroke-width:1.4;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.65,0,.35,1)}
+.tall .ln.gold{stroke:var(--gold);stroke-width:1.8;filter:drop-shadow(0 0 6px rgba(247,204,46,.45))}
+.tall .ln.faint{opacity:.35}
+.tall .it .ln{transition-delay:var(--d)}
+[data-in="1"] .tall .ln{stroke-dashoffset:0}
+.tall text{font-family:var(--mono);font-size:12px;letter-spacing:.08em;fill:var(--mute);text-anchor:middle}
+.tall .ht{fill:var(--bone)}
+.tall .gl{text-anchor:start;font-size:10px;fill:rgba(242,239,233,.35)}
+.tall .hi text{fill:var(--gold)}
+.tallg .media{position:relative;min-height:420px;border-left:1px solid var(--line);overflow:hidden}
+.slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;background:radial-gradient(70% 70% at 50% 40%,rgba(98,180,255,.12),rgba(98,180,255,0) 70%),linear-gradient(180deg,#0B1424,#070A12)}
+.slot:before{content:"";position:absolute;inset:14px;border:1px dashed rgba(247,204,46,.35)}
+.ref{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;align-items:center;gap:10px;color:rgba(242,239,233,.82);text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.ref:before{content:"";width:18px;height:1px;background:var(--gold)}
+@media (max-width:960px){.tallg{grid-template-columns:minmax(0,1fr)}.tallg .media{border-left:0;border-top:1px solid var(--line);min-height:0;aspect-ratio:4/3}}
 </style>
 </head>
 <body>
@@ -294,7 +344,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="mono eyebrow">The Spaceship</div>
 <h1>Built for <em>the view.</em></h1>
 <p class="lede">The largest capsule with the largest windows ever flown to space. Lifted gently by a Space Balloon, and designed, built and operated to rigorous FAA and NASA standards.</p>
-<div class="btns"><a class="btn solid" href="#reserve">Reserve a seat</a><a class="btn" href="#explore">Explore the spaceship<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M6 13l6 6 6-6"></path></svg></a></div>
+<div class="btns"></div>
 </div>
 <div class="hero-tag mono">RISE Spaceship</div>
 </section>
@@ -304,38 +354,33 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="stat"><div class="n"><span data-count="2144" data-fmt="comma"></span><small>cu ft</small></div><p>The largest-volume space capsule ever flown</p></div>
 <div class="stat"><div class="n"><span data-count="16"></span><small>ft</small></div><p>Diameter of the spacious cabin</p></div>
 <div class="stat"><div class="n"><span data-count="8"></span><small>+ captain</small></div><p>Passengers on every flight</p></div>
-<div class="stat"><div class="n"><span data-count="340"></span><small>°</small></div><p>Panoramic views through 5.25 × 2 ft windows</p></div>
+<div class="stat"><div class="n"><span data-count="360"></span><small>°</small></div><p>Panoramic views through 5.25 × 2 ft windows</p></div>
 </div>
 
 <!-- EXPLORER -->
 <section class="sec" id="explore" aria-label="Explore the spaceship">
 <div class="head" data-reveal="">
 <div><div class="mono eyebrow">Explore</div><h2>Tap the spaceship.</h2></div>
-<p>Select a point on the capsule to see what makes it different, and switch the livery to see it lit for night.</p>
+<p>Select a point on the spaceship to see what makes it different.</p>
 </div>
 <div class="explore" data-reveal="">
 <div class="craftbox">
 <div class="capsule">
 <div class="floaty">
-<img src="assets/livery-signature.webp" alt="The RISE spaceship in its signature livery" data-on="{{ sigOn }}">
-<img src="assets/capsule-lit.webp" alt="The RISE spaceship with exterior lighting" data-on="{{ nightOn }}">
-<sc-for list="{{ spots }}" as="s" hint-placeholder-count="5">
+<svg class="cables" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="21" y1="11" x2="50" y2="-34"></line><line x1="37" y1="3" x2="50" y2="-34"></line><line x1="63" y1="3" x2="50" y2="-34"></line><line x1="79" y1="11" x2="50" y2="-34"></line><line x1="50" y1="-34" x2="50" y2="-60"></line></svg>
+<img src="assets/livery-signature.webp" alt="The RISE spaceship">
+<sc-for list="{{ spots }}" as="s" hint-placeholder-count="8">
 <button class="spot" type="button" style="left: {{ s.x }}; top: {{ s.y }}" aria-pressed="{{ s.on }}" aria-label="{{ s.title }}" onClick="{{ s.pick }}"><i></i></button>
 </sc-for>
 </div>
 </div>
-<div class="livery" role="group" aria-label="Livery">
-<sc-for list="{{ liveries }}" as="l" hint-placeholder-count="2">
-<button class="tab" type="button" aria-selected="{{ l.on }}" onClick="{{ l.pick }}">{{ l.label }}</button>
-</sc-for>
-</div>
 </div>
 <div class="detail">
-<div class="count mono"><span class="gold">{{ spotNum }}</span> / 05</div>
+<div class="count mono"><span class="gold">{{ spotNum }}</span> / 08</div>
 <div aria-live="polite">
-<sc-for list="{{ spots }}" as="s" hint-placeholder-count="5">
+<sc-for list="{{ spots }}" as="s" hint-placeholder-count="8">
 <div class="detail-item" data-on="{{ s.on }}">
-<span class="mono" style="color: #9FC8E0; display: block; margin-bottom: 14px">{{ s.kicker }}</span>
+<span class="k mono">{{ s.kicker }}</span>
 <h3>{{ s.title }}</h3>
 <p>{{ s.body }}</p>
 <div class="chips"><sc-for list="{{ s.chips }}" as="c" hint-placeholder-count="2"><span>{{ c }}</span></sc-for></div>
@@ -343,7 +388,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </sc-for>
 </div>
 <div class="spot-list">
-<sc-for list="{{ spots }}" as="s" hint-placeholder-count="5">
+<sc-for list="{{ spots }}" as="s" hint-placeholder-count="8">
 <button type="button" aria-pressed="{{ s.on }}" onClick="{{ s.pick }}">{{ s.short }}</button>
 </sc-for>
 </div>
@@ -363,57 +408,109 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <li><b>01</b><span>No rocket and no high g-forces</span></li>
 <li><b>02</b><span>A smooth ascent at cycling speed</span></li>
 <li><b>03</b><span>A carbon-neutral spaceflight</span></li>
+<li><b>04</b><span>Floats on top of Earth’s atmosphere like an ice cube floats on water</span></li>
 </ul>
 <a class="textlink" href="spaceflight.html">See the full flight<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </section>
 
-<!-- INTERIOR -->
-<section class="sec" id="interior" aria-label="The interior">
+<!-- CABIN -->
+<section class="sec" id="interior" aria-label="The cabin">
 <div class="head" data-reveal="">
-<div><div class="mono eyebrow">Interior</div><h2>A cabin made for looking out.</h2></div>
-<p>Seats for up to eight passengers and a captain, a lounge, a culinary program and the Space Spa, all wrapped in 340° of view.</p>
+<div><div class="mono eyebrow">The cabin</div><h2>A cabin made for looking out.</h2></div>
+<p>Drag the cabin to look around, then tap a point to learn more. Seats for up to eight passengers and a captain, all wrapped in 360° of view.</p>
 </div>
-<div class="tabs" role="tablist" aria-label="Interior spaces" data-reveal="" style="margin-bottom: 18px">
-<sc-for list="{{ rooms }}" as="r" hint-placeholder-count="4">
-<button class="tab" type="button" role="tab" aria-selected="{{ r.on }}" onClick="{{ r.pick }}">{{ r.label }}</button>
+<div class="modes" role="tablist" aria-label="Cabin configuration" data-reveal="">
+<sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+<button class="tab" type="button" role="tab" aria-selected="{{ m.on }}" onClick="{{ m.pick }}">{{ m.label }}</button>
 </sc-for>
 </div>
 <div data-reveal="">
-<div class="ipanel split2" data-on="{{ room0 }}">
-<div class="media"><video data-loop="" src="assets/lounge.mp4" poster="assets/lounge-poster.jpg" loop="" muted="" playsinline="" preload="none"></video></div>
-<div class="txt"><div class="mono eyebrow">The lounge</div><h3>Room to move, and nothing in the way.</h3><p>Seats up to eight passengers and a captain, arranged around the largest windows ever flown to space.</p></div>
+<div class="mpanel" data-on="{{ modeStd }}">
+<div class="cab">
+<div class="cabstage" data-cabstage="" data-drag="{{ cabMoving }}">
+<video data-cabv="" src="assets/cabin-scrub.mp4" poster="assets/cabin-scrub-poster.jpg" muted="" playsinline="" preload="auto"></video>
+<sc-for list="{{ feats }}" as="f" hint-placeholder-count="8">
+<button class="spot hs" type="button" style="left: {{ f.x }}; top: {{ f.y }}" data-show="{{ f.show }}" aria-pressed="{{ f.on }}" aria-label="{{ f.title }}" onClick="{{ f.pick }}"><i></i></button>
+</sc-for>
+<div class="cabnav">
+<button class="icon-btn" type="button" aria-label="Look left" onClick="{{ cabPrev }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<button class="icon-btn" type="button" aria-label="Look right" onClick="{{ cabNext }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
-<div class="ipanel split2" data-on="{{ room1 }}">
-<div class="media"><img src="assets/v-dining.jpg" alt="A dining table set inside the RISE cabin"></div>
-<div class="txt"><div class="mono eyebrow">Dining</div><h3>A table above the clouds.</h3><p>A refreshments bar and a world-class culinary program, served in space.</p></div>
+<div class="hint" data-on="{{ cabHint }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"></path><path d="M16 7l5 5-5 5"></path><path d="M3 12h18"></path></svg><span>Drag to look around</span></div>
 </div>
-<div class="ipanel split2" data-on="{{ room2 }}">
-<div class="media"><div class="gal">
-<sc-for list="{{ spa }}" as="g" hint-placeholder-count="3"><img src="{{ g.src }}" alt="{{ g.alt }}" data-on="{{ g.on }}"></sc-for>
+<div class="detail">
+<div class="count mono"><span class="gold">{{ featNum }}</span> / 08</div>
+<div aria-live="polite">
+<sc-for list="{{ feats }}" as="f" hint-placeholder-count="8">
+<div class="detail-item" data-on="{{ f.on }}">
+<span class="k mono">{{ f.kicker }}</span>
+<h3>{{ f.title }}</h3>
+<p>{{ f.body }}</p>
 </div>
-<div class="gal-ctrl"><div class="dots"><sc-for list="{{ spa }}" as="g" hint-placeholder-count="3"><i data-on="{{ g.on }}"></i></sc-for></div>
-<button class="icon-btn" type="button" aria-label="Previous photo" onClick="{{ spaPrev }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
-<button class="icon-btn" type="button" aria-label="Next photo" onClick="{{ spaNext }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+</sc-for>
 </div>
-<div class="txt"><div class="mono eyebrow">Space Spa</div><h3>The best view in our solar system.</h3><p>A luxurious restroom with a window onto the curve of the Earth.</p></div>
+<div class="spot-list">
+<sc-for list="{{ feats }}" as="f" hint-placeholder-count="8">
+<button type="button" aria-pressed="{{ f.on }}" onClick="{{ f.pick }}">{{ f.short }}</button>
+</sc-for>
 </div>
-<div class="ipanel split2" data-on="{{ room3 }}">
-<div class="media"><video data-loop="" src="assets/interior.mp4" poster="assets/interior-poster.jpg" loop="" muted="" playsinline="" preload="none"></video></div>
-<div class="txt"><div class="mono eyebrow">Connected</div><h3>Share it as it happens.</h3><p>WiFi for live streaming and posting, so the people you love can see what you see from 100,000 feet.</p></div>
+</div>
+</div>
+</div>
+<div class="mpanel" data-on="{{ modeCustom }}">
+<div class="custom">
+<article class="cc">
+<div class="media"><video data-loop="" src="assets/lounge.mp4" poster="assets/lounge-poster.jpg" loop="" muted="" playsinline="" preload="none"></video><span class="badge">Custom</span></div>
+<div class="t"><div class="mono eyebrow">Custom lounge</div><h3>An interior made for the occasion.</h3><p>The spaceship interior is customizable, from a relaxed lounge to a setting designed around your event.</p></div>
+</article>
+<article class="cc">
+<div class="media"><img src="assets/v-dining.jpg" alt="A custom dining table set inside the RISE cabin"><span class="badge">Custom</span></div>
+<div class="t"><div class="mono eyebrow">Custom dining</div><h3>A table above the clouds.</h3><p>A refreshments bar and a world-class culinary program, served in space.</p></div>
+</article>
+</div>
+<p class="note"><b>Note</b><span>Custom interiors are configured for select flights and seat fewer than the standard eight passengers.</span></p>
 </div>
 </div>
 </section>
 
-<!-- MAKE IT YOURS -->
-<section class="own" aria-label="Make the flight your own">
-<img class="bg" src="assets/florida.jpg" alt="">
-<div data-reveal="">
-<div class="mono eyebrow" style="justify-content: center">Make it yours</div>
+<!-- MAKE YOUR MARK -->
+<section class="sec" id="mark" aria-label="Make your mark">
+<div class="mark" data-reveal="">
+<div class="craftbox">
+<div class="capsule">
+<div class="floaty">
+<img src="assets/livery-signature.webp" alt="The RISE spaceship in its signature livery" data-on="{{ liv0 }}">
+<img src="assets/capsule-lit.webp" alt="The RISE spaceship with exterior lighting" data-on="{{ liv1 }}">
+<img src="assets/livery-blank.webp" alt="The RISE spaceship as a blank canvas for your livery" data-on="{{ liv2 }}">
+<div class="yourmark" data-on="{{ liv2 }}">Your mark here</div>
+</div>
+</div>
+<div class="livery" role="group" aria-label="Livery">
+<sc-for list="{{ liveries }}" as="l" hint-placeholder-count="3">
+<button class="tab" type="button" aria-selected="{{ l.on }}" onClick="{{ l.pick }}">{{ l.label }}</button>
+</sc-for>
+</div>
+</div>
+<div class="txt">
+<div class="mono eyebrow">Make it yours</div>
 <h2>Make your mark on spaceflight.</h2>
-<p>The spaceship interior is customizable to suit the occasion, with custom livery and exterior lighting.</p>
-<div class="btns"><a class="btn solid" href="space-venue.html">Plan a Space Venue event</a><a class="btn" href="#reserve">Reserve a seat</a></div>
+<p>Custom livery and exterior lighting turn the spaceship into the most memorable canvas your brand has ever had, seen at launch, in every photo and on every broadcast from space. Switch the livery to imagine yours.</p>
+<div class="btns"><a class="btn solid" href="space-venue.html">Learn more about Space Venue</a></div>
+</div>
+</div>
+</section>
+
+<!-- TALLEST LAUNCH VEHICLE -->
+<section class="sec" aria-label="The tallest launch vehicle">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">Scale</div><h2>The tallest launch vehicle.</h2></div>
+<p>Standing over 600 ft tall on the launch pad, the spaceship is taller than any rocket and iconic landmarks including the Statue of Liberty and the Great Pyramid.</p>
+</div>
+<div class="tallg" data-reveal="">
+<div class="tall"><svg viewBox="0 0 1000 556" role="img" aria-label="To-scale comparison: the RISE spaceship on its Space Balloon stands over 600 ft, taller than the Great Pyramid of Giza (455 ft), Starship (400 ft), the Statue of Liberty (305 ft) and Falcon 9 with Dragon (230 ft)"><g class="grid"><line x1="0" y1="432.0" x2="1000" y2="432.0"></line><text x="2" y="427.0" class="gl">100 ft</text><line x1="0" y1="364.0" x2="1000" y2="364.0"></line><text x="2" y="359.0" class="gl">200 ft</text><line x1="0" y1="296.0" x2="1000" y2="296.0"></line><text x="2" y="291.0" class="gl">300 ft</text><line x1="0" y1="228.0" x2="1000" y2="228.0"></line><text x="2" y="223.0" class="gl">400 ft</text><line x1="0" y1="160.0" x2="1000" y2="160.0"></line><text x="2" y="155.0" class="gl">500 ft</text><line x1="0" y1="92.0" x2="1000" y2="92.0"></line><text x="2" y="87.0" class="gl">600 ft</text></g><line class="ground" x1="0" y1="500.0" x2="1000" y2="500.0"></line><g class="it hi" style="--d: 0.00s"><path class="ln gold" pathLength="1" d="M78.55,491.8 C78.55,487.8 81.0025,485.0 84,485.0 C86.9975,485.0 89.45,487.8 89.45,491.8 L85.9075,498.6 L82.0925,498.6 Z"></path><path class="ln gold" pathLength="1" d="M84,500.0 L84,498.6"></path><path class="ln gold" pathLength="1" d="M84,485.0 L84,452.4"></path><path class="ln gold" pathLength="1" d="M84,452.4 C80.6,447.0 80.6,411.6 84,398.0 C87.4,411.6 87.4,447.0 84,452.4 Z"></path><path class="ln gold" pathLength="1" d="M84,398.0 L84,330.0"></path><path class="ln gold" pathLength="1" d="M80.6,330.0 C77.9,255.2 77.9,180.4 75.8,139.6 C52.7,119.2 52.7,77.0 84,75.0 C115.3,77.0 115.3,119.2 92.2,139.6 C90.1,180.4 90.1,255.2 87.4,330.0 Z"></path><path class="ln gold faint" pathLength="1" d="M82.0,316.4 L80.6,160.0 M86.0,316.4 L87.4,160.0"></path><text x="84" y="63.0" class="ht">Over 600 ft</text><text x="84" y="524.0" class="nm">RISE</text><text x="84" y="540.0" class="nm">spaceship</text></g><g class="it" style="--d: 0.18s"><path class="ln" pathLength="1" d="M194.8,500.0 L194.8,249.8 C194.8,236.2 200.41,228.0 205,226.0 C209.59,228.0 215.2,236.2 215.2,249.8 L215.2,500.0 Z"></path><path class="ln" pathLength="1" d="M194.8,341.6 L215.2,341.6"></path><path class="ln" pathLength="1" d="M194.8,349.0 l-4.1,2.0 l0,3.4 l4.1,0 M215.2,349.0 l4.1,2.0 l0,3.4 l-4.1,0"></path><path class="ln" pathLength="1" d="M194.8,326.6 l-4.8,8.2 l0,10.9 l4.8,0 M215.2,326.6 l4.8,8.2 l0,10.9 l-4.8,0"></path><path class="ln" pathLength="1" d="M194.8,253.8 l-3.4,4.1 l0,8.2 l3.4,0 M215.2,253.8 l3.4,4.1 l0,8.2 l-3.4,0"></path><text x="205" y="214.0" class="ht">400 ft</text><text x="205" y="524.0" class="nm">Starship</text></g><g class="it" style="--d: 0.36s"><path class="ln" pathLength="1" d="M300.9,500.0 L300.9,360.6 L301.31,354.5 L303.565,343.6 L306.435,343.6 L308.69,354.5 L309.1,360.6 L309.1,500.0 Z"></path><path class="ln" pathLength="1" d="M300.9,393.2 L309.1,393.2 M300.9,360.6 L309.1,360.6"></path><path class="ln" pathLength="1" d="M300.9,490.5 l-6.1,9.5 M309.1,490.5 l6.1,9.5"></path><text x="305" y="331.6" class="ht">230 ft</text><text x="305" y="524.0" class="nm">Falcon 9</text><text x="305" y="540.0" class="nm">with Dragon</text></g><g class="it" style="--d: 0.54s"><path class="ln" pathLength="1" d="M388.25,500.0 L388.25,479.6 L395.7,472.8 L395.7,404.8 L393.7,400.7 L393.7,395.3 L426.3,395.3 L426.3,400.7 L424.3,404.8 L424.3,472.8 L431.75,479.6 L431.75,500.0 Z"></path><path class="ln" pathLength="1" d="M399.8,395.3 C399.8,364.0 401.1,336.8 402.5,321.8 L406.6,319.1 C406.6,312.3 413.4,312.3 413.4,319.1 L414.8,321.8 L416.8,301.4 L420.2,301.4 L419.5,324.6 C419.5,343.6 420.2,364.0 420.2,395.3 Z"></path><path class="ln" pathLength="1" d="M405.9,315.0 l-2.0,3.4 M410,313.0 l0,4.1 M414.1,315.0 l2.0,3.4"></path><path class="ln" pathLength="1" d="M416.1,301.4 L420.9,301.4 L419.5,292.6 L417.5,292.6 Z"></path><path class="ln" pathLength="1" d="M403.9,343.6 l-2.7,9.5 l6.1,2.0 Z"></path><text x="410" y="280.6" class="ht">305 ft</text><text x="410" y="524.0" class="nm">Statue of</text><text x="410" y="540.0" class="nm">Liberty</text></g><g class="it" style="--d: 0.72s"><path class="ln" pathLength="1" d="M465.95,500.0 L723,190.6 L980.05,500.0 Z"></path><path class="ln faint" pathLength="1" d="M533.7434065934066,418.4 L912.2565934065934,418.4"></path><path class="ln faint" pathLength="1" d="M601.5368131868132,336.8 L844.4631868131868,336.8"></path><path class="ln faint" pathLength="1" d="M663.6807692307692,262.0 L782.3192307692308,262.0"></path><text x="723" y="178.6" class="ht">455 ft</text><text x="723" y="524.0" class="nm">Great Pyramid</text><text x="723" y="540.0" class="nm">of Giza</text></g></svg></div>
+<div class="media"><div class="slot"><span class="ph">[WET DRESS IMAGE]</span></div><div class="ref mono">RISE launch wet dress</div></div>
 </div>
 </section>
 
@@ -464,7 +561,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { menuOpen: false, joined: false, spot: 0, livery: 0, room: 0, spa: 0 };
+    this.state = { menuOpen: false, joined: false, spot: 0, livery: 0, cmode: 0, cfeat: 0, cstop: 0, cmoving: false, chint: true };
     this.root = null;
     this.setRoot = (el) => { this.root = el; };
     this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
@@ -472,9 +569,22 @@ class Component extends DCLogic {
     this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
     this.pickSpot = (i) => () => this.setState({ spot: i });
     this.pickLivery = (i) => () => this.setState({ livery: i });
-    this.pickRoom = (i) => () => this.setState({ room: i });
-    this.spaPrev = () => this.setState({ spa: (this.state.spa + 2) % 3 });
-    this.spaNext = () => this.setState({ spa: (this.state.spa + 1) % 3 });
+    this.pickMode = (i) => () => this.setState({ cmode: i });
+    // cabin explorer: three viewpoints along the rotating cabin video, each with its own points
+    this.cabStops = [0.05, 2.6, 3.6];
+    this.cabFeats = [
+      { stop: 0, short: 'Lounge', kicker: 'Standard cabin', title: 'The lounge', body: 'Comfortably seats 8 passengers and a captain in a relaxed environment wrapped in 360 degree panoramic views.', x: 41, y: 57 },
+      { stop: 0, short: 'Space Spa', kicker: 'Behind the gray door', title: 'The Space Spa', body: 'A luxurious restroom with the best view in our solar system.', x: 55, y: 40 },
+      { stop: 0, short: 'Flight readout', kicker: 'Overhead', title: 'Your flight, live', body: 'The readout above shows details about the flight as it happens: altitude, distance and where you are flying over.', x: 50, y: 7 },
+      { stop: 0, short: 'Plants', kicker: 'Living cabin', title: 'We bring Earth with us', body: 'Living plants and fragrant herbs fill the cabin with a little of the planet you are looking down on.', x: 84, y: 69 },
+      { stop: 1, short: 'Captain', kicker: 'At the helm', title: 'The captain', body: 'The captain sits behind the bar, next to the telescope.', x: 55, y: 49 },
+      { stop: 1, short: 'Refreshments bar', kicker: 'Refreshments', title: 'The refreshments bar', body: 'A refreshments bar and a world-class culinary program, on every flight.', x: 46, y: 72 },
+      { stop: 2, short: 'WiFi', kicker: 'Connected', title: 'Share it as it happens', body: 'WiFi for live streaming and posting on every flight, with information systems and customized playlists to create the mood.', x: 30, y: 34 },
+      { stop: 2, short: 'Ambiance', kicker: 'Light and sound', title: 'The perfect ambiance', body: 'Dynamic lighting changes throughout the flight to optimize the view, and high-end sound systems create the perfect mood.', x: 64, y: 12 }
+    ];
+    this.pickFeat = (i) => () => { const f = this.cabFeats[i]; this.setState({ cfeat: i }); if (f.stop !== this.state.cstop) this.cabGo(f.stop); };
+    this.cabPrev = () => this.cabGo((this.state.cstop + this.cabStops.length - 1) % this.cabStops.length, true);
+    this.cabNext = () => this.cabGo((this.state.cstop + 1) % this.cabStops.length, true);
   }
 
   componentDidMount() {
@@ -501,7 +611,7 @@ class Component extends DCLogic {
     };
     this.win.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     this.onScroll();
-
+    this.cabMount();
   }
 
   componentDidUpdate() { this.playLoops(); if (this.pageUpdate) this.pageUpdate(); }
@@ -536,6 +646,64 @@ class Component extends DCLogic {
     this.win.requestAnimationFrame(step);
   }
 
+  cabVideo() { return this.root ? this.root.querySelector('[data-cabv]') : null; }
+
+  // turn the cabin to a viewpoint; when pickFirst is set, select that viewpoint's first point
+  cabGo(stop, pickFirst) {
+    const v = this.cabVideo(); const target = this.cabStops[stop];
+    const first = this.cabFeats.findIndex((f) => f.stop === stop);
+    const next = { cstop: stop, chint: false };
+    if (pickFirst || (this.cabFeats[this.state.cfeat] || {}).stop !== stop) next.cfeat = first;
+    if (!v || !(v.readyState >= 1)) { this.setState(next); return; }
+    if (this.cabAnim) this.win.cancelAnimationFrame(this.cabAnim);
+    const from = v.currentTime; const t0 = performance.now(); const dur = Math.min(900, 250 + Math.abs(target - from) * 320);
+    this.setState({ cmoving: true });
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / dur); const e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+      try { v.currentTime = from + (target - from) * e; } catch (err) {}
+      if (k < 1) this.cabAnim = this.win.requestAnimationFrame(step);
+      else { this.cabAnim = null; this.setState({ ...next, cmoving: false }); }
+    };
+    this.cabAnim = this.win.requestAnimationFrame(step);
+  }
+
+  cabMount() {
+    const stage = this.root && this.root.querySelector('[data-cabstage]'); const v = this.cabVideo();
+    if (!stage || !v) return;
+    v.muted = true; v.playsInline = true; v.pause();
+    const setT = () => { try { if (v.currentTime < 0.04) v.currentTime = this.cabStops[this.state.cstop]; } catch (e) {} };
+    if (v.readyState >= 1) setT(); else v.addEventListener('loadedmetadata', setT, { once: true });
+    let drag = null; let raf = null; let want = null;
+    const apply = () => { raf = null; if (want != null) { try { v.currentTime = want; } catch (e) {} } };
+    stage.addEventListener('pointerdown', (e) => {
+      if (e.button > 0 || (e.target.closest && e.target.closest('button'))) return;
+      if (this.cabAnim) { this.win.cancelAnimationFrame(this.cabAnim); this.cabAnim = null; }
+      drag = { x: e.clientX, y: e.clientY, t: v.currentTime, w: stage.clientWidth || 1, moved: false, id: e.pointerId };
+    });
+    this.win.addEventListener('pointermove', (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.moved) {
+        if (Math.abs(dx) < 6) return;
+        if (Math.abs(e.clientY - drag.y) > Math.abs(dx)) { drag = null; return; }   // a vertical swipe scrolls the page
+        drag.moved = true; this.setState({ cmoving: true, chint: false });
+        try { stage.setPointerCapture(drag.id); } catch (err) {}
+      }
+      const d = v.duration || 4.04;
+      want = Math.max(0, Math.min(d - 0.05, drag.t - dx / drag.w * d * 1.1));
+      if (!raf) raf = this.win.requestAnimationFrame(apply);
+    });
+    const end = () => {
+      if (!drag) return; const moved = drag.moved; drag = null;
+      if (!moved) return;
+      const t = v.currentTime; let best = 0;
+      this.cabStops.forEach((s, i) => { if (Math.abs(s - t) < Math.abs(this.cabStops[best] - t)) best = i; });
+      this.cabGo(best);
+    };
+    this.win.addEventListener('pointerup', end);
+    this.win.addEventListener('pointercancel', end);
+  }
+
   renderVals() {
     return {
       setRoot: this.setRoot,
@@ -554,25 +722,29 @@ class Component extends DCLogic {
       notJoined: !this.state.joined,
       join: this.join,
       spots: [
-        { short: 'Windows', kicker: '5.25 ft × 2 ft', title: 'The largest windows ever flown to space', body: 'Each window measures 5.25 by 2 feet, wrapping the cabin in 340° panoramic views of the Earth below.', chips: ['5.25 × 2 ft', '340° views'], x: 50, y: 40 },
-        { short: 'Cabin', kicker: '16 ft diameter', title: 'The largest-volume capsule ever flown', body: 'A spacious 16 ft cabin with 2,144 cubic feet of room for eight passengers and a captain.', chips: ['2,144 cu ft', '8 + captain'], x: 74, y: 22 },
-        { short: 'Comfort', kicker: 'Life support', title: 'Built for total passenger comfort', body: 'Environmental control systems keep the cabin comfortable from lift-off to splashdown.', chips: ['Environmental control', 'Lift-off to splashdown'], x: 26, y: 62 },
-        { short: 'Standards', kicker: 'FAA · NASA', title: 'Designed to rigorous standards', body: 'The spaceship is designed, built and operated to rigorous FAA and NASA standards.', chips: ['FAA', 'NASA'], x: 58, y: 82 },
-        { short: 'Lift', kicker: 'Space Balloon', title: 'Lifted gently, no rocket', body: 'A Space Balloon carries the spaceship to space at cycling speed, with no high g-forces. The spaceflight is carbon neutral.', chips: ['No rocket', 'Carbon neutral'], x: 50, y: 5 }
+        { short: 'Space Balloon', kicker: 'Lift', title: 'Carried by a Space Balloon', body: 'A Space Balloon carries the spaceship to space at cycling speed, with no high g-forces and Earth’s gravity the entire flight. The spaceflight is carbon neutral.', chips: ['Cycling speed', 'Earth’s gravity', 'Carbon neutral'], x: 50, y: -24 },
+        { short: 'Reserve Descent', kicker: 'Redundancy', title: 'Reserve Descent System', body: 'Redundant parachutes can safely land the spaceship anywhere from any altitude.', chips: ['Redundant parachutes', 'Any altitude'], x: 50, y: 5 },
+        { short: 'Comfort', kicker: 'Life support', title: 'Built for total passenger comfort', body: 'Environmental control systems keep the cabin comfortable from liftoff to splashdown.', chips: ['Environmental control', 'Liftoff to splashdown'], x: 30, y: 14 },
+        { short: 'Windows', kicker: '5.25 ft × 2 ft', title: 'The largest windows ever flown to space', body: 'Each window measures 5.25 by 2 feet, wrapping the cabin in 360° panoramic views of the Earth below.', chips: ['5.25 × 2 ft', '360° views'], x: 50, y: 38 },
+        { short: 'Cabin', kicker: '16 ft diameter', title: 'The largest-volume capsule ever flown', body: 'A spacious 16 ft diameter cabin with 2,144 ft³ of pressurized interior for eight passengers and a captain.', chips: ['2,144 ft³', '8 + captain'], x: 75, y: 26 },
+        { short: 'Standards', kicker: 'FAA · NASA', title: 'Regulated and built to rigorous standards', body: 'The spaceship is regulated by FAA’s Commercial Space Transportation, and designed, built and operated to rigorous NASA standards.', chips: ['FAA Commercial Space Transportation', 'NASA standards'], x: 26, y: 62 },
+        { short: 'Splashcone', kicker: 'Splashdown', title: 'Splashcone for a gentle touchdown', body: 'The proprietary cone attenuates the splashdown, creating a slow and comfortable landing.', chips: ['Proprietary design', 'Soft splashdown'], x: 58, y: 84 },
+        { short: 'Silence', kicker: 'Quiet', title: 'Silence', body: 'There is no sound from the graceful liftoff and throughout the flight, creating the calm space to soak in the view.', chips: ['No engine noise', 'Liftoff to splashdown'], x: 106, y: 46 }
       ].map((s, i) => ({ ...s, x: s.x + '%', y: s.y + '%', on: i === this.state.spot, pick: this.pickSpot(i) })),
       spotNum: '0' + (this.state.spot + 1),
-      liveries: ['Signature livery', 'Night lighting'].map((label, i) => ({ label, on: i === this.state.livery, pick: this.pickLivery(i) })),
-      sigOn: this.state.livery === 0,
-      nightOn: this.state.livery === 1,
-      rooms: ['Lounge', 'Dining', 'Space Spa', 'Connected'].map((label, i) => ({ label, on: i === this.state.room, pick: this.pickRoom(i) })),
-      room0: this.state.room === 0, room1: this.state.room === 1, room2: this.state.room === 2, room3: this.state.room === 3,
-      spa: [
-        { src: 'assets/spa.jpg', alt: 'The Space Spa with a window to space' },
-        { src: 'assets/spa-2.jpg', alt: 'The Space Spa vanity' },
-        { src: 'assets/spa-3.jpg', alt: 'The Space Spa interior' }
-      ].map((g, i) => ({ ...g, on: i === this.state.spa })),
-      spaPrev: this.spaPrev,
-      spaNext: this.spaNext,
+      modes: ['Standard cabin', 'Custom interiors'].map((label, i) => ({ label, on: i === this.state.cmode, pick: this.pickMode(i) })),
+      modeStd: this.state.cmode === 0,
+      modeCustom: this.state.cmode === 1,
+      feats: this.cabFeats.map((f, i) => ({ ...f, x: f.x + '%', y: f.y + '%', on: i === this.state.cfeat, show: f.stop === this.state.cstop && !this.state.cmoving, pick: this.pickFeat(i) })),
+      featNum: '0' + (this.state.cfeat + 1),
+      cabMoving: this.state.cmoving,
+      cabHint: this.state.chint,
+      cabPrev: this.cabPrev,
+      cabNext: this.cabNext,
+      liveries: ['Signature livery', 'Night lighting', 'Your mark here'].map((label, i) => ({ label, on: i === this.state.livery, pick: this.pickLivery(i) })),
+      liv0: this.state.livery === 0,
+      liv1: this.state.livery === 1,
+      liv2: this.state.livery === 2,
     };
   }
 }

@@ -443,7 +443,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="nav-link is-soon" aria-disabled="true">{{ n.label }}<em>Soon</em></span></sc-if>
 </sc-for>
 </nav>
-<a class="nav-cta" href="#reserve"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="spaceflight.html#reserve"><i></i>Reserve a seat</a>
 <button class="nav-burger" type="button" aria-label="Menu" aria-controls="rs-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
 </header>
 <div class="sheet" id="rs-menu" data-open="{{ menuOpen }}">
@@ -452,14 +452,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" onClick="{{ closeMenu }}">{{ n.label }}</a></sc-if>
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="s">{{ n.label }} <small>Soon</small></span></sc-if>
 </sc-for>
-<a class="nav-cta" href="#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="spaceflight.html#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
 </div>
-
-<nav class="rs-rail" aria-label="Flight chapters">
-<sc-for list="{{ chapters }}" as="c" hint-placeholder-count="6">
-<a href="#{{ c.id }}" data-ch="{{ c.id }}"><span>{{ c.n }} · {{ c.label }}</span><b></b></a>
-</sc-for>
-</nav>
 
 <audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
 <button class="snd" type="button" data-audio-btn="" onClick="{{ toggleSound }}" aria-label="{{ soundLabel }}" aria-pressed="{{ soundOff }}">
@@ -473,7 +467,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </sc-if>
 </button>
 
-<!-- 01 OPENING: VIEW FROM THE CABIN -->
+<!-- HERO -->
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100vh; height: 100svh">
 <div class="stage">
 <video data-loop="" src="assets/home-banner.mp4" poster="assets/home-banner-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
@@ -484,44 +478,6 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 <div class="tag br"><span>Video captured during RISE spaceflight</span></div>
 <div class="cue"><span class="mono">Scroll to begin</span><i></i></div>
-</div>
-</section>
-
-<!-- 02 HANGAR TO HARBOR -->
-<section id="port" class="scene" data-scene="port" data-vars="open:.12,.22;wipe:.36,.48" style="height: 640vh">
-<div class="stage">
-<div class="layer hlayer" data-range="-1,.5"><video data-scrub="" data-map="0:0,.03:0,.2:3.1,.4:14.5" data-a="0" data-b="1" data-t0="0" data-t1="14.5" src="assets/hangar.mp4" poster="assets/hangar-poster.jpg" preload="auto" muted="" playsinline=""></video><div class="shade"></div></div>
-<div class="layer wipe" data-range=".34,.76"><video data-scrub="" data-a=".36" data-b=".76" data-t0="0" data-t1="7.9" src="assets/deck.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="layer" data-range=".76,2"><video data-scrub="" data-a=".76" data-b="1" data-t0="0" data-t1="9.4" src="assets/port.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="seam l"></div><div class="seam r"></div>
-<div class="shade side"></div>
-<div class="brk"><i></i><i></i><i></i><i></i></div>
-<div class="tag tl"><span class="live">Rec</span><span>Chapter 02 · Hangar to harbor</span></div>
-<div class="cap" data-range=".08,.2">
-<div class="mono">02 · The hangar</div>
-<h2>Built, tested and flying.</h2>
-<p>Before every flight, the spaceship waits here. The doors open, and the journey begins.</p>
-</div>
-<div class="cap" data-range=".23,.35">
-<div class="mono">02 · The spaceship</div>
-<h2>The largest windows ever flown to space.</h2>
-<p>Eight passengers and a captain, with 340° views of the Earth below.</p>
-</div>
-<div class="cap" data-range=".5,.72">
-<div class="mono">02 · Load-in</div>
-<h2>The spaceship goes to sea.</h2>
-<p>At port, the spaceship is lowered onto the deck of our launch vessel. The ship becomes the spaceport: every RISE flight lifts off from the open ocean.</p>
-</div>
-<div class="cap" data-range=".78,.9">
-<div class="mono">02 · Departure</div>
-<h2>The harbor sees you off.</h2>
-<p>Fireboat salutes, families on the pier, and the ship turning toward the horizon with you aboard.</p>
-</div>
-<div class="cap" data-range=".92,2">
-<div class="mono">02 · Marine spaceport</div>
-<h2>Next stop: open water.</h2>
-</div>
-<div class="scrollbar"><i></i></div>
 </div>
 </section>
 
@@ -539,7 +495,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- 03 LAUNCH -->
+<!-- LAUNCH -->
 <section id="launch" class="scene" data-scene="launch" style="height: 440vh">
 <div class="stage">
 <div class="layer" data-range="-1,.6"><video data-scrub="" data-a="0" data-b=".6" data-t0="0" data-t1="15.3" src="assets/launch.mp4" preload="auto" muted="" playsinline=""></video></div>
@@ -547,100 +503,23 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="shade side"></div>
 <div class="brk"><i></i><i></i><i></i><i></i></div>
 <div class="panel" data-range="-1,.62">
-<div class="row"><span class="mono">Launch sequence</span><span class="mono gold">03</span></div>
+<div class="row"><span class="mono">Launch sequence</span><span class="mono gold">T–0</span></div>
 <div class="count" data-count=""></div>
 <sc-for list="{{ checklist }}" as="item" hint-placeholder-count="4">
 <div class="chk" data-at="{{ item.at }}"><i></i><span>{{ item.t }}</span><em>Go</em></div>
 </sc-for>
 </div>
 <div class="cap right" data-range=".46,.78">
-<div class="mono">03 · Gentle launch</div>
+<div class="mono">Gentle launch</div>
 <h2>A smooth and safe spaceflight under a Space Balloon.</h2>
 <p>Hours in space to soak it all in, on a carbon-neutral spaceship.</p>
 </div>
 <div class="tag br"><span>Video captured during RISE spaceflight</span></div>
 <div class="cap right" data-range=".8,2">
-<div class="mono">03 · Liftoff</div>
+<div class="mono">Liftoff</div>
 <h2>Float up to space at cycling speed.</h2>
 </div>
 <div class="scrollbar"><i></i></div>
-</div>
-</section>
-
-<!-- 04 ASCENT -->
-<section id="ascent" class="scene" data-scene="ascent" data-glide=".55" style="height: 820vh">
-<div class="stage">
-<div class="media"><video data-scrub="" data-alt="" data-a="0" data-b=".94" data-t0="0.4" data-t1="23.2" src="assets/ascent.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="sky"></div>
-<div class="tag tl" style="left: auto; right: calc(var(--gut) + 40px)"><span class="live">Flight footage</span><span>04 · Ascent</span></div>
-<div class="alti" aria-hidden="true">
-<div class="track"></div>
-<div class="oz"></div>
-<div class="fill"></div>
-<sc-for list="{{ ticks }}" as="t" hint-placeholder-count="6">
-<div class="tick" style="bottom: {{ t.pos }}">{{ t.label }}</div>
-</sc-for>
-<sc-for list="{{ marks }}" as="m" hint-placeholder-count="4">
-<div class="mk" style="bottom: {{ m.pos }}; left: 64px">{{ m.label }}</div>
-</sc-for>
-<div class="ind"></div>
-</div>
-<sc-for list="{{ layers }}" as="l" hint-placeholder-count="7">
-<div class="lcard" data-alt-range="{{ l.range }}">
-<span class="n">{{ l.n }} / 07 · {{ l.alt }}</span>
-<span class="mono">{{ l.name }}</span>
-<h3>{{ l.title }}</h3>
-<p>{{ l.body }}</p>
-</div>
-</sc-for>
-<div class="tele" role="group" aria-label="Live flight telemetry">
-<div><span class="k">Altitude</span><span class="v big" data-tel="ft"></span></div>
-<div><span class="k">Kilometres</span><span class="v" data-tel="km"></span></div>
-<div><span class="k">Outside air</span><span class="v" data-tel="temp"></span></div>
-<div><span class="k">Air above you</span><span class="v" data-tel="air"></span></div>
-</div>
-<div class="scrollbar"><i></i></div>
-</div>
-</section>
-
-<!-- 05 APOGEE -->
-<section id="apogee" class="scene pscene" data-scene="apogee" data-vars="win:0,.22" style="height: 460vh">
-<div class="stage">
-<div class="porthole">
-<div class="media"><video data-scrub="" data-a="0" data-b="1" data-t0="0" data-t1="21.8" src="assets/apogee.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="shade"></div>
-</div>
-<div class="ring"></div>
-<div class="ring-label mono">Viewport · 5.25 ft × 2 ft</div>
-<div class="ring-label b mono">Keep scrolling</div>
-<div class="brk"><i></i><i></i><i></i><i></i></div>
-<div class="tag br"><span>Video captured during RISE spaceship flight</span></div>
-<div class="cap" data-range=".26,.58">
-<div class="mono">05 · Apogee · 100,000 ft</div>
-<h2>Hours in space.</h2>
-<p>The curve of the Earth fills the largest windows ever flown to space, and there is no rush to leave.</p>
-</div>
-<div class="cap" data-range=".64,2">
-<div class="mono">05 · The overview effect</div>
-<h2>See Earth whole.</h2>
-<p>Astronauts describe a lasting shift in perspective that comes from seeing our planet as one thin, bright world in the dark. This is the view that does it.</p>
-</div>
-<div class="scrollbar"><i></i></div>
-</div>
-</section>
-
-<!-- BANNER -->
-<section class="banner" aria-label="The view">
-<video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
-<div class="shade"></div>
-<div class="say"><p>The profound experience of seeing Earth in the infinity of the cosmos.</p></div>
-</section>
-
-<!-- QUOTES -->
-<section class="quotes" aria-label="What people say about seeing Earth from space">
-<div class="qtrack">
-<sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for>
-<div class="dup" aria-hidden="true"><sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for></div>
 </div>
 </section>
 
@@ -671,24 +550,18 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- 06 RETURN -->
-<section id="return" class="scene" data-scene="return" style="height: 420vh">
-<div class="stage">
-<div class="layer" data-range="-1,.46"><video data-scrub="" data-a="0" data-b=".46" data-t0="0" data-t1="7.1" src="assets/descent.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="layer" data-range=".46,2"><video data-scrub="" data-a=".46" data-b="1" data-t0="0" data-t1="9.5" src="assets/splash.mp4" preload="auto" muted="" playsinline=""></video></div>
+<!-- BANNER -->
+<section class="banner" aria-label="The view">
+<video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
 <div class="shade"></div>
-<div class="brk"><i></i><i></i><i></i><i></i></div>
-<div class="cap" data-range=".06,.42">
-<div class="mono">06 · Descent</div>
-<h2>As gently as it took you up.</h2>
-<p>The Space Balloon brings the spaceship back down slowly and smoothly, with the view the whole way.</p>
-</div>
-<div class="cap" data-range=".54,2">
-<div class="mono">06 · Splashdown</div>
-<h2>Welcome home.</h2>
-<p>Disembark on the ship's deck and carry your journey with you for a lifetime.</p>
-</div>
-<div class="scrollbar"><i></i></div>
+<div class="say"><p>The profound experience of seeing Earth in the infinity of the cosmos.</p></div>
+</section>
+
+<!-- QUOTES -->
+<section class="quotes" aria-label="What people say about seeing Earth from space">
+<div class="qtrack">
+<sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for>
+<div class="dup" aria-hidden="true"><sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for></div>
 </div>
 </section>
 
@@ -705,63 +578,12 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </article>
 <article class="card">
 <div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div>
-<div class="body"><span class="mono">For events &amp; brands</span><h3>Space Venue</h3><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p><a class="btn" href="#reserve">Enquire about your event</a></div>
+<div class="body"><span class="mono">For events &amp; brands</span><h3>Space Venue</h3><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p><a class="btn" href="space-venue.html">Enquire about your event</a></div>
 </article>
 <article class="card">
 <div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div>
-<div class="body"><span class="mono">For institutions</span><h3>Research &amp; Government</h3><p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p><a class="btn" href="#reserve">Talk to our team</a></div>
+<div class="body"><span class="mono">For institutions</span><h3>Research &amp; Government</h3><p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p><a class="btn" href="space-programs.html">Talk to our team</a></div>
 </article>
-</div>
-<div class="split" style="margin-top: 20px">
-<div class="shot"><video data-loop="" src="assets/venue.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
-<div class="feat">
-<span class="mono gold" style="margin-bottom: 18px">Space Venue</span>
-<h3>Special moments, broadcast to the world.</h3>
-<p style="font-size: 16px; line-height: 1.6; color: #A3A8B1; margin-bottom: 26px">The cabin is a blank page. If you have something in mind, a broadcast, a gathering, an experiment, a moment that matters, we will work out how to make it happen.</p>
-<div class="chips"><span>Global broadcasts</span><span>Weddings</span><span>Dining</span><span>Wellness</span><span>Private gatherings</span><span>Research</span></div>
-<div class="btns"><a class="btn" href="#reserve">Tell us your idea</a></div>
-</div>
-</div>
-</section>
-
-<!-- ABOUT / RECORD -->
-<section id="about" class="sec" aria-label="About RISE" style="padding-top: 40px">
-<div class="sec-head">
-<div><div class="mono">Flight proven</div><h2>Not a concept. A flight program.</h2></div>
-<p>RISE is built, flying and backed by investors. The team behind it has set records, created industries and made history in human spaceflight.</p>
-</div>
-<div class="recbar">
-<div><div class="num">2024</div><p>Successful demonstration flight of the fully operational spaceship</p></div>
-<div><div class="num"><span class="ph">[FLIGHTS FLOWN]</span></div><p>Successful RISE flights to date</p></div>
-<div><div class="num">100+</div><p>Space Balloon flights flown by team members</p></div>
-<div><div class="num"><span class="ph">[NEXT WINDOW]</span></div><p>Next passenger launch window</p></div>
-</div>
-<div class="records">
-<sc-for list="{{ records }}" as="r" hint-placeholder-count="8">
-<article class="rec"><div class="ph-img"><img src="{{ r.img }}" alt="{{ r.alt }}" loading="lazy"></div><div class="t"><div class="num">{{ r.stat }}</div><h3>{{ r.title }}</h3></div></article>
-</sc-for>
-</div>
-</section>
-
-<!-- RESERVE -->
-<section id="reserve" class="sec" aria-label="Reserve a seat" style="padding-top: 40px">
-<div class="sec-head">
-<div><div class="mono">Plan your flight</div><h2>Your seat in space.</h2></div>
-<p>Seats are limited and allocated in order. Tell us how you'd like to fly and a RISE flight advisor will walk you through dates, preparation and what to expect.</p>
-</div>
-<div class="reserve">
-<div class="shot"><img src="assets/invite.jpg" alt="The RISE spaceship above the curve of the Earth"><div class="shade"></div><div class="say"><span class="mono gold">Seats from <span class="ph">[TICKET PRICE]</span></span><p style="margin-top: 16px">Some things you have to see for yourself.</p></div></div>
-<form class="form" onSubmit="{{ submit }}">
-<div class="field"><label for="rs-first">First name</label><input id="rs-first" type="text" autocomplete="given-name"></div>
-<div class="field"><label for="rs-last">Last name</label><input id="rs-last" type="text" autocomplete="family-name"></div>
-<div class="field"><label for="rs-email">Email</label><input id="rs-email" type="email" autocomplete="email"></div>
-<div class="field"><label for="rs-phone">Phone (optional)</label><input id="rs-phone" type="tel" autocomplete="tel"></div>
-<div class="field full"><label for="rs-how">How would you like to fly?</label><select id="rs-how"><option>A seat on a shared flight</option><option>The entire cabin, up to eight guests</option><option>A Space Venue event</option><option>A research or government program</option></select></div>
-<div class="field full"><label for="rs-when">Preferred timing</label><select id="rs-when"><option>As soon as possible</option><option>Within the next 12 months</option><option>In one to two years</option><option>I'm flexible</option></select></div>
-<label class="opt full" for="rs-news"><input id="rs-news" type="checkbox">Send me flight news, launch invitations and the moment seats open</label>
-<div class="full" style="display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center"><button class="btn solid" type="submit">Request your seat</button><span class="fine">Deposit: <span class="ph">[DEPOSIT TERMS]</span></span></div>
-<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}"><p class="full mono gold">Request received. A flight advisor will be in touch.</p></sc-if>
-</form>
 </div>
 </section>
 
@@ -791,7 +613,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <footer class="foot">
 <img src="assets/logo.png" alt="RISE Space">
 <nav aria-label="Footer">
-<a href="#port">The Flight</a><a href="#spaceship">Spaceship</a><a href="#venue">Space Venue</a><a href="#about">About</a><a href="#press">Media assets</a><a href="#reserve">Contact us</a>
+<a href="spaceflight.html">Spaceflight</a><a href="spaceship.html">Spaceship</a><a href="space-venue.html">Space Venue</a><a href="space-programs.html">Space Programs</a><a href="about.html">About</a><a href="#press">Media assets</a><a href="spaceflight.html#reserve">Contact us</a>
 </nav>
 <div class="social" aria-label="RISE on social media"><span class="mono">Follow the mission</span><a class="soc" href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener" aria-label="RISE on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"></path></svg></a><span class="soc todo" role="img" aria-label="RISE on LinkedIn (link coming soon)" title="LinkedIn: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Facebook (link coming soon)" title="Facebook: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.6c0-.85.2-1.3 1.5-1.3H17V2.2c-.3-.05-1.4-.2-2.6-.2C11.8 2 10 3.6 10 6.5v2H7.2v3.4H10V22h4V11.9h2.9l.45-3.4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Instagram (link coming soon)" title="Instagram: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"></circle></svg></span><span class="soc todo" role="img" aria-label="RISE on X (link coming soon)" title="X: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"></path></svg></span></div>
 <div class="legal"><span>© RISE 2026</span><a href="#{{ firstId }}">Privacy</a><a href="#{{ firstId }}">Terms</a></div>
