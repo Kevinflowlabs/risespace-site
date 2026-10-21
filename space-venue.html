@@ -475,6 +475,7 @@ class Component extends DCLogic {
       { key: 'spaceflight', label: 'Spaceflight', href: 'spaceflight.html' },
       { key: 'spaceship', label: 'Spaceship', href: 'spaceship.html' },
       { key: 'venue', label: 'Space Venue', href: 'space-venue.html' },
+      { key: 'programs', label: 'Space Programs', href: 'space-programs.html' },
       { key: 'about', label: 'About', href: 'about.html' },
       { key: 'shop', label: 'Shop', href: 'shop.html' }
     ].map((n) => ({ ...n, ready: true, soon: false, current: n.key === 'venue' ? 'page' : 'false' })),
@@ -485,7 +486,7 @@ class Component extends DCLogic {
       notJoined: !this.state.joined,
       join: this.join,
       occs: [
-        { label: 'Global broadcasts', img: 'assets/occ-broadcast.jpg', alt: 'A live DJ broadcast from the RISE cabin', body: 'Go live from space to audiences around the planet, with WiFi built for live streaming.' },
+        { label: 'Global broadcasts', img: 'assets/occ-broadcast-v2.jpg', alt: 'A live DJ broadcast from the RISE cabin', body: 'Go live from space to audiences around the planet, with WiFi built for live streaming.' },
         { label: 'Weddings', img: 'assets/v-wedding.jpg', alt: 'A wedding setting in the cabin above the Earth', body: 'Exchange vows with the curve of the Earth behind you and the people you love beside you.' },
         { label: 'Dining', img: 'assets/v-dining.jpg', alt: 'A dinner table set in the RISE cabin', body: 'A world-class culinary program, served at a table above the clouds.' },
         { label: 'Wellness', img: 'assets/occ-wellness.jpg', alt: 'A wellness setting in the cabin', body: 'Stillness, perspective and the quietest view there is.' },

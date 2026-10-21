@@ -12,7 +12,7 @@
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="preload" as="image" href="assets/earth.webp">
+<link rel="preload" as="image" href="assets/home-banner-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
@@ -362,6 +362,45 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .opt input{width:18px;height:18px;accent-color:#F7CC2E}
 .form .fine{font-size:13px;line-height:1.6;color:var(--mute)}
 @media (max-width:620px){.form{grid-template-columns:minmax(0,1fr)}}
+/* home video hero */
+.vhero .stage{background:#000}
+.vhero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vhero .vshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,7,12,.55) 0%,rgba(5,7,12,0) 24%,rgba(5,7,12,0) 48%,rgba(5,7,12,.82) 100%),linear-gradient(90deg,rgba(5,7,12,.45),rgba(5,7,12,0) 55%)}
+.vhead{position:absolute;z-index:5;left:var(--gut);right:var(--gut);bottom:clamp(90px,15vh,150px);max-width:min(860px,calc(100% - 2*var(--gut)));animation:rise 1.4s .3s cubic-bezier(.16,.8,.2,1) both}
+.vhead h1{font-family:var(--serif);font-weight:400;font-size:clamp(50px,7.4vw,128px);line-height:.92;letter-spacing:-.02em;text-wrap:balance}
+.vhead h1 em{font-style:italic;color:var(--gold)}
+.vhead p{margin-top:24px;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:rgba(242,239,233,.84);max-width:40ch}
+.vhero .cue{position:absolute;z-index:5;left:50%;bottom:clamp(20px,4vh,36px);transform:translateX(-50%)}
+.vhero .tag.br{bottom:calc(clamp(24px,4vh,40px) + 4px)}
+@media (max-width:760px){.vhero .cue{display:none}.vhero .tag.br{right:var(--gut);left:var(--gut);justify-content:flex-start;bottom:20px;font-size:9px}.vhead{bottom:64px}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.mref{position:absolute;right:var(--gut);bottom:clamp(28px,5vh,48px);z-index:1;color:rgba(242,239,233,.6);display:flex;align-items:center;gap:10px}
+.mref:before{content:"";width:18px;height:1px;background:var(--gold)}
+.shot .ref{position:absolute;left:18px;bottom:16px;z-index:1;color:rgba(242,239,233,.78);display:flex;align-items:center;gap:10px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.shot .ref:before{content:"";width:18px;height:1px;background:var(--gold)}
+.feat .sub{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#C9CDD4;max-width:40ch}
+/* quotes ticker */
+.quotes{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink);padding:clamp(30px,5vh,46px) 0}
+.quotes:before,.quotes:after{content:"";position:absolute;top:0;bottom:0;width:min(160px,14vw);z-index:1;pointer-events:none}
+.quotes:before{left:0;background:linear-gradient(90deg,var(--ink),rgba(10,13,20,0))}
+.quotes:after{right:0;background:linear-gradient(270deg,var(--ink),rgba(10,13,20,0))}
+.qtrack{display:flex;width:max-content;animation:qscroll 70s linear infinite}
+.quotes:hover .qtrack{animation-play-state:paused}
+.q{display:flex;align-items:baseline;gap:18px;padding:0 clamp(28px,3vw,48px);white-space:nowrap;border-right:1px solid var(--line)}
+.q p{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.2vw,34px);line-height:1.2;color:var(--bone)}
+.q p:before{content:"\201C";color:var(--gold)}
+.q p:after{content:"\201D";color:var(--gold)}
+.q span{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.q span b{font-weight:400;color:var(--gold)}
+.qtrack .dup{display:contents}
+@keyframes qscroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.qtrack{animation:none;flex-wrap:wrap;width:auto;row-gap:20px}.qtrack .dup{display:none}.q{white-space:normal}}
+.story{text-decoration:none}
+.story .play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(5,7,12,.45);border:1px solid rgba(242,239,233,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--bone);transition:transform .4s cubic-bezier(.16,.8,.2,1),background .3s,border-color .3s}
+.story .play svg{width:26px;height:26px;margin-left:4px}
+.story:hover .play,.story:focus-visible .play{transform:scale(1.08);background:var(--gold);border-color:var(--gold);color:#05070C}
+.story .more{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.story:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .news{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:18px}
 .story{position:relative;border:1px solid var(--line);background:var(--ink);overflow:hidden;color:var(--bone);display:flex;flex-direction:column}
 .story .img{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0b0f18}
@@ -435,40 +474,16 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </button>
 
 <!-- 01 OPENING: VIEW FROM THE CABIN -->
-<section id="opening" class="scene" data-scene="opening" data-vars="logo:.02,.12;line:.06,.24;label:.13,.22;earth:.2,.42;cam:.08,.85;thru:.42,.62;cap:.56,.92;dim:.93,1" style="height: 560vh">
-<div class="stage ostage">
-<div class="stars" aria-hidden="true"><i class="s1"></i><i class="s2"></i></div>
-<div class="ebox" aria-hidden="true">
-<img class="earth" src="assets/earth.webp" alt="">
-<div class="airglow"></div>
-<svg class="limb" viewBox="0 0 2261 1272" preserveAspectRatio="none">
-<defs>
-<filter id="rs-limb-haze" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="24"></feGaussianBlur></filter>
-<filter id="rs-limb-glow" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter>
-</defs>
-<g class="haze" filter="url(#rs-limb-haze)"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
-<g class="glow" filter="url(#rs-limb-glow)"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
-<g class="core"><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 0 -80 732.4"></path><path pathLength="1" d="M1108.9 522.4A3470.7 3470.7 0 0 1 2341 748.5"></path></g>
-</svg>
-</div>
-<div class="cabin" aria-hidden="true"><img src="assets/cabin-windows.webp" alt=""></div>
-<div class="alt-label mono">Space · 100,000 ft</div>
-<div class="cap-wrap">
-<div class="cap-inner">
-<img src="assets/balloon-capsule.webp" alt="The RISE Space Balloon lifting the spaceship">
-</div>
-</div>
-<div class="mark">
-<img src="assets/logo.png" alt="RISE Space">
-<div class="cue"><span class="mono">Scroll to begin</span><i></i></div>
-</div>
-<div class="o-head" data-range=".74,2">
-<div class="mono">RISE Space · Spaceflight</div>
+<section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100vh; height: 100svh">
+<div class="stage">
+<video data-loop="" src="assets/home-banner.mp4" poster="assets/home-banner-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
+<div class="vshade"></div>
+<div class="vhead">
 <h1>Some views change <em>everything.</em></h1>
 <p>Hours at 100,000 feet, aboard a spaceship lifted gently by a Space Balloon. No rocket. Just the view.</p>
 </div>
-<div class="ofade"></div>
-<div class="scrollbar"><i></i></div>
+<div class="tag br"><span>Video captured during RISE spaceflight</span></div>
+<div class="cue"><span class="mono">Scroll to begin</span><i></i></div>
 </div>
 </section>
 
@@ -513,13 +528,14 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <!-- STATEMENT -->
 <section class="statement" aria-label="Our mission">
 <div class="mbg" aria-hidden="true"><img src="assets/mission-edge.jpg" alt=""></div>
+<div class="mref mono">Captured during RISE spaceflight</div>
 <div class="mono gold">The mission</div>
 <p class="big" style="margin-top: 30px">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
-<p class="lede">We are opening space to more people than ever before, to have the profound experience of seeing Earth from space, gently, comfortably, and together.</p>
+<p class="lede">We are opening space to more people than ever before, to have the profound experience of seeing Earth in space… gently, comfortably, and together.</p>
 <div class="pillars">
 <div><span class="mono gold">No rocket</span><h3>Lifted by a Space Balloon.</h3><p>A smooth, gentle spaceflight with no high g-forces. NASA and our team have flown thousands of balloon missions.</p></div>
-<div><span class="mono gold">No rush</span><h3>Hours in space.</h3><p>Not minutes of weightless panic. Hours to look out, take it in, and share it with the people beside you.</p></div>
-<div><span class="mono gold">No footprint</span><h3>A carbon-neutral spaceflight.</h3><p>The spaceflight is carbon neutral, from lift-off at sea to splashdown.</p></div>
+<div><span class="mono gold">No rush</span><h3>Hours in space.</h3><p>Hours to look out, take it in, and share it with the people beside you.</p></div>
+<div><span class="mono gold">No footprint</span><h3>A carbon-neutral spaceflight.</h3><p>The spaceflight is carbon neutral, from liftoff at sea to splashdown.</p></div>
 </div>
 </section>
 
@@ -539,9 +555,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 <div class="cap right" data-range=".46,.78">
 <div class="mono">03 · Gentle launch</div>
-<h2>No rocket. No g-forces.</h2>
-<p>The Space Balloon lifts the spaceship gently off the deck of the marine spaceport, and the spaceflight is carbon neutral.</p>
+<h2>A smooth and safe spaceflight under a Space Balloon.</h2>
+<p>Hours in space to soak it all in, on a carbon-neutral spaceship.</p>
 </div>
+<div class="tag br"><span>Video captured during RISE spaceflight</span></div>
 <div class="cap right" data-range=".8,2">
 <div class="mono">03 · Liftoff</div>
 <h2>Float up to space at cycling speed.</h2>
@@ -619,14 +636,22 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="say"><p>The profound experience of seeing Earth in the infinity of the cosmos.</p></div>
 </section>
 
+<!-- QUOTES -->
+<section class="quotes" aria-label="What people say about seeing Earth from space">
+<div class="qtrack">
+<sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for>
+<div class="dup" aria-hidden="true"><sc-for list="{{ quotes }}" as="q" hint-placeholder-count="5"><figure class="q"><p>{{ q.text }}</p><span><b>{{ q.who }}</b> · {{ q.role }}</span></figure></sc-for></div>
+</div>
+</section>
+
 <!-- SPACESHIP -->
 <section id="spaceship" class="sec" aria-label="The spaceship">
 <div class="sec-head">
-<div><div class="mono">The Spaceship</div><h2>A smooth and safe spaceflight, without rockets.</h2></div>
-<p>Designed, built and operated to rigorous FAA and NASA standards. The spaceship is lifted by a Space Balloon: the safe way to space, flown thousands of times by NASA and our team.</p>
+<div><div class="mono">The Spaceship</div><h2>The largest capsule with the largest windows to go to space.</h2></div>
+<p>It has been built, tested and flown.</p>
 </div>
 <div class="split">
-<div class="shot"><video class="contain" data-loop="" src="assets/capsule.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
+<div class="shot"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><div class="ref mono">RISE spaceship</div></div>
 <div class="specs">
 <div class="spec"><div class="num">8 <small>+ captain</small></div><p>Passengers per flight, with room to move</p></div>
 <div class="spec"><div class="num">340°</div><p>Panoramic views from the cabin</p></div>
@@ -639,14 +664,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="split" style="margin-top: 20px">
 <div class="feat">
 <span class="mono gold" style="margin-bottom: 18px">Spaceship interior</span>
-<h3>A lounge in space.</h3>
-<ul class="list">
-<li><b>01</b><span>Seats up to eight passengers and a captain</span></li>
-<li><b>02</b><span>Refreshments bar and a world-class culinary program</span></li>
-<li><b>03</b><span>WiFi for live streaming and posting from space</span></li>
-<li><b>04</b><span>The Space Spa: a luxurious restroom with the best view in our solar system</span></li>
-<li><b>05</b><span>Interior configured around your occasion, with custom livery and exterior lighting</span></li>
-</ul>
+<h3>A lounge at the edge of space.</h3>
+<p class="sub">360-degree panoramic views, a refreshments bar and culinary program, and a Space Spa.</p>
 </div>
 <div class="shot"><video data-loop="" src="assets/interior.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
 </div>
@@ -682,10 +701,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="cards">
 <article class="card">
 <div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div>
-<div class="body"><span class="mono">For travelers</span><h3>Spaceflight Experience</h3><p>Hours in space, in a cabin built for looking out. Seats are limited and allocated in order.</p><a class="btn solid" href="#reserve">Claim your seat</a></div>
+<div class="body"><span class="mono">For travelers</span><h3>Spaceflight</h3><p>Hours to soak in the experience of seeing Earth in space in a spaceship made for the view.</p><a class="btn solid" href="spaceflight.html">Explore</a></div>
 </article>
 <article class="card">
-<div class="img"><img src="assets/occ-broadcast.jpg" alt="A live broadcast event inside the RISE cabin"></div>
+<div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div>
 <div class="body"><span class="mono">For events &amp; brands</span><h3>Space Venue</h3><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p><a class="btn" href="#reserve">Enquire about your event</a></div>
 </article>
 <article class="card">
@@ -753,8 +772,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <p>The latest from RISE as the spaceship moves toward passenger flights.</p>
 </div>
 <div class="news">
-<article class="story"><div class="img"><img src="assets/florida.jpg" alt="A Space Balloon above Florida" loading="lazy"></div><div class="t"><span class="mono">Update</span><h3>RISE lands in Florida</h3></div></article>
-<article class="story"><div class="img"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3></div></article>
+<a class="story" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The RISE spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
+<article class="story"><div class="img"><img src="assets/florida.jpg" alt="A Space Balloon above Florida" loading="lazy"></div><div class="t"><span class="mono">Announcement</span><h3>RISE acquires Space Perspective</h3></div></article>
 </div>
 </section>
 
@@ -1150,6 +1169,7 @@ class Component extends DCLogic {
         { key: 'spaceflight', label: 'Spaceflight', href: 'spaceflight.html', ready: true },
         { key: 'spaceship', label: 'Spaceship', href: 'spaceship.html', ready: true },
         { key: 'venue', label: 'Space Venue', href: 'space-venue.html', ready: true },
+        { key: 'programs', label: 'Space Programs', href: 'space-programs.html', ready: true },
         { key: 'about', label: 'About', href: 'about.html', ready: true },
         { key: 'shop', label: 'Shop', href: 'shop.html', ready: true }
       ].map((n) => ({ ...n, soon: !n.ready, current: 'false' })),
@@ -1160,6 +1180,13 @@ class Component extends DCLogic {
       soundOn: this.state.soundOn,
       soundOff: !this.state.soundOn,
       playing: !!this.state.playing,      soundLabel: this.state.soundOn ? 'Mute background music' : 'Turn background music on',
+      quotes: [
+        { text: 'Everybody in the world needs to see this.', who: 'William Shatner', role: 'Actor' },
+        { text: 'When I first looked back at the Earth… I cried.', who: 'Alan Shepard', role: 'Apollo Astronaut' },
+        { text: 'I will never be the same.', who: 'Aisha Bowe', role: 'Rocket Scientist' },
+        { text: 'Heart stopping. Soul pounding. Breathtaking.', who: 'T.J. Creamer', role: 'NASA Astronaut' },
+        { text: 'From here, Earth sure looks like a perfect world.', who: 'Jared Isaacman', role: 'NASA Administrator' }
+      ],
       chapters: [
         { id: 'opening', n: '01', label: 'Opening' },
         { id: 'port', n: '02', label: 'Hangar' },

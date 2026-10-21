@@ -368,7 +368,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="cards">
 <article class="card" tabindex="0" data-reveal=""><img src="assets/card-flight.jpg" alt="Passengers at the windows of the RISE cabin"><div class="t"><span class="mono">The view</span><h3>340° of Earth</h3><p>Up to eight passengers and a captain in the most roomy spaceship ever flown to space, with astonishing panoramic views of Earth in space.</p></div><i class="line"></i></article>
 <article class="card" tabindex="0" data-reveal=""><img src="assets/dining-table.jpg" alt="A dining table set for four in the cabin, with Earth through the windows"><div class="t"><span class="mono">Dining</span><h3>A table above the clouds</h3><p>A refreshments bar and a world-class culinary program, with a full dining experience for select flights.</p></div><i class="line"></i></article>
-<article class="card" tabindex="0" data-reveal=""><img src="assets/occ-broadcast.jpg" alt="A live DJ broadcast from the RISE cabin" style="object-position: 58% 50%"><div class="t"><span class="mono">Live from space</span><h3>Share it as it happens</h3><p>WiFi for live streaming and posting on every flight so the people you love can see what you see. Global broadcasts of special events available.</p></div><i class="line"></i></article>
+<article class="card" tabindex="0" data-reveal=""><img src="assets/occ-broadcast-v2.jpg" alt="A live DJ broadcast from the RISE cabin" style="object-position: 58% 50%"><div class="t"><span class="mono">Live from space</span><h3>Share it as it happens</h3><p>WiFi for live streaming and posting on every flight so the people you love can see what you see. Global broadcasts of special events available.</p></div><i class="line"></i></article>
 <article class="card" tabindex="0" data-reveal=""><img src="assets/spa.jpg" alt="The Space Spa restroom with a window to space"><div class="t"><span class="mono">Space Spa</span><h3>The best view in the solar system</h3><p>A luxurious restroom with a window onto the curve of the Earth.</p></div><i class="line"></i></article>
 </div>
 </section>
@@ -546,7 +546,7 @@ class Component extends DCLogic {
     const base = [
       { short: 'Launch', kicker: 'Marine spaceport', title: 'Gentle launch', body: 'The Space Balloon lifts the spaceship softly off the deck of our launch vessel at sea. No rocket, no high g-forces, and the spaceflight is carbon neutral.', chips: ['Liftoff from the sea', 'No rocket', 'Carbon neutral'], dur: 'Hour 0', x: 40, y: 290, prog: 0, src: 'assets/liftoff.mp4', poster: 'assets/poster-liftoff.jpg' },
       { short: 'Ascent', kicker: 'Sea level to 100,000 ft', title: 'Smooth ascent', body: 'Float to space at cycling speed, rising gracefully into a sky that turns from blue to black.', chips: ['Cycling speed', 'Graceful rise', 'Blue turns to black'], dur: '~2 hours', x: 187.1, y: 171, prog: 0.176, src: 'assets/ascent.mp4', poster: 'assets/poster-ascent.jpg' },
-      { short: 'Apogee', kicker: 'Edge of space', title: 'Hours in space', body: 'The curve of the Earth fills the largest windows ever flown to space. Dine, stream live to the people you love, or simply take it all in.', chips: ['360° views', 'Refreshments bar', 'Live streaming'], dur: '~2 hours', x: 500, y: 52, prog: 0.5, src: 'assets/cabin-apogee.mp4', poster: 'assets/poster-cabin.jpg' },
+      { short: 'Apogee', kicker: 'The view from space', title: 'Hours in space', body: 'The curve of the Earth fills the largest windows ever flown to space. Dine, stream live to the people you love, or simply take it all in.', chips: ['360° views', 'Refreshments bar', 'Live streaming'], dur: '~2 hours', x: 500, y: 52, prog: 0.5, src: 'assets/cabin-apogee.mp4', poster: 'assets/poster-cabin.jpg' },
       { short: 'Descent', kicker: 'The way home', title: 'Gentle descent', body: 'The Space Balloon brings you back down as gently as it took you up, with the view the whole way.', chips: ['As gentle as the climb', 'The view the whole way'], dur: '~2 hours', x: 812.9, y: 171, prog: 0.824, src: 'assets/descent.mp4', poster: 'assets/poster-descent.jpg' },
       { short: 'Splashdown', kicker: 'Back on deck', title: 'Welcome Home', body: 'Disembark on the ship’s deck within 15 minutes from a soft splashdown and carry your journey with you for a lifetime.', chips: ['Safest landing', 'On deck in 15 minutes'], dur: 'Hour 6', x: 960, y: 290, prog: 1, src: 'assets/retrieval.mp4', poster: 'assets/retrieval-poster.jpg' }
     ];
@@ -563,6 +563,7 @@ class Component extends DCLogic {
       { key: 'spaceflight', label: 'Spaceflight', href: 'spaceflight.html', ready: true },
       { key: 'spaceship', label: 'Spaceship', href: 'spaceship.html', ready: true },
       { key: 'venue', label: 'Space Venue', href: 'space-venue.html', ready: true },
+        { key: 'programs', label: 'Space Programs', href: 'space-programs.html', ready: true },
       { key: 'about', label: 'About', href: 'about.html', ready: true },
       { key: 'shop', label: 'Shop', href: 'shop.html', ready: true }
     ].map((n) => ({ ...n, soon: !n.ready, current: n.key === 'spaceflight' ? 'page' : 'false' }));
