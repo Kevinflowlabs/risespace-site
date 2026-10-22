@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RISE Space: Together we rise</title>
+<title>RISE Space: A new kind of space platform</title>
 <meta name="description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta name="theme-color" content="#05070C">
 <meta property="og:type" content="website">
-<meta property="og:title" content="RISE Space: Together we rise">
+<meta property="og:title" content="RISE Space: A new kind of space platform">
 <meta property="og:description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="preload" as="image" href="assets/home-banner-poster.jpg">
+<link rel="preload" as="image" href="assets/flight-18b-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
@@ -272,7 +272,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* full-bleed banner */
 .banner{position:relative;height:88vh;min-height:520px;overflow:hidden}
-.banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner video,.banner > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banner .tag.bl{left:calc(var(--gut) + 2px);bottom:calc(clamp(24px,4vh,40px) + 4px)}
+.banner .say h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.4vw,92px);line-height:.98;letter-spacing:-.015em;max-width:18ch;text-wrap:balance}
+.banner .say h2 em{font-style:italic;color:var(--gold)}
 .banner .shade{background:linear-gradient(180deg,rgba(5,7,12,.7),rgba(5,7,12,.1) 30%,rgba(5,7,12,.2) 60%,rgba(5,7,12,.92))}
 .banner .say{position:absolute;left:var(--gut);right:var(--gut);bottom:12vh}
 .banner .say p{font-family:var(--serif);font-size:clamp(40px,5.4vw,92px);line-height:.98;letter-spacing:-.015em;max-width:18ch;text-wrap:balance}
@@ -319,6 +322,22 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .card h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.6vw,40px);line-height:1.02;margin-bottom:14px}
 .card p{font-size:15px;line-height:1.55;color:var(--dim);margin-bottom:26px}
 .card .btn{margin-top:auto;align-self:flex-start}
+a.card{text-decoration:none;color:var(--bone)}
+a.card .body{flex-direction:row;align-items:center;justify-content:space-between;gap:16px;border-top:2px solid var(--gold)}
+a.card h3{margin:0}
+a.card .go{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,233,.35);display:inline-flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,color .3s,transform .3s}
+a.card .go svg{width:18px;height:18px}
+a.card:hover .go,a.card:focus-visible .go{background:var(--gold);border-color:var(--gold);color:#05070C;transform:translateX(4px)}
+a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.statement .big.long{font-size:clamp(34px,4.6vw,78px);line-height:1.02;max-width:22ch;color:rgba(242,239,233,.7)}
+.statement .big.long b{font-weight:400;color:var(--bone)}
+.statement .lede.big2{font-family:var(--serif);font-size:clamp(24px,2.4vw,38px);line-height:1.15;color:var(--bone);max-width:26ch;margin-top:clamp(28px,4vh,44px);padding-top:26px;border-top:1px solid rgba(242,239,233,.22)}
+.statement .lede.big2 em{font-style:italic;color:var(--gold)}
+.shot.wide{position:relative;aspect-ratio:21/9;border:1px solid var(--line);overflow:hidden;background:#000}
+.shot.wide video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.shot.wide{aspect-ratio:4/3}}
+.sec-head .textlink{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(247,204,46,.45)}
+.sec-head .textlink:hover{border-color:var(--gold)}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .chips span{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:#C9CDD4}
 
@@ -455,7 +474,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <a class="nav-cta" href="spaceflight.html#reserve" onClick="{{ closeMenu }}"><i></i>Join Our Mission</a>
 </div>
 
-<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
+<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="none"></audio>
 <button class="snd" type="button" data-audio-btn="" onClick="{{ toggleSound }}" aria-label="{{ soundLabel }}" aria-pressed="{{ soundOff }}">
 <sc-if value="{{ soundOn }}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{ playing }}" hint-placeholder-val="{{ true }}"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></sc-if>
@@ -467,35 +486,48 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </sc-if>
 </button>
 
-<!-- HERO -->
+<!-- 1 HERO -->
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100vh; height: 100svh">
 <div class="stage">
-<video data-loop="" src="assets/home-banner.mp4" poster="assets/home-banner-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
+<video data-loop="" src="assets/flight-18b.mp4" poster="assets/flight-18b-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="vshade"></div>
 <div class="vhead">
-<h1>Some views change <em>everything.</em></h1>
-<p>Hours at 100,000 feet, aboard a spaceship lifted gently by a Space Balloon. No rocket. Just the view.</p>
+<h1>A new kind of <em>space platform</em></h1>
+<p>Transformative space tourism to research and government applications. Safe. Accessible, carbon neutral.</p>
 </div>
-<div class="tag br"><span>Video captured during RISE spaceflight</span></div>
+<div class="tag br"><span>RISE demonstration flight</span></div>
 <div class="cue"><span class="mono">Scroll to begin</span><i></i></div>
 </div>
 </section>
 
-<!-- STATEMENT -->
-<section class="statement" aria-label="Our mission">
-<div class="mbg" aria-hidden="true"><img src="assets/mission-edge.jpg" alt=""></div>
-<div class="mref mono">Captured during RISE spaceflight</div>
-<div class="mono gold">The mission</div>
-<p class="big" style="margin-top: 30px">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
-<p class="lede">We are opening space to more people than ever before, to have the profound experience of seeing Earth in space… gently, comfortably, and together.</p>
-<div class="pillars">
-<div><span class="mono gold">No rocket</span><h3>Lifted by a Space Balloon.</h3><p>A smooth, gentle spaceflight with no high g-forces. NASA and our team have flown thousands of balloon missions.</p></div>
-<div><span class="mono gold">No rush</span><h3>Hours in space.</h3><p>Hours to look out, take it in, and share it with the people beside you.</p></div>
-<div><span class="mono gold">No footprint</span><h3>A carbon-neutral spaceflight.</h3><p>The spaceflight is carbon neutral, from liftoff at sea to splashdown.</p></div>
+<!-- 2 FULLY DEMONSTRATED -->
+<section class="banner" aria-label="Fully demonstrated">
+<video data-loop="" src="assets/home2-hero.mp4" poster="assets/home2-hero-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
+<div class="shade"></div>
+<div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2></div>
+</section>
+
+<!-- 3 MISSIONS -->
+<section id="venue" class="sec" aria-label="One platform, many kinds of missions">
+<div class="sec-head">
+<div><h2>One platform, many kinds of missions:</h2></div>
+</div>
+<div class="cards">
+<a class="card" href="spaceflight.html"><div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div><div class="body"><h3>Spaceflight</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
+<a class="card" href="space-venue.html"><div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div><div class="body"><h3>Space Venue</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
+<a class="card" href="space-programs.html"><div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div><div class="body"><h3>Governments &amp; Research</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
 </div>
 </section>
 
-<!-- LAUNCH -->
+<!-- 4 OPENING SPACE -->
+<section class="statement" aria-label="Our mission">
+<div class="mbg" aria-hidden="true"><img src="assets/mission-limb.jpg" alt=""></div>
+<div class="mref mono">Captured during RISE spaceflight</div>
+<p class="big long"><b>We are opening space to more people than ever before,</b> to have the profound experience of seeing Earth in space… safely, comfortably, and together.</p>
+<p class="lede big2">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
+</section>
+
+<!-- 5 SMOOTH AND SAFE -->
 <section id="launch" class="scene" data-scene="launch" style="height: 440vh">
 <div class="stage">
 <div class="layer" data-range="-1,.6"><video data-scrub="" data-a="0" data-b=".6" data-t0="0" data-t1="15.3" src="assets/launch.mp4" preload="auto" muted="" playsinline=""></video></div>
@@ -509,52 +541,37 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="chk" data-at="{{ item.at }}"><i></i><span>{{ item.t }}</span><em>Go</em></div>
 </sc-for>
 </div>
-<div class="cap right" data-range=".46,.78">
-<div class="mono">Gentle launch</div>
-<h2>A smooth and safe spaceflight under a Space Balloon.</h2>
-<p>Hours in space to soak it all in, on a carbon-neutral spaceship.</p>
+<div class="cap right" data-range=".46,2">
+<h2>A smooth and safe spaceflight without rockets</h2>
+<p>A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
 </div>
 <div class="tag br"><span>Video captured during RISE spaceflight</span></div>
-<div class="cap right" data-range=".8,2">
-<div class="mono">Liftoff</div>
-<h2>Float up to space at cycling speed.</h2>
-</div>
-<div class="scrollbar"><i></i></div>
 </div>
 </section>
 
-<!-- SPACESHIP -->
+<!-- 6 INSIDE THE SPACESHIP -->
 <section id="spaceship" class="sec" aria-label="The spaceship">
 <div class="sec-head">
-<div><div class="mono">The Spaceship</div><h2>The largest capsule with the largest windows to go to space.</h2></div>
-<p>It has been built, tested and flown.</p>
+<div><h2>Inside a spaceship with the largest windows to go to space.</h2></div>
+<p>Designed, built and operated to FAA and NASA standards. <a class="textlink" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener">See our full spaceship demonstration flight video.</a></p>
 </div>
-<div class="split">
-<div class="shot"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><div class="ref mono">RISE spaceship</div></div>
-<div class="specs">
-<div class="spec"><div class="num">8 <small>+ captain</small></div><p>Passengers per flight, with room to move</p></div>
-<div class="spec"><div class="num">340°</div><p>Panoramic views from the cabin</p></div>
-<div class="spec"><div class="num">2,144 <small>cu ft</small></div><p>The largest-volume space capsule ever flown</p></div>
-<div class="spec"><div class="num">5.25 <small>× 2 ft</small></div><p>The largest windows ever flown to space</p></div>
-<div class="spec"><div class="num">16 <small>ft</small></div><p>Diameter of the spacious cabin</p></div>
-<div class="spec"><div class="num">FAA · NASA</div><p>Standards the spaceship is designed, built and operated to</p></div>
-</div>
-</div>
+<div class="shot wide"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><div class="ref mono">RISE spaceship</div></div>
+
+<!-- 7 LOUNGE -->
 <div class="split" style="margin-top: 20px">
 <div class="feat">
-<span class="mono gold" style="margin-bottom: 18px">Spaceship interior</span>
-<h3>A lounge at the edge of space.</h3>
-<p class="sub">360-degree panoramic views, a refreshments bar and culinary program, and a Space Spa.</p>
+<h3>In a lounge for hours in space</h3>
+<p class="sub">360-degree panoramic views, refreshments bar and culinary program, and a space spa.</p>
 </div>
-<div class="shot"><video data-loop="" src="assets/interior.mp4" autoplay="" loop="" muted="" playsinline=""></video></div>
+<div class="shot"><video data-loop="" src="assets/interior.mp4" poster="assets/interior-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video></div>
 </div>
 </section>
 
-<!-- BANNER -->
-<section class="banner" aria-label="The view">
-<video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
+<!-- 8 PROFOUND EXPERIENCE -->
+<section class="banner" aria-label="The profound experience">
+<img src="assets/overview-woman.jpg" alt="A passenger looking out at the Earth from the RISE cabin">
 <div class="shade"></div>
-<div class="say"><p>The profound experience of seeing Earth in the infinity of the cosmos.</p></div>
+<div class="say"><h2>For the profound experience of seeing Earth in the <em>infinite cosmos</em></h2></div>
 </section>
 
 <!-- QUOTES -->
@@ -565,33 +582,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- EXPERIENCES + VENUE -->
-<section id="venue" class="sec" aria-label="Experiences">
+<!-- 9 UPDATES -->
+<section id="updates" class="sec" aria-label="Updates on our missions">
 <div class="sec-head">
-<div><div class="mono">More than a flight</div><h2>One cabin. Every kind of occasion.</h2></div>
-<p>A flexible platform in space, configured around the moments worth marking, for one guest, a full cabin, or an audience of millions.</p>
-</div>
-<div class="cards">
-<article class="card">
-<div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div>
-<div class="body"><span class="mono">For travelers</span><h3>Spaceflight</h3><p>Hours to soak in the experience of seeing Earth in space in a spaceship made for the view.</p><a class="btn solid" href="spaceflight.html">Explore</a></div>
-</article>
-<article class="card">
-<div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div>
-<div class="body"><span class="mono">For events &amp; brands</span><h3>Space Venue</h3><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p><a class="btn" href="space-venue.html">Enquire about your event</a></div>
-</article>
-<article class="card">
-<div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div>
-<div class="body"><span class="mono">For institutions</span><h3>Research &amp; Government</h3><p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p><a class="btn" href="space-programs.html">Talk to our team</a></div>
-</article>
-</div>
-</section>
-
-<!-- UPDATES -->
-<section id="updates" class="sec" aria-label="Updates" style="padding-top: 0">
-<div class="sec-head">
-<div><div class="mono">Updates</div><h2>News from the program.</h2></div>
-<p>The latest from RISE as the spaceship moves toward passenger flights.</p>
+<div><h2>Updates on our missions</h2></div>
 </div>
 <div class="news">
 <a class="story" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The RISE spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
@@ -599,21 +593,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- PRESS -->
-<section id="press" class="sec" aria-label="Press" style="padding-top: 0">
-<div class="press">
-<div><div class="mono gold" style="margin-bottom: 22px">Newsroom</div><h2 class="serif" style="font-size: clamp(40px, 4.6vw, 76px); line-height: .95">For media.</h2></div>
-<div>
-<p style="font-size: 17px; line-height: 1.6; color: #A3A8B1; max-width: 46ch">Flight footage, stills, founder bios and mission facts from RISE flights are available for editorial use. Press inquiries: <span class="ph">[PRESS EMAIL]</span></p>
-<div class="btns"><a class="btn solid" href="#press">Download media assets</a><a class="btn" href="#press">Press inquiries</a></div>
-</div>
-</div>
-</section>
-
 <footer class="foot">
 <img src="assets/logo.png" alt="RISE Space">
 <nav aria-label="Footer">
-<a href="spaceflight.html">Spaceflight</a><a href="spaceship.html">Spaceship</a><a href="space-venue.html">Space Venue</a><a href="space-programs.html">Space Programs</a><a href="about.html">About</a><a href="#press">Media assets</a><a href="spaceflight.html#reserve">Contact us</a>
+<a href="spaceflight.html">Spaceflight</a><a href="spaceship.html">Spaceship</a><a href="space-venue.html">Space Venue</a><a href="space-programs.html">Space Programs</a><a href="about.html">About</a><a href="spaceflight.html#reserve">Contact us</a>
 </nav>
 <div class="social" aria-label="RISE on social media"><span class="mono">Follow the mission</span><a class="soc" href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener" aria-label="RISE on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"></path></svg></a><span class="soc todo" role="img" aria-label="RISE on LinkedIn (link coming soon)" title="LinkedIn: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Facebook (link coming soon)" title="Facebook: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.6c0-.85.2-1.3 1.5-1.3H17V2.2c-.3-.05-1.4-.2-2.6-.2C11.8 2 10 3.6 10 6.5v2H7.2v3.4H10V22h4V11.9h2.9l.45-3.4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Instagram (link coming soon)" title="Instagram: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"></circle></svg></span><span class="soc todo" role="img" aria-label="RISE on X (link coming soon)" title="X: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"></path></svg></span></div>
 <div class="legal"><span>© RISE 2026</span><a href="#{{ firstId }}">Privacy</a><a href="#{{ firstId }}">Terms</a></div>
@@ -638,10 +621,8 @@ class Component extends DCLogic {
     this.tick = this.tick.bind(this);
     this.unlock = this.unlock.bind(this);
     this.toggleSound = () => {
-      const a = this.audio; if (!a) return;
-      const keep = (v) => { try { this.win.localStorage.setItem('rise-sound', v); } catch (e) {} };
-      if (this.state.soundOn && !a.paused) { a.muted = true; this.setState({ soundOn: false }); keep('off'); try { this.win.sessionStorage.setItem('rise-sound-on', '0'); } catch (e) {} }
-      else { a.muted = false; this.fadeIn(); this.setState({ soundOn: true }); keep('on'); }
+      const P = this.snd; if (!P) return;
+      P.setOn(!(P.on && !P.a.paused));
     };
     this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
   }
@@ -675,25 +656,49 @@ class Component extends DCLogic {
     this.audioUnmount();
   }
 
-  // ---- Background music, the same track on every page. It starts on the visitor's first
-  // scroll (or the next tap or key, if the browser insists), remembers mute, and picks the
-  // track up where it left off when the visitor moves to another page.
+  // ---- Background music. One shared player for the whole site: every page's sound button
+  // controls the same track (a master mute), so the song can never play twice at once.
+  // It starts on the visitor's first scroll, remembers mute, and carries on between pages.
+  player() {
+    let host = this.win;
+    try { while (host.parent && host.parent !== host) { if (!host.parent.document) break; host = host.parent; } } catch (e) {}
+    if (!host.__riseSound) {
+      const el = this.root && this.root.querySelector('audio[data-bg]');
+      const a = new host.Audio(); a.src = el ? el.src : ''; a.loop = true; a.preload = 'auto'; a.volume = 0;
+      const P = { a, subs: [], on: true, armed: false, fadeT: null };
+      const ss = (k, v) => { try { if (v === undefined) return host.sessionStorage.getItem(k); host.sessionStorage.setItem(k, v); } catch (e) {} return null; };
+      try { if (host.localStorage.getItem('rise-sound') === 'off') P.on = false; } catch (e) {}
+      if (ss('rise-sound-on') === '1') P.armed = true;
+      a.addEventListener('loadedmetadata', () => { const t = parseFloat(ss('rise-sound-t')); if (t > 0 && t < (a.duration || Infinity)) { try { a.currentTime = t; } catch (e) {} } }, { once: true });
+      P.emit = () => P.subs.slice().forEach((f) => f());
+      a.addEventListener('playing', () => { ss('rise-sound-on', '1'); P.emit(); });
+      a.addEventListener('pause', P.emit);
+      const save = () => { if (!a.paused) ss('rise-sound-t', String(a.currentTime)); };
+      setInterval(save, 1000);
+      host.addEventListener('pagehide', save);
+      P.fadeIn = () => {
+        if (!P.on) return;
+        if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
+        clearInterval(P.fadeT);
+        P.fadeT = setInterval(() => { if (a.paused) return; a.volume = Math.min(0.39, a.volume + 0.03); if (a.volume >= 0.39) clearInterval(P.fadeT); }, 60);
+      };
+      P.setOn = (v) => {
+        P.on = v;
+        try { host.localStorage.setItem('rise-sound', v ? 'on' : 'off'); } catch (e) {}
+        if (v) { P.armed = true; P.fadeIn(); } else { clearInterval(P.fadeT); a.pause(); ss('rise-sound-on', '0'); }
+        P.emit();
+      };
+      host.__riseSound = P;
+    }
+    return host.__riseSound;
+  }
+
   audioMount() {
-    const a = this.root && this.root.querySelector('audio[data-bg]'); if (!a) return;
-    this.audio = a; a.loop = true; a.volume = 0;
-    const store = (k) => { try { return this.win.localStorage.getItem(k); } catch (e) { return null; } };
-    if (store('rise-sound') === 'off') this.setState({ soundOn: false });
-    let was = null; try { was = this.win.sessionStorage.getItem('rise-sound-on'); } catch (e) {}
-    if (was === '1') this.armed = true;
-    const resume = () => { try { const t = parseFloat(this.win.sessionStorage.getItem('rise-sound-t')); if (t > 0 && (!a.duration || t < a.duration)) a.currentTime = t; } catch (e) {} };
-    if (a.readyState >= 1) resume(); else a.addEventListener('loadedmetadata', resume, { once: true });
-    this.onPlaying = () => { this.setState({ playing: true }); try { this.win.sessionStorage.setItem('rise-sound-on', '1'); } catch (e) {} };
-    this.onPaused = () => this.setState({ playing: false });
-    a.addEventListener('playing', this.onPlaying);
-    a.addEventListener('pause', this.onPaused);
-    this.saveT = () => { try { if (!a.paused) this.win.sessionStorage.setItem('rise-sound-t', String(a.currentTime)); } catch (e) {} };
-    this.saveI = setInterval(this.saveT, 1000);
-    this.win.addEventListener('pagehide', this.saveT);
+    const P = this.player(); this.snd = P;
+    const el = this.root && this.root.querySelector('audio[data-bg]');
+    if (el) { el.preload = 'none'; try { el.pause(); } catch (e) {} }
+    this.syncSound = () => this.setState({ soundOn: P.on, playing: !P.a.paused });
+    P.subs.push(this.syncSound); this.syncSound();
     this.mountedAt = Date.now();
     this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];
     this.startAudio = this.startAudio.bind(this);
@@ -701,38 +706,24 @@ class Component extends DCLogic {
   }
 
   audioUnmount() {
-    clearInterval(this.fadeT); clearInterval(this.saveI);
-    if (this.win) {
-      if (this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
-      if (this.saveT) this.win.removeEventListener('pagehide', this.saveT);
-    }
-    if (this.audio) { this.audio.removeEventListener('playing', this.onPlaying); this.audio.removeEventListener('pause', this.onPaused); this.audio.pause(); }
+    if (this.win && this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
+    const P = this.snd; if (!P) return;
+    P.subs = P.subs.filter((f) => f !== this.syncSound);
+    if (!P.subs.length) P.a.pause();
   }
 
   startAudio(e) {
-    const a = this.audio;
-    if (!a || !this.state.soundOn || !e) return;
+    const P = this.snd;
+    if (!P || !P.on || !e) return;
     if (e.target && e.target.closest && e.target.closest('[data-audio-btn]')) return;
-    if (!a.paused) { this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true)); return; }
+    if (!P.a.paused) return;
     const scrollKeys = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'End', 'Home'];
     const passive = e.type === 'scroll' || e.type === 'wheel' || e.type === 'touchmove';
     if (passive && Date.now() - this.mountedAt < 600) return;
-    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) this.armed = true;
-    if (!this.armed) return;
+    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) P.armed = true;
+    if (!P.armed) return;
     if (passive) { if (Date.now() - (this.lastTry || 0) < 700) return; this.lastTry = Date.now(); }
-    this.fadeIn();
-  }
-
-  fadeIn() {
-    const a = this.audio; if (!a) return;
-    const target = 0.39;
-    if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
-    clearInterval(this.fadeT);
-    this.fadeT = setInterval(() => {
-      if (a.paused) return;
-      a.volume = Math.min(target, a.volume + 0.03);
-      if (a.volume >= target) clearInterval(this.fadeT);
-    }, 60);
+    P.fadeIn();
   }
 
   unlock() {

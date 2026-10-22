@@ -294,7 +294,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <a class="nav-cta" href="{{ joinHref }}" onClick="{{ closeMenu }}"><i></i>Join Our Mission</a>
 </div>
 
-<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
+<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="none"></audio>
 <button class="snd" type="button" data-audio-btn="" onClick="{{ toggleSound }}" aria-label="{{ soundLabel }}" aria-pressed="{{ soundOff }}">
 <sc-if value="{{ soundOn }}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{ playing }}" hint-placeholder-val="{{ true }}"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></sc-if>
@@ -415,10 +415,8 @@ class Component extends DCLogic {
     this.closeMenu = () => this.setState({ menuOpen: false });
     this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
     this.toggleSound = () => {
-      const a = this.audio; if (!a) return;
-      const keep = (v) => { try { this.win.localStorage.setItem('rise-sound', v); } catch (e) {} };
-      if (this.state.soundOn && !a.paused) { a.muted = true; this.setState({ soundOn: false }); keep('off'); try { this.win.sessionStorage.setItem('rise-sound-on', '0'); } catch (e) {} }
-      else { a.muted = false; this.fadeIn(); this.setState({ soundOn: true }); keep('on'); }
+      const P = this.snd; if (!P) return;
+      P.setOn(!(P.on && !P.a.paused));
     };
 
   }
@@ -484,25 +482,49 @@ class Component extends DCLogic {
     this.win.requestAnimationFrame(step);
   }
 
-  // ---- Background music, the same track on every page. It starts on the visitor's first
-  // scroll (or the next tap or key, if the browser insists), remembers mute, and picks the
-  // track up where it left off when the visitor moves to another page.
+  // ---- Background music. One shared player for the whole site: every page's sound button
+  // controls the same track (a master mute), so the song can never play twice at once.
+  // It starts on the visitor's first scroll, remembers mute, and carries on between pages.
+  player() {
+    let host = this.win;
+    try { while (host.parent && host.parent !== host) { if (!host.parent.document) break; host = host.parent; } } catch (e) {}
+    if (!host.__riseSound) {
+      const el = this.root && this.root.querySelector('audio[data-bg]');
+      const a = new host.Audio(); a.src = el ? el.src : ''; a.loop = true; a.preload = 'auto'; a.volume = 0;
+      const P = { a, subs: [], on: true, armed: false, fadeT: null };
+      const ss = (k, v) => { try { if (v === undefined) return host.sessionStorage.getItem(k); host.sessionStorage.setItem(k, v); } catch (e) {} return null; };
+      try { if (host.localStorage.getItem('rise-sound') === 'off') P.on = false; } catch (e) {}
+      if (ss('rise-sound-on') === '1') P.armed = true;
+      a.addEventListener('loadedmetadata', () => { const t = parseFloat(ss('rise-sound-t')); if (t > 0 && t < (a.duration || Infinity)) { try { a.currentTime = t; } catch (e) {} } }, { once: true });
+      P.emit = () => P.subs.slice().forEach((f) => f());
+      a.addEventListener('playing', () => { ss('rise-sound-on', '1'); P.emit(); });
+      a.addEventListener('pause', P.emit);
+      const save = () => { if (!a.paused) ss('rise-sound-t', String(a.currentTime)); };
+      setInterval(save, 1000);
+      host.addEventListener('pagehide', save);
+      P.fadeIn = () => {
+        if (!P.on) return;
+        if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
+        clearInterval(P.fadeT);
+        P.fadeT = setInterval(() => { if (a.paused) return; a.volume = Math.min(0.39, a.volume + 0.03); if (a.volume >= 0.39) clearInterval(P.fadeT); }, 60);
+      };
+      P.setOn = (v) => {
+        P.on = v;
+        try { host.localStorage.setItem('rise-sound', v ? 'on' : 'off'); } catch (e) {}
+        if (v) { P.armed = true; P.fadeIn(); } else { clearInterval(P.fadeT); a.pause(); ss('rise-sound-on', '0'); }
+        P.emit();
+      };
+      host.__riseSound = P;
+    }
+    return host.__riseSound;
+  }
+
   audioMount() {
-    const a = this.root && this.root.querySelector('audio[data-bg]'); if (!a) return;
-    this.audio = a; a.loop = true; a.volume = 0;
-    const store = (k) => { try { return this.win.localStorage.getItem(k); } catch (e) { return null; } };
-    if (store('rise-sound') === 'off') this.setState({ soundOn: false });
-    let was = null; try { was = this.win.sessionStorage.getItem('rise-sound-on'); } catch (e) {}
-    if (was === '1') this.armed = true;
-    const resume = () => { try { const t = parseFloat(this.win.sessionStorage.getItem('rise-sound-t')); if (t > 0 && (!a.duration || t < a.duration)) a.currentTime = t; } catch (e) {} };
-    if (a.readyState >= 1) resume(); else a.addEventListener('loadedmetadata', resume, { once: true });
-    this.onPlaying = () => { this.setState({ playing: true }); try { this.win.sessionStorage.setItem('rise-sound-on', '1'); } catch (e) {} };
-    this.onPaused = () => this.setState({ playing: false });
-    a.addEventListener('playing', this.onPlaying);
-    a.addEventListener('pause', this.onPaused);
-    this.saveT = () => { try { if (!a.paused) this.win.sessionStorage.setItem('rise-sound-t', String(a.currentTime)); } catch (e) {} };
-    this.saveI = setInterval(this.saveT, 1000);
-    this.win.addEventListener('pagehide', this.saveT);
+    const P = this.player(); this.snd = P;
+    const el = this.root && this.root.querySelector('audio[data-bg]');
+    if (el) { el.preload = 'none'; try { el.pause(); } catch (e) {} }
+    this.syncSound = () => this.setState({ soundOn: P.on, playing: !P.a.paused });
+    P.subs.push(this.syncSound); this.syncSound();
     this.mountedAt = Date.now();
     this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];
     this.startAudio = this.startAudio.bind(this);
@@ -510,38 +532,24 @@ class Component extends DCLogic {
   }
 
   audioUnmount() {
-    clearInterval(this.fadeT); clearInterval(this.saveI);
-    if (this.win) {
-      if (this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
-      if (this.saveT) this.win.removeEventListener('pagehide', this.saveT);
-    }
-    if (this.audio) { this.audio.removeEventListener('playing', this.onPlaying); this.audio.removeEventListener('pause', this.onPaused); this.audio.pause(); }
+    if (this.win && this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
+    const P = this.snd; if (!P) return;
+    P.subs = P.subs.filter((f) => f !== this.syncSound);
+    if (!P.subs.length) P.a.pause();
   }
 
   startAudio(e) {
-    const a = this.audio;
-    if (!a || !this.state.soundOn || !e) return;
+    const P = this.snd;
+    if (!P || !P.on || !e) return;
     if (e.target && e.target.closest && e.target.closest('[data-audio-btn]')) return;
-    if (!a.paused) { this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true)); return; }
+    if (!P.a.paused) return;
     const scrollKeys = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'End', 'Home'];
     const passive = e.type === 'scroll' || e.type === 'wheel' || e.type === 'touchmove';
     if (passive && Date.now() - this.mountedAt < 600) return;
-    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) this.armed = true;
-    if (!this.armed) return;
+    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) P.armed = true;
+    if (!P.armed) return;
     if (passive) { if (Date.now() - (this.lastTry || 0) < 700) return; this.lastTry = Date.now(); }
-    this.fadeIn();
-  }
-
-  fadeIn() {
-    const a = this.audio; if (!a) return;
-    const target = 0.39;
-    if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
-    clearInterval(this.fadeT);
-    this.fadeT = setInterval(() => {
-      if (a.paused) return;
-      a.volume = Math.min(target, a.volume + 0.03);
-      if (a.volume >= target) clearInterval(this.fadeT);
-    }, 60);
+    P.fadeIn();
   }
 
   renderVals() {
