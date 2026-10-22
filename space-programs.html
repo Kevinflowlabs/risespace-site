@@ -32,7 +32,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;gap:28px;padding:16px var(--gut);transition:background .4s,box-shadow .4s,padding .4s;background:linear-gradient(180deg,rgba(5,7,12,.75),rgba(5,7,12,0))}
 .nav[data-solid="1"]{background:rgba(5,7,12,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding-top:10px;padding-bottom:10px}
 .nav-brand{display:flex;align-items:center;min-height:44px}
-.nav-brand img{height:30px;width:auto}
+.nav-brand img{height:42px;width:auto}
 .nav-links{display:flex;align-items:center;gap:6px;margin-left:18px}
 .nav-link{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;font-size:13.5px;letter-spacing:.03em;text-decoration:none;color:rgba(242,239,233,.78);transition:color .25s}
 .nav-link:after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,.8,.2,1)}
@@ -57,7 +57,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .sheet span.s{color:rgba(242,239,233,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
-@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:24px}}
+@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:32px}}
 @media (min-width:981px){.sheet{display:none}}
 
 /* ===== buttons ===== */
@@ -267,7 +267,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="nav-link is-soon" aria-disabled="true">{{ n.label }}<em>Soon</em></span></sc-if>
 </sc-for>
 </nav>
-<a class="nav-cta" href="#reserve"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="{{ joinHref }}"><i></i>Join Our Mission</a>
 <button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
 </header>
 <div class="sheet" id="sf-menu" data-open="{{ menuOpen }}">
@@ -276,7 +276,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" onClick="{{ closeMenu }}">{{ n.label }}</a></sc-if>
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="s">{{ n.label }} <small>Soon</small></span></sc-if>
 </sc-for>
-<a class="nav-cta" href="#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="{{ joinHref }}" onClick="{{ closeMenu }}"><i></i>Join Our Mission</a>
 </div>
 
 <!-- HERO -->
@@ -297,8 +297,24 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="media"><img src="assets/voyager-balloon.jpg" alt="A Space Balloon above the RISE launch vessel at dawn" loading="lazy"><div class="ref mono">RISE training pre-launch</div></div>
 <div class="txt"><div class="mono eyebrow">Government</div><h2>National Spaceflight Program</h2><p>RISE programs can be sized to fit a Nation’s ambitions, from iconic human spaceflight to groundbreaking research.</p></div>
 </article>
+</section>
+
+<!-- SPACE BALLOONS -->
+<section class="sec" aria-label="Space Balloon manufacturing">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">Manufacturing</div><h2>The most advanced human-rated Space Balloons</h2></div>
+<p>RISE manufactures Space Balloons for research, government programs and special projects using proprietary processes and built to NASA standards.</p>
+</div>
+<div class="vids" data-reveal="">
+<figure><video data-loop="" src="assets/balloon-below.mp4" poster="assets/balloon-below-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><figcaption class="ref mono">RISE spaceflight</figcaption></figure>
+<figure><video data-loop="" src="assets/stratex-launch.mp4" poster="assets/stratex-launch-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><figcaption class="ref mono">StratEx launch</figcaption></figure>
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section class="sec" aria-label="Research on every flight">
 <article class="prog flip" data-reveal="">
-<div class="media"><div class="slot"><span class="ph">[NEPTUNE ONE · NASA VIDEO]</span></div><div class="ref mono">RISE test flight preparation at NASA Kennedy Space Center</div></div>
+<div class="media"><video data-loop="" src="assets/neptune-ksc.mp4" poster="assets/neptune-ksc-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><div class="ref mono">RISE test flight preparation at NASA Kennedy Space Center</div></div>
 <div class="txt"><div class="mono eyebrow">Research</div><h2>Research on every flight</h2><p>We fly instruments for researchers to conduct groundbreaking science on every flight, providing unheard of flight rates cost effectively.</p></div>
 </article>
 </section>
@@ -319,18 +335,6 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
-<!-- SPACE BALLOONS -->
-<section class="sec" aria-label="Space Balloon manufacturing">
-<div class="head" data-reveal="">
-<div><div class="mono eyebrow">Manufacturing</div><h2>The most advanced human-rated Space Balloons</h2></div>
-<p>RISE manufactures Space Balloons for research, government programs and special projects using proprietary processes and built to NASA standards.</p>
-</div>
-<div class="vids" data-reveal="">
-<figure><video data-loop="" src="assets/balloon-below.mp4" poster="assets/balloon-below-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><figcaption class="ref mono">RISE spaceflight</figcaption></figure>
-<figure><video data-loop="" src="assets/stratex-launch.mp4" poster="assets/stratex-launch-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><figcaption class="ref mono">StratEx launch</figcaption></figure>
-</div>
-</section>
-
 <!-- JOIN -->
 <section class="sec" id="reserve" aria-label="Join our mission" style="padding-top: 0">
 <div class="join" data-reveal="">
@@ -345,7 +349,6 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="field"><label for="sf-how">I'm interested in</label><select id="sf-how"><option>A seat on a flight</option><option>The entire cabin</option><option>A Space Venue event</option><option>Research or government</option></select></div>
 <button class="btn solid full" type="submit">Join the list</button>
 </form>
-<p class="fine">Seats from <span class="ph">[TICKET PRICE]</span> · Seats are limited and allocated in order.</p>
 </sc-if>
 <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
 <div class="ok"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></b><span class="mono">You're on the list. We'll be in touch.</span></div>
@@ -463,12 +466,13 @@ class Component extends DCLogic {
       joined: this.state.joined,
       notJoined: !this.state.joined,
       join: this.join,
+      joinHref: '#reserve',
       research: [
         { n: '01', title: 'Technology testing', cap: 'Testing Dragon capsule', img: 'assets/rec-dragon.jpg', alt: 'A balloon lifting a Dragon capsule for testing', slot: '' },
-        { n: '02', title: 'Atmosphere and climate science', cap: 'Crater Lake, taken at 100,000 ft', img: '', alt: '', slot: '[CRATER LAKE IMAGE]' },
-        { n: '03', title: 'Helio- and astrophysics', cap: 'Solar corona, taken at [ALTITUDE]', img: '', alt: '', slot: '[SOLAR CORONA IMAGE]' },
-        { n: '04', title: 'Astrobiology', cap: 'Taken at [ALTITUDE]', img: '', alt: '', slot: '[COLIN IMAGE]' },
-        { n: '05', title: 'Health and wellness for space exploration', cap: 'StratEx, taken at [ALTITUDE]', img: '', alt: '', slot: '[ALAN IN SPACE IMAGE]' }
+        { n: '02', title: 'Atmosphere and climate science', cap: 'Crater Lake, taken at 100,000 ft', img: 'assets/rx-crater.jpg', alt: 'Crater Lake seen from 100,000 ft', slot: '' },
+        { n: '03', title: 'Helio- and astrophysics', cap: 'Solar corona, taken at [ALTITUDE]', img: 'assets/rx-corona.jpg', alt: 'The solar corona during a total eclipse', slot: '' },
+        { n: '04', title: 'Astrobiology', cap: 'Taken at [ALTITUDE]', img: 'assets/rx-limb.jpg', alt: 'The thin glowing band of Earth’s atmosphere at the horizon', slot: '' },
+        { n: '05', title: 'Health and wellness for space exploration', cap: 'StratEx, taken at [ALTITUDE]', img: 'assets/rx-alan.jpg', alt: 'Alan Eustace in his pressure suit high above the Earth during StratEx', slot: '' }
       ],
     };
   }

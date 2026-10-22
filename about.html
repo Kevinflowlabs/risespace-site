@@ -32,7 +32,7 @@ a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;gap:28px;padding:16px var(--gut);transition:background .4s,box-shadow .4s,padding .4s;background:linear-gradient(180deg,rgba(5,7,12,.75),rgba(5,7,12,0))}
 .nav[data-solid="1"]{background:rgba(5,7,12,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding-top:10px;padding-bottom:10px}
 .nav-brand{display:flex;align-items:center;min-height:44px}
-.nav-brand img{height:30px;width:auto}
+.nav-brand img{height:42px;width:auto}
 .nav-links{display:flex;align-items:center;gap:6px;margin-left:18px}
 .nav-link{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;font-size:13.5px;letter-spacing:.03em;text-decoration:none;color:rgba(242,239,233,.78);transition:color .25s}
 .nav-link:after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,.8,.2,1)}
@@ -57,7 +57,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .sheet span.s{color:rgba(242,239,233,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
-@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:24px}}
+@media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:32px}}
 @media (min-width:981px){.sheet{display:none}}
 
 /* ===== buttons ===== */
@@ -242,6 +242,30 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .fd .t{flex:1;display:flex;flex-direction:column;padding:22px 22px 24px}
 .fd h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.1vw,32px);line-height:1.05}
 .fd .role{margin-top:8px;font-size:14px;line-height:1.5;color:var(--dim)}
+.fd button.ph-img{display:block;width:100%;padding:0;border:0;cursor:pointer}
+.fd .nm{padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;background-image:linear-gradient(var(--gold),var(--gold));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .4s,color .3s}
+.fd .nm:hover,.fd .nm:focus-visible{color:var(--gold);background-size:100% 1px;outline:none}
+.fd .links{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px}
+.fd .bio-link{padding:0 0 2px;border:0;border-bottom:1px solid rgba(247,204,46,.4);background:none;color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.fd .bio-link:hover{border-color:var(--gold)}
+.fd .links .li{margin-top:0;padding-top:0}
+.bio-wrap{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
+.bio-back{position:absolute;inset:0;background:rgba(5,7,12,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .3s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.bio{position:relative;width:min(860px,100%);max-height:min(88vh,980px);overflow:auto;overscroll-behavior:contain;background:var(--ink);border:1px solid var(--line);padding:clamp(24px,4vw,56px);animation:rise .5s cubic-bezier(.16,.8,.2,1) both}
+.bio-x{position:sticky;top:0;float:right;margin:-8px -8px 0 12px;z-index:2}
+.bio-head{display:flex;gap:clamp(18px,3vw,32px);align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.bio-head img{width:clamp(96px,14vw,150px);aspect-ratio:1/1;object-fit:cover;object-position:50% 25%;flex:0 0 auto}
+.bio-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1}
+.bio-head .role{margin-top:8px;font-size:15px;color:var(--dim)}
+.bio-head .li{display:inline-flex;align-items:center;gap:10px;margin-top:16px;color:var(--bone);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.bio-head .li svg{width:18px;height:18px;color:var(--gold)}
+.bio-body{padding-top:26px}
+.bio-body p{font-size:16px;line-height:1.7;color:rgba(242,239,233,.84);max-width:68ch}
+.bio-body p + p{margin-top:16px}
+.bio-nav{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.bio-nav .btn svg{width:16px;height:16px}
+@media (max-width:560px){.bio-head{flex-direction:column;align-items:flex-start}.bio-nav .btn span{max-width:9ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 .fd .li{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;color:var(--bone);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
 .fd .li svg{width:18px;height:18px;color:var(--gold);flex:0 0 auto}
 .fd .li span{border-bottom:1px solid rgba(242,239,233,.25);padding-bottom:2px;transition:border-color .2s}
@@ -273,7 +297,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="nav-link is-soon" aria-disabled="true">{{ n.label }}<em>Soon</em></span></sc-if>
 </sc-for>
 </nav>
-<a class="nav-cta" href="#reserve"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="{{ joinHref }}"><i></i>Join Our Mission</a>
 <button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
 </header>
 <div class="sheet" id="sf-menu" data-open="{{ menuOpen }}">
@@ -282,7 +306,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a href="{{ n.href }}" onClick="{{ closeMenu }}">{{ n.label }}</a></sc-if>
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span class="s">{{ n.label }} <small>Soon</small></span></sc-if>
 </sc-for>
-<a class="nav-cta" href="#reserve" onClick="{{ closeMenu }}"><i></i>Reserve a seat</a>
+<a class="nav-cta" href="{{ joinHref }}" onClick="{{ closeMenu }}"><i></i>Join Our Mission</a>
 </div>
 
 <!-- HERO -->
@@ -311,10 +335,24 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 <div class="founders" data-reveal="">
 <sc-for list="{{ founders }}" as="f" hint-placeholder-count="4">
-<article class="fd"><div class="ph-img"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></div><div class="t"><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></article>
+<article class="fd"><button class="ph-img" type="button" onClick="{{ f.open }}" aria-label="Read {{ f.name }}’s bio"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></button><div class="t"><h3><button class="nm" type="button" onClick="{{ f.open }}">{{ f.name }}</button></h3><div class="role">{{ f.role }}</div><div class="links"><button class="bio-link" type="button" onClick="{{ f.open }}">Read bio</button><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></div></article>
 </sc-for>
 </div>
 </section>
+
+<!-- FOUNDER BIO -->
+<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4"><sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+<div class="bio-wrap" role="dialog" aria-modal="true" aria-label="{{ f.name }} biography">
+<div class="bio-back" onClick="{{ closeBio }}"></div>
+<div class="bio" data-bio="">
+<button class="bio-x icon-btn" type="button" aria-label="Close biography" onClick="{{ closeBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+<div class="bio-head"><img src="{{ f.img }}" alt=""><div><div class="mono eyebrow">Founder</div><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div>
+<a class="li" href="{{ f.li }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></div>
+<div class="bio-body"><sc-for list="{{ f.paras }}" as="t" hint-placeholder-count="5"><p>{{ t }}</p></sc-for></div>
+<div class="bio-nav"><button class="btn" type="button" onClick="{{ prevBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><span>{{ f.prevName }}</span></button><button class="btn" type="button" onClick="{{ nextBio }}"><span>{{ f.nextName }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+</div>
+</div>
+</sc-if></sc-for>
 
 <!-- RECORDS -->
 <section class="sec" id="records" aria-label="Records">
@@ -370,7 +408,6 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <div class="field"><label for="sf-how">I'm interested in</label><select id="sf-how"><option>A seat on a flight</option><option>The entire cabin</option><option>A Space Venue event</option><option>Research or government</option></select></div>
 <button class="btn solid full" type="submit">Join the list</button>
 </form>
-<p class="fine">Seats from <span class="ph">[TICKET PRICE]</span> · Seats are limited and allocated in order.</p>
 </sc-if>
 <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
 <div class="ok"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></b><span class="mono">You're on the list. We'll be in touch.</span></div>
@@ -403,12 +440,16 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { menuOpen: false, joined: false };
+    this.state = { menuOpen: false, joined: false, bio: -1 };
     this.root = null;
     this.setRoot = (el) => { this.root = el; };
     this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
     this.closeMenu = () => this.setState({ menuOpen: false });
     this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
+    this.openBio = (i) => () => { this.lastFocus = this.root && this.root.ownerDocument.activeElement; this.setState({ bio: i }); };
+    this.closeBio = () => { this.setState({ bio: -1 }); if (this.lastFocus && this.lastFocus.focus) this.lastFocus.focus(); };
+    this.prevBio = () => this.setState({ bio: (this.state.bio + 3) % 4 });
+    this.nextBio = () => this.setState({ bio: (this.state.bio + 1) % 4 });
     this.railPrev = () => this.railBy(-1);
     this.railNext = () => this.railBy(1);
   }
@@ -437,6 +478,8 @@ class Component extends DCLogic {
     };
     this.win.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     this.onScroll();
+    this.win.addEventListener('keydown', (e) => { if (e.key === 'Escape' && this.state.bio > -1) this.closeBio(); });
+    this.pageUpdate = () => { const b = this.root && this.root.querySelector('[data-bio]'); if (b && b._who !== this.state.bio) { b._who = this.state.bio; b.scrollTop = 0; const x = b.querySelector('.bio-x'); if (x && x.focus) x.focus(); } };
     const rail = root.querySelector('[data-rail]');
     if (rail) {
       rail.addEventListener('scroll', () => this.railProgress(), { passive: true });
@@ -526,6 +569,7 @@ class Component extends DCLogic {
       joined: this.state.joined,
       notJoined: !this.state.joined,
       join: this.join,
+      joinHref: '#reserve',
       records: [
         { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: '100+', title: 'Space Balloon flights flown by team members' },
         { img: 'assets/rec-dive-centered.jpg', alt: 'A space dive from a balloon', stat: '41.5 km', title: 'Highest human flight and space dive from a balloon: 136,000 ft' },
@@ -537,11 +581,14 @@ class Component extends DCLogic {
         { img: 'assets/rec-spin.jpg', alt: 'A large spin vacuum chamber in the desert', stat: 'SpinLaunch', title: 'Developed the largest spin vacuum chamber ever operated' }
       ],
       founders: [
-        { img: 'assets/team-mehta.jpg', name: 'Ravé Mehta', role: 'Chairman and Chief Executive Officer', li: 'https://www.linkedin.com/in/ravemehta/' },
-        { img: 'assets/team-maccallum.jpg', name: 'Taber MacCallum', role: 'Chief Technology Officer', li: 'https://www.linkedin.com/in/tabermaccallum/' },
-        { img: 'assets/team-poynter.jpg', name: 'Jane Poynter', role: 'Chief Product Officer', li: 'https://www.linkedin.com/in/jane-poynter/' },
-        { img: 'assets/team-yaney.jpg', name: 'Jonathan Yaney', role: 'Chief Operating Officer', li: 'https://www.linkedin.com/in/jonathanyaney/' }
-      ],
+        { img: 'assets/team-mehta.jpg', name: 'Ravé Mehta', paras: ["Ravé serves as CEO of Rise Space, leading the company’s vision, strategy, partnerships and execution with over 25 years’ experience founding, building, leading and investing in space and frontier technology companies.", "Ravé is an engineer, entrepreneur and investor, as well as an award-winning pianist, bestselling author and recipient of the Tesla Vision Award from the Tesla Science Foundation. Ravé has been active in the commercial space sector since 2007. As a board member of Space Florida from 2007 to 2012 and Chairman of their Legislative Committee, Ravé played an important role in the historic transition from winding down the U.S. National Space Shuttle program to launching today's thriving commercial space industry. Ravé was part of the team that transitioned launchpad 39A from the U.S. Airforce to Space Florida, followed by leasing it to SpaceX to create the world's first commercial orbital launch complex. Since then, Ravé has invested in, advised, and supported numerous space companies and investment funds, including Space Perspective.", "Ravé currently serves on the U.S. National UAP Scientific Advisory Council, the federal advisory group formed in June 2026 at the request of the White House, the Pentagon’s All-domain Anomaly Resolution Office (AARO), the Office of the Director of National Intelligence (ODNI), and the FBI to scientifically study Unidentified Anomalous Phenomena. Ravé also serves on the Council of Advisors for the SETI Institute (Search for Extraterrestrial Intelligence), a research institute with over 100 scientists dedicated to exploring, understanding, searching for and explaining the origin, nature, and prevalence of life and intelligence in the universe. Ravé also serves on the advisory board of Space for Humanity as chairman of the Arts & Astronauts Committee. Ravé was on the final selection committee to evaluate and select citizen astronaut candidates they sent to space to experience the Overview Effect resulting in several billions of media impressions for their citizen astronauts.", "Ravé is a board member and managing director of Mehta Group and Flow Capital, his family office’s investment platform focused on space and frontier technologies. Ravé was the CEO of Mehta Engineering, their 50-year old award-winning engineering and construction management firm that helped build over 1,000 transportation infrastructure projects across the U.S. including roads, highways, bridges, airports, and rail systems with over $50 billion in construction value. Ravé holds a B.S. and M.S. degrees in Engineering and is a licensed Professional Engineer in eight U.S. states. His combination of commercial space experience, large-scale engineering leadership, and entrepreneurial success provides deep expertise in executing complex, safety-critical engineering programs, managing large-scale operations and navigating highly regulated industries.", "Ravé is also an award-winning pianist, composer and researcher focused on human potential. He spent two decades studying the science of fear, flow and music and how they can be used to increase human performance and access our innate healing abilities. After healing himself from Lyme disease by playing the piano to drop himself into flow states, he integrated the principles of flow into his Piano Sound Bath concerts to help others drop into deep healing flow states. Ravé has performed in iconic venues around the world including Carnegie Hall, Grace Cathedral, Burning Man, Church of Rome, Dracula’s Castle and even the North Pole where 1 hour into his concert, he had to evacuate everyone due to a polar bear. Ravé is also the bestselling author of The Inventor: The Story of Tesla (Scholastic), a graphic novel about the true story of Nikola Tesla and how he battled Thomas Edison during the AC/DC Current Wars and changed the world with the power of his mind and imagination."], role: 'Chairman and Chief Executive Officer', li: 'https://www.linkedin.com/in/ravemehta/' },
+        { img: 'assets/team-maccallum.jpg', name: 'Taber MacCallum', paras: ["Taber serves as CTO of Rise Space and responsible for the technology development and execution of Rise’s space program with over 30 years’ experience leading the development and operations of human space balloon and space flight systems.", "Taber led development and flight of two human-rated edge-of-space vehicle programs: StratEx and Spaceship Neptune, each setting performance records that still stand. He had life support or thermal technology on every US orbital human spacecraft operating or in development today.", "He is co-founder and former CEO of Paragon Space Development Corp, a 35-year-old life support company for human spaceflight. At Paragon, Taber led the team that took Alan Eustace to 135,000 feet under a space balloon for the current world-record space dive. He also led development of the StratEx spacesuit, the first new operational U.S. spacesuit since Apollo, including its pressure system, life support system, thermal protection, and passive stabilization at transonic speed. It is on permanent exhibit at the Smithsonian Air and Space Museum.", "As co-founder and CTO of World View, he built and led the engineering team behind the first-of-its-kind unmanned stratospheric navigating balloon called a Stratollite, conducting over 100 flights with stratospheric platforms for remote sensing and communications. As co-founder, Co-CEO and CTO of Space Perspective, he led the design and build of Spaceship Neptune, the marine launch system, flight operations, and space balloon manufacturing. The fully operational full-scale spacecraft, the largest capsule ever flown to space, completed a full demonstration flight launched from the deck of a ship.", "Taber holds more than 30 patents in life support, thermal control, and space balloon systems. His technologies fly on the ISS, Boeing Starliner capsule, SpaceX Dragon capsule, Sierra Space Dream Chaser, and Orion, and is the most advanced water purification system on ISS. He also led the Inspiration Mars program including the development of the most advanced spacecraft closed-loop life support system ever operated.", "He was a founding member of the design team and the inaugural 8-person crew of Biosphere 2, spending two years sealed inside the most complete closed-system space base prototype ever built. His peer-reviewed publications cover the Biosphere 2 enclosed analytical laboratory he developed, human physiology, microgravity experiments, and Moon and Mars habitat concepts.", "Taber is Chairman of the Astronaut Memorial Foundation and former Chairman of the Commercial Spaceflight Federation, the industry organization for commercial space. He is a Fellow of the Explorers Club, an invitation-only 120-year-old organization for the advancement of scientific exploration, and a Board Member of the Sea Space Symposium, an invitation-only group of marine and aerospace leaders founded by Jacques Cousteau and Buzz Aldrin in 1970."], role: 'Chief Technology Officer', li: 'https://www.linkedin.com/in/tabermaccallum/' },
+        { img: 'assets/team-poynter.jpg', name: 'Jane Poynter', paras: ["Jane serves as the CPO of Rise Space and responsible for all product development and the interface between the customers and the technology engineering team with more than 30 years’ experience founding and leading companies at the frontier of human spaceflight.", "Previously, Jane co-founded and was Co-CEO of Space Perspective the predecessor to Rise, a vertically integrated spaceflight company offering accessible flights to the edge of space in the emerging space tourism market. She led product design from cabin to flight profile. The company completed an uncrewed test flight of the fully operational, full-scale spacecraft through the commercial flight profile and generated more than 1,800 ticket reservations, validating the technology and the market.", "Poynter also co-founded and was founding CEO of World View, a venture-backed company developing persistent stratospheric platforms called Stratollites for government and commercial remote sensing and communications. The company was acquired by Ondas Holdings.", "Since co-founding Paragon in 1993, she served as CEO, President, and Chairwoman over more than two decades and currently serves on the Board. Paragon is an industry leader in life support and thermal control for extreme environments, with systems on most U.S. human spacecraft, and holds the record for highest space dive through its StratEx project.", "She designed and patented the Autonomous Biological System, the first-ever fully enclosed, bioregenerative life support system for aquatic animals in microgravity that flew on Space Shuttle, Mir, and ISS, producing the first animals to complete multiple life cycles in space. She also developed the plant-growth system for the Mars Oasis, a project to grow plants on Mars initially funded by the NASA Jet Propulsion Lab and later Elon Musk.", "Prior to Paragon, Poynter was a member of the design team and one of eight crew members who lived two years inside Biosphere 2, the world's first hermetically sealed, fully bioregenerative life support prototype. She managed the agricultural systems that fed the crew while recycling air and water. The project, now operated by the University of Arizona, remains a foundational reference for closed-loop life support in long-duration spaceflight. Her TED talk on the project has been viewed over a million times.", "Poynter authored The Human Experiment: Two Years and Twenty Minutes Inside Biosphere 2 (Basic Books, 2006) and Champions for Change: Athletes Making a World of Difference (2009), published with the United Nations. Her peer-reviewed publications cover Biosphere 2, microgravity experiments, and Moon and Mars habitat concepts. Her Biosphere 2 TED Talk has over one million views, and she has appeared widely in media and documentaries on spaceflight and Biosphere 2."], role: 'Chief Product Officer', li: 'https://www.linkedin.com/in/jane-poynter/' },
+        { img: 'assets/team-yaney.jpg', name: 'Jonathan Yaney', paras: ["Jonathan Yaney serves as the COO of Rise Space and responsible for all operations with 20 years of experience founding and building space, infrastructure and tech companies.", "Jonathan was the founder and CEO, SpinLaunch — a space company building an innovative ground-based, electric-powered kinetic launch system, a fundamentally new approach to reaching orbit that replaces the first stage of a rocket with a ground based, vacuum-enclosed centrifuge, catapulting payloads toward space at a fraction of the cost and carbon footprint of conventional rockets. He was the inventor of the launch system and holds seven granted U.S. patents, including the foundational circular mass accelerator patents first filed in 2016, covering the accelerator and the ruggedized avionics, reaction wheels, and structures engineered to survive its extreme g-loads.", "Jonathan raised over $170 million from investors including Kleiner Perkins, Google Ventures, and Airbus Ventures, and led the company as it was named to TIME’s 2022 list of the 100 Most Influential Companies and Fast Company’s 2023 Most Innovative Companies. Under his leadership SpinLaunch designed, built, and operated the Suborbital Accelerator at Spaceport America, New Mexico: a 33-meter (108-foot) diameter steel vacuum chamber — the largest-diameter vacuum chamber in the world — built at one-third the scale of the operational system, which completed more than ten successful flight tests. The campaigns carried test payloads from NASA, Airbus US, and Cornell Engineering, demonstrating that commercial satellite components survive the kinetic launch environment.", "He is a 1,000+ hour pilot and was featured in WIRED magazine as one of 25 innovators to watch. He has been a keynote speaker at leading industry events, and has appeared on PBS, BBC Click, CNN, and IMAX. Jonathan brings founder-level operational discipline and experience building and scaling complex aerospace systems."], role: 'Chief Operating Officer', li: 'https://www.linkedin.com/in/jonathanyaney/' }
+      ].map((f, i, all) => ({ ...f, open: this.openBio(i), isOpen: i === this.state.bio, prevName: all[(i + 3) % 4].name, nextName: all[(i + 1) % 4].name })),
+      closeBio: this.closeBio,
+      prevBio: this.prevBio,
+      nextBio: this.nextBio,
       railPrev: this.railPrev,
       railNext: this.railNext,
     };
