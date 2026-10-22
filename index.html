@@ -637,14 +637,11 @@ class Component extends DCLogic {
     this.setRoot = (el) => { this.root = el; if (el) this.collect(); };
     this.tick = this.tick.bind(this);
     this.unlock = this.unlock.bind(this);
-    this.startAudio = this.startAudio.bind(this);
-    this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];    this.toggleSound = () => {
+    this.toggleSound = () => {
       const a = this.audio; if (!a) return;
-      if (this.state.soundOn && !a.paused) {
-        a.muted = true; this.setState({ soundOn: false });
-      } else {
-        a.muted = false; this.fadeIn(); this.setState({ soundOn: true });
-      }
+      const keep = (v) => { try { this.win.localStorage.setItem('rise-sound', v); } catch (e) {} };
+      if (this.state.soundOn && !a.paused) { a.muted = true; this.setState({ soundOn: false }); keep('off'); try { this.win.sessionStorage.setItem('rise-sound-on', '0'); } catch (e) {} }
+      else { a.muted = false; this.fadeIn(); this.setState({ soundOn: true }); keep('on'); }
     };
     this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
   }
@@ -664,17 +661,7 @@ class Component extends DCLogic {
     ['wheel', 'keydown', 'pointerdown'].forEach((ev) => this.win.addEventListener(ev, this.onIntent, { capture: true, passive: false }));
     ['touchstart', 'touchmove', 'touchend', 'touchcancel'].forEach((ev) => this.win.addEventListener(ev, this.onIntent, { capture: true, passive: true }));
     this.raf = this.win.requestAnimationFrame(this.tick);
-    this.audio = this.root && this.root.querySelector('audio[data-bg]');
-    if (this.audio) {
-      this.audio.loop = true;
-      this.audio.volume = 0;
-      this.onPlaying = () => this.setState({ playing: true });
-      this.onPaused = () => this.setState({ playing: false });
-      this.audio.addEventListener('playing', this.onPlaying);
-      this.audio.addEventListener('pause', this.onPaused);
-      this.mountedAt = Date.now();
-      this.audioEvents.forEach((ev) => this.win.addEventListener(ev, this.startAudio, { capture: true, passive: true }));
-    }
+    this.audioMount();
   }
 
   componentWillUnmount() {
@@ -684,18 +671,44 @@ class Component extends DCLogic {
       this.win.removeEventListener('touchstart', this.unlock);
       ['wheel', 'keydown', 'pointerdown', 'touchstart', 'touchmove', 'touchend', 'touchcancel'].forEach((ev) => this.win.removeEventListener(ev, this.onIntent, true));
       this.win.removeEventListener('scroll', this.onScrollEvt, true);
-      this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
     }
-    clearInterval(this.fadeT);
-    if (this.audio) {
-      this.audio.removeEventListener('playing', this.onPlaying);
-      this.audio.removeEventListener('pause', this.onPaused);
-      this.audio.pause();
-    }
+    this.audioUnmount();
   }
 
-  // Music never starts until the visitor scrolls. Scrolling arms it and tries to play;
-  // browsers that refuse sound on a scroll alone start it on the next click, tap or key.
+  // ---- Background music, the same track on every page. It starts on the visitor's first
+  // scroll (or the next tap or key, if the browser insists), remembers mute, and picks the
+  // track up where it left off when the visitor moves to another page.
+  audioMount() {
+    const a = this.root && this.root.querySelector('audio[data-bg]'); if (!a) return;
+    this.audio = a; a.loop = true; a.volume = 0;
+    const store = (k) => { try { return this.win.localStorage.getItem(k); } catch (e) { return null; } };
+    if (store('rise-sound') === 'off') this.setState({ soundOn: false });
+    let was = null; try { was = this.win.sessionStorage.getItem('rise-sound-on'); } catch (e) {}
+    if (was === '1') this.armed = true;
+    const resume = () => { try { const t = parseFloat(this.win.sessionStorage.getItem('rise-sound-t')); if (t > 0 && (!a.duration || t < a.duration)) a.currentTime = t; } catch (e) {} };
+    if (a.readyState >= 1) resume(); else a.addEventListener('loadedmetadata', resume, { once: true });
+    this.onPlaying = () => { this.setState({ playing: true }); try { this.win.sessionStorage.setItem('rise-sound-on', '1'); } catch (e) {} };
+    this.onPaused = () => this.setState({ playing: false });
+    a.addEventListener('playing', this.onPlaying);
+    a.addEventListener('pause', this.onPaused);
+    this.saveT = () => { try { if (!a.paused) this.win.sessionStorage.setItem('rise-sound-t', String(a.currentTime)); } catch (e) {} };
+    this.saveI = setInterval(this.saveT, 1000);
+    this.win.addEventListener('pagehide', this.saveT);
+    this.mountedAt = Date.now();
+    this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];
+    this.startAudio = this.startAudio.bind(this);
+    this.audioEvents.forEach((ev) => this.win.addEventListener(ev, this.startAudio, { capture: true, passive: true }));
+  }
+
+  audioUnmount() {
+    clearInterval(this.fadeT); clearInterval(this.saveI);
+    if (this.win) {
+      if (this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
+      if (this.saveT) this.win.removeEventListener('pagehide', this.saveT);
+    }
+    if (this.audio) { this.audio.removeEventListener('playing', this.onPlaying); this.audio.removeEventListener('pause', this.onPaused); this.audio.pause(); }
+  }
+
   startAudio(e) {
     const a = this.audio;
     if (!a || !this.state.soundOn || !e) return;
@@ -713,11 +726,7 @@ class Component extends DCLogic {
   fadeIn() {
     const a = this.audio; if (!a) return;
     const target = 0.39;
-    if (a.paused) {
-      a.volume = 0;
-      const pr = a.play();
-      if (pr && pr.catch) pr.catch(() => {});
-    }
+    if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
     clearInterval(this.fadeT);
     this.fadeT = setInterval(() => {
       if (a.paused) return;
@@ -993,7 +1002,6 @@ class Component extends DCLogic {
         { key: 'venue', label: 'Space Venue', href: 'space-venue.html', ready: true },
         { key: 'programs', label: 'Space Programs', href: 'space-programs.html', ready: true },
         { key: 'about', label: 'About', href: 'about.html', ready: true },
-        { key: 'shop', label: 'Shop', href: 'shop.html', ready: true }
       ].map((n) => ({ ...n, soon: !n.ready, current: 'false' })),
       setRoot: this.setRoot,
       submit: this.submit,

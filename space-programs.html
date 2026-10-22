@@ -60,6 +60,21 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 @media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:32px}}
 @media (min-width:981px){.sheet{display:none}}
 
+/* sound toggle */
+.snd{position:fixed;right:clamp(16px,2vw,30px);bottom:clamp(16px,3vh,30px);z-index:60;display:flex;align-items:center;justify-content:center;gap:10px;height:48px;min-width:48px;padding:0 16px;border:1px solid rgba(242,239,233,.28);border-radius:999px;background:rgba(5,7,12,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--bone);cursor:pointer;transition:border-color .25s,background .25s}
+.snd:hover{border-color:var(--gold);background:rgba(5,7,12,.8)}
+.snd:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.snd svg{width:18px;height:18px;flex:0 0 auto}
+.snd .eq{display:flex;align-items:flex-end;gap:2px;height:12px}
+.snd .eq i{display:block;width:2px;height:100%;background:var(--gold);transform-origin:bottom;animation:eq 1.1s ease-in-out infinite}
+.snd .eq i:nth-child(2){animation-delay:-.35s}
+.snd .eq i:nth-child(3){animation-delay:-.7s}
+.snd .eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.snd .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+@media (max-width:760px){.snd .lbl{display:none}}
+@media (prefers-reduced-motion:reduce){.snd .eq i{animation:none;transform:scaleY(.6)}}
+
 /* ===== buttons ===== */
 .btn{display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:0 26px;border:1px solid rgba(242,239,233,.32);border-radius:999px;text-decoration:none;font-family:var(--sans);font-size:14px;letter-spacing:.03em;color:var(--bone);background:transparent;cursor:pointer;transition:background .25s,border-color .25s,color .25s,transform .25s}
 .btn:hover{border-color:var(--gold);background:rgba(247,204,46,.08);color:var(--bone)}
@@ -279,6 +294,18 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <a class="nav-cta" href="{{ joinHref }}" onClick="{{ closeMenu }}"><i></i>Join Our Mission</a>
 </div>
 
+<audio data-bg="" src="assets/distant-starlight.mp3" loop="" preload="auto"></audio>
+<button class="snd" type="button" data-audio-btn="" onClick="{{ toggleSound }}" aria-label="{{ soundLabel }}" aria-pressed="{{ soundOff }}">
+<sc-if value="{{ soundOn }}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{ playing }}" hint-placeholder-val="{{ true }}"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></sc-if>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 6a8.5 8.5 0 0 1 0 12"></path></svg>
+</sc-if>
+<sc-if value="{{ soundOff }}" hint-placeholder-val="{{ false }}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"></path><path d="M17 9.5l5 5"></path><path d="M22 9.5l-5 5"></path></svg>
+<span class="lbl">Sound off</span>
+</sc-if>
+</button>
+
 <!-- HERO -->
 <section class="hero short" aria-label="Space Programs">
 <video data-loop="" src="assets/programs-hero.mp4" poster="assets/programs-hero-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
@@ -381,12 +408,18 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { menuOpen: false, joined: false };
+    this.state = { menuOpen: false, joined: false, soundOn: true, playing: false };
     this.root = null;
     this.setRoot = (el) => { this.root = el; };
     this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
     this.closeMenu = () => this.setState({ menuOpen: false });
     this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
+    this.toggleSound = () => {
+      const a = this.audio; if (!a) return;
+      const keep = (v) => { try { this.win.localStorage.setItem('rise-sound', v); } catch (e) {} };
+      if (this.state.soundOn && !a.paused) { a.muted = true; this.setState({ soundOn: false }); keep('off'); try { this.win.sessionStorage.setItem('rise-sound-on', '0'); } catch (e) {} }
+      else { a.muted = false; this.fadeIn(); this.setState({ soundOn: true }); keep('on'); }
+    };
 
   }
 
@@ -414,6 +447,7 @@ class Component extends DCLogic {
     };
     this.win.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     this.onScroll();
+    this.audioMount();
 
   }
 
@@ -423,6 +457,7 @@ class Component extends DCLogic {
     if (this.io) this.io.disconnect();
     if (this.win && this.onScroll) this.win.removeEventListener('scroll', this.onScroll, true);
     if (this.pageUnmount) this.pageUnmount();
+    this.audioUnmount();
   }
 
   // every looping video that is showing plays; hidden ones (inactive tabs) pause
@@ -449,6 +484,66 @@ class Component extends DCLogic {
     this.win.requestAnimationFrame(step);
   }
 
+  // ---- Background music, the same track on every page. It starts on the visitor's first
+  // scroll (or the next tap or key, if the browser insists), remembers mute, and picks the
+  // track up where it left off when the visitor moves to another page.
+  audioMount() {
+    const a = this.root && this.root.querySelector('audio[data-bg]'); if (!a) return;
+    this.audio = a; a.loop = true; a.volume = 0;
+    const store = (k) => { try { return this.win.localStorage.getItem(k); } catch (e) { return null; } };
+    if (store('rise-sound') === 'off') this.setState({ soundOn: false });
+    let was = null; try { was = this.win.sessionStorage.getItem('rise-sound-on'); } catch (e) {}
+    if (was === '1') this.armed = true;
+    const resume = () => { try { const t = parseFloat(this.win.sessionStorage.getItem('rise-sound-t')); if (t > 0 && (!a.duration || t < a.duration)) a.currentTime = t; } catch (e) {} };
+    if (a.readyState >= 1) resume(); else a.addEventListener('loadedmetadata', resume, { once: true });
+    this.onPlaying = () => { this.setState({ playing: true }); try { this.win.sessionStorage.setItem('rise-sound-on', '1'); } catch (e) {} };
+    this.onPaused = () => this.setState({ playing: false });
+    a.addEventListener('playing', this.onPlaying);
+    a.addEventListener('pause', this.onPaused);
+    this.saveT = () => { try { if (!a.paused) this.win.sessionStorage.setItem('rise-sound-t', String(a.currentTime)); } catch (e) {} };
+    this.saveI = setInterval(this.saveT, 1000);
+    this.win.addEventListener('pagehide', this.saveT);
+    this.mountedAt = Date.now();
+    this.audioEvents = ['scroll', 'wheel', 'touchmove', 'keydown', 'pointerdown', 'touchend'];
+    this.startAudio = this.startAudio.bind(this);
+    this.audioEvents.forEach((ev) => this.win.addEventListener(ev, this.startAudio, { capture: true, passive: true }));
+  }
+
+  audioUnmount() {
+    clearInterval(this.fadeT); clearInterval(this.saveI);
+    if (this.win) {
+      if (this.audioEvents) this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true));
+      if (this.saveT) this.win.removeEventListener('pagehide', this.saveT);
+    }
+    if (this.audio) { this.audio.removeEventListener('playing', this.onPlaying); this.audio.removeEventListener('pause', this.onPaused); this.audio.pause(); }
+  }
+
+  startAudio(e) {
+    const a = this.audio;
+    if (!a || !this.state.soundOn || !e) return;
+    if (e.target && e.target.closest && e.target.closest('[data-audio-btn]')) return;
+    if (!a.paused) { this.audioEvents.forEach((ev) => this.win.removeEventListener(ev, this.startAudio, true)); return; }
+    const scrollKeys = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'End', 'Home'];
+    const passive = e.type === 'scroll' || e.type === 'wheel' || e.type === 'touchmove';
+    if (passive && Date.now() - this.mountedAt < 600) return;
+    if (passive || (e.type === 'keydown' && scrollKeys.indexOf(e.key) > -1)) this.armed = true;
+    if (!this.armed) return;
+    if (passive) { if (Date.now() - (this.lastTry || 0) < 700) return; this.lastTry = Date.now(); }
+    this.fadeIn();
+  }
+
+  fadeIn() {
+    const a = this.audio; if (!a) return;
+    const target = 0.39;
+    if (a.paused) { a.volume = 0; const pr = a.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    clearInterval(this.fadeT);
+    this.fadeT = setInterval(() => {
+      if (a.paused) return;
+      a.volume = Math.min(target, a.volume + 0.03);
+      if (a.volume >= target) clearInterval(this.fadeT);
+    }, 60);
+  }
+
   renderVals() {
     return {
       setRoot: this.setRoot,
@@ -458,7 +553,6 @@ class Component extends DCLogic {
       { key: 'venue', label: 'Space Venue', href: 'space-venue.html' },
       { key: 'programs', label: 'Space Programs', href: 'space-programs.html' },
       { key: 'about', label: 'About', href: 'about.html' },
-      { key: 'shop', label: 'Shop', href: 'shop.html' }
     ].map((n) => ({ ...n, ready: true, soon: false, current: n.key === 'programs' ? 'page' : 'false' })),
       menuOpen: this.state.menuOpen,
       toggleMenu: this.toggleMenu,
@@ -467,6 +561,11 @@ class Component extends DCLogic {
       notJoined: !this.state.joined,
       join: this.join,
       joinHref: '#reserve',
+      toggleSound: this.toggleSound,
+      soundOn: this.state.soundOn,
+      soundOff: !this.state.soundOn,
+      playing: !!this.state.playing,
+      soundLabel: this.state.soundOn ? 'Mute background music' : 'Turn background music on',
       research: [
         { n: '01', title: 'Technology testing', cap: 'Testing Dragon capsule', img: 'assets/rec-dragon.jpg', alt: 'A balloon lifting a Dragon capsule for testing', slot: '' },
         { n: '02', title: 'Atmosphere and climate science', cap: 'Crater Lake, taken at 100,000 ft', img: 'assets/rx-crater.jpg', alt: 'Crater Lake seen from 100,000 ft', slot: '' },
