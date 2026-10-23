@@ -18,7 +18,7 @@
 <style>
 body{margin:0;background:#05070C}
 a{color:#F2EFE9}a:hover{color:#F7CC2E}
-.sf{--gold:#F7CC2E;--void:#05070C;--ink:#0A0D14;--ink2:#0E121A;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--sky:#9FC8E0;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.sf{--gold:#F7CC2E;--hl:#9FD4FF;--hl-bg:rgba(120,190,255,.11);--void:#05070C;--ink:#0A0D14;--ink2:#0E121A;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--sky:#9FC8E0;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
 .sf *{box-sizing:border-box}
 .sf img,.sf video{display:block}
 .sf h1,.sf h2,.sf h3,.sf p{margin:0}
@@ -165,6 +165,18 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .faq .a{padding:0 60px 26px 0;font-size:16px;line-height:1.65;color:var(--dim);animation:rise .5s ease both}
 @media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .a{padding-right:0}}
 
+/* next page CTA */
+.nextcta{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;padding:clamp(22px,3vw,34px) clamp(24px,3.4vw,44px);border:1px solid var(--line);border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink);text-decoration:none;color:var(--bone);transition:background .4s}
+.nextcta:hover{background:linear-gradient(90deg,rgba(247,204,46,.14),rgba(247,204,46,0) 70%),var(--ink)}
+.nextcta .k{display:block;color:var(--gold);margin-bottom:10px}
+.nextcta .t{font-family:var(--serif);font-size:clamp(26px,2.6vw,40px);line-height:1.05}
+.nextcta .go{display:inline-flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.02em;white-space:nowrap}
+.nextcta .go i{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,233,.35);transition:background .3s,border-color .3s,color .3s,transform .3s}
+.nextcta .go svg{width:18px;height:18px}
+.nextcta:hover .go i,.nextcta:focus-visible .go i{background:var(--gold);border-color:var(--gold);color:#05070C;transform:translateX(4px)}
+.nextcta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.nextwrap + #reserve .join{margin-top:20px}
+
 /* ===== join ===== */
 .join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));border:1px solid var(--line);margin-top:clamp(100px,14vh,170px)}
 .join .shot{position:relative;min-height:520px;overflow:hidden}
@@ -285,7 +297,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 <!-- SITE NAVIGATION -->
 <header class="nav" data-solid="0">
-<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/logo.png" alt="RISE Space"></a>
+<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/rise-logo-nav.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
@@ -397,11 +409,16 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
+<!-- NEXT: SPACE PROGRAMS -->
+<section class="sec nextwrap" aria-label="Next: Space Programs" style="padding-top: clamp(80px, 11vh, 130px)">
+<a class="nextcta" href="space-programs.html"><div><span class="k mono">Next</span><span class="t">Turnkey space programs for nations, researchers and special projects.</span></div><span class="go">Explore Space Programs<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></i></span></a>
+</section>
+
 
 
 <!-- FOOTER -->
 <footer class="foot">
-<img class="logo" src="assets/logo.png" alt="RISE Space">
+<img class="logo" src="assets/rise-logo-nav.png" alt="RISE Space">
 <nav aria-label="Footer">
 <a href="index.html">Home</a>
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">

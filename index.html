@@ -12,13 +12,13 @@
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="preload" as="image" href="assets/home2-hero-poster.jpg">
+<link rel="preload" as="image" href="assets/home3-hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
 body{margin:0;background:#05070C}
 a{color:#F2EFE9}a:hover{color:#F7CC2E}
-.rs{--gold:#F7CC2E;--void:#05070C;--ink:#0A0D14;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.rs{--gold:#F7CC2E;--hl:#9FD4FF;--hl-bg:rgba(120,190,255,.11);--void:#05070C;--ink:#0A0D14;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
 .rs *{box-sizing:border-box}
 .rs img,.rs video{display:block}
 .rs h1,.rs h2,.rs h3,.rs p{margin:0}
@@ -70,6 +70,40 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .rs-rail a[data-on="1"] b{width:34px;background:var(--gold)}
 .rs-rail:hover a span{opacity:1;transform:none}
 @media (max-width:760px){.rs-rail{display:none}}
+
+/* ===== join ===== */
+.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));border:1px solid var(--line);margin-top:clamp(100px,14vh,170px)}
+.join .shot{position:relative;min-height:520px;overflow:hidden}
+.join .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.join:hover .shot img{transform:scale(1.06)}
+.join .body{padding:clamp(30px,4vw,64px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
+.join h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.2vw,70px);line-height:.96;letter-spacing:-.02em}
+.join .body>p{margin-top:20px;font-size:16px;line-height:1.6;color:var(--dim);max-width:44ch}
+.join .form{padding:0;background:none;border:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-top:30px}
+.join .field{display:flex;flex-direction:column;gap:8px}
+.join .field label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.join .field input,.join .field select{min-height:52px;padding:0 16px;background:rgba(242,239,233,.03);border:1px solid rgba(242,239,233,.22);border-radius:2px;color:var(--bone);font-family:var(--sans);font-size:15px;outline:none;transition:border-color .25s}
+.join .field select option{background:#0A0D14}
+.join .field input:focus,.join .field select:focus{border-color:var(--gold)}
+.join .form .full{grid-column:1 / -1}
+.join .form .btn{align-self:end}
+.ok{margin-top:22px;display:flex;align-items:center;gap:12px;color:var(--gold);animation:rise .6s ease both}
+.ok b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#05070C}
+.ok b svg{width:14px;height:14px}
+.fine{margin-top:16px;font-size:13px;color:var(--mute)}
+@media (max-width:560px){.join .form{grid-template-columns:minmax(0,1fr)}}
+
+/* next page CTA */
+.nextcta{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;padding:clamp(22px,3vw,34px) clamp(24px,3.4vw,44px);border:1px solid var(--line);border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink);text-decoration:none;color:var(--bone);transition:background .4s}
+.nextcta:hover{background:linear-gradient(90deg,rgba(247,204,46,.14),rgba(247,204,46,0) 70%),var(--ink)}
+.nextcta .k{display:block;color:var(--gold);margin-bottom:10px}
+.nextcta .t{font-family:var(--serif);font-size:clamp(26px,2.6vw,40px);line-height:1.05}
+.nextcta .go{display:inline-flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.02em;white-space:nowrap}
+.nextcta .go i{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,233,.35);transition:background .3s,border-color .3s,color .3s,transform .3s}
+.nextcta .go svg{width:18px;height:18px}
+.nextcta:hover .go i,.nextcta:focus-visible .go i{background:var(--gold);border-color:var(--gold);color:#05070C;transform:translateX(4px)}
+.nextcta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+#reserve .join{margin-top:20px}
 
 /* sound toggle */
 .snd{position:fixed;right:clamp(16px,2vw,30px);bottom:clamp(16px,3vh,30px);z-index:60;display:flex;align-items:center;justify-content:center;gap:10px;height:48px;min-width:48px;padding:0 16px;border:1px solid rgba(242,239,233,.28);border-radius:999px;background:rgba(5,7,12,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--bone);cursor:pointer;transition:border-color .25s,background .25s}
@@ -323,7 +357,9 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .card p{font-size:15px;line-height:1.55;color:var(--dim);margin-bottom:26px}
 .card .btn{margin-top:auto;align-self:flex-start}
 a.card{text-decoration:none;color:var(--bone)}
-a.card .body{flex-direction:row;align-items:center;justify-content:space-between;gap:16px;border-top:2px solid var(--gold)}
+a.card .body{border-top:2px solid var(--gold)}
+a.card .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+a.card p{margin-bottom:0}
 a.card h3{margin:0}
 a.card .go{flex:0 0 auto;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,233,.35);display:inline-flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,color .3s,transform .3s}
 a.card .go svg{width:18px;height:18px}
@@ -339,7 +375,8 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .sec-head .textlink{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(247,204,46,.45)}
 .sec-head .textlink:hover{border-color:var(--gold)}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.chips span{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:#C9CDD4}
+.chips .hl{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border:0;border-radius:3px;background:var(--hl-bg);color:var(--hl);font-size:12.5px;letter-spacing:.01em;line-height:1.3}
+.chips .hl:before{content:"";width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.8}
 
 /* record */
 .recbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:clamp(60px,9vh,100px)}
@@ -455,7 +492,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <div class="rs" ref="{{ setRoot }}" style="--gold: {{ accent }}">
 
 <header class="nav" data-solid="0">
-<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/logo.png" alt="RISE Space"></a>
+<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/rise-logo-nav.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
@@ -489,7 +526,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <!-- 1 HERO -->
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100vh; height: 100svh">
 <div class="stage">
-<video data-loop="" src="assets/home2-hero.mp4" poster="assets/home2-hero-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
+<video data-loop="" src="assets/home3-hero.mp4" poster="assets/home3-hero-poster.jpg" autoplay="" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="vshade"></div>
 <div class="vhead">
 <h1>A new kind of <em>space platform</em></h1>
@@ -513,9 +550,9 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <div><h2>One platform, many kinds of missions:</h2></div>
 </div>
 <div class="cards">
-<a class="card" href="spaceflight.html"><div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div><div class="body"><h3>Spaceflight</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
-<a class="card" href="space-venue.html"><div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div><div class="body"><h3>Space Venue</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
-<a class="card" href="space-programs.html"><div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div><div class="body"><h3>Governments &amp; Research</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div></a>
+<a class="card" href="spaceflight.html"><div class="img"><img src="assets/card-flight.jpg" alt="Passengers looking out at Earth from the RISE cabin"></div><div class="body"><div class="hd"><h3>Spaceflight</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div><p>Hours to soak in the experience of seeing Earth in space in a spaceship made for the view.</p></div></a>
+<a class="card" href="space-venue.html"><div class="img"><img src="assets/occ-broadcast-v2.jpg" alt="A live broadcast event inside the RISE cabin"></div><div class="body"><div class="hd"><h3>Space Venue</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div><p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p></div></a>
+<a class="card" href="space-programs.html"><div class="img"><img src="assets/card-research.jpg" alt="The launch vessel at sea with the Space Balloon rising"></div><div class="body"><div class="hd"><h3>Governments &amp; Research</h3><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></span></div><p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p></div></a>
 </div>
 </section>
 
@@ -534,13 +571,6 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <div class="layer" data-range=".6,2"><video data-scrub="" data-a=".6" data-b="1" data-t0="0" data-t1="11.9" src="assets/liftoff.mp4" preload="auto" muted="" playsinline=""></video></div>
 <div class="shade side"></div>
 <div class="brk"><i></i><i></i><i></i><i></i></div>
-<div class="panel" data-range="-1,.62">
-<div class="row"><span class="mono">Launch sequence</span><span class="mono gold">T–0</span></div>
-<div class="count" data-count=""></div>
-<sc-for list="{{ checklist }}" as="item" hint-placeholder-count="4">
-<div class="chk" data-at="{{ item.at }}"><i></i><span>{{ item.t }}</span><em>Go</em></div>
-</sc-for>
-</div>
 <div class="cap right" data-range=".46,2">
 <h2>A smooth and safe spaceflight without rockets</h2>
 <p>A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
@@ -569,7 +599,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 <!-- 8 PROFOUND EXPERIENCE -->
 <section class="banner" aria-label="The profound experience">
-<img src="assets/overview-woman.jpg" alt="A passenger looking out at the Earth from the RISE cabin">
+<video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
 <div class="shade"></div>
 <div class="say"><h2>For the profound experience of seeing Earth in the <em>infinite cosmos</em></h2></div>
 </section>
@@ -593,8 +623,35 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </div>
 </section>
 
+<!-- NEXT: SPACEFLIGHT -->
+<section class="sec nextwrap" aria-label="Next: Spaceflight" style="padding-top: clamp(80px, 11vh, 130px)">
+<a class="nextcta" href="spaceflight.html"><div><span class="k mono">Next</span><span class="t">Your flight to space, from liftoff to splashdown.</span></div><span class="go">Explore Spaceflight<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></i></span></a>
+</section>
+
+<!-- JOIN -->
+<section class="sec" id="reserve" aria-label="Join our mission" style="padding-top: 0">
+<div class="join" data-reveal="">
+<div class="shot"><img src="assets/invite.jpg" alt="The RISE spaceship above the curve of the Earth at sunrise"></div>
+<div class="body">
+<div class="mono eyebrow">Plan your flight</div>
+<h2>Some things you have to see for yourself.</h2>
+<p>Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.</p>
+<sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
+<form class="form" onSubmit="{{ join }}">
+<div class="field"><label for="hm-email">Email</label><input id="hm-email" type="email" autocomplete="email" required=""></div>
+<div class="field"><label for="hm-how">I'm interested in</label><select id="hm-how"><option>A seat on a flight</option><option>The entire cabin</option><option>A Space Venue event</option><option>Research or government</option></select></div>
+<button class="btn solid full" type="submit">Join the list</button>
+</form>
+</sc-if>
+<sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
+<div class="ok"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></b><span class="mono">You're on the list. We'll be in touch.</span></div>
+</sc-if>
+</div>
+</div>
+</section>
+
 <footer class="foot">
-<img src="assets/logo.png" alt="RISE Space">
+<img src="assets/rise-logo-nav.png" alt="RISE Space">
 <nav aria-label="Footer">
 <a href="spaceflight.html">Spaceflight</a><a href="spaceship.html">Spaceship</a><a href="space-venue.html">Space Venue</a><a href="space-programs.html">Space Programs</a><a href="about.html">About</a><a href="spaceflight.html#reserve">Contact us</a>
 </nav>
@@ -612,7 +669,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { sent: false, soundOn: true, playing: false, menuOpen: false };
+    this.state = { sent: false, joined: false, soundOn: true, playing: false, menuOpen: false };
     this.toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
     this.closeMenu = () => this.setState({ menuOpen: false });
     this.root = null;
@@ -624,6 +681,7 @@ class Component extends DCLogic {
       const P = this.snd; if (!P) return;
       P.setOn(!(P.on && !P.a.paused));
     };
+    this.join = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ joined: true }); };
     this.submit = (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); };
   }
 
@@ -996,6 +1054,9 @@ class Component extends DCLogic {
       ].map((n) => ({ ...n, soon: !n.ready, current: 'false' })),
       setRoot: this.setRoot,
       submit: this.submit,
+      join: this.join,
+      joined: this.state.joined,
+      notJoined: !this.state.joined,
       sent: this.state.sent,
       toggleSound: this.toggleSound,
       soundOn: this.state.soundOn,
