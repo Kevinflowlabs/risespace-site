@@ -96,11 +96,13 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* demo video play button */
 .watch{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:30px}
-.playbtn{display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:0 26px 0 10px;border-radius:999px;background:var(--gold);color:#fff;text-decoration:none;font-size:16px;font-weight:600;letter-spacing:.01em;text-shadow:0 1px 2px rgba(80,55,0,.55);box-shadow:0 10px 30px rgba(247,204,46,.28);transition:transform .3s cubic-bezier(.16,.8,.2,1),box-shadow .3s}
-.playbtn i{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.22)}
-.playbtn svg{width:16px;height:16px;margin-left:2px;filter:drop-shadow(0 1px 1px rgba(80,55,0,.5))}
-.playbtn:hover,.playbtn:focus-visible{transform:translateY(-2px);box-shadow:0 14px 38px rgba(247,204,46,.4)}
-.playbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.playbtn{display:inline-flex;align-items:center;gap:14px;min-height:48px;padding:0;background:none;color:#fff;text-decoration:none;font-size:16px;font-weight:500;letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.playbtn i{display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#05070C;box-shadow:0 6px 22px rgba(247,204,46,.35);transition:transform .3s cubic-bezier(.16,.8,.2,1),box-shadow .3s}
+.playbtn svg{width:16px;height:16px;margin-left:3px}
+.playbtn span{border-bottom:1px solid transparent;transition:border-color .3s}
+.playbtn:hover i,.playbtn:focus-visible i{transform:scale(1.08);box-shadow:0 8px 28px rgba(247,204,46,.5)}
+.playbtn:hover span,.playbtn:focus-visible span{border-color:rgba(255,255,255,.7)}
+.playbtn:focus-visible{outline:2px solid #fff;outline-offset:6px;border-radius:999px}
 .watch .mono{color:rgba(242,239,233,.8);text-shadow:0 1px 8px rgba(0,0,0,.6)}
 
 /* sound toggle */
@@ -314,6 +316,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .banner .say h2 em{font-style:italic;color:var(--gold)}
 .banner .shade{background:linear-gradient(180deg,rgba(5,7,12,.7),rgba(5,7,12,.1) 30%,rgba(5,7,12,.2) 60%,rgba(5,7,12,.92))}
 .banner .say{position:absolute;left:var(--gut);right:var(--gut);bottom:12vh}
+.banner.flight{height:100vh;height:100svh;min-height:560px}
+.banner.flight .say h2{max-width:16ch}
+.banner .say p.sub{font-family:inherit;font-size:clamp(16px,1.4vw,20px);line-height:1.6;letter-spacing:0;max-width:46ch;margin-top:22px;color:rgba(242,239,233,.88);text-shadow:0 1px 12px rgba(0,0,0,.55)}
+@media (max-width:760px){.banner.flight .tag.br{left:var(--gut);right:auto;max-width:calc(100% - 2 * var(--gut) - 96px);font-size:9px;line-height:1.6}}
 .banner .say p{font-family:var(--serif);font-size:clamp(40px,5.4vw,92px);line-height:1.12;letter-spacing:.005em;max-width:18ch;text-wrap:balance}
 
 /* sections */
@@ -544,7 +550,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="shade"></div>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
-<div class="watch"><a class="playbtn" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></i>Watch the full demonstration flight</a><span class="mono">Best with sound on</span></div></div>
+<div class="watch"><a class="playbtn" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>RISE demonstration flight</span></div>
 </section>
 
@@ -569,19 +575,12 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </section>
 
 <!-- 5 SMOOTH AND SAFE -->
-<section id="launch" class="scene" data-scene="launch" data-vars="still:.163,.228" style="height: 486vh">
-<div class="stage">
-<div class="layer" data-range="-1,.648"><video data-scrub="" data-a=".184" data-b=".648" data-t0="3" data-t1="15.3" src="assets/launch.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="layer" data-range=".648,2"><video data-scrub="" data-a=".648" data-b="1" data-t0="0" data-t1="11.9" src="assets/liftoff.mp4" preload="auto" muted="" playsinline=""></video></div>
-<div class="still" aria-hidden="true"><video data-scrub="" data-a="0" data-b=".218" data-t0="0" data-t1="6.45" src="assets/deck-liftoff.mp4" poster="assets/deck-liftoff-poster.jpg" preload="auto" muted="" playsinline=""></video></div>
-<div class="shade side"></div>
-<div class="brk"><i></i><i></i><i></i><i></i></div>
-<div class="cap right" data-range=".544,2">
-<h2>A smooth and safe spaceflight without rockets</h2>
-<p>A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
-</div>
+<section id="launch" class="banner flight" aria-label="A smooth and safe spaceflight without rockets">
+<video data-inview="" src="assets/launch-flight.mp4" poster="assets/launch-flight-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
+<div class="shade"></div>
+<div class="say"><h2>A smooth and safe spaceflight without rockets</h2>
+<p class="sub">A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p></div>
 <div class="tag br"><span>Video captured during RISE spaceflight</span></div>
-</div>
 </section>
 
 <!-- 6 INSIDE THE SPACESHIP -->

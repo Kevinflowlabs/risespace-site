@@ -121,14 +121,14 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .head p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--dim);max-width:46ch}
 
 /* ===== interactive flight profile ===== */
-.profile{position:relative;border:1px solid var(--line);background:radial-gradient(60% 55% at 50% 12%,rgba(247,204,46,.07),rgba(247,204,46,0) 70%),#05070C;overflow:hidden}
+.profile{position:relative;border:1px solid var(--line);background:#05070C;overflow:hidden}
 .profile:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(1px 1px at 12% 18%,rgba(242,239,233,.55),transparent 60%),radial-gradient(1px 1px at 27% 9%,rgba(242,239,233,.4),transparent 60%),radial-gradient(1px 1px at 44% 22%,rgba(242,239,233,.35),transparent 60%),radial-gradient(1px 1px at 63% 7%,rgba(242,239,233,.5),transparent 60%),radial-gradient(1px 1px at 78% 16%,rgba(242,239,233,.4),transparent 60%),radial-gradient(1px 1px at 91% 26%,rgba(242,239,233,.35),transparent 60%),radial-gradient(1px 1px at 35% 30%,rgba(242,239,233,.3),transparent 60%),radial-gradient(1px 1px at 86% 6%,rgba(242,239,233,.45),transparent 60%)}
 .chart{position:relative;aspect-ratio:1000/320;margin:28px 34px 8px 96px}
 .chart svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .chart .grid line{stroke:rgba(242,239,233,.1);stroke-dasharray:3 6}
 .chart .track{fill:none;stroke:rgba(242,239,233,.2);stroke-width:2;vector-effect:non-scaling-stroke}
 .chart .done{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-dasharray:1 1;stroke-dashoffset:calc(1 - var(--prog,0));transition:stroke-dashoffset 1.1s cubic-bezier(.65,0,.35,1);filter:drop-shadow(0 0 6px rgba(247,204,46,.6))}
-.chart .area{fill:url(#sf-area)}
+.chart .area{fill:none}
 .chart .ground{stroke:rgba(242,239,233,.35);stroke-width:1;vector-effect:non-scaling-stroke}
 .ylab{position:absolute;left:-88px;width:76px;text-align:right;transform:translateY(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--mute)}
 .tline{position:relative;height:58px;margin:18px 34px 22px 96px}
@@ -317,7 +317,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 <!-- HERO -->
 <section class="hero" aria-label="Spaceflight">
-<video data-loop="" src="assets/apogee.mp4" poster="assets/poster-hero.jpg" autoplay="" loop="" muted="" playsinline=""></video>
+<video data-loop="" src="assets/apogee-hq.mp4" poster="assets/apogee-hq-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
 <div class="hero-in">
 <div class="mono eyebrow">Spaceflight</div>
 <h1>Your flight <em>to space.</em></h1>

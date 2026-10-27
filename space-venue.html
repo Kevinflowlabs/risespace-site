@@ -234,30 +234,17 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .textlink:hover{gap:16px;color:var(--gold)}
 .textlink svg{width:16px;height:16px}
 
-.occ{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1px solid var(--line);background:var(--ink)}
-.occ-list{display:flex;flex-direction:column;padding:14px 0}
-.occ-item{display:flex;align-items:baseline;gap:18px;width:100%;padding:20px clamp(22px,3vw,40px);border:0;border-left:2px solid transparent;background:none;color:var(--dim);text-align:left;cursor:pointer;font-family:var(--serif);font-size:clamp(26px,2.4vw,38px);line-height:1.1;transition:color .3s,border-color .3s,background .3s}
-.occ-item b{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.18em;color:var(--mute)}
-.occ-item:hover{color:var(--bone)}
-.occ-item[aria-selected="true"]{color:var(--bone);border-left-color:var(--gold);background:linear-gradient(90deg,rgba(247,204,46,.08),rgba(247,204,46,0))}
-.occ-item[aria-selected="true"] b{color:var(--gold)}
-.occ-view{position:relative;min-height:600px;overflow:hidden}
-.occ-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .9s ease,transform 1.6s cubic-bezier(.16,.8,.2,1)}
-.occ-view img[data-on="true"]{opacity:1;transform:none}
-.occ-view:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,12,0) 45%,rgba(5,7,12,.9))}
-.occ-cap{position:absolute;left:clamp(22px,3vw,40px);right:clamp(22px,3vw,40px);bottom:clamp(22px,3vw,40px);z-index:1}
-.occ-cap p{display:none;font-size:clamp(17px,1.4vw,21px);line-height:1.5;max-width:40ch;color:var(--bone)}
-.occ-cap p[data-on="true"]{display:block;animation:rise .7s cubic-bezier(.16,.8,.2,1) both}
-.occ-stack{display:none}
-@media (max-width:860px){.occ{display:none}.occ-stack{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}}
+.occ-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.occ-stack{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.occ-stack{grid-template-columns:minmax(0,1fr);gap:16px}}
 .occ-card{border:1px solid var(--line);background:var(--ink);overflow:hidden}
 .occ-card .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
-.occ-card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.occ-card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,.8,.2,1)}
+.occ-card:hover .im img{transform:scale(1.04)}
 .occ-card .t{padding:20px 22px 24px;border-top:2px solid var(--gold)}
 .occ-card .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--gold)}
 .occ-card h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.18;margin-top:8px}
 .occ-card p{margin-top:10px;font-size:15.5px;line-height:1.6;color:var(--dim)}
-@media (max-width:860px){.occ{grid-template-columns:minmax(0,1fr)}.occ-list{flex-direction:row;overflow-x:auto;padding:0;border-bottom:1px solid var(--line);scrollbar-width:none}.occ-item{flex:0 0 auto;border-left:0;border-bottom:2px solid transparent;font-size:22px;padding:18px}.occ-item[aria-selected="true"]{border-bottom-color:var(--gold);background:none}.occ-view{min-height:420px}}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0;border-top:1px solid var(--line)}
 .step{padding:34px 30px 30px 0;border-right:1px solid var(--line);margin-right:30px}
 .step:last-child{border-right:0}
@@ -345,24 +332,11 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <section class="sec" id="occasions" aria-label="Occasions">
 <div class="head" data-reveal="">
 <div><div class="mono eyebrow">One cabin</div><h2>Every kind of occasion.</h2></div>
-<p>A flexible platform in space, configured around the moments worth marking. Choose one to see it.</p>
-</div>
-<div class="occ" data-reveal="">
-<div class="occ-list" role="tablist" aria-label="Occasions">
-<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6">
-<button class="occ-item" type="button" role="tab" aria-selected="{{ o.on }}" onClick="{{ o.pick }}" onMouseEnter="{{ o.pick }}"><b>{{ o.n }}</b>{{ o.label }}</button>
-</sc-for>
-</div>
-<div class="occ-view">
-<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6"><img src="{{ o.img }}" alt="{{ o.alt }}" data-on="{{ o.on }}"></sc-for>
-<div class="occ-cap" aria-live="polite">
-<sc-for list="{{ occs }}" as="o" hint-placeholder-count="6"><p data-on="{{ o.on }}">{{ o.body }}</p></sc-for>
-</div>
-</div>
+<p>A flexible platform in space, configured around the moments worth marking.</p>
 </div>
 <div class="occ-stack">
 <sc-for list="{{ occs }}" as="o" hint-placeholder-count="6">
-<article class="occ-card" data-reveal=""><div class="im"><img src="{{ o.img }}" alt="{{ o.alt }}" loading="lazy"></div><div class="t"><span class="n">{{ o.n }}</span><h3>{{ o.label }}</h3><p>{{ o.body }}</p></div></article>
+<article class="occ-card"><div class="im"><img src="{{ o.img }}" alt="{{ o.alt }}"></div><div class="t"><span class="n">{{ o.n }}</span><h3>{{ o.label }}</h3><p>{{ o.body }}</p></div></article>
 </sc-for>
 </div>
 </section>
