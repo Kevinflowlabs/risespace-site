@@ -12,13 +12,13 @@
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
-<link rel="preload" as="image" href="assets/about-hero-poster.jpg">
+<link rel="preload" as="image" href="assets/about-dawn-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
 body{margin:0;background:#05070C}
 a{color:#F2EFE9}a:hover{color:#F7CC2E}
-.sf{--gold:#F7CC2E;--hl:#9FD4FF;--hl-bg:rgba(120,190,255,.11);--void:#05070C;--ink:#0A0D14;--ink2:#0E121A;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--sky:#9FC8E0;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Instrument Serif','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
+.sf{--gold:#F7CC2E;--hl:#9FD4FF;--hl-bg:rgba(120,190,255,.11);--void:#05070C;--ink:#0A0D14;--ink2:#0E121A;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#6E7480;--sky:#9FC8E0;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Merriweather','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
 .sf *{box-sizing:border-box}
 .sf img,.sf video{display:block}
 .sf h1,.sf h2,.sf h3,.sf p{margin:0}
@@ -91,9 +91,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .hero{position:relative;min-height:clamp(640px,92svh,980px);display:flex;align-items:flex-end;overflow:hidden;padding:140px var(--gut) clamp(60px,10vh,110px)}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:heroPush 24s ease-in-out infinite alternate}
 @keyframes heroPush{to{transform:scale(1.12)}}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,12,.85) 0%,rgba(5,7,12,.35) 55%,rgba(5,7,12,.1) 100%),linear-gradient(180deg,rgba(5,7,12,.6) 0%,rgba(5,7,12,0) 30%,rgba(5,7,12,0) 60%,#05070C 100%)}
+.hero:after{content:none;display:none}
+.hero h1,.hero .lede,.hero .eyebrow,.hero-tag{text-shadow:0 2px 18px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.5)}
 .hero-in{position:relative;z-index:1;max-width:820px}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8.4vw,144px);line-height:.9;letter-spacing:-.02em;text-wrap:balance;animation:rise 1.2s .15s cubic-bezier(.16,.8,.2,1) both}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8.4vw,144px);line-height:1.1;letter-spacing:.005em;text-wrap:balance;animation:rise 1.2s .15s cubic-bezier(.16,.8,.2,1) both}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero .lede{margin-top:28px;font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:rgba(242,239,233,.84);max-width:46ch;animation:rise 1.2s .35s cubic-bezier(.16,.8,.2,1) both}
 .hero .eyebrow{animation:rise 1s 0s cubic-bezier(.16,.8,.2,1) both}
@@ -108,7 +109,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));margin:0 var(--gut);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stat{padding:34px 26px 34px 0;border-right:1px solid var(--line);margin-right:26px}
 .stat:last-child{border-right:0}
-.stat .n{font-family:var(--serif);font-size:clamp(46px,4.6vw,76px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .n{font-family:var(--serif);font-size:clamp(46px,4.6vw,76px);line-height:1;letter-spacing:.005em;font-variant-numeric:tabular-nums}
 .stat .n small{font-size:.42em;color:var(--dim);margin-left:6px;letter-spacing:0}
 .stat p{margin-top:12px;font-size:14px;line-height:1.5;color:var(--dim);max-width:24ch}
 @media (max-width:760px){.stat{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:26px 0}.stat:last-child{border-bottom:0}}
@@ -116,18 +117,20 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 /* ===== section heads ===== */
 .sec{padding:clamp(100px,14vh,170px) var(--gut) 0}
 .head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:24px 60px;align-items:end;margin-bottom:clamp(44px,7vh,80px)}
-.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:.95;letter-spacing:-.02em;text-wrap:balance}
+.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.4vw,92px);line-height:1.1;letter-spacing:.005em;text-wrap:balance}
 .head p{font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--dim);max-width:46ch}
 
 /* ===== onboard cards ===== */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:18px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.cards{grid-template-columns:minmax(0,1fr)}}
 .card{position:relative;min-height:460px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;outline:none}
 .card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.02);transition:transform 1.4s cubic-bezier(.16,.8,.2,1),filter .6s}
 .card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,12,.05) 30%,rgba(5,7,12,.92) 100%);transition:background .6s}
 .card:hover img,.card:hover video,.card:focus-within img{transform:scale(1.09)}
 .card .t{padding:26px}
 .card .mono{color:var(--gold)}
-.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.4vw,40px);line-height:1;margin-top:12px}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.4vw,40px);line-height:1.1;margin-top:12px}
 .card p{font-size:14.5px;line-height:1.55;color:rgba(242,239,233,.78);max-height:0;opacity:0;overflow:hidden;transition:max-height .6s cubic-bezier(.16,.8,.2,1),opacity .5s,margin .6s}
 .card:hover p,.card:focus-within p{max-height:120px;opacity:1;margin-top:12px}
 @media (hover:none){.card p{max-height:none;opacity:1;margin-top:12px}}
@@ -141,7 +144,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .safe .ref{position:absolute;right:var(--gut);bottom:clamp(24px,4vh,40px);color:rgba(242,239,233,.7);display:flex;gap:10px;align-items:center}
 .safe .ref:before{content:"";width:18px;height:1px;background:var(--gold)}
 @media (max-width:860px){.safe{padding-top:0;gap:28px}.safe:before{display:none}.safe .bg{position:relative;inset:auto;z-index:0;order:-1;width:calc(100% + 2 * var(--gut));height:auto;aspect-ratio:16/10;margin:0 calc(-1 * var(--gut));object-position:80% 50%}.safe .ref{top:calc(62.5vw - 40px);bottom:auto}}
-.safe h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,84px);line-height:.95;letter-spacing:-.02em;max-width:14ch}
+.safe h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,84px);line-height:1.1;letter-spacing:.005em;max-width:14ch}
 .safe p{margin-top:24px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.82);max-width:44ch}
 .safe ul{list-style:none;margin:30px 0 0;padding:0;max-width:560px}
 .safe li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#D5D8DE}
@@ -165,17 +168,6 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .faq .a{padding:0 60px 26px 0;font-size:16px;line-height:1.65;color:var(--dim);animation:rise .5s ease both}
 @media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .a{padding-right:0}}
 
-/* next page CTA */
-.nextcta{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;padding:clamp(22px,3vw,34px) clamp(24px,3.4vw,44px);border:1px solid var(--line);border-left:2px solid var(--gold);background:linear-gradient(90deg,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink);text-decoration:none;color:var(--bone);transition:background .4s}
-.nextcta:hover{background:linear-gradient(90deg,rgba(247,204,46,.14),rgba(247,204,46,0) 70%),var(--ink)}
-.nextcta .k{display:block;color:var(--gold);margin-bottom:10px}
-.nextcta .t{font-family:var(--serif);font-size:clamp(26px,2.6vw,40px);line-height:1.05}
-.nextcta .go{display:inline-flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.02em;white-space:nowrap}
-.nextcta .go i{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,233,.35);transition:background .3s,border-color .3s,color .3s,transform .3s}
-.nextcta .go svg{width:18px;height:18px}
-.nextcta:hover .go i,.nextcta:focus-visible .go i{background:var(--gold);border-color:var(--gold);color:#05070C;transform:translateX(4px)}
-.nextcta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.nextwrap + #reserve .join{margin-top:20px}
 
 /* ===== join ===== */
 .join{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));border:1px solid var(--line);margin-top:clamp(100px,14vh,170px)}
@@ -183,7 +175,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .join .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
 .join:hover .shot img{transform:scale(1.06)}
 .join .body{padding:clamp(30px,4vw,64px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
-.join h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.2vw,70px);line-height:.96;letter-spacing:-.02em}
+.join h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.2vw,70px);line-height:1.1;letter-spacing:.005em}
 .join .body>p{margin-top:20px;font-size:16px;line-height:1.6;color:var(--dim);max-width:44ch}
 .form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-top:30px}
 .field{display:flex;flex-direction:column;gap:8px}
@@ -225,7 +217,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .split2 .media{position:relative;min-height:460px;background:#000;overflow:hidden}
 .split2 .media video,.split2 .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .split2 .txt{padding:clamp(28px,4vw,60px);display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
-.split2 h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:.98;letter-spacing:-.015em}
+.split2 h3{font-family:var(--serif);font-weight:400;font-size:clamp(36px,3.6vw,60px);line-height:1.12;letter-spacing:.005em}
 .split2 p{margin-top:18px;font-size:16px;line-height:1.65;color:var(--dim);max-width:44ch}
 .list{list-style:none;margin:26px 0 0;padding:0}
 .list li{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#D5D8DE}
@@ -243,7 +235,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .textlink svg{width:16px;height:16px}
 
 .manifesto{padding:clamp(120px,18vh,220px) var(--gut);background:radial-gradient(80% 60% at 50% 0%,rgba(98,180,255,.08),rgba(98,180,255,0) 60%)}
-.manifesto p{font-family:var(--serif);font-size:clamp(36px,4.8vw,84px);line-height:1.04;letter-spacing:-.02em;max-width:22ch}
+.manifesto p{font-family:var(--serif);font-size:clamp(36px,4.8vw,84px);line-height:1.14;letter-spacing:.005em;max-width:22ch}
 .manifesto .w{color:rgba(242,239,233,.16);transition:color .35s ease}
 .manifesto .w[data-lit="1"]{color:var(--bone)}
 .manifesto .w.g[data-lit="1"]{color:var(--gold);font-style:italic}
@@ -267,7 +259,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .fd .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:transform 1.4s cubic-bezier(.16,.8,.2,1)}
 .fd:hover .ph-img img{transform:scale(1.04)}
 .fd .t{flex:1;display:flex;flex-direction:column;padding:22px 22px 24px}
-.fd h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.1vw,32px);line-height:1.05}
+.fd h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.1vw,32px);line-height:1.15}
 .fd .role{margin-top:8px;font-size:14px;line-height:1.5;color:var(--dim)}
 .fd button.ph-img{display:block;width:100%;padding:0;border:0;cursor:pointer}
 .fd .nm{padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;background-image:linear-gradient(var(--gold),var(--gold));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .4s,color .3s}
@@ -283,28 +275,29 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .bio-x{position:sticky;top:0;float:right;margin:-8px -8px 0 12px;z-index:2}
 .bio-head{display:flex;gap:clamp(18px,3vw,32px);align-items:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
 .bio-head img{width:clamp(96px,14vw,150px);aspect-ratio:1/1;object-fit:cover;object-position:50% 25%;flex:0 0 auto}
-.bio-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1}
+.bio-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1.1}
 .bio-head .role{margin-top:8px;font-size:15px;color:var(--dim)}
-.bio-head .li{display:inline-flex;align-items:center;gap:10px;margin-top:16px;color:var(--bone);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.bio-head .li svg{width:18px;height:18px;color:var(--gold)}
+.bio-head .li{margin-top:16px;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:5px;background:#0A66C2;color:#fff;text-decoration:none;transition:background .2s,transform .2s}
+.bio-head .li svg{width:17px;height:17px;color:#fff}
+.bio-head .li:hover,.fd .li:hover{background:#0c78e3;transform:translateY(-1px)}
+.bio-head .li:focus-visible,.fd .li:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .bio-body{padding-top:26px}
 .bio-body p{font-size:16px;line-height:1.7;color:rgba(242,239,233,.84);max-width:68ch}
 .bio-body p + p{margin-top:16px}
 .bio-nav{display:flex;justify-content:space-between;gap:12px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
 .bio-nav .btn svg{width:16px;height:16px}
 @media (max-width:560px){.bio-head{flex-direction:column;align-items:flex-start}.bio-nav .btn span{max-width:9ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-.fd .li{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start;color:var(--bone);text-decoration:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.fd .li svg{width:18px;height:18px;color:var(--gold);flex:0 0 auto}
-.fd .li span{border-bottom:1px solid rgba(242,239,233,.25);padding-bottom:2px;transition:border-color .2s}
-.fd .li:hover span,.fd .li:focus-visible span{border-color:var(--gold)}
+.fd .li{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:5px;background:#0A66C2;color:#fff;text-decoration:none;transition:background .2s,transform .2s}
+.fd .li svg{width:17px;height:17px;color:#fff;flex:0 0 auto}
 .press{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:30px 60px;align-items:end;margin-top:18px;padding:clamp(34px,5vw,64px);border:1px solid var(--line);background:radial-gradient(80% 120% at 100% 0%,rgba(247,204,46,.07),rgba(247,204,46,0) 60%),var(--ink)}
-.press h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:.95}
+.press h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:1.1}
 .press p{font-size:16px;line-height:1.6;color:var(--dim);max-width:46ch}
 .press .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .careers{position:relative;margin-top:clamp(100px,14vh,170px);padding:clamp(90px,14vh,160px) var(--gut);text-align:center;overflow:hidden;isolation:isolate}
-.careers img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.55}
-.careers:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05070C,rgba(5,7,12,.5) 35%,rgba(5,7,12,.5) 65%,#05070C)}
-.careers h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,104px);line-height:.94;letter-spacing:-.02em}
+.careers img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:1}
+.careers h2,.careers p{text-shadow:0 2px 22px rgba(5,7,12,.7)}
+.careers:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#05070C 0%,rgba(5,7,12,.2) 22%,rgba(5,7,12,.2) 72%,#05070C 100%),radial-gradient(50% 45% at 50% 45%,rgba(5,7,12,.45),rgba(5,7,12,0) 75%)}
+.careers h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px,6vw,104px);line-height:1.1;letter-spacing:.005em}
 .careers p{margin:22px auto 0;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(242,239,233,.84);max-width:44ch}
 .careers .btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:34px}
 </style>
@@ -350,14 +343,14 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 <!-- HERO -->
 <section class="hero short" aria-label="About">
-<video data-loop="" src="assets/about-hero.mp4" poster="assets/about-hero-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
+<video data-loop="" src="assets/about-dawn.mp4" poster="assets/about-dawn-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video>
 <div class="hero-in">
 <div class="mono eyebrow">About</div>
 <h1>This is <em>RISE.</em></h1>
 <p class="lede">A meticulous team on Earth, making magic happen in space.</p>
-<div class="btns"><a class="btn solid" href="#founders">Meet our founders</a><a class="btn" href="#records">Our track record</a></div>
+<div class="btns"></div>
 </div>
-<div class="hero-tag mono">RISE demonstration flight</div>
+<div class="hero-tag mono">RISE spaceship at dawn</div>
 </section>
 
 <!-- MANIFESTO -->
@@ -366,37 +359,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <p><span class="w">We</span> <span class="w">are</span> <span class="w">opening</span> <span class="w">space</span> <span class="w">to</span> <span class="w">more</span> <span class="w">people</span> <span class="w">than</span> <span class="w">ever</span> <span class="w">before</span> <span class="w">to</span> <span class="w">have</span> <span class="w">the</span> <span class="w">life-changing</span> <span class="w">experience</span> <span class="w">of</span> <span class="w g">seeing</span> <span class="w g">Earth</span> <span class="w g">in</span> <span class="w g">space.</span></p>
 </section>
 
-<!-- FOUNDERS -->
-<section class="sec" id="founders" aria-label="Founders" style="padding-top: 20px">
-<div class="head" data-reveal="">
-<div><div class="mono eyebrow">Leadership</div><h2>Meet our Founders</h2></div>
-<p>RISE leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.</p>
-</div>
-<div class="founders" data-reveal="">
-<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4">
-<article class="fd"><button class="ph-img" type="button" onClick="{{ f.open }}" aria-label="Read {{ f.name }}’s bio"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></button><div class="t"><h3><button class="nm" type="button" onClick="{{ f.open }}">{{ f.name }}</button></h3><div class="role">{{ f.role }}</div><div class="links"><button class="bio-link" type="button" onClick="{{ f.open }}">Read bio</button><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></div></article>
-</sc-for>
-</div>
-</section>
-
-<!-- FOUNDER BIO -->
-<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4"><sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
-<div class="bio-wrap" role="dialog" aria-modal="true" aria-label="{{ f.name }} biography">
-<div class="bio-back" onClick="{{ closeBio }}"></div>
-<div class="bio" data-bio="">
-<button class="bio-x icon-btn" type="button" aria-label="Close biography" onClick="{{ closeBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
-<div class="bio-head"><img src="{{ f.img }}" alt=""><div><div class="mono eyebrow">Founder</div><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div>
-<a class="li" href="{{ f.li }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg><span>LinkedIn</span></a></div></div>
-<div class="bio-body"><sc-for list="{{ f.paras }}" as="t" hint-placeholder-count="5"><p>{{ t }}</p></sc-for></div>
-<div class="bio-nav"><button class="btn" type="button" onClick="{{ prevBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><span>{{ f.prevName }}</span></button><button class="btn" type="button" onClick="{{ nextBio }}"><span>{{ f.nextName }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
-</div>
-</div>
-</sc-if></sc-for>
-
 <!-- RECORDS -->
-<section class="sec" id="records" aria-label="Records">
+<section class="sec" id="records" aria-label="World records and unrivaled experience" style="padding-top: 20px">
 <div class="head" data-reveal="">
-<div><div class="mono eyebrow">Flight proven</div><h2>Records, industries and history.</h2></div>
+<div><div class="mono eyebrow">Flight proven</div><h2>World records and unrivaled experience.</h2></div>
 <p>Our team has set records, created industries and made history. Drag or use the arrows to browse their accomplishments.</p>
 </div>
 <div data-reveal="">
@@ -413,9 +379,36 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </div>
 </section>
 
+<!-- FOUNDERS -->
+<section class="sec" id="founders" aria-label="Founders">
+<div class="head" data-reveal="">
+<div><div class="mono eyebrow">Leadership</div><h2>Meet our Founders</h2></div>
+<p>RISE leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+</div>
+<div class="founders" data-reveal="">
+<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4">
+<article class="fd"><button class="ph-img" type="button" onClick="{{ f.open }}" aria-label="Read {{ f.name }}’s bio"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></button><div class="t"><h3><button class="nm" type="button" onClick="{{ f.open }}">{{ f.name }}</button></h3><div class="role">{{ f.role }}</div><div class="links"><button class="bio-link" type="button" onClick="{{ f.open }}">Read bio</button><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
+</sc-for>
+</div>
+</section>
+
+<!-- FOUNDER BIO -->
+<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4"><sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+<div class="bio-wrap" role="dialog" aria-modal="true" aria-label="{{ f.name }} biography">
+<div class="bio-back" onClick="{{ closeBio }}"></div>
+<div class="bio" data-bio="">
+<button class="bio-x icon-btn" type="button" aria-label="Close biography" onClick="{{ closeBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button>
+<div class="bio-head"><img src="{{ f.img }}" alt=""><div><div class="mono eyebrow">Founder</div><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div>
+<a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div>
+<div class="bio-body"><sc-for list="{{ f.paras }}" as="t" hint-placeholder-count="5"><p>{{ t }}</p></sc-for></div>
+<div class="bio-nav"><button class="btn" type="button" onClick="{{ prevBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><span>{{ f.prevName }}</span></button><button class="btn" type="button" onClick="{{ nextBio }}"><span>{{ f.nextName }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+</div>
+</div>
+</sc-if></sc-for>
+
 <!-- CAREERS -->
 <section class="careers" aria-label="Careers">
-<img src="assets/mission-edge.jpg" alt="">
+<img src="assets/careers-sunset.jpg" alt="">
 <div data-reveal="">
 <div class="mono eyebrow" style="justify-content: center">Careers</div>
 <h2>Join our mission.</h2>
@@ -446,7 +439,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <sc-if value="{{ notJoined }}" hint-placeholder-val="{{ true }}">
 <form class="form" onSubmit="{{ join }}">
 <div class="field"><label for="sf-email">Email</label><input id="sf-email" type="email" autocomplete="email" required=""></div>
-<div class="field"><label for="sf-how">I'm interested in</label><select id="sf-how"><option>A seat on a flight</option><option>The entire cabin</option><option>A Space Venue event</option><option>Research or government</option></select></div>
+<div class="field"><label for="sf-how">I'm interested in</label><select id="sf-how"><option>Spaceflight</option><option>Space Venue</option><option>Space Programs</option><option>Careers</option><option>Other</option></select></div>
 <button class="btn solid full" type="submit">Join the list</button>
 </form>
 </sc-if>
@@ -702,7 +695,7 @@ class Component extends DCLogic {
         { img: 'assets/rec-spin.jpg', alt: 'A large spin vacuum chamber in the desert', stat: 'SpinLaunch', title: 'Developed the largest spin vacuum chamber ever operated' }
       ],
       founders: [
-        { img: 'assets/team-mehta-v2.jpg', name: 'Ravé Mehta', paras: ["Ravé serves as CEO of Rise Space, leading the company’s vision, strategy, partnerships and execution with over 25 years’ experience founding, building, leading and investing in space and frontier technology companies.", "Ravé is an engineer, entrepreneur and investor, as well as an award-winning pianist, bestselling author and recipient of the Tesla Vision Award from the Tesla Science Foundation. Ravé has been active in the commercial space sector since 2007. As a board member of Space Florida from 2007 to 2012 and Chairman of their Legislative Committee, Ravé played an important role in the historic transition from winding down the U.S. National Space Shuttle program to launching today's thriving commercial space industry. Ravé was part of the team that transitioned launchpad 39A from the U.S. Airforce to Space Florida, followed by leasing it to SpaceX to create the world's first commercial orbital launch complex. Since then, Ravé has invested in, advised, and supported numerous space companies and investment funds, including Space Perspective.", "Ravé currently serves on the U.S. National UAP Scientific Advisory Council, the federal advisory group formed in June 2026 at the request of the White House, the Pentagon’s All-domain Anomaly Resolution Office (AARO), the Office of the Director of National Intelligence (ODNI), and the FBI to scientifically study Unidentified Anomalous Phenomena. Ravé also serves on the Council of Advisors for the SETI Institute (Search for Extraterrestrial Intelligence), a research institute with over 100 scientists dedicated to exploring, understanding, searching for and explaining the origin, nature, and prevalence of life and intelligence in the universe. Ravé also serves on the advisory board of Space for Humanity as chairman of the Arts & Astronauts Committee. Ravé was on the final selection committee to evaluate and select citizen astronaut candidates they sent to space to experience the Overview Effect resulting in several billions of media impressions for their citizen astronauts.", "Ravé is a board member and managing director of Mehta Group and Flow Capital, his family office’s investment platform focused on space and frontier technologies. Ravé was the CEO of Mehta Engineering, their 50-year old award-winning engineering and construction management firm that helped build over 1,000 transportation infrastructure projects across the U.S. including roads, highways, bridges, airports, and rail systems with over $50 billion in construction value. Ravé holds a B.S. and M.S. degrees in Engineering and is a licensed Professional Engineer in eight U.S. states. His combination of commercial space experience, large-scale engineering leadership, and entrepreneurial success provides deep expertise in executing complex, safety-critical engineering programs, managing large-scale operations and navigating highly regulated industries.", "Ravé is also an award-winning pianist, composer and researcher focused on human potential. He spent two decades studying the science of fear, flow and music and how they can be used to increase human performance and access our innate healing abilities. After healing himself from Lyme disease by playing the piano to drop himself into flow states, he integrated the principles of flow into his Piano Sound Bath concerts to help others drop into deep healing flow states. Ravé has performed in iconic venues around the world including Carnegie Hall, Grace Cathedral, Burning Man, Church of Rome, Dracula’s Castle and even the North Pole where 1 hour into his concert, he had to evacuate everyone due to a polar bear. Ravé is also the bestselling author of The Inventor: The Story of Tesla (Scholastic), a graphic novel about the true story of Nikola Tesla and how he battled Thomas Edison during the AC/DC Current Wars and changed the world with the power of his mind and imagination."], role: 'Chairman and Chief Executive Officer', li: 'https://www.linkedin.com/in/ravemehta/' },
+        { img: 'assets/team-mehta-v3.jpg', name: 'Ravé Mehta', paras: ["Ravé serves as CEO of Rise Space, leading the company’s vision, strategy, partnerships and execution with over 25 years’ experience founding, building, leading and investing in space and frontier technology companies.", "Ravé is an engineer, entrepreneur and investor, as well as an award-winning pianist, bestselling author and recipient of the Tesla Vision Award from the Tesla Science Foundation. Ravé has been active in the commercial space sector since 2007. As a board member of Space Florida from 2007 to 2012 and Chairman of their Legislative Committee, Ravé played an important role in the historic transition from winding down the U.S. National Space Shuttle program to launching today's thriving commercial space industry. Ravé was part of the team that transitioned launchpad 39A from the U.S. Airforce to Space Florida, followed by leasing it to SpaceX to create the world's first commercial orbital launch complex. Since then, Ravé has invested in, advised, and supported numerous space companies and investment funds, including Space Perspective.", "Ravé currently serves on the U.S. National UAP Scientific Advisory Council, the federal advisory group formed in June 2026 at the request of the White House, the Pentagon’s All-domain Anomaly Resolution Office (AARO), the Office of the Director of National Intelligence (ODNI), and the FBI to scientifically study Unidentified Anomalous Phenomena. Ravé also serves on the Council of Advisors for the SETI Institute (Search for Extraterrestrial Intelligence), a research institute with over 100 scientists dedicated to exploring, understanding, searching for and explaining the origin, nature, and prevalence of life and intelligence in the universe. Ravé also serves on the advisory board of Space for Humanity as chairman of the Arts & Astronauts Committee. Ravé was on the final selection committee to evaluate and select citizen astronaut candidates they sent to space to experience the Overview Effect resulting in several billions of media impressions for their citizen astronauts.", "Ravé is a board member and managing director of Mehta Group and Flow Capital, his family office’s investment platform focused on space and frontier technologies. Ravé was the CEO of Mehta Engineering, their 50-year old award-winning engineering and construction management firm that helped build over 1,000 transportation infrastructure projects across the U.S. including roads, highways, bridges, airports, and rail systems with over $50 billion in construction value. Ravé holds a B.S. and M.S. degrees in Engineering and is a licensed Professional Engineer in eight U.S. states. His combination of commercial space experience, large-scale engineering leadership, and entrepreneurial success provides deep expertise in executing complex, safety-critical engineering programs, managing large-scale operations and navigating highly regulated industries.", "Ravé is also an award-winning pianist, composer and researcher focused on human potential. He spent two decades studying the science of fear, flow and music and how they can be used to increase human performance and access our innate healing abilities. After healing himself from Lyme disease by playing the piano to drop himself into flow states, he integrated the principles of flow into his Piano Sound Bath concerts to help others drop into deep healing flow states. Ravé has performed in iconic venues around the world including Carnegie Hall, Grace Cathedral, Burning Man, Church of Rome, Dracula’s Castle and even the North Pole where 1 hour into his concert, he had to evacuate everyone due to a polar bear. Ravé is also the bestselling author of The Inventor: The Story of Tesla (Scholastic), a graphic novel about the true story of Nikola Tesla and how he battled Thomas Edison during the AC/DC Current Wars and changed the world with the power of his mind and imagination."], role: 'Chairman and Chief Executive Officer', li: 'https://www.linkedin.com/in/ravemehta/' },
         { img: 'assets/team-maccallum.jpg', name: 'Taber MacCallum', paras: ["Taber serves as CTO of Rise Space and responsible for the technology development and execution of Rise’s space program with over 30 years’ experience leading the development and operations of human space balloon and space flight systems.", "Taber led development and flight of two human-rated edge-of-space vehicle programs: StratEx and Spaceship Neptune, each setting performance records that still stand. He had life support or thermal technology on every US orbital human spacecraft operating or in development today.", "He is co-founder and former CEO of Paragon Space Development Corp, a 35-year-old life support company for human spaceflight. At Paragon, Taber led the team that took Alan Eustace to 135,000 feet under a space balloon for the current world-record space dive. He also led development of the StratEx spacesuit, the first new operational U.S. spacesuit since Apollo, including its pressure system, life support system, thermal protection, and passive stabilization at transonic speed. It is on permanent exhibit at the Smithsonian Air and Space Museum.", "As co-founder and CTO of World View, he built and led the engineering team behind the first-of-its-kind unmanned stratospheric navigating balloon called a Stratollite, conducting over 100 flights with stratospheric platforms for remote sensing and communications. As co-founder, Co-CEO and CTO of Space Perspective, he led the design and build of Spaceship Neptune, the marine launch system, flight operations, and space balloon manufacturing. The fully operational full-scale spacecraft, the largest capsule ever flown to space, completed a full demonstration flight launched from the deck of a ship.", "Taber holds more than 30 patents in life support, thermal control, and space balloon systems. His technologies fly on the ISS, Boeing Starliner capsule, SpaceX Dragon capsule, Sierra Space Dream Chaser, and Orion, and is the most advanced water purification system on ISS. He also led the Inspiration Mars program including the development of the most advanced spacecraft closed-loop life support system ever operated.", "He was a founding member of the design team and the inaugural 8-person crew of Biosphere 2, spending two years sealed inside the most complete closed-system space base prototype ever built. His peer-reviewed publications cover the Biosphere 2 enclosed analytical laboratory he developed, human physiology, microgravity experiments, and Moon and Mars habitat concepts.", "Taber is Chairman of the Astronaut Memorial Foundation and former Chairman of the Commercial Spaceflight Federation, the industry organization for commercial space. He is a Fellow of the Explorers Club, an invitation-only 120-year-old organization for the advancement of scientific exploration, and a Board Member of the Sea Space Symposium, an invitation-only group of marine and aerospace leaders founded by Jacques Cousteau and Buzz Aldrin in 1970."], role: 'Chief Technology Officer', li: 'https://www.linkedin.com/in/tabermaccallum/' },
         { img: 'assets/team-poynter.jpg', name: 'Jane Poynter', paras: ["Jane serves as the CPO of Rise Space and responsible for all product development and the interface between the customers and the technology engineering team with more than 30 years’ experience founding and leading companies at the frontier of human spaceflight.", "Previously, Jane co-founded and was Co-CEO of Space Perspective the predecessor to Rise, a vertically integrated spaceflight company offering accessible flights to the edge of space in the emerging space tourism market. She led product design from cabin to flight profile. The company completed an uncrewed test flight of the fully operational, full-scale spacecraft through the commercial flight profile and generated more than 1,800 ticket reservations, validating the technology and the market.", "Poynter also co-founded and was founding CEO of World View, a venture-backed company developing persistent stratospheric platforms called Stratollites for government and commercial remote sensing and communications. The company was acquired by Ondas Holdings.", "Since co-founding Paragon in 1993, she served as CEO, President, and Chairwoman over more than two decades and currently serves on the Board. Paragon is an industry leader in life support and thermal control for extreme environments, with systems on most U.S. human spacecraft, and holds the record for highest space dive through its StratEx project.", "She designed and patented the Autonomous Biological System, the first-ever fully enclosed, bioregenerative life support system for aquatic animals in microgravity that flew on Space Shuttle, Mir, and ISS, producing the first animals to complete multiple life cycles in space. She also developed the plant-growth system for the Mars Oasis, a project to grow plants on Mars initially funded by the NASA Jet Propulsion Lab and later Elon Musk.", "Prior to Paragon, Poynter was a member of the design team and one of eight crew members who lived two years inside Biosphere 2, the world's first hermetically sealed, fully bioregenerative life support prototype. She managed the agricultural systems that fed the crew while recycling air and water. The project, now operated by the University of Arizona, remains a foundational reference for closed-loop life support in long-duration spaceflight. Her TED talk on the project has been viewed over a million times.", "Poynter authored The Human Experiment: Two Years and Twenty Minutes Inside Biosphere 2 (Basic Books, 2006) and Champions for Change: Athletes Making a World of Difference (2009), published with the United Nations. Her peer-reviewed publications cover Biosphere 2, microgravity experiments, and Moon and Mars habitat concepts. Her Biosphere 2 TED Talk has over one million views, and she has appeared widely in media and documentaries on spaceflight and Biosphere 2."], role: 'Chief Product Officer', li: 'https://www.linkedin.com/in/jane-poynter/' },
         { img: 'assets/team-yaney.jpg', name: 'Jonathan Yaney', paras: ["Jonathan Yaney serves as the COO of Rise Space and responsible for all operations with 20 years of experience founding and building space, infrastructure and tech companies.", "Jonathan was the founder and CEO, SpinLaunch — a space company building an innovative ground-based, electric-powered kinetic launch system, a fundamentally new approach to reaching orbit that replaces the first stage of a rocket with a ground based, vacuum-enclosed centrifuge, catapulting payloads toward space at a fraction of the cost and carbon footprint of conventional rockets. He was the inventor of the launch system and holds seven granted U.S. patents, including the foundational circular mass accelerator patents first filed in 2016, covering the accelerator and the ruggedized avionics, reaction wheels, and structures engineered to survive its extreme g-loads.", "Jonathan raised over $170 million from investors including Kleiner Perkins, Google Ventures, and Airbus Ventures, and led the company as it was named to TIME’s 2022 list of the 100 Most Influential Companies and Fast Company’s 2023 Most Innovative Companies. Under his leadership SpinLaunch designed, built, and operated the Suborbital Accelerator at Spaceport America, New Mexico: a 33-meter (108-foot) diameter steel vacuum chamber — the largest-diameter vacuum chamber in the world — built at one-third the scale of the operational system, which completed more than ten successful flight tests. The campaigns carried test payloads from NASA, Airbus US, and Cornell Engineering, demonstrating that commercial satellite components survive the kinetic launch environment.", "He is a 1,000+ hour pilot and was featured in WIRED magazine as one of 25 innovators to watch. He has been a keynote speaker at leading industry events, and has appeared on PBS, BBC Click, CNN, and IMAX. Jonathan brings founder-level operational discipline and experience building and scaling complex aerospace systems."], role: 'Chief Operating Officer', li: 'https://www.linkedin.com/in/jonathanyaney/' }
