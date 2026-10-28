@@ -11,7 +11,10 @@
 <meta property="og:description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/home3-hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
@@ -56,7 +59,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
 .sheet span.s{color:rgba(242,239,233,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
+.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;align-items:center;min-height:50px;padding:0 24px;font-family:var(--sans);font-size:14px;line-height:1}
 @media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:32px}}
 @media (min-width:981px){.sheet{display:none}}
 
@@ -243,7 +246,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .ring-label.b{top:auto;bottom:calc(var(--wy) - 44px);color:var(--gold)}
 
 /* statement */
-.statement{position:relative;isolation:isolate;overflow:hidden;padding:clamp(120px,20vh,220px) var(--gut);background:var(--void)}
+.statement{position:relative;isolation:isolate;overflow:hidden;padding:120px var(--gut);background:var(--void)}
 .mbg{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .mbg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 8%,#000 92%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 8%,#000 92%,rgba(0,0,0,0) 100%);animation:mdrift 30s ease-in-out infinite alternate}
 .mbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,12,.72) 0%,rgba(5,7,12,.42) 38%,rgba(5,7,12,0) 62%)}
@@ -314,6 +317,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .banner .tag.bl{left:calc(var(--gut) + 2px);bottom:calc(clamp(24px,4vh,40px) + 4px)}
 .banner .say h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.4vw,92px);line-height:1.12;letter-spacing:.005em;max-width:18ch;text-wrap:balance}
 .banner .say h2 em{font-style:italic;color:var(--gold)}
+.banner .say h2,.banner .say p,.banner .tag{text-shadow:0 2px 26px rgba(5,7,12,.65),0 1px 3px rgba(5,7,12,.6)}
+.banner .say p.sub{color:#F2EFE9}
 .banner .shade{background:linear-gradient(180deg,rgba(5,7,12,.7),rgba(5,7,12,.1) 30%,rgba(5,7,12,.2) 60%,rgba(5,7,12,.92))}
 .banner .say{position:absolute;left:var(--gut);right:var(--gut);bottom:12vh}
 .banner.flight{height:100vh;height:100svh;min-height:560px}
@@ -437,7 +442,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .vhead p{margin-top:24px;font-size:clamp(16px,1.35vw,20px);line-height:1.55;color:rgba(242,239,233,.84);max-width:40ch}
 .vhero .cue{position:absolute;z-index:5;left:50%;bottom:clamp(20px,4vh,36px);transform:translateX(-50%)}
 .vhero .tag.br{bottom:calc(clamp(24px,4vh,40px) + 4px)}
-@media (max-width:760px){.vhero .cue{display:none}.vhero .tag.br{right:var(--gut);left:var(--gut);justify-content:flex-start;bottom:20px;font-size:9px}.vhead{bottom:64px}}
+@media (max-width:760px){.vhero video{object-position:78% 50%}.vhero .cue{display:none}.vhero .tag.br{right:var(--gut);left:var(--gut);justify-content:flex-start;bottom:20px;font-size:9px}.vhead{bottom:64px}}
 @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .mref{position:absolute;right:var(--gut);bottom:clamp(28px,5vh,48px);z-index:1;color:rgba(242,239,233,.6);display:flex;align-items:center;gap:10px}
 .mref:before{content:"";width:18px;height:1px;background:var(--gold)}
@@ -490,6 +495,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .soc:hover{color:#05070C;background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
 .soc.todo{cursor:default}
 .social + .legal{border-top:0;padding-top:20px}
+@media (max-width:760px){.foot{justify-content:center;text-align:center;gap:22px 30px;padding-bottom:104px}.foot img,.foot .logo{margin:0 auto}.foot nav{flex:0 0 100%;justify-content:center;gap:2px 22px}.social{justify-content:center}.social .mono{flex:0 0 100%;margin:0 0 6px}.legal{justify-content:center;gap:12px 20px}}
 @media (max-width:560px){.social .mono{flex:0 0 100%;margin:0 0 6px}}
 @media (prefers-reduced-motion:reduce){.cue i,.tag .live:before{animation:none}.cap,.layer,.lcard,.hero-cap,.panel{transition-duration:.01s}}
 </style>
@@ -548,7 +554,6 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <!-- 2 FULLY DEMONSTRATED -->
 <section class="banner" aria-label="Fully demonstrated">
 <video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
-<div class="shade"></div>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
 <div class="watch"><a class="playbtn" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>RISE demonstration flight</span></div>
@@ -577,7 +582,6 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <!-- 5 SMOOTH AND SAFE -->
 <section id="launch" class="banner flight" aria-label="A smooth and safe spaceflight without rockets">
 <video data-inview="" src="assets/launch-flight.mp4" poster="assets/launch-flight-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
-<div class="shade"></div>
 <div class="say"><h2>A smooth and safe spaceflight without rockets</h2>
 <p class="sub">A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p></div>
 <div class="tag br"><span>Video captured during RISE spaceflight</span></div>
@@ -604,7 +608,6 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <!-- 8 PROFOUND EXPERIENCE -->
 <section class="banner" aria-label="The profound experience">
 <video data-loop="" src="assets/view.mp4" autoplay="" loop="" muted="" playsinline=""></video>
-<div class="shade"></div>
 <div class="say"><h2>For the profound experience of seeing Earth in the <em>infinite cosmos</em></h2></div>
 </section>
 

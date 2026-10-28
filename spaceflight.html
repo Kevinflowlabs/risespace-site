@@ -11,7 +11,10 @@
 <meta property="og:description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/poster-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
@@ -56,7 +59,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
 .sheet span.s{color:rgba(242,239,233,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;font-family:var(--sans);font-size:14px}
+.sheet .nav-cta{margin:34px 0 0;align-self:flex-start;align-items:center;min-height:50px;padding:0 24px;font-family:var(--sans);font-size:14px;line-height:1}
 @media (max-width:980px){.nav-links,.nav>.nav-cta{display:none}.nav-burger{display:block;margin-left:auto}.nav-brand img{height:32px}}
 @media (min-width:981px){.sheet{display:none}}
 
@@ -113,6 +116,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .stat .n small{font-size:.42em;color:var(--dim);margin-left:6px;letter-spacing:0}
 .stat p{margin-top:12px;font-size:14px;line-height:1.5;color:var(--dim);max-width:24ch}
 @media (max-width:760px){.stat{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:26px 0}.stat:last-child{border-bottom:0}}
+@media (max-width:760px){.sf-stats .stat{text-align:center}.sf-stats .stat p{margin-left:auto;margin-right:auto}}
 
 /* ===== section heads ===== */
 .sec{padding:clamp(100px,14vh,170px) var(--gut) 0}
@@ -184,6 +188,8 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 @keyframes fillA{from{width:0}to{width:100%}}
 @keyframes fillB{from{width:0}to{width:100%}}
 @media (max-width:860px){.stage-panel{grid-template-columns:minmax(0,1fr)}}
+/* phones: compact flight profile so the whole module fits on one screen */
+@media (max-width:760px){.profile .total{position:static;justify-content:flex-end;padding:12px 14px 0}.profile .chart{margin:8px 12px 6px 46px;aspect-ratio:1000/430}.profile .ylab{left:-46px;width:40px;font-size:8.5px;letter-spacing:.04em}.profile .tline{height:36px;margin:8px 12px 10px 46px}.profile .tline .seg span{top:14px;font-size:8px;gap:2px}.ph-media{aspect-ratio:auto;height:clamp(130px,21svh,190px)}.ph-text{padding:16px 20px 18px}.ph-copy{margin-top:10px;min-height:184px}.ph-item .k{margin-bottom:6px;font-size:10px}.ph-item h3{font-size:28px}.ph-item p{margin-top:8px;font-size:14.5px;line-height:1.55}.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px -20px 0;padding:0 20px}.chips::-webkit-scrollbar{display:none}.chips .hl{flex:none;font-size:11.5px;padding:5px 9px}.ph-ctrl{margin-top:12px}}
 
 /* ===== onboard cards ===== */
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
@@ -230,7 +236,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .faq details[open] summary i{border-color:var(--gold);background:rgba(247,204,46,.1)}
 .faq details[open] summary i:after{transform:rotate(0)}
 .faq summary:hover{color:var(--gold)}
-.faq .a{padding:0 60px 26px 0;font-size:16px;line-height:1.65;color:var(--dim);animation:rise .5s ease both}
+.faq .a{padding:0 60px 26px 0;font-size:16px;line-height:1.65;color:var(--dim)}
 @media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .a{padding-right:0}}
 
 
@@ -273,6 +279,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .soc:hover{color:#05070C;background:var(--gold);border-color:var(--gold);transform:translateY(-2px)}
 .soc.todo{cursor:default}
 .social + .legal{border-top:0;padding-top:20px}
+@media (max-width:760px){.foot{justify-content:center;text-align:center;gap:22px 30px;padding-bottom:104px}.foot img,.foot .logo{margin:0 auto}.foot nav{flex:0 0 100%;justify-content:center;gap:2px 22px}.social{justify-content:center}.social .mono{flex:0 0 100%;margin:0 0 6px}.legal{justify-content:center;gap:12px 20px}}
 @media (max-width:560px){.social .mono{flex:0 0 100%;margin:0 0 6px}}
 </style>
 </head>
@@ -327,7 +334,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 </section>
 
 <!-- STATS -->
-<div class="stats" data-reveal="">
+<div class="stats sf-stats" data-reveal="">
 <div class="stat"><div class="n"><span data-count="100000" data-fmt="comma"></span><small>ft</small></div><p>Apogee for hours seeing Earth in the blackness of space</p></div>
 <div class="stat"><div class="n"><span data-count="8"></span><small>+ captain</small></div><p>Passengers on every flight</p></div>
 <div class="stat"><div class="n"><span data-count="340"></span><small>°</small></div><p>Panoramic views from the cabin</p></div>
@@ -428,7 +435,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 <!-- FAQ -->
 <section class="sec" aria-label="Questions">
 <div class="faq">
-<div data-reveal=""><div class="mono eyebrow">Questions</div><h2 class="serif" style="font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5vw, 84px); line-height: .95; letter-spacing: -.02em">Before you fly.</h2><p style="margin-top: 22px; font-size: 16px; line-height: 1.6; color: #A3A8B1; max-width: 36ch">Short answers to what people ask first. A flight advisor can take you through the rest.</p></div>
+<div data-reveal=""><div class="mono eyebrow">Questions</div><h2 class="serif" style="font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5vw, 84px); line-height: 1.1; letter-spacing: .005em">Before you fly.</h2><p style="margin-top: 22px; font-size: 16px; line-height: 1.6; color: #A3A8B1; max-width: 36ch">Short answers to what people ask first. A flight advisor can take you through the rest.</p></div>
 <div data-reveal="">
 <details open="open"><summary>How high does RISE fly?<i></i></summary><p class="a">Above 100,000 feet (30 km) above Earth, higher than 99% of the atmosphere. The sky is black, and the curve of the planet fills the windows.</p></details>
 <details><summary>Is there a rocket?<i></i></summary><p class="a">No. The spaceship is lifted by a Space Balloon, so there are no high g-forces, and the spaceflight is carbon neutral.</p></details>
@@ -536,6 +543,30 @@ class Component extends DCLogic {
     };
     this.win.addEventListener('scroll', this.onScroll, { capture: true, passive: true });
     this.onScroll();
+    // FAQ: open and close each answer with a smooth height animation
+    this.onFaq = (e) => {
+      const sum = e.target && e.target.closest ? e.target.closest('.faq summary') : null;
+      if (!sum || !root.contains(sum)) return;
+      const d = sum.parentElement; if (!d || !d.animate) return;
+      e.preventDefault();
+      let reduce = false; try { reduce = this.win.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) {}
+      const willOpen = d._anim ? d._closing : !d.open;
+      const from = d.getBoundingClientRect().height;
+      if (d._anim) { d._anim.cancel(); d._anim = null; }
+      if (reduce) { d.open = willOpen; return; }
+      d.open = true;
+      const borders = d.offsetHeight - d.clientHeight;
+      const to = willOpen ? d.offsetHeight : sum.offsetHeight + borders;
+      d._closing = !willOpen;
+      d.style.overflow = 'hidden';
+      const anim = d.animate({ height: [from + 'px', to + 'px'] }, { duration: willOpen ? 460 : 360, easing: 'cubic-bezier(.16,.8,.2,1)', fill: 'forwards' });
+      d._anim = anim;
+      const ans = d.querySelector('.a');
+      if (ans && ans.animate) ans.animate(willOpen ? { opacity: [0, 1], transform: ['translateY(-8px)', 'none'] } : { opacity: [1, 0] }, { duration: willOpen ? 460 : 240, easing: 'ease', fill: 'none' });
+      anim.onfinish = () => { d._anim = null; if (d._closing) { d.open = false; d._closing = false; } anim.cancel(); d.style.overflow = ''; };
+      anim.oncancel = () => { d.style.overflow = ''; };
+    };
+    root.addEventListener('click', this.onFaq);
     this.audioMount();
   }
 
@@ -548,6 +579,7 @@ class Component extends DCLogic {
     clearTimeout(this.tourT);
     if (this.io) this.io.disconnect();
     if (this.win && this.onScroll) this.win.removeEventListener('scroll', this.onScroll, true);
+    if (this.root && this.onFaq) this.root.removeEventListener('click', this.onFaq);
     this.audioUnmount();
   }
 
