@@ -1,0 +1,51 @@
+# RISE Space
+
+> RISE Space (RISE) is a space platform that flies people and research to space aboard a spaceship lifted by a Space Balloon, with no rocket. Flights reach above 100,000 ft (30 km), spend about two hours in space, and splash down at sea after a total flight of about six hours. RISE offers human spaceflight, the first venue in space for events, and turnkey space programs for governments and researchers.
+
+Version 1.1, last updated 2026-11-02. See the changelog at the end of this file for what changed.
+
+## Key facts
+
+- What it is: a passenger spaceship carried to space by a Space Balloon. No rocket, no high g-forces, and Earth's gravity for the entire flight (no zero-g).
+- Altitude: above 100,000 ft (30 km), higher than 99% of the atmosphere. The sky is black and the curve of the Earth fills the windows.
+- Flight time: about 6 hours in total: about 2 hours of ascent, 2 hours in space and 2 hours of descent. The ascent is at roughly cycling speed.
+- Launch and landing: from a marine spaceport. The spaceship lifts off from the deck of a ship and splashes down at sea; passengers disembark on the ship's deck within 15 minutes of splashdown.
+- Passengers: up to eight passengers and a captain per flight.
+- Spaceship: the largest-volume space capsule ever flown (2,144 cu ft), a 16 ft diameter cabin, and the largest windows ever flown to space (5.25 × 2 ft), with 360° panoramic views of Earth.
+- Onboard: a lounge, a refreshments bar and culinary program (full dining on select flights), WiFi for live streaming and posting, and the Space Spa, a luxurious restroom with a window onto the Earth.
+- Safety: regulated by the FAA and designed, built and operated to NASA standards. Splashdown is the safest way to land, as every American capsule returning from orbit has done since the dawn of human spaceflight. The Reserve Descent System (redundant parachutes) provides a second way to bring the spaceship safely back to Earth, making it the only spaceship with two separate and redundant ways to come home safely. NASA and the RISE team have flown over a thousand Space Balloon missions.
+- Environment: the spaceflight is carbon neutral.
+- Scale: standing over 600 ft tall on the launch pad, the balloon and spaceship form the tallest launch vehicle.
+- Status: the fully operational spaceship completed a demonstration flight in 2024. RISE acquired Space Perspective.
+- Tickets: not currently on sale. People can join the waiting list on the website to hear first when seats open.
+
+## Spaceflight
+
+- [Spaceflight](https://risespace.com/spaceflight/): the passenger flight phase by phase (launch, ascent, hours in space, descent, splashdown), what is onboard, safety, and an FAQ on altitude, gravity, flight length, capacity and tickets.
+- [Spaceship](https://risespace.com/spaceship/): the capsule, cabin, windows, Space Spa, custom interiors, custom livery and exterior lighting, and the Space Balloon.
+
+## Space Venue
+
+- [Space Venue](https://risespace.com/space-venue/): the first and only venue in space. Occasions include global live broadcasts, weddings, dining, wellness, private gatherings (the whole cabin for one host and up to seven guests) and research. Interiors, livery and exterior lighting are customized for each event, and events can be streamed live from space. Organizers get in touch through the form on the page.
+
+## Space Programs
+
+- [Space Programs](https://risespace.com/space-programs/): turnkey national spaceflight programs sized to a nation's ambitions, from human spaceflight to research; human-rated Space Balloons manufactured to NASA standards; and research instruments flown on every flight at flight rates never before possible. Research areas: technology testing, atmosphere and climate science, helio- and astrophysics, astrobiology, and health and medicine for space exploration.
+
+## Company
+
+- [About](https://risespace.com/about/): mission, team records and leadership.
+- Mission: opening space to more people than ever before, to have the life-changing experience of seeing Earth in space, safely, comfortably and together. Fewer than 800 people have ever been to space.
+- Leadership: Ravé Mehta (Chairman and Chief Executive Officer), Taber MacCallum (Chief Technology Officer), Jane Poynter (Chief Product Officer), Jonathan Yaney (Chief Operating Officer).
+- Team records: 100+ Space Balloon flights flown by team members; the highest human flight and space dive from a balloon (136,000 ft / 41.5 km); the heaviest payload ever flown by balloon (a 10,000 kg Dragon capsule to 45,000 ft); the heaviest payload launched to 30 km / 100,000 ft (6,600 kg); and two years living in Biosphere 2.
+- Home page: [risespace.com](https://risespace.com/)
+- Video: [RISE on YouTube](https://www.youtube.com/@RiseSpaceInc), including the [full demonstration flight](https://www.youtube.com/watch?v=ZVuImwpeosg)
+
+## Changelog
+
+- 1.1 (2026-11-02): Panoramic view stated as 360° throughout (previously 340° from the cabin plus 20° from the Space Spa). Safety wording updated: over a thousand Space Balloon missions; splashdown as used by every American capsule returning from orbit; the Reserve Descent System as a second, redundant way home. Space Venue enquiries described as getting in touch through the form, not requesting a proposal. Join form now includes an optional message.
+- 1.0 (2026-10-29): First release of llms.txt and llms-full.txt for risespace.com.
+
+## Optional
+
+- [Full site text for AI tools](https://risespace.com/llms-full.txt): every page's content in plain text, plus full leadership bios.

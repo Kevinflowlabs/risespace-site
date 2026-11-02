@@ -1,0 +1,611 @@
+# RISE Space
+
+> RISE Space (RISE) is a space platform that flies people and research to space aboard a spaceship lifted by a Space Balloon, with no rocket. Flights reach above 100,000 ft (30 km), spend about two hours in space, and splash down at sea after a total flight of about six hours. RISE offers human spaceflight, the first venue in space for events, and turnkey space programs for governments and researchers.
+
+Version 1.1, last updated 2026-11-02. See the changelog at the end of this file for what changed.
+
+## Key facts
+
+- What it is: a passenger spaceship carried to space by a Space Balloon. No rocket, no high g-forces, and Earth's gravity for the entire flight (no zero-g).
+- Altitude: above 100,000 ft (30 km), higher than 99% of the atmosphere. The sky is black and the curve of the Earth fills the windows.
+- Flight time: about 6 hours in total: about 2 hours of ascent, 2 hours in space and 2 hours of descent. The ascent is at roughly cycling speed.
+- Launch and landing: from a marine spaceport. The spaceship lifts off from the deck of a ship and splashes down at sea; passengers disembark on the ship's deck within 15 minutes of splashdown.
+- Passengers: up to eight passengers and a captain per flight.
+- Spaceship: the largest-volume space capsule ever flown (2,144 cu ft), a 16 ft diameter cabin, and the largest windows ever flown to space (5.25 × 2 ft), with 360° panoramic views of Earth.
+- Onboard: a lounge, a refreshments bar and culinary program (full dining on select flights), WiFi for live streaming and posting, and the Space Spa, a luxurious restroom with a window onto the Earth.
+- Safety: regulated by the FAA and designed, built and operated to NASA standards. Splashdown is the safest way to land, as every American capsule returning from orbit has done since the dawn of human spaceflight. The Reserve Descent System (redundant parachutes) provides a second way to bring the spaceship safely back to Earth, making it the only spaceship with two separate and redundant ways to come home safely. NASA and the RISE team have flown over a thousand Space Balloon missions.
+- Environment: the spaceflight is carbon neutral.
+- Scale: standing over 600 ft tall on the launch pad, the balloon and spaceship form the tallest launch vehicle.
+- Status: the fully operational spaceship completed a demonstration flight in 2024. RISE acquired Space Perspective.
+- Tickets: not currently on sale. People can join the waiting list on the website to hear first when seats open.
+
+## Spaceflight
+
+- [Spaceflight](https://risespace.com/spaceflight/): the passenger flight phase by phase (launch, ascent, hours in space, descent, splashdown), what is onboard, safety, and an FAQ on altitude, gravity, flight length, capacity and tickets.
+- [Spaceship](https://risespace.com/spaceship/): the capsule, cabin, windows, Space Spa, custom interiors, custom livery and exterior lighting, and the Space Balloon.
+
+## Space Venue
+
+- [Space Venue](https://risespace.com/space-venue/): the first and only venue in space. Occasions include global live broadcasts, weddings, dining, wellness, private gatherings (the whole cabin for one host and up to seven guests) and research. Interiors, livery and exterior lighting are customized for each event, and events can be streamed live from space. Organizers get in touch through the form on the page.
+
+## Space Programs
+
+- [Space Programs](https://risespace.com/space-programs/): turnkey national spaceflight programs sized to a nation's ambitions, from human spaceflight to research; human-rated Space Balloons manufactured to NASA standards; and research instruments flown on every flight at flight rates never before possible. Research areas: technology testing, atmosphere and climate science, helio- and astrophysics, astrobiology, and health and medicine for space exploration.
+
+## Company
+
+- [About](https://risespace.com/about/): mission, team records and leadership.
+- Mission: opening space to more people than ever before, to have the life-changing experience of seeing Earth in space, safely, comfortably and together. Fewer than 800 people have ever been to space.
+- Leadership: Ravé Mehta (Chairman and Chief Executive Officer), Taber MacCallum (Chief Technology Officer), Jane Poynter (Chief Product Officer), Jonathan Yaney (Chief Operating Officer).
+- Team records: 100+ Space Balloon flights flown by team members; the highest human flight and space dive from a balloon (136,000 ft / 41.5 km); the heaviest payload ever flown by balloon (a 10,000 kg Dragon capsule to 45,000 ft); the heaviest payload launched to 30 km / 100,000 ft (6,600 kg); and two years living in Biosphere 2.
+- Home page: [risespace.com](https://risespace.com/)
+- Video: [RISE on YouTube](https://www.youtube.com/@RiseSpaceInc), including the [full demonstration flight](https://www.youtube.com/watch?v=ZVuImwpeosg)
+
+# Full site text
+
+## RISE Space | Space Tourism by Space Balloon, No Rockets
+
+URL: https://risespace.com/
+
+## A new kind of space platform
+
+Transformative space tourism to research and government applications. Safe. Accessible, carbon neutral.
+
+### Fully demonstrated spaceship lifted by Space Balloon for hours in space.
+
+Watch the full demonstration flight
+
+Best with sound on
+
+### One platform, many kinds of missions:
+
+#### Spaceflight
+
+Hours to soak in the experience of seeing Earth in space in a spaceship made for the view.
+
+#### Space Venue
+
+The first and only venue in space: global media events, weddings and celebrations broadcast to the world.
+
+#### Space Programs
+
+RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.
+
+We are opening space to more people than ever before, to have the profound experience of seeing Earth in space… safely, comfortably, and together.
+
+Fewer than 800 people have ever been to space. RISE is changing that.
+
+### A smooth and safe spaceflight without rockets
+
+A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.
+
+### Inside a spaceship with the largest windows to go to space.
+
+Designed, built and operated to FAA and NASA standards.
+
+#### In a lounge for hours in space
+
+360-degree panoramic views, refreshments bar and culinary program, and a space spa.
+
+### For the profound experience of seeing Earth in the infinite cosmos
+
+Everybody in the world needs to see this.
+
+William Shatner · Actor
+
+When I first looked back at the Earth… I cried.
+
+Alan Shepard · Apollo Astronaut
+
+I will never be the same.
+
+Aisha Bowe · Rocket Scientist
+
+Heart stopping. Soul pounding. Breathtaking.
+
+T.J. Creamer · NASA Astronaut
+
+From here, Earth sure looks like a perfect world.
+
+Jared Isaacman · NASA Administrator
+
+### Updates on our missions
+
+#### Successful demonstration flight of the fully operational spaceship
+
+Watch the full flight
+
+#### RISE acquires Space Perspective
+
+### Some things you have to see for yourself.
+
+Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.
+
+---
+
+## Spaceflight: A Gentle Six-Hour Flight to Space | RISE Space
+
+URL: https://risespace.com/spaceflight/
+
+## Your flight to space.
+
+A gentle liftoff, hours in space, and a soft splashdown. No rocket. No high g-forces. A carbon-neutral spaceflight.
+
+- 100,000 ft: Apogee for hours seeing Earth in the blackness of space
+
+- 8 + captain: Passengers on every flight
+
+- 360°: Panoramic views from the cabin
+
+- 0 rockets: Lifted by a Space Balloon. The spaceflight is carbon neutral.
+
+### Five moments, one gentle flight.
+
+Tap any point on the flight path to see that part of the journey, filmed on RISE flights. Or let the tour play through on its own.
+
+#### Gentle launch
+
+The Space Balloon lifts the spaceship softly off the deck of our launch vessel at sea. No rocket, no high g-forces, and the spaceflight is carbon neutral.
+
+Sea level to 100,000 ft
+
+#### Smooth ascent
+
+Float to space at cycling speed, rising gracefully into a sky that turns from blue to black.
+
+The view from space
+
+#### Hours in space
+
+The curve of the Earth fills the largest windows ever flown to space. Dine, stream live to the people you love, or simply take it all in.
+
+#### Gentle descent
+
+The Space Balloon brings you back down as gently as it took you up, with the view the whole way.
+
+#### Welcome Home
+
+Disembark on the ship’s deck within 15 minutes from a soft splashdown and carry your journey with you for a lifetime.
+
+### Hours worth staying for.
+
+A space lounge designed for the “overview effect,” the life-changing experience of seeing Earth in the vastness of space, in a lounge with the largest windows ever flown to space and the time to enjoy it with loved ones beside you.
+
+#### 360° of Earth
+
+Up to eight passengers and a captain in the most roomy spaceship ever flown to space, with astonishing panoramic views of Earth in space.
+
+#### A table above the clouds
+
+A refreshments bar and a world-class culinary program, with a full dining experience for select flights.
+
+#### Share it as it happens
+
+WiFi for live streaming and posting on every flight so the people you love can see what you see. Global broadcasts of special events available.
+
+#### The best view in the solar system
+
+A luxurious restroom with a window onto the curve of the Earth.
+
+### The safe way to space.
+
+The spaceship gently ascends and descends under a Space Balloon.
+
+- Regulated by the FAA and designed, built and operated to rigorous NASA standards
+
+- NASA and our team members have flown over a thousand Space Balloons
+
+- Splashdown is the safest way to land, as every American capsule returning from orbit has done since the dawn of human spaceflight
+
+- The Reserve Descent System provides a second way to safely bring the spaceship back to Earth, making the spaceship the only one with two separate and redundant ways to come home safely
+
+### Before you fly.
+
+Short answers to what people ask first. A flight advisor can take you through the rest.
+
+### How high does RISE fly?
+
+Above 100,000 feet (30 km) above Earth, higher than 99% of the atmosphere. The sky is black, and the curve of the planet fills the windows.
+
+### Is there a rocket?
+
+No. The spaceship is lifted by a Space Balloon, so there are no high g-forces, and the spaceflight is carbon neutral.
+
+### Is there gravity at apogee?
+
+Yes. There is no risk of being disoriented by zero-g as there is Earth’s gravity the entire flight.
+
+### Where do flights launch from?
+
+From our marine spaceport. The spaceship lifts off from the deck of a ship, and you disembark on the ship’s deck within 15 minutes of splashdown.
+
+### How many people are on a flight?
+
+Up to eight passengers and a captain, in a 16 ft diameter cabin with 360° views.
+
+### How long is the flight?
+
+Total flight time is approximately 6 hours: about 2 hours up, 2 hours in space and 2 hours down.
+
+### What does it cost to reserve a seat?
+
+Tickets are not currently available. Please contact us to be added to the waiting list and be among the first to hear when they go on sale.
+
+### Some things you have to see for yourself.
+
+Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.
+
+---
+
+## The Spaceship with the Largest Windows to Space | RISE Space
+
+URL: https://risespace.com/spaceship/
+
+## Built for the view.
+
+The largest capsule with the largest windows ever flown to space. Lifted gently by a Space Balloon, and designed, built and operated to rigorous FAA and NASA standards.
+
+- 2,144 cu ft: The largest-volume space capsule ever flown
+
+- 16 ft: Diameter of the spacious cabin
+
+- 8 + captain: Passengers on every flight
+
+- 360°: Panoramic views through 5.25 × 2 ft windows
+
+### Tap the spaceship.
+
+Select a point on the spaceship to see what makes it different.
+
+#### Carried by a Space Balloon
+
+A Space Balloon carries the spaceship to space at cycling speed, with no high g-forces and Earth’s gravity the entire flight. The spaceflight is carbon neutral.
+
+#### Reserve Descent System
+
+Redundant parachutes provide a second and redundant way to safely land the spaceship back on Earth.
+
+#### Built for total passenger comfort
+
+Environmental control systems keep the cabin comfortable from liftoff to splashdown.
+
+5.25 ft × 2 ft
+
+#### The largest windows ever flown to space
+
+Each window measures 5.25 by 2 feet, wrapping the cabin in 360° panoramic views of the Earth below.
+
+#### The largest-volume capsule ever flown
+
+A spacious 16 ft diameter cabin with 2,144 ft³ of pressurized interior for eight passengers and a captain.
+
+#### Regulated and built to rigorous standards
+
+The spaceship is regulated by FAA’s Commercial Space Transportation, and designed, built and operated to rigorous NASA standards.
+
+#### Splashcone for a gentle touchdown
+
+The proprietary cone attenuates the splashdown, creating a slow and comfortable landing.
+
+#### Silence
+
+There is no sound from the graceful liftoff and throughout the flight, creating the calm space to soak in the view.
+
+#### The safe way to space.
+
+The spaceship is lifted by a Space Balloon. NASA and our team have flown over a thousand balloon missions.
+
+- No rocket and no high g-forces
+
+- A smooth ascent at cycling speed
+
+- A carbon-neutral spaceflight
+
+- Floats on top of Earth’s atmosphere like an ice cube floats on water
+
+See the full flight
+
+### A cabin made for looking out.
+
+Drag the cabin to look around, then tap a point to learn more. Seats for up to eight passengers and a captain, all wrapped in 360° of view.
+
+Drag to look around
+
+#### The lounge
+
+Comfortably seats 8 passengers and a captain in a relaxed environment wrapped in 360 degree panoramic views.
+
+Behind the gray door
+
+#### The Space Spa
+
+A luxurious restroom with the best view in our solar system.
+
+See inside the Space Spa
+
+#### Your flight, live
+
+The readout above shows details about the flight as it happens: altitude, distance and where you are flying over.
+
+#### We bring Earth with us
+
+Living plants and fragrant herbs fill the cabin with a little of the planet you are looking down on.
+
+#### The captain
+
+The captain sits behind the bar, next to the telescope.
+
+#### The refreshments bar
+
+A refreshments bar and a world-class culinary program, on every flight.
+
+#### Share it as it happens
+
+WiFi for live streaming and posting on every flight, with information systems and customized playlists to create the mood.
+
+#### The perfect ambiance
+
+Dynamic lighting changes throughout the flight to optimize the view, and high-end sound systems create the perfect mood.
+
+#### The best view in our solar system.
+
+A luxurious restroom with a window onto the curve of the Earth, so even a moment to yourself comes with the view.
+
+- A private window onto the Earth below
+
+- Spa finishes and a full vanity
+
+- Completes the 360° view from the cabin
+
+### Configured around the occasion.
+
+For select flights, the cabin interior is customized for the moment, from a relaxed lounge to a dinner in space.
+
+#### An interior made for the occasion.
+
+The spaceship interior is customizable, from a relaxed lounge to a setting designed around your event.
+
+#### A table above the clouds.
+
+A refreshments bar and a world-class culinary program, served in space.
+
+NoteCustom interiors are configured for select flights and seat fewer than the standard eight passengers.
+
+### Make your mark on spaceflight.
+
+Custom livery and exterior lighting turn the spaceship into the most memorable canvas your brand has ever had, seen at launch, in every photo and on every broadcast from space. Switch the livery to imagine yours.
+
+Learn more about Space Venue
+
+### The tallest launch vehicle.
+
+Standing over 600 ft tall on the launch pad, the spaceship is taller than any rocket and iconic landmarks including the Statue of Liberty and the Great Pyramid.
+
+### Some things you have to see for yourself.
+
+Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.
+
+---
+
+## Space Venue: Weddings, Dining & Live Events in Space | RISE
+
+URL: https://risespace.com/space-venue/
+
+## The first and only venue in space.
+
+Special moments broadcast to the world, from a cabin in space. Weddings, global media events, dinners and celebrations, configured around you.
+
+### Every kind of occasion.
+
+A flexible platform in space, configured around the moments worth marking.
+
+#### Global broadcasts
+
+Go live from space to audiences around the planet, with WiFi built for live streaming.
+
+#### Weddings
+
+Exchange vows with the curve of the Earth behind you and the people you love beside you.
+
+#### Dining
+
+A world-class culinary program, served at a table above the clouds.
+
+#### Wellness
+
+Stillness, perspective and the quietest view there is.
+
+#### Private gatherings
+
+The whole cabin, configured for you and up to seven guests.
+
+#### Research
+
+Fly experiments to space at flight rates never before possible.
+
+### From first idea to liftoff.
+
+Every Space Venue flight is planned with you, from the guest list to the lighting on the outside of the spaceship.
+
+#### Tell us the moment
+
+A broadcast, a gathering, an experiment, a moment that matters. Share what you have in mind.
+
+#### We shape the cabin
+
+The interior is customizable to suit the occasion, with custom livery and exterior lighting.
+
+#### Share it with the world
+
+WiFi for live streaming means your moment can be seen live, wherever your audience is.
+
+### Tell us what you want to do up there.
+
+The cabin is a blank page. If you have something in mind, we will work out how to make it happen.
+
+---
+
+## Space Programs for Governments & Research | RISE Space
+
+URL: https://risespace.com/space-programs/
+
+## Turnkey Space Programs.
+
+National spaceflight programs, research on every flight and human-rated Space Balloons, from one team.
+
+### National Spaceflight Program
+
+RISE programs can be sized to fit a Nation’s ambitions, from iconic human spaceflight to groundbreaking research.
+
+### The most advanced human-rated Space Balloons
+
+RISE manufactures Space Balloons for research, government programs and special projects using proprietary processes and built to NASA standards.
+
+### Research on every flight
+
+We fly instruments for researchers to conduct groundbreaking science on every flight, providing unheard of flight rates cost effectively.
+
+### Research examples
+
+Instruments and experiments fly alongside every RISE mission.
+
+#### Technology testing
+
+Photo: Testing Dragon Capsule’s descent systems with drop tests.
+
+#### Atmosphere and climate science
+
+Photo: Earth’s atmosphere during Oregon fire taken at 100,000 ft.
+
+#### Helio- and astrophysics
+
+Photo: The sun’s corona taken during eclipse at 100,000 ft.
+
+#### Astrobiology
+
+Photo: Earth’s upper atmosphere taken at 100,000 ft, which mimics deep space environments.
+
+#### Health and medical for space exploration
+
+Photo: StratEx test pilot at 136,000 ft with first-of-a-kind spacesuit for increased space adaptation.
+
+### Some things you have to see for yourself.
+
+Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.
+
+---
+
+## About RISE Space | A World-Record Space Balloon Team
+
+URL: https://risespace.com/about/
+
+## This is RISE.
+
+A meticulous team on Earth, making magic happen in space.
+
+We are opening space to more people than ever before to have the life-changing experience of seeing Earth in space.
+
+### World records and unrivaled experience.
+
+Our team has set records, created industries and made history. Drag or use the arrows to browse their accomplishments.
+
+- 100+: Space Balloon flights flown by team members
+
+- 41.5 km: Highest human flight and space dive from a balloon: 136,000 ft
+
+- 10,000 kg: Heaviest payload ever flown by balloon: a Dragon capsule to 45,000 ft
+
+- 6,600 kg: Heaviest payload launched to 30 km / 100,000 ft
+
+- 2,144 cu ft: Largest-volume space capsule, with the largest windows ever flown to space
+
+- 2 years: Designed, built and lived longest in Biosphere 2, the most closed bioregenerative prototype space base
+
+- 98%: Water recovered on the ISS, with technology on most U.S. crewed spacecraft
+
+- SpinLaunch: Developed the largest spin vacuum chamber ever operated
+
+### Meet our Founders
+
+RISE leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.
+
+#### 
+
+Chairman and Chief Executive Officer
+
+### Join our mission.
+
+We're building the team that will open space to more people than ever before. Open roles: [CAREERS LINK]
+
+### For media.
+
+Flight footage, stills, founder bios and mission facts from RISE flights are available for editorial use. Press inquiries: [PRESS EMAIL]
+
+### Some things you have to see for yourself.
+
+Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.
+
+---
+
+## Leadership bios
+
+### Ravé Mehta, Chairman and Chief Executive Officer
+
+Ravé serves as CEO of Rise Space, leading the company’s vision, strategy, partnerships and execution with over 25 years’ experience founding, building, leading and investing in space and frontier technology companies.
+
+Ravé is an engineer, entrepreneur and investor, as well as an award-winning pianist, bestselling author and recipient of the Tesla Vision Award from the Tesla Science Foundation. Ravé has been active in the commercial space sector since 2007. As a board member of Space Florida from 2007 to 2012 and Chairman of their Legislative Committee, Ravé played an important role in the historic transition from winding down the U.S. National Space Shuttle program to launching today's thriving commercial space industry. Ravé was part of the team that transitioned launchpad 39A from the U.S. Airforce to Space Florida, followed by leasing it to SpaceX to create the world's first commercial orbital launch complex. Since then, Ravé has invested in, advised, and supported numerous space companies and investment funds, including Space Perspective.
+
+Ravé currently serves on the U.S. National UAP Scientific Advisory Council, the federal advisory group formed in June 2026 at the request of the White House, the Pentagon’s All-domain Anomaly Resolution Office (AARO), the Office of the Director of National Intelligence (ODNI), and the FBI to scientifically study Unidentified Anomalous Phenomena. Ravé also serves on the Council of Advisors for the SETI Institute (Search for Extraterrestrial Intelligence), a research institute with over 100 scientists dedicated to exploring, understanding, searching for and explaining the origin, nature, and prevalence of life and intelligence in the universe. Ravé also serves on the advisory board of Space for Humanity as chairman of the Arts & Astronauts Committee. Ravé was on the final selection committee to evaluate and select citizen astronaut candidates they sent to space to experience the Overview Effect resulting in several billions of media impressions for their citizen astronauts.
+
+Ravé is a board member and managing director of Mehta Group and Flow Capital, his family office’s investment platform focused on space and frontier technologies. Ravé was the CEO of Mehta Engineering, their 50-year old award-winning engineering and construction management firm that helped build over 1,000 transportation infrastructure projects across the U.S. including roads, highways, bridges, airports, and rail systems with over $50 billion in construction value. Ravé holds a B.S. and M.S. degrees in Engineering and is a licensed Professional Engineer in eight U.S. states. His combination of commercial space experience, large-scale engineering leadership, and entrepreneurial success provides deep expertise in executing complex, safety-critical engineering programs, managing large-scale operations and navigating highly regulated industries.
+
+Ravé is also an award-winning pianist, composer and researcher focused on human potential. He spent two decades studying the science of fear, flow and music and how they can be used to increase human performance and access our innate healing abilities. After healing himself from Lyme disease by playing the piano to drop himself into flow states, he integrated the principles of flow into his Piano Sound Bath concerts to help others drop into deep healing flow states. Ravé has performed in iconic venues around the world including Carnegie Hall, Grace Cathedral, Burning Man, Church of Rome, Dracula’s Castle and even the North Pole where 1 hour into his concert, he had to evacuate everyone due to a polar bear. Ravé is also the bestselling author of The Inventor: The Story of Tesla (Scholastic), a graphic novel about the true story of Nikola Tesla and how he battled Thomas Edison during the AC/DC Current Wars and changed the world with the power of his mind and imagination.
+
+### Taber MacCallum, Chief Technology Officer
+
+Taber serves as CTO of Rise Space and responsible for the technology development and execution of Rise’s space program with over 30 years’ experience leading the development and operations of human space balloon and space flight systems.
+
+Taber led development and flight of two human-rated edge-of-space vehicle programs: StratEx and Spaceship Neptune, each setting performance records that still stand. He had life support or thermal technology on every US orbital human spacecraft operating or in development today.
+
+He is co-founder and former CEO of Paragon Space Development Corp, a 35-year-old life support company for human spaceflight. At Paragon, Taber led the team that took Alan Eustace to 135,000 feet under a space balloon for the current world-record space dive. He also led development of the StratEx spacesuit, the first new operational U.S. spacesuit since Apollo, including its pressure system, life support system, thermal protection, and passive stabilization at transonic speed. It is on permanent exhibit at the Smithsonian Air and Space Museum.
+
+As co-founder and CTO of World View, he built and led the engineering team behind the first-of-its-kind unmanned stratospheric navigating balloon called a Stratollite, conducting over 100 flights with stratospheric platforms for remote sensing and communications. As co-founder, Co-CEO and CTO of Space Perspective, he led the design and build of Spaceship Neptune, the marine launch system, flight operations, and space balloon manufacturing. The fully operational full-scale spacecraft, the largest capsule ever flown to space, completed a full demonstration flight launched from the deck of a ship.
+
+Taber holds more than 30 patents in life support, thermal control, and space balloon systems. His technologies fly on the ISS, Boeing Starliner capsule, SpaceX Dragon capsule, Sierra Space Dream Chaser, and Orion, and is the most advanced water purification system on ISS. He also led the Inspiration Mars program including the development of the most advanced spacecraft closed-loop life support system ever operated.
+
+He was a founding member of the design team and the inaugural 8-person crew of Biosphere 2, spending two years sealed inside the most complete closed-system space base prototype ever built. His peer-reviewed publications cover the Biosphere 2 enclosed analytical laboratory he developed, human physiology, microgravity experiments, and Moon and Mars habitat concepts.
+
+Taber is Chairman of the Astronaut Memorial Foundation and former Chairman of the Commercial Spaceflight Federation, the industry organization for commercial space. He is a Fellow of the Explorers Club, an invitation-only 120-year-old organization for the advancement of scientific exploration, and a Board Member of the Sea Space Symposium, an invitation-only group of marine and aerospace leaders founded by Jacques Cousteau and Buzz Aldrin in 1970.
+
+### Jane Poynter, Chief Product Officer
+
+Jane serves as the CPO of Rise Space and responsible for all product development and the interface between the customers and the technology engineering team with more than 30 years’ experience founding and leading companies at the frontier of human spaceflight.
+
+Previously, Jane co-founded and was Co-CEO of Space Perspective the predecessor to Rise, a vertically integrated spaceflight company offering accessible flights to the edge of space in the emerging space tourism market. She led product design from cabin to flight profile. The company completed an uncrewed test flight of the fully operational, full-scale spacecraft through the commercial flight profile and generated more than 1,800 ticket reservations, validating the technology and the market.
+
+Poynter also co-founded and was founding CEO of World View, a venture-backed company developing persistent stratospheric platforms called Stratollites for government and commercial remote sensing and communications. The company was acquired by Ondas Holdings.
+
+Since co-founding Paragon in 1993, she served as CEO, President, and Chairwoman over more than two decades and currently serves on the Board. Paragon is an industry leader in life support and thermal control for extreme environments, with systems on most U.S. human spacecraft, and holds the record for highest space dive through its StratEx project.
+
+She designed and patented the Autonomous Biological System, the first-ever fully enclosed, bioregenerative life support system for aquatic animals in microgravity that flew on Space Shuttle, Mir, and ISS, producing the first animals to complete multiple life cycles in space. She also developed the plant-growth system for the Mars Oasis, a project to grow plants on Mars initially funded by the NASA Jet Propulsion Lab and later Elon Musk.
+
+Prior to Paragon, Poynter was a member of the design team and one of eight crew members who lived two years inside Biosphere 2, the world's first hermetically sealed, fully bioregenerative life support prototype. She managed the agricultural systems that fed the crew while recycling air and water. The project, now operated by the University of Arizona, remains a foundational reference for closed-loop life support in long-duration spaceflight. Her TED talk on the project has been viewed over a million times.
+
+Poynter authored The Human Experiment: Two Years and Twenty Minutes Inside Biosphere 2 (Basic Books, 2006) and Champions for Change: Athletes Making a World of Difference (2009), published with the United Nations. Her peer-reviewed publications cover Biosphere 2, microgravity experiments, and Moon and Mars habitat concepts. Her Biosphere 2 TED Talk has over one million views, and she has appeared widely in media and documentaries on spaceflight and Biosphere 2.
+
+### Jonathan Yaney, Chief Operating Officer
+
+Jonathan Yaney serves as the COO of Rise Space and responsible for all operations with 20 years of experience founding and building space, infrastructure and tech companies.
+
+Jonathan was the founder and CEO, SpinLaunch — a space company building an innovative ground-based, electric-powered kinetic launch system, a fundamentally new approach to reaching orbit that replaces the first stage of a rocket with a ground based, vacuum-enclosed centrifuge, catapulting payloads toward space at a fraction of the cost and carbon footprint of conventional rockets. He was the inventor of the launch system and holds seven granted U.S. patents, including the foundational circular mass accelerator patents first filed in 2016, covering the accelerator and the ruggedized avionics, reaction wheels, and structures engineered to survive its extreme g-loads.
+
+Jonathan raised over $170 million from investors including Kleiner Perkins, Google Ventures, and Airbus Ventures, and led the company as it was named to TIME’s 2022 list of the 100 Most Influential Companies and Fast Company’s 2023 Most Innovative Companies. Under his leadership SpinLaunch designed, built, and operated the Suborbital Accelerator at Spaceport America, New Mexico: a 33-meter (108-foot) diameter steel vacuum chamber — the largest-diameter vacuum chamber in the world — built at one-third the scale of the operational system, which completed more than ten successful flight tests. The campaigns carried test payloads from NASA, Airbus US, and Cornell Engineering, demonstrating that commercial satellite components survive the kinetic launch environment.
+
+He is a 1,000+ hour pilot and was featured in WIRED magazine as one of 25 innovators to watch. He has been a keynote speaker at leading industry events, and has appeared on PBS, BBC Click, CNN, and IMAX. Jonathan brings founder-level operational discipline and experience building and scaling complex aerospace systems.
+
+---
+
+## Changelog
+
+- 1.1 (2026-11-02): Panoramic view stated as 360° throughout (previously 340° from the cabin plus 20° from the Space Spa). Safety wording updated: over a thousand Space Balloon missions; splashdown as used by every American capsule returning from orbit; the Reserve Descent System as a second, redundant way home. Space Venue enquiries described as getting in touch through the form, not requesting a proposal. Join form now includes an optional message.
+- 1.0 (2026-10-29): First release of llms.txt and llms-full.txt for risespace.com.

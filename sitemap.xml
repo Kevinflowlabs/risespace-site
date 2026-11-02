@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://risespace.com/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-home.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://risespace.com/spaceflight/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-spaceflight.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://risespace.com/spaceship/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-spaceship.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://risespace.com/space-venue/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-space-venue.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://risespace.com/space-programs/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-space-programs.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://risespace.com/about/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <image:image><image:loc>https://risespace.com/assets/og/og-about.jpg</image:loc></image:image>
+  </url>
+</urlset>
