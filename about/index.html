@@ -237,6 +237,10 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* ===== page: About ===== */
 .hero.short{min-height:clamp(560px,78svh,860px)}
+@media (min-width:761px){
+.hero.short{min-height:100vh;min-height:100svh}
+.hero.short:after{content:"";display:block;position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to bottom,rgba(5,7,12,0),#05070C);pointer-events:none}
+}
 .hero .hero-in{max-width:880px}
 .split2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:0;border:1px solid var(--line)}
 .split2 .media{position:relative;min-height:460px;background:#000;overflow:hidden}
@@ -328,6 +332,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* phones: centered headings, section titles with a line on both sides */
 @media (max-width:760px){
+.hero.short{height:50vh;height:50svh;min-height:0;padding-top:96px;padding-bottom:40px}
 .eyebrow{justify-content:center}
 .eyebrow:after{content:"";width:28px;height:1px;background:var(--gold)}
 .hero-in,.hero-in h1,.hero-in .lede{text-align:center;margin-left:auto;margin-right:auto}
