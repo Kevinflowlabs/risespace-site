@@ -15,7 +15,9 @@
 :root{--bone:#F2EFE9;--dim:#A3A8B1;--gold:#F7CC2E;--line:rgba(242,239,233,.14);--gut:clamp(20px,5vw,72px)}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%}
-body{background:#05070C;color:var(--bone);font-family:'Geist','Helvetica Neue',Helvetica,sans-serif;display:flex;flex-direction:column;min-height:100%}
+body{background:#05070C;color:var(--bone);font-family:'Geist','Helvetica Neue',Helvetica,sans-serif;display:flex;flex-direction:column;min-height:100%;animation:pageFade .9s ease backwards}
+@keyframes pageFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){body{animation:none}}
 header{padding:20px var(--gut)}
 header img{height:40px;width:auto;display:block}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px var(--gut) 80px;max-width:900px}

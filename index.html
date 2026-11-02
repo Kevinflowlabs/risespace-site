@@ -33,7 +33,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
-body{margin:0;background:#05070C}
+body{margin:0;background:#05070C;animation:pageFade .9s ease backwards}
+@keyframes pageFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){body{animation:none}}
 a{color:#F2EFE9}a:hover{color:#F7CC2E}
 .rs{--gold:#F7CC2E;--hl:#9FD4FF;--hl-bg:rgba(120,190,255,.11);--void:#05070C;--ink:#0A0D14;--bone:#F2EFE9;--dim:#A3A8B1;--mute:#7A808C;--line:rgba(242,239,233,.13);--gut:clamp(20px,5vw,84px);--serif:'Merriweather','Iowan Old Style',Georgia,serif;--sans:'Geist','Helvetica Neue',Helvetica,sans-serif;--mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;background:var(--void);color:var(--bone);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
 .rs *{box-sizing:border-box}
@@ -525,7 +527,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <div class="rs" style="--gold: #F7CC2E;">
 
 <header class="nav" data-solid="0">
-<a class="nav-brand" href="./" aria-label="RISE Space home"><img src="assets/rise-logo-v2.png" alt="RISE Space"></a>
+<a class="nav-brand" href="./" aria-label="RISE Space home"><img src="assets/risespace-logo-web.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 
 <a class="nav-link" href="spaceflight/" aria-current="false">Spaceflight</a>
@@ -691,7 +693,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </section>
 
 <footer class="foot">
-<img loading="lazy" decoding="async" src="assets/rise-logo-v2.png" alt="RISE Space">
+<img loading="lazy" decoding="async" src="assets/risespace-logo-web.png" alt="RISE Space">
 <nav aria-label="Footer">
 <a href="spaceflight/">Spaceflight</a><a href="spaceship/">Spaceship</a><a href="space-venue/">Space Venue</a><a href="space-programs/">Space Programs</a><a href="about/">About</a><a href="spaceflight/#reserve">Contact us</a>
 </nav>
@@ -706,7 +708,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 <div class="rs" ref="{{ setRoot }}" style="--gold: {{ accent }}">
 
 <header class="nav" data-solid="0">
-<a class="nav-brand" href="./" aria-label="RISE Space home"><img src="assets/rise-logo-v2.png" alt="RISE Space"></a>
+<a class="nav-brand" href="./" aria-label="RISE Space home"><img src="assets/risespace-logo-web.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
@@ -853,7 +855,7 @@ a.card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </section>
 
 <footer class="foot">
-<img loading="lazy" decoding="async" src="assets/rise-logo-v2.png" alt="RISE Space">
+<img loading="lazy" decoding="async" src="assets/risespace-logo-web.png" alt="RISE Space">
 <nav aria-label="Footer">
 <a href="spaceflight/">Spaceflight</a><a href="spaceship/">Spaceship</a><a href="space-venue/">Space Venue</a><a href="space-programs/">Space Programs</a><a href="about/">About</a><a href="spaceflight/#reserve">Contact us</a>
 </nav>
