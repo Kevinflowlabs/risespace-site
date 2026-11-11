@@ -211,6 +211,39 @@ p{margin:0;line-height:1.55;color:var(--grey)}
 }
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ---------- Inside the spaceship: full-bleed gallery, scroll or tap ---------- */
+.cabin{position:relative;height:630vh;margin-top:clamp(80px,14vh,160px)}
+.cabin-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.cab-stage{position:absolute;inset:0}
+.cab-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1s ease,transform 6s cubic-bezier(.2,.6,.2,1)}
+.cab-shot[data-on="true"]{opacity:1;transform:scale(1)}
+.cab-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.45) 42%,rgba(0,0,0,.1) 70%,rgba(0,0,0,.25) 100%),linear-gradient(0deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,0) 40%),linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 26%)}
+.cab-head{position:absolute;z-index:2;left:var(--gut);top:clamp(96px,15vh,140px);max-width:620px}
+.cab-head h2{font-size:clamp(30px,3.6vw,54px);line-height:1.08;color:var(--white)}
+.cab-head p{margin-top:14px;font-size:16px;max-width:46ch;color:var(--bone)}
+.cab-caption{position:absolute;z-index:2;left:var(--gut);bottom:clamp(40px,8vh,80px);max-width:560px}
+.cab-count{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--bone)}
+.cab-caption p{margin-top:12px;font-size:clamp(22px,2.4vw,34px);line-height:1.2;color:var(--white);font-weight:500}
+.cab-ctrl{display:flex;align-items:center;gap:12px;margin-top:22px}
+.cab-ctrl .btn{min-height:44px;width:44px;padding:0;font-size:18px;background:rgba(0,0,0,.35)}
+.cab-ctrl .btn:hover{background:var(--white)}
+.cab-ctrl .hint{margin-left:10px;font-size:13px;color:var(--bone)}
+.cab-rail{position:absolute;z-index:3;right:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.cab-tab{display:flex;align-items:center;justify-content:flex-end;gap:12px;background:none;border:0;padding:6px 0;color:var(--grey);cursor:pointer;font:inherit}
+.cab-tab b{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;order:2}
+.cab-tab span{font-size:13px;max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .5s ease,opacity .4s ease;order:1}
+.cab-tab:hover span,.cab-tab[aria-pressed="true"] span{max-width:320px;opacity:1}
+.cab-tab[aria-pressed="true"]{color:var(--white)}
+.cab-tab:focus-visible{outline:2px solid var(--white);outline-offset:4px}
+.cab-bar{position:absolute;left:var(--gut);right:var(--gut);bottom:22px;height:2px;background:rgba(255,255,255,.18);z-index:3}
+.cab-bar i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--white);transition:width .4s linear}
+@media (max-width:860px){
+  .cab-head h2{font-size:28px}
+  .cab-head p{font-size:14px}
+  .cab-rail{display:none}
+  .cab-caption{bottom:76px}
+  .cab-ctrl .hint{display:none}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -334,16 +367,42 @@ p{margin:0;line-height:1.55;color:var(--grey)}
     </div>
   </section>
 
-  <!-- SPOTLIGHT -->
-  <section class="spot" aria-labelledby="ship-h">
-    <div class="media"><img loading="lazy" src="assets/cabin-windows.webp" alt="The RISE spaceship cabin with its large windows"></div>
-    <div>
-      <h2 id="ship-h">Inside a spaceship with the largest windows to go to space.</h2>
-      <p>360-degree panoramic views, refreshments bar and culinary program, and a space spa. Designed, built and operated to FAA and NASA standards.</p>
-      <div class="actions">
-        <a class="btn solid" href="https://risespace.com/spaceship/">Explore the spaceship</a>
-        <a class="btn" href="https://www.youtube.com/watch?v=ZVuImwpeosg" target="_blank" rel="noopener">Watch the full flight</a>
+  <!-- INSIDE THE SPACESHIP: scroll or tap through the cabin -->
+  <section class="cabin" id="cabin" aria-labelledby="cabin-h">
+    <div class="cabin-stick">
+      <div class="cab-stage" id="cab-stage">
+        <img class="cab-shot" src="assets/cabin-windows.webp" alt="The largest windows ever flown to space." loading="lazy">
+        <img class="cab-shot" src="assets/custom-lounge4.jpg" alt="A lounge for hours in space." loading="lazy">
+        <img class="cab-shot" src="assets/custom-lounge3.jpg" alt="Share the view with the people you love." loading="lazy">
+        <img class="cab-shot" src="assets/dining-table.jpg" alt="A table above the clouds." loading="lazy">
+        <img class="cab-shot" src="assets/custom-dining4.jpg" alt="Configured around the occasion." loading="lazy">
+        <img class="cab-shot" src="assets/spa.jpg" alt="The Space Spa, with a window onto Earth." loading="lazy">
+        <img class="cab-shot" src="assets/spa-3.jpg" alt="Every window, a different view." loading="lazy">
+        <div class="cab-shade"></div>
       </div>
+      <div class="cab-head">
+        <h2 id="cabin-h">Inside a spaceship with the largest windows to go to space.</h2>
+        <p>360-degree panoramic views, refreshments bar and culinary program, and a space spa. Designed, built and operated to FAA and NASA standards.</p>
+      </div>
+      <div class="cab-caption" aria-live="polite">
+        <span class="cab-count" id="cab-count">01 / 07</span>
+        <p id="cab-text">The largest windows ever flown to space.</p>
+        <div class="cab-ctrl">
+          <button class="btn" type="button" id="cab-prev" aria-label="Previous view">&larr;</button>
+          <button class="btn" type="button" id="cab-next" aria-label="Next view">&rarr;</button>
+          <span class="hint">Scroll or tap</span>
+        </div>
+      </div>
+      <nav class="cab-rail" aria-label="Cabin views">
+          <button class="cab-tab" type="button" data-i="0" aria-label="1. The largest windows ever flown to space."><b>01</b><span>The largest windows ever flown to space.</span></button>
+          <button class="cab-tab" type="button" data-i="1" aria-label="2. A lounge for hours in space."><b>02</b><span>A lounge for hours in space.</span></button>
+          <button class="cab-tab" type="button" data-i="2" aria-label="3. Share the view with the people you love."><b>03</b><span>Share the view with the people you love.</span></button>
+          <button class="cab-tab" type="button" data-i="3" aria-label="4. A table above the clouds."><b>04</b><span>A table above the clouds.</span></button>
+          <button class="cab-tab" type="button" data-i="4" aria-label="5. Configured around the occasion."><b>05</b><span>Configured around the occasion.</span></button>
+          <button class="cab-tab" type="button" data-i="5" aria-label="6. The Space Spa, with a window onto Earth."><b>06</b><span>The Space Spa, with a window onto Earth.</span></button>
+          <button class="cab-tab" type="button" data-i="6" aria-label="7. Every window, a different view."><b>07</b><span>Every window, a different view.</span></button>
+      </nav>
+      <div class="cab-bar"><i></i></div>
     </div>
   </section>
 
@@ -578,6 +637,51 @@ p{margin:0;line-height:1.55;color:var(--grey)}
   video.addEventListener('loadeddata', function () { try { video.currentTime = T0; } catch (e) {} });
   onScroll();
   render();
+})();
+/* Inside the spaceship: scroll or tap moves through the cabin views */
+(function () {
+  var section = document.getElementById('cabin');
+  var shots = Array.prototype.slice.call(section.querySelectorAll('.cab-shot'));
+  var tabs = Array.prototype.slice.call(section.querySelectorAll('.cab-tab'));
+  var caps = [].map.call(tabs, function (t) { return t.querySelector('span').textContent; });
+  var count = document.getElementById('cab-count');
+  var text = document.getElementById('cab-text');
+  var bar = section.querySelector('.cab-bar');
+  var N = shots.length, idx = -1;
+  var clamp = function (x) { return Math.min(1, Math.max(0, x)); };
+
+  var show = function (i) {
+    if (i === idx) return;
+    idx = i;
+    shots.forEach(function (im, k) { im.setAttribute('data-on', k === i ? 'true' : 'false'); });
+    tabs.forEach(function (t, k) { t.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+    count.textContent = '0' + (i + 1) + ' / 0' + N;
+    text.textContent = caps[i];
+  };
+  var fromScroll = function () {
+    var rect = section.getBoundingClientRect();
+    var span = section.offsetHeight - window.innerHeight;
+    var p = clamp(-rect.top / span);
+    bar.style.setProperty('--p', p.toFixed(4));
+    show(Math.min(N - 1, Math.floor(p * N)));
+  };
+  var goTo = function (i) {
+    i = Math.max(0, Math.min(N - 1, i));
+    var top = section.getBoundingClientRect().top + window.scrollY;
+    var span = section.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: top + ((i + 0.5) / N) * span, behavior: 'smooth' });
+    show(i);
+  };
+  tabs.forEach(function (t) { t.addEventListener('click', function () { goTo(+t.getAttribute('data-i')); }); });
+  document.getElementById('cab-prev').addEventListener('click', function () { goTo(Math.max(0, idx - 1)); });
+  document.getElementById('cab-next').addEventListener('click', function () { goTo(Math.min(N - 1, idx + 1)); });
+  section.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') goTo(Math.min(N - 1, idx + 1));
+    if (e.key === 'ArrowLeft') goTo(Math.max(0, idx - 1));
+  });
+  window.addEventListener('scroll', fromScroll, { passive: true });
+  show(0);
+  fromScroll();
 })();
 </script>
 </body>
