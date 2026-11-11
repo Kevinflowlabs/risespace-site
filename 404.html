@@ -5,31 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page not found | RISE Space</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#05070C">
+<meta name="theme-color" content="#000">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
 <style>
-:root{--bone:#F2EFE9;--dim:#A3A8B1;--gold:#F7CC2E;--line:rgba(242,239,233,.14);--gut:clamp(20px,5vw,72px)}
+:root{--bone:#F7F3EB;--dim:#D2CFC8;--gold:#FCC448;--line:rgba(247,243,235,.14);--gut:clamp(20px,5vw,72px)}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%}
-body{background:#05070C;color:var(--bone);font-family:'Geist','Helvetica Neue',Helvetica,sans-serif;display:flex;flex-direction:column;min-height:100%;animation:pageFade .9s ease backwards}
+body{background:#000;color:var(--bone);font-family:'Figtree','Helvetica Neue',Helvetica,sans-serif;display:flex;flex-direction:column;min-height:100%;animation:pageFade .9s ease backwards}
 @keyframes pageFade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){body{animation:none}}
 header{padding:20px var(--gut)}
 header img{height:40px;width:auto;display:block}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px var(--gut) 80px;max-width:900px}
-.eyebrow{display:flex;align-items:center;gap:14px;color:var(--gold);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--bone);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px}
 .eyebrow:before{content:"";width:28px;height:1px;background:var(--gold)}
-h1{font-family:'Merriweather',Georgia,serif;font-weight:400;font-size:clamp(44px,7vw,96px);line-height:1.1;letter-spacing:.005em}
-h1 em{color:var(--gold)}
+h1{font-family:'Figtree',Helvetica,Arial,sans-serif;font-weight:400;font-size:clamp(44px,7vw,96px);line-height:1.1;letter-spacing:.005em}
+h1 em{color:var(--bone)}
 p{margin-top:22px;font-size:17px;line-height:1.6;color:var(--dim);max-width:44ch}
 nav{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 nav a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border:1px solid var(--line);border-radius:999px;color:var(--bone);text-decoration:none;font-size:14px}
-nav a:first-child{background:var(--gold);border-color:var(--gold);color:#05070C;font-weight:500}
+nav a:first-child{background:var(--gold);border-color:var(--gold);color:#000;font-weight:500}
 nav a:hover{border-color:var(--gold)}
+/* ---- RISE brand standards (guidelines 261111): Figtree throughout, JetBrains Mono for telemetry only ---- */
+.mono{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-weight:500}
+.tele,.tele *,.tick,.mk,.ylab,.count,.count *,.total,.total b,.tline,.tline *,.seg span,.alti *,.lcard .n,.hint,.ph-text .count{font-family:var(--mono)!important}
+h1,h2,h3{font-weight:600;letter-spacing:-.01em}
+h3{font-weight:500}
+p,li{font-weight:500}
+b,strong{font-weight:600}
+em{font-style:normal}
+.nav-link:after{background:var(--sky)!important}
 </style>
 </head>
 <body>

@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RISE Space | A new kind of space platform</title>
+<meta name="description" content="RISE flies people and research to space aboard a spaceship lifted by a Space Balloon. No rocket.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;
+  --white:#fff;
+  --bone:#f2efe9;
+  --grey:#a3a3a3;
+  --mute:#7a7a7a;
+  --line:rgba(255,255,255,.22);
+  --gut:clamp(16px,4vw,64px);
+  --sans:'Geist','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:'Merriweather',Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.01em}
+p{margin:0;line-height:1.55;color:var(--grey)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;font-size:15px;font-weight:500;letter-spacing:.01em;border:1px solid var(--white);color:var(--white);background:transparent;cursor:pointer;transition:background .25s,color .25s}
+.btn:hover{background:var(--white);color:var(--black)}
+.btn.solid{background:var(--white);color:var(--black)}
+.btn.solid:hover{background:transparent;color:var(--white)}
+.link{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:var(--white)}
+.link:after{content:"\2192";transition:transform .25s}
+.card:hover .link:after{transform:translateX(4px)}
+
+/* ---------- Header: centred logo, shrinks and becomes an opaque bar on scroll ---------- */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:50;padding:18px var(--gut);transition:padding .35s}
+.site-head .bar{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:10px 32px;border-radius:999px;border:1px solid transparent;transition:background .35s,border-color .35s,padding .35s}
+.site-head.solid{padding-top:12px;padding-bottom:12px}
+.site-head.solid .bar{background:#000;border-color:var(--line);padding-top:6px;padding-bottom:6px}
+.site-head .logo{justify-self:center;display:block;line-height:0}
+.site-head .logo img{height:84px;width:auto;transition:height .35s}
+.site-head.solid .logo img{height:44px}
+.site-head nav{display:flex;gap:28px}
+.site-head .nav-l{justify-self:start}
+.nav-r-wrap{justify-self:end;display:flex;align-items:center;gap:28px}
+.site-head nav a{font-size:15px;color:var(--bone);opacity:.9}
+.site-head nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+.site-head .btn{min-height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--white);cursor:pointer;align-items:center;justify-content:center;flex-direction:column}
+.burger span{display:block;width:16px;height:1.5px;margin:2px auto;background:var(--white)}
+@media (max-width:960px){
+  .site-head{padding:12px var(--gut)}
+  .site-head .bar{grid-template-columns:auto 1fr auto;padding:8px 14px 8px 20px}
+  .site-head .logo{justify-self:start}
+  .site-head .logo img{height:58px}
+  .site-head.solid .logo img{height:40px}
+  .site-head nav,.site-head .btn.desk{display:none}
+  .nav-r-wrap{justify-self:end}
+  .burger{display:inline-flex}
+  .site-head.open nav{display:flex;position:fixed;inset:88px var(--gut) auto var(--gut);flex-direction:column;gap:0;background:#000;border-radius:24px;padding:8px 24px 20px}
+  .site-head.open nav a{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;opacity:1}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 45%,rgba(0,0,0,.88) 100%)}
+.hero-copy{position:relative;z-index:2;padding:0 var(--gut) clamp(40px,8vh,88px);max-width:900px}
+.hero h1{font-size:clamp(44px,7vw,108px);line-height:1.02;color:var(--white)}
+.hero p{margin-top:22px;font-size:clamp(16px,1.4vw,20px);max-width:44ch;color:var(--bone)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero .actions{margin-top:34px}
+
+/* ---------- Intro ---------- */
+.intro{padding:clamp(70px,12vh,130px) var(--gut);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 6vw;align-items:end}
+.intro h2{font-size:clamp(30px,3.6vw,52px);line-height:1.12}
+.intro p{font-size:clamp(16px,1.3vw,19px)}
+@media (max-width:760px){.intro{grid-template-columns:1fr}}
+
+/* ---------- Model-style cards ---------- */
+.section{margin-top:clamp(80px,14vh,160px)}
+.section-head{padding:0 var(--gut) clamp(32px,5vh,56px)}
+.section-head h2{font-size:clamp(32px,4vw,58px);line-height:1.08;max-width:18ch}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px);padding:0 var(--gut)}
+.card{display:flex;flex-direction:column;color:var(--white)}
+.card .img{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111}
+.card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,.8,.2,1)}
+.card:hover .img img{transform:scale(1.04)}
+.card .body{padding:24px 0 0;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:clamp(26px,2.4vw,36px);line-height:1.1}
+.card p{margin-top:12px;font-size:16px;max-width:36ch}
+.card .link{margin-top:auto;padding-top:24px}
+@media (max-width:960px){.cards{grid-template-columns:1fr}.card .img{aspect-ratio:16/11}}
+
+/* ---------- Spotlight ---------- */
+.spot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:center;padding:clamp(80px,14vh,160px) var(--gut) 0}
+.spot .media{position:relative;aspect-ratio:4/3;overflow:hidden;background:#111}
+.spot .media img{width:100%;height:100%;object-fit:cover}
+.spot h2{font-size:clamp(32px,3.6vw,54px);line-height:1.1}
+.spot p{margin-top:22px;font-size:17px;max-width:44ch}
+.spot .actions{margin-top:34px}
+@media (max-width:860px){.spot{grid-template-columns:1fr}}
+
+/* ---------- Facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin:clamp(80px,14vh,160px) var(--gut) 0}
+.fact{padding:36px 22px 40px 0}
+.fact+.fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact b{display:block;font-size:clamp(34px,3.6vw,56px);font-weight:300;line-height:1;color:var(--white)}
+.fact span{display:block;margin-top:14px;font-size:15px;color:var(--grey);max-width:24ch}
+@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}.fact,.fact+.fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}.fact:first-child{border-top:0}}
+
+/* ---------- News ---------- */
+.news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,28px);padding:0 var(--gut)}
+.news .card .img{aspect-ratio:16/10}
+@media (max-width:760px){.news{grid-template-columns:1fr}}
+
+/* ---------- Gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);padding:0 var(--gut)}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;background:#111}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,.8,.2,1)}
+.tile:hover img{transform:scale(1.04)}
+.tile span{position:absolute;left:16px;bottom:16px;right:16px;font-size:15px;font-weight:500;color:var(--white)}
+@media (max-width:960px){.gallery{grid-template-columns:1fr 1fr}}
+
+/* ---------- CTA band ---------- */
+.band{position:relative;margin-top:clamp(80px,14vh,160px);min-height:72vh;display:flex;align-items:center;overflow:hidden}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.1) 100%)}
+.band .copy{position:relative;z-index:2;padding:0 var(--gut);max-width:720px}
+.band h2{font-size:clamp(32px,4.2vw,64px);line-height:1.1}
+.band p{margin-top:22px;font-size:17px;color:var(--bone);max-width:46ch}
+
+/* ---------- Footer ---------- */
+.foot{background:var(--black);padding:clamp(70px,10vh,110px) var(--gut) 40px;margin-top:clamp(80px,12vh,140px);border-top:1px solid var(--line)}
+.foot-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 6vw;align-items:end;padding-bottom:56px}
+.foot-top h2{font-size:clamp(28px,3vw,42px);line-height:1.15}
+.foot-top p{margin-top:14px;font-size:16px;max-width:46ch}
+/* Email sign-up: underline only, white line (no box) */
+.signup{display:flex;align-items:flex-end;gap:16px;max-width:560px;width:100%;justify-self:end}
+.signup label{flex:1;display:block}
+.signup .lbl{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:6px}
+.signup input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--white);border-radius:0;padding:12px 0;font:inherit;font-size:17px;color:var(--white);outline:none}
+.signup input::placeholder{color:var(--mute)}
+.signup input:focus{border-bottom-width:2px;padding-bottom:11px}
+.signup .btn{min-height:46px;flex:none}
+.signup-msg{margin-top:12px;font-size:14px;color:var(--bone);min-height:20px}
+@media (max-width:760px){.foot-top{grid-template-columns:1fr}.signup{justify-self:stretch;flex-direction:column;align-items:stretch}.signup .btn{width:100%}}
+.foot-cols{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px 24px;padding-top:40px;border-top:1px solid var(--line)}
+.foot-cols h4{margin:0 0 16px;font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.foot-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.foot-cols a{font-size:15px;color:var(--bone)}
+.foot-cols a:hover{text-decoration:underline;text-underline-offset:4px}
+.foot-cols .brand img{height:40px;width:auto}
+.foot-cols .soc{margin-top:22px}
+.foot-cols .soc a{font-size:14px;color:var(--grey)}
+.legal{display:flex;flex-wrap:wrap;gap:20px 28px;justify-content:space-between;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.legal a{color:var(--mute)}
+.legal a:hover{color:var(--bone)}
+@media (max-width:760px){.foot-cols{grid-template-columns:1fr 1fr}.foot-cols .brand{grid-column:1/-1}}
+
+
+/* ---------- Ascent: scroll-scrubbed footage, altitude gauge, layer cards ---------- */
+.flight{position:relative;height:820vh;margin-top:0}
+.flight-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.fp-media{position:absolute;inset:0;z-index:0;background:#000}
+.fp-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.13);transform-origin:0% 100%}
+.sky{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 30%,rgba(0,0,0,.15) 55%,rgba(0,0,0,.6) 100%),linear-gradient(0deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,0) 30%)}
+.flight .tag{position:absolute;z-index:6;right:var(--gut);top:clamp(70px,9vh,96px);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--white);display:flex;gap:18px}
+/* Altitude gauge (vertical, straight up) */
+.alti{position:absolute;z-index:6;left:var(--gut);top:clamp(110px,16vh,160px);bottom:clamp(110px,16vh,150px);width:150px}
+.alti .track{position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,.2))}
+.alti .fill{position:absolute;left:0;bottom:0;width:1px;height:calc(var(--alt,0) * 100%);background:var(--white)}
+.alti .oz{position:absolute;left:-3px;width:7px;bottom:50%;top:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.45) 0 2px,rgba(255,255,255,0) 2px 5px)}
+.tick{position:absolute;left:0;display:flex;align-items:center;gap:10px;transform:translateY(50%);font-size:11px;letter-spacing:.08em;color:var(--bone);opacity:.7}
+.tick:before{content:"";width:8px;height:1px;background:rgba(255,255,255,.6)}
+.mk{position:absolute;left:64px;display:flex;align-items:center;gap:10px;transform:translateY(50%);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone);white-space:nowrap}
+.mk:before{content:"";width:22px;height:1px;background:var(--bone)}
+.ind{position:absolute;left:-6px;bottom:calc(var(--alt,0) * 100%);width:13px;height:13px;margin-bottom:-6px;border-radius:50%;border:1px solid var(--white);background:#fff;box-shadow:0 0 18px rgba(255,255,255,.5)}
+/* Layer cards: fade in as the altitude enters each band */
+.lcard{position:absolute;z-index:6;right:calc(var(--gut) + 40px);top:50%;width:min(480px,40vw);transform:translateY(calc(-50% + 30px));opacity:0;filter:blur(8px);transition:opacity .8s,transform 1s cubic-bezier(.16,.8,.2,1),filter .8s;pointer-events:none}
+.lcard[data-on="1"]{opacity:1;transform:translateY(-50%);filter:blur(0)}
+.lcard .mono{display:block;margin-bottom:18px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone)}
+.lcard .n{display:block;margin-bottom:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.lcard h3{font-size:clamp(40px,4.6vw,72px);line-height:1;letter-spacing:-.015em;color:var(--white)}
+.lcard p{margin-top:20px;font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:var(--bone)}
+/* Telemetry */
+.tele{position:absolute;z-index:6;left:var(--gut);bottom:clamp(22px,4vh,40px);display:grid;grid-template-columns:repeat(4,auto);border:1px solid var(--line);background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.tele > div{padding:12px 20px;border-right:1px solid var(--line)}
+.tele > div:last-child{border-right:0}
+.tele .k{display:block;font-size:10px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase;margin-bottom:6px}
+.tele .v{font-size:clamp(15px,1.4vw,20px);color:var(--white);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scrollbar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.12);z-index:7}
+.scrollbar i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--white)}
+@media (max-width:860px){
+  .alti{width:46px;top:96px;bottom:auto;height:42vh}
+  .alti .mk{display:none}
+  .lcard{left:calc(var(--gut) + 64px);right:var(--gut);width:auto;top:96px;transform:translateY(30px)}
+  .lcard[data-on="1"]{transform:none}
+  .lcard h3{font-size:38px}
+  .tele{grid-template-columns:repeat(2,auto);right:var(--gut)}
+  .tele > div:nth-child(2){border-right:0}
+  .tele > div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .flight .tag{display:none}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="top">
+<div class="bar">
+  <nav class="nav-l" aria-label="Primary">
+    <a href="https://risespace.com/spaceflight/">Spaceflight</a>
+    <a href="https://risespace.com/spaceship/">Spaceship</a>
+    <a href="https://risespace.com/space-venue/">Space Venue</a>
+  </nav>
+  <a class="logo" href="#top" aria-label="RISE Space home"><img src="assets/risespace-logo-web.png" alt="RISE Space"></a>
+  <div class="nav-r-wrap">
+    <nav class="nav-r" aria-label="Secondary">
+      <a href="https://risespace.com/space-programs/">Space Programs</a>
+      <a href="https://risespace.com/about/">About</a>
+    </nav>
+    <a class="btn solid desk" href="#join">Join our mission</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <video id="hero-video" muted autoplay playsinline preload="auto" poster="assets/home3-hero-poster.jpg">
+      <source src="assets/home3-hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-copy">
+      <h1>A new kind of space platform</h1>
+      <p>Transformative space tourism to research and government applications. Safe. Accessible, carbon neutral.</p>
+      <div class="actions">
+        <a class="btn solid" href="https://risespace.com/spaceflight/">Explore spaceflight</a>
+        <a class="btn" href="#join">Join our mission</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro" aria-label="About RISE">
+    <h2>Fully demonstrated spaceship lifted by Space Balloon for hours in space.</h2>
+    <p>A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
+  </section>
+
+
+  <!-- MISSIONS (model-card style) -->
+  <section class="section" aria-labelledby="missions-h">
+    <div class="section-head">
+      <h2 id="missions-h">One platform, many kinds of missions</h2>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://risespace.com/spaceflight/">
+        <div class="img"><img loading="lazy" src="assets/card-flight-lounge2.jpg" alt="Passengers looking out at Earth from the RISE lounge"></div>
+        <div class="body">
+          <h3>Spaceflight</h3>
+          <p>Hours to soak in the experience of seeing Earth in space, in a spaceship made for the view.</p>
+          <span class="link">Explore spaceflight</span>
+        </div>
+      </a>
+      <a class="card" href="https://risespace.com/space-venue/">
+        <div class="img"><img loading="lazy" src="assets/card-venue-dj2.jpg" alt="A live broadcast event inside the RISE cabin"></div>
+        <div class="body">
+          <h3>Space Venue</h3>
+          <p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p>
+          <span class="link">Explore Space Venue</span>
+        </div>
+      </a>
+      <a class="card" href="https://risespace.com/space-programs/">
+        <div class="img"><img loading="lazy" src="assets/gov-ship-balloon.jpg" alt="A Space Balloon rising above the RISE launch site"></div>
+        <div class="body">
+          <h3>Space Programs</h3>
+          <p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p>
+          <span class="link">Explore Space Programs</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ASCENT: footage scrubs with scroll, altitude gauge climbs straight up -->
+  <section class="flight" id="ascent" aria-labelledby="ascent-h">
+    <h2 id="ascent-h" class="sr-only">Ascent</h2>
+    <div class="flight-stick">
+      <div class="fp-media">
+        <video data-scrub muted playsinline preload="auto" src="assets/ascent.mp4"></video>
+      </div>
+      <div class="sky"></div>
+      <div class="tag"><span>Flight footage</span><span>04 · Ascent</span></div>
+      <div class="alti" aria-hidden="true">
+        <div class="track"></div>
+        <div class="oz"></div>
+        <div class="fill"></div>
+        <div class="tick" style="bottom:0%">0</div>
+        <div class="tick" style="bottom:20%">20k</div>
+        <div class="tick" style="bottom:40%">40k</div>
+        <div class="tick" style="bottom:60%">60k</div>
+        <div class="tick" style="bottom:80%">80k</div>
+        <div class="tick" style="bottom:100%">100k</div>
+        <div class="mk" style="bottom:35%">Airliners</div>
+        <div class="mk" style="bottom:39%">Tropopause</div>
+        <div class="mk" style="bottom:62%">Armstrong limit</div>
+        <div class="mk" style="bottom:100%">Space · apogee</div>
+        <div class="ind"></div>
+      </div>
+      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Through the weather.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
+      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Above the airliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
+      <div class="lcard" data-alt-range="39000,50000"><span class="n">03 / 07 · ≈ 39,000 ft</span><span class="mono">Tropopause</span><h3>Where the weather ends.</h3><p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p></div>
+      <div class="lcard" data-alt-range="50000,62000"><span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span><span class="mono">Stratosphere · Ozone layer</span><h3>Inside the ozone layer.</h3><p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p></div>
+      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>Beyond the Armstrong limit.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
+      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Blue turns to black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
+      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>The edge of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
+      <div class="tele" role="group" aria-label="Live flight telemetry">
+        <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
+        <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
+        <div><span class="k">Outside air</span><span class="v" id="tel-temp">15 °C</span></div>
+        <div><span class="k">Air above you</span><span class="v" id="tel-air">100%</span></div>
+      </div>
+      <div class="scrollbar"><i></i></div>
+    </div>
+  </section>
+
+  <!-- SPOTLIGHT -->
+  <section class="spot" aria-labelledby="ship-h">
+    <div class="media"><img loading="lazy" src="assets/cabin-windows.webp" alt="The RISE spaceship cabin with its large windows"></div>
+    <div>
+      <h2 id="ship-h">Inside a spaceship with the largest windows to go to space.</h2>
+      <p>360-degree panoramic views, refreshments bar and culinary program, and a space spa. Designed, built and operated to FAA and NASA standards.</p>
+      <div class="actions">
+        <a class="btn solid" href="https://risespace.com/spaceship/">Explore the spaceship</a>
+        <a class="btn" href="https://www.youtube.com/watch?v=ZVuImwpeosg" target="_blank" rel="noopener">Watch the full flight</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTS -->
+  <section class="facts" aria-label="Flight at a glance">
+    <div class="fact"><b>100,000 ft+</b><span>Higher than 99% of the atmosphere</span></div>
+    <div class="fact"><b>About 6 hours</b><span>Ascent, two hours in space, and descent</span></div>
+    <div class="fact"><b>Up to 8</b><span>Passengers and a captain per flight</span></div>
+    <div class="fact"><b>0 rockets</b><span>Lifted by a Space Balloon</span></div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="section" aria-labelledby="news-h">
+    <div class="section-head">
+      <h2 id="news-h">Updates on our missions</h2>
+    </div>
+    <div class="news">
+      <a class="card" href="https://www.youtube.com/watch?v=ZVuImwpeosg" target="_blank" rel="noopener">
+        <div class="img"><img loading="lazy" src="assets/mission-edge.jpg" alt="The edge of space seen from a RISE flight"></div>
+        <div class="body">
+          <h3>Successful demonstration flight of the fully operational spaceship</h3>
+          <span class="link">Watch the full flight</span>
+        </div>
+      </a>
+      <a class="card" href="https://risespace.com/about/">
+        <div class="img"><img loading="lazy" src="assets/occ-research2.jpg" alt="A researcher working inside a RISE research lab"></div>
+        <div class="body">
+          <h3>RISE acquires Space Perspective</h3>
+          <span class="link">Read about RISE</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" aria-labelledby="gallery-h">
+    <div class="section-head">
+      <h2 id="gallery-h">Some things you have to see for yourself.</h2>
+    </div>
+    <div class="gallery">
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-gathering2.jpg" alt="A private gathering in the RISE cabin"><span>Private gatherings</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wellness2.jpg" alt="A wellness session in the RISE cabin"><span>Wellness</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wedding2.jpg" alt="A wedding in the RISE cabin"><span>Weddings</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/dining-space.jpg" alt="Dining in the RISE cabin above the clouds"><span>Dining</span></a>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="band" aria-labelledby="mission-h">
+    <img loading="lazy" src="assets/mission-limb.jpg" alt="Earth's limb from high altitude">
+    <div class="copy">
+      <h2 id="mission-h">We are opening space to more people than ever before.</h2>
+      <p>Fewer than 800 people have ever been to space. RISE is changing that.</p>
+      <div class="actions">
+        <a class="btn solid" href="#join">Join our mission</a>
+        <a class="btn" href="https://risespace.com/about/">About RISE</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot" id="join">
+  <div class="foot-top">
+    <div>
+      <h2>Join our mission</h2>
+      <p>Join our mission. We'll write when there's something real to tell you: flight news, launch invitations, and the moment seats open.</p>
+    </div>
+    <div>
+      <form class="signup" id="signup" novalidate>
+        <label>
+          <span class="lbl">Email address</span>
+          <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        </label>
+        <button class="btn solid" type="submit">Sign up</button>
+      </form>
+      <div class="signup-msg" id="signup-msg" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="foot-cols">
+    <div class="brand">
+      <img src="assets/risespace-logo-web.png" alt="RISE Space">
+      <div class="soc">
+        <a href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div>
+      <h4>Experience</h4>
+      <ul>
+        <li><a href="https://risespace.com/spaceflight/">Spaceflight</a></li>
+        <li><a href="https://risespace.com/spaceship/">Spaceship</a></li>
+        <li><a href="https://risespace.com/space-venue/">Space Venue</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="https://risespace.com/space-programs/">Space Programs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://risespace.com/about/">About</a></li>
+        <li><a href="https://risespace.com/about/">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="legal">
+    <span>© RISE 2026</span>
+    <span><a href="#top">Privacy</a> &nbsp;·&nbsp; <a href="#top">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+/* Header turns solid after the hero, and the mobile menu toggles */
+(function () {
+  var head = document.querySelector('.site-head');
+  var onScroll = function () { head.classList.toggle('solid', window.scrollY > 40); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  var burger = document.querySelector('.burger');
+  burger.addEventListener('click', function () {
+    var open = head.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+
+/* Hero video plays three times, then holds its final frame */
+(function () {
+  var v = document.getElementById('hero-video');
+  var plays = 1;
+  v.loop = false;
+  v.addEventListener('ended', function () {
+    plays += 1;
+    if (plays <= 3) {
+      v.currentTime = 0;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  });
+  var p = v.play();
+  if (p && p.catch) p.catch(function () {});
+})();
+
+/* Sign-up: front-end only for now (no backend connected yet) */
+(function () {
+  var form = document.getElementById('signup');
+  var msg = document.getElementById('signup-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = form.querySelector('input[type="email"]');
+    if (!input.value || input.value.indexOf('@') < 1) {
+      msg.textContent = 'Enter a valid email address.';
+      input.focus();
+      return;
+    }
+    msg.textContent = 'Thank you. We will be in touch.';
+    form.reset();
+  });
+})();
+
+/* Ascent: scroll drives the footage position, altitude gauge, layer cards and telemetry */
+(function () {
+  var section = document.getElementById('ascent');
+  var video = section.querySelector('video[data-scrub]');
+  var cards = Array.prototype.slice.call(section.querySelectorAll('.lcard'));
+  var bar = section.querySelector('.scrollbar i');
+  var telFt = document.getElementById('tel-ft');
+  var telKm = document.getElementById('tel-km');
+  var telTemp = document.getElementById('tel-temp');
+  var telAir = document.getElementById('tel-air');
+  var T0 = 0.4, T1 = 23.2, A = 0, B = 0.94;   /* footage seconds and scroll span, from the earlier build */
+  var target = T0, cur = null, lastFt = -1, ticking = false;
+
+  var clamp = function (x) { return Math.min(1, Math.max(0, x)); };
+  /* ascent profile: footage seconds -> feet */
+  var altAt = function (t) {
+    var k = [[0, 0], [2.6, 1500], [3.4, 14000], [5.6, 24000], [7.2, 36000], [9.2, 50000], [11.6, 62000], [13.6, 74000], [15.8, 84000], [17.4, 97000], [18.4, 100000], [99, 100000]];
+    for (var i = 1; i < k.length; i++) {
+      if (t <= k[i][0]) { var a = k[i - 1], b = k[i]; return a[1] + (b[1] - a[1]) * ((t - a[0]) / (b[0] - a[0])); }
+    }
+    return 100000;
+  };
+  /* International Standard Atmosphere: temperature and share of air above */
+  var isa = function (ft) {
+    var h = ft * 0.3048, T, P;
+    if (h < 11000) { T = 288.15 - 0.0065 * h; P = 101325 * Math.pow(T / 288.15, 5.25588); }
+    else if (h < 20000) { T = 216.65; P = 22632.1 * Math.exp(-0.000157688 * (h - 11000)); }
+    else { T = 216.65 + 0.001 * (h - 20000); P = 5474.89 * Math.pow(T / 216.65, -34.1632); }
+    return { c: T - 273.15, pct: P / 101325 * 100 };
+  };
+
+  var render = function () {
+    ticking = false;
+    if (cur == null) cur = target;
+    cur = cur + (target - cur) * 0.16;
+    if (Math.abs(cur - target) < 0.002) cur = target;
+    if (video.readyState >= 1 && !video.seeking && Math.abs(video.currentTime - cur) > 0.015) {
+      try { video.currentTime = cur; } catch (e) {}
+    }
+    var ft = Math.round(altAt(cur));
+    if (ft !== lastFt) {
+      lastFt = ft;
+      section.style.setProperty('--alt', (ft / 100000).toFixed(4));
+      var a = isa(ft);
+      telFt.textContent = (Math.round(ft / 100) * 100 >= 1000 ? (Math.round(ft / 100) * 100).toLocaleString('en-US') : String(ft)) + ' ft';
+      telKm.textContent = (ft * 0.0003048).toFixed(1) + ' km';
+      telTemp.textContent = (a.c < 0 ? '−' : '') + Math.abs(Math.round(a.c)) + ' °C';
+      telAir.textContent = (a.pct >= 10 ? Math.round(a.pct) : a.pct.toFixed(1)) + '%';
+      cards.forEach(function (c) {
+        var r = c.getAttribute('data-alt-range').split(',').map(parseFloat);
+        c.setAttribute('data-on', ft >= r[0] && ft < r[1] ? '1' : '0');
+      });
+    }
+    if (Math.abs(cur - target) > 0.002) ticking = true, requestAnimationFrame(render);
+  };
+  var kick = function () { if (!ticking) { ticking = true; requestAnimationFrame(render); } };
+
+  var onScroll = function () {
+    var rect = section.getBoundingClientRect();
+    var span = section.offsetHeight - window.innerHeight;
+    var p = clamp(-rect.top / span);
+    bar.style.setProperty('--p', p.toFixed(4));
+    target = T0 + clamp(p / B) * (T1 - T0);
+    kick();
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  video.addEventListener('loadeddata', function () { try { video.currentTime = T0; } catch (e) {} });
+  onScroll();
+  render();
+})();
+</script>
+</body>
+</html>
