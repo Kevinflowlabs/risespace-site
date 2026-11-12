@@ -331,6 +331,21 @@ p,li{font-weight:500}
 b,strong{font-weight:600}
 em{font-style:normal}
 .nav-link:after{background:var(--sky)!important}
+/* ---- Typography matched to the new homepage: tighter headings, 1.55 body ---- */
+h1{font-size:clamp(44px,7vw,108px)!important;line-height:1.02!important;letter-spacing:-.01em!important}
+h2{font-size:clamp(32px,4vw,58px)!important;line-height:1.08!important;letter-spacing:-.01em!important}
+h3{line-height:1.1!important;letter-spacing:-.01em!important}
+p{line-height:1.55!important}
+/* ---- Site-wide: no outlines on boxes; section and column rules stay ---- */
+.story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
+/* Nav: centred rounded opaque bar; logo larger before scroll, shrinks on scroll */
+.nav{top:18px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:calc(100% - 2*var(--gut));padding:16px 28px!important;border-radius:999px;border:1px solid transparent;background:none!important;box-shadow:none!important;transition:background .35s,border-color .35s,padding .35s,top .35s}
+.nav[data-solid="1"]{background:#000000bf!important;border-color:var(--line);padding:10px 28px!important;top:12px!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav-brand img{height:64px!important;transition:height .35s}
+.nav[data-solid="1"] .nav-brand img{height:40px!important}
+@media (max-width:960px){.nav-brand img{height:48px!important}.nav[data-solid="1"] .nav-brand img{height:34px!important}}
+/* Consistent across the site: no outlines around content boxes (article cards, product cards, figures) */
+.rec,.fd,.prog,.prog figure,.rc,.occ-card,.ecard{border:0!important;box-shadow:none!important}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -1088,5 +1103,43 @@ class Component extends DCLogic {
 mountArtboard('tpl', 'app', Component);
 </script>
 <script>if(location.protocol==='file:')document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(/^([a-z]+:|#)/i.test(h))return;var u=h.split('#');if(u[0]===''||/\/$/.test(u[0])){e.preventDefault();location.href=(u[0]||'./')+'index.html'+(u[1]?'#'+u[1]:'');}},true);</script>
+<script>
+/* Corner rounding: outside corners of each contained image/video; middle items square; stacked (mobile) all rounded */
+(function () {
+  var R = 18;
+  var SKIP = 'header,footer,nav,.nav,.sheet,.flight-stick,.cabin-stick,.hero,.banner,.stage,.statement,.mbg,.careers,.lcard,.tele,.cab-stage,.fp-media,#ascent,.cap,.ring';
+  function frameOf(el) { return el.closest('.img,.shot,.tile,.ph-media,.media,.cabstage') || el; }
+  function apply() {
+    var vw = window.innerWidth, frames = [];
+    Array.prototype.forEach.call(document.querySelectorAll('img,video'), function (el) {
+      if (el.closest(SKIP)) return;
+      var f = frameOf(el), r = f.getBoundingClientRect();
+      if (r.width < 60 || r.height < 40 || r.width > vw * 0.92) return;
+      if (frames.indexOf(f) < 0) frames.push(f);
+    });
+    frames.forEach(function (f) {
+      var item = f.closest('.card,.occ-card,.ecard,.prog,.rc,.rec,.story,.tile') || f, row = item.parentElement;
+      if (!row) return;
+      var top0 = item.getBoundingClientRect().top;
+      var same = Array.prototype.filter.call(row.children, function (c) {
+        var cr = c.getBoundingClientRect();
+        return cr.width > 0 && cr.height > 0 && Math.abs(cr.top - top0) < 8;
+      });
+      var i = same.indexOf(item), n = same.length, c;
+      if (vw <= 760 || n <= 1) c = 'all';
+      else if (i === 0) c = 'left';
+      else if (i === n - 1) c = 'right';
+      else c = 'none';
+      var v = c === 'all' ? R + 'px' : c === 'left' ? R + 'px 0 0 ' + R + 'px' : c === 'right' ? '0 ' + R + 'px ' + R + 'px 0' : '0';
+      f.style.borderRadius = v;
+      f.style.overflow = 'hidden';
+    });
+  }
+  var run = function () { apply(); };
+  window.addEventListener('load', run);
+  window.addEventListener('resize', run);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
 </body>
 </html>

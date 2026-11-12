@@ -245,6 +245,8 @@ p{margin:0;line-height:1.55;color:var(--grey)}
   .cab-ctrl .hint{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ---- Site-wide: no outlines on boxes; section and column rules stay ---- */
+.story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
 </style>
 </head>
 <body>
@@ -682,6 +684,44 @@ p{margin:0;line-height:1.55;color:var(--grey)}
   window.addEventListener('scroll', fromScroll, { passive: true });
   show(0);
   fromScroll();
+})();
+</script>
+<script>
+/* Corner rounding: outside corners of each contained image/video; middle items square; stacked (mobile) all rounded */
+(function () {
+  var R = 18;
+  var SKIP = 'header,footer,nav,.nav,.sheet,.flight-stick,.cabin-stick,.hero,.banner,.stage,.statement,.mbg,.careers,.lcard,.tele,.cab-stage,.fp-media,#ascent,.cap,.ring';
+  function frameOf(el) { return el.closest('.img,.shot,.tile,.ph-media,.media,.cabstage') || el; }
+  function apply() {
+    var vw = window.innerWidth, frames = [];
+    Array.prototype.forEach.call(document.querySelectorAll('img,video'), function (el) {
+      if (el.closest(SKIP)) return;
+      var f = frameOf(el), r = f.getBoundingClientRect();
+      if (r.width < 60 || r.height < 40 || r.width > vw * 0.92) return;
+      if (frames.indexOf(f) < 0) frames.push(f);
+    });
+    frames.forEach(function (f) {
+      var item = f.closest('.card,.occ-card,.ecard,.prog,.rc,.rec,.story,.tile') || f, row = item.parentElement;
+      if (!row) return;
+      var top0 = item.getBoundingClientRect().top;
+      var same = Array.prototype.filter.call(row.children, function (c) {
+        var cr = c.getBoundingClientRect();
+        return cr.width > 0 && cr.height > 0 && Math.abs(cr.top - top0) < 8;
+      });
+      var i = same.indexOf(item), n = same.length, c;
+      if (vw <= 760 || n <= 1) c = 'all';
+      else if (i === 0) c = 'left';
+      else if (i === n - 1) c = 'right';
+      else c = 'none';
+      var v = c === 'all' ? R + 'px' : c === 'left' ? R + 'px 0 0 ' + R + 'px' : c === 'right' ? '0 ' + R + 'px ' + R + 'px 0' : '0';
+      f.style.borderRadius = v;
+      f.style.overflow = 'hidden';
+    });
+  }
+  var run = function () { apply(); };
+  window.addEventListener('load', run);
+  window.addEventListener('resize', run);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
 })();
 </script>
 </body>

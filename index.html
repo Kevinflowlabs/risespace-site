@@ -579,6 +579,31 @@ em{font-style:normal}
 #ascent .lcard .mono{font-family:var(--sans);font-weight:500}
 @media (min-width:861px){#ascent .lcard{left:auto;right:calc(var(--gut) + 40px);top:50%;width:min(480px,40vw);transform:translateY(calc(-50% + 30px))}#ascent .lcard[data-on="1"]{transform:translateY(-50%)}}
 #ascent .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ---- Typography matched to the new homepage: tighter headings, 1.55 body ---- */
+h1{font-size:clamp(44px,7vw,108px)!important;line-height:1.02!important;letter-spacing:-.01em!important}
+h2{font-size:clamp(32px,4vw,58px)!important;line-height:1.08!important;letter-spacing:-.01em!important}
+h3{line-height:1.1!important;letter-spacing:-.01em!important}
+p{line-height:1.55!important}
+/* ---- Site-wide: no outlines on boxes; section and column rules stay ---- */
+.story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
+/* Mission statement: tighter line height */
+.statement .big{line-height:1.1!important}
+/* Missions: always three across, or one across on narrow screens; never two rows */
+#venue .cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media (max-width:860px){#venue .cards{grid-template-columns:minmax(0,1fr)!important}}
+/* Nav: centred rounded opaque bar; logo larger before scroll, shrinks on scroll */
+.nav{top:18px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:calc(100% - 2*var(--gut));padding:16px 28px!important;border-radius:999px;border:1px solid transparent;background:none!important;box-shadow:none!important;transition:background .35s,border-color .35s,padding .35s,top .35s}
+.nav[data-solid="1"]{background:#000000bf!important;border-color:var(--line);padding:10px 28px!important;top:12px!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav-brand img{height:64px!important;transition:height .35s}
+.nav[data-solid="1"] .nav-brand img{height:40px!important}
+@media (max-width:960px){.nav-brand img{height:48px!important}.nav[data-solid="1"] .nav-brand img{height:34px!important}}
+/* Contact submit: same look as the nav button */
+.btn.nav-look{background:transparent;border:1px solid rgba(247,204,46,.6);color:var(--bone);font-size:13px;letter-spacing:.04em;min-height:44px;padding:0 20px;gap:10px;font-weight:400}
+.btn.nav-look i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);flex:none}
+.btn.nav-look:hover,.btn.nav-look:focus-visible{background:var(--gold);color:#000}
+.btn.nav-look:hover i,.btn.nav-look:focus-visible i{background:#000;box-shadow:none}
+/* Consistent across the site: no outlines around content boxes (article cards, product cards, figures) */
+.rec,.fd,.prog,.prog figure,.rc,.occ-card,.ecard{border:0!important;box-shadow:none!important}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -728,7 +753,7 @@ em{font-style:normal}
 </section>
 
 
-<section id="spaceship" class="sec" aria-label="The spaceship">
+<section id="spaceship" class="sec" aria-label="The spaceship" style="padding-bottom:0">
 <div class="sec-head">
 <div><h2>Inside a spaceship with the largest windows to go to space.</h2></div>
 <p>Designed, built and operated to FAA and NASA standards.</p>
@@ -736,7 +761,7 @@ em{font-style:normal}
 <div class="shot wide"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" loop="" playsinline="" preload="none"></video><div class="ref mono">RISE spaceship</div></div>
 
 
-<div class="split" style="margin-top: 20px;">
+<div class="split" style="margin:clamp(60px,10vh,120px) 0;">
 <div class="feat">
 <h3>In a lounge for hours in space</h3>
 <p class="sub">360-degree panoramic views, refreshments bar and culinary program, and a space spa.</p>
@@ -783,7 +808,7 @@ em{font-style:normal}
 <div class="field"><label for="hm-email">Email</label><input id="hm-email" type="email" autocomplete="email" required=""></div>
 <div class="field"><label for="hm-how">I'm interested in</label><select id="hm-how"><option>Spaceflight</option><option>Space Venue</option><option>Space Programs</option><option>Careers</option><option>Other</option></select></div>
 <div class="field full"><label for="hm-msg">Message <span class="lbl-opt">(optional)</span></label><textarea id="hm-msg" rows="3" placeholder="Anything you would like us to know"></textarea></div>
-<button class="btn solid full" type="submit">Join Our Mission</button>
+<button class="btn solid full nav-look" type="submit"><i></i>Join Our Mission</button>
 </form>
 
 
@@ -923,7 +948,7 @@ em{font-style:normal}
 </section>
 
 <!-- 6 INSIDE THE SPACESHIP -->
-<section id="spaceship" class="sec" aria-label="The spaceship">
+<section id="spaceship" class="sec" aria-label="The spaceship" style="padding-bottom:0">
 <div class="sec-head">
 <div><h2>Inside a spaceship with the largest windows to go to space.</h2></div>
 <p>Designed, built and operated to FAA and NASA standards.</p>
@@ -931,7 +956,7 @@ em{font-style:normal}
 <div class="shot wide"><video data-loop="" src="assets/capsule-hangar.mp4" poster="assets/capsule-hangar-poster.jpg" autoplay="" loop="" muted="" playsinline=""></video><div class="ref mono">RISE spaceship</div></div>
 
 <!-- 7 LOUNGE -->
-<div class="split" style="margin-top: 20px">
+<div class="split" style="margin:clamp(60px,10vh,120px) 0;">
 <div class="feat">
 <h3>In a lounge for hours in space</h3>
 <p class="sub">360-degree panoramic views, refreshments bar and culinary program, and a space spa.</p>
@@ -978,7 +1003,7 @@ em{font-style:normal}
 <div class="field"><label for="hm-email">Email</label><input id="hm-email" type="email" autocomplete="email" required=""></div>
 <div class="field"><label for="hm-how">I'm interested in</label><select id="hm-how"><option>Spaceflight</option><option>Space Venue</option><option>Space Programs</option><option>Careers</option><option>Other</option></select></div>
 <div class="field full"><label for="hm-msg">Message <span class="lbl-opt">(optional)</span></label><textarea id="hm-msg" rows="3" placeholder="Anything you would like us to know"></textarea></div>
-<button class="btn solid full" type="submit">Join Our Mission</button>
+<button class="btn solid full nav-look" type="submit"><i></i>Join Our Mission</button>
 </form>
 </sc-if>
 <sc-if value="{{ joined }}" hint-placeholder-val="{{ false }}">
@@ -1565,5 +1590,43 @@ mountArtboard('tpl', 'app', Component);
 })();
 </script>
 <script>if(location.protocol==='file:')document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(/^([a-z]+:|#)/i.test(h))return;var u=h.split('#');if(u[0]===''||/\/$/.test(u[0])){e.preventDefault();location.href=(u[0]||'./')+'index.html'+(u[1]?'#'+u[1]:'');}},true);</script>
+<script>
+/* Corner rounding: outside corners of each contained image/video; middle items square; stacked (mobile) all rounded */
+(function () {
+  var R = 18;
+  var SKIP = 'header,footer,nav,.nav,.sheet,.flight-stick,.cabin-stick,.hero,.banner,.stage,.statement,.mbg,.careers,.lcard,.tele,.cab-stage,.fp-media,#ascent,.cap,.ring';
+  function frameOf(el) { return el.closest('.img,.shot,.tile,.ph-media,.media,.cabstage') || el; }
+  function apply() {
+    var vw = window.innerWidth, frames = [];
+    Array.prototype.forEach.call(document.querySelectorAll('img,video'), function (el) {
+      if (el.closest(SKIP)) return;
+      var f = frameOf(el), r = f.getBoundingClientRect();
+      if (r.width < 60 || r.height < 40 || r.width > vw * 0.92) return;
+      if (frames.indexOf(f) < 0) frames.push(f);
+    });
+    frames.forEach(function (f) {
+      var item = f.closest('.card,.occ-card,.ecard,.prog,.rc,.rec,.story,.tile') || f, row = item.parentElement;
+      if (!row) return;
+      var top0 = item.getBoundingClientRect().top;
+      var same = Array.prototype.filter.call(row.children, function (c) {
+        var cr = c.getBoundingClientRect();
+        return cr.width > 0 && cr.height > 0 && Math.abs(cr.top - top0) < 8;
+      });
+      var i = same.indexOf(item), n = same.length, c;
+      if (vw <= 760 || n <= 1) c = 'all';
+      else if (i === 0) c = 'left';
+      else if (i === n - 1) c = 'right';
+      else c = 'none';
+      var v = c === 'all' ? R + 'px' : c === 'left' ? R + 'px 0 0 ' + R + 'px' : c === 'right' ? '0 ' + R + 'px ' + R + 'px 0' : '0';
+      f.style.borderRadius = v;
+      f.style.overflow = 'hidden';
+    });
+  }
+  var run = function () { apply(); };
+  window.addEventListener('load', run);
+  window.addEventListener('resize', run);
+  [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
 </body>
 </html>
