@@ -28,7 +28,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" as="image" href="assets/home3-hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-happy-people-poster.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://risespace.com/#organization","name":"RISE Space","alternateName":"RISE","url":"https://risespace.com/","logo":{"@type":"ImageObject","url":"https://risespace.com/assets/logo.png"},"image":"https://risespace.com/assets/og/og-home.jpg","description":"RISE Space flies people and research to space aboard a spaceship lifted by a Space Balloon, with no rocket: hours above 100,000 ft, splashdown at sea, and a carbon-neutral flight. RISE offers human spaceflight, the first venue in space, and turnkey space programs for governments and researchers.","slogan":"A new kind of space platform","knowsAbout":["Space tourism","Commercial human spaceflight","Space balloons","Stratospheric flight","Events in space","Government space programs","Stratospheric research"],"sameAs":["https://www.youtube.com/@RiseSpaceInc"],"founder":[{"@id":"https://risespace.com/about/#rave-mehta"},{"@id":"https://risespace.com/about/#taber-maccallum"},{"@id":"https://risespace.com/about/#jane-poynter"},{"@id":"https://risespace.com/about/#jonathan-yaney"}]},{"@type":"WebSite","@id":"https://risespace.com/#website","url":"https://risespace.com/","name":"RISE Space","publisher":{"@id":"https://risespace.com/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://risespace.com/#webpage","url":"https://risespace.com/","name":"RISE Space | Space Tourism by Space Balloon, No Rockets","description":"Fly to space aboard a spaceship lifted by a Space Balloon: hours at 100,000 ft with panoramic views and no rockets. Spaceflight, events and space programs.","inLanguage":"en","dateModified":"2026-11-02","isPartOf":{"@id":"https://risespace.com/#website"},"about":{"@id":"https://risespace.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://risespace.com/assets/og/og-home.jpg","width":1200,"height":630}},{"@type":"Person","@id":"https://risespace.com/about/#rave-mehta","name":"Ravé Mehta","jobTitle":"Chairman and Chief Executive Officer"},{"@type":"Person","@id":"https://risespace.com/about/#taber-maccallum","name":"Taber MacCallum","jobTitle":"Chief Technology Officer"},{"@type":"Person","@id":"https://risespace.com/about/#jane-poynter","name":"Jane Poynter","jobTitle":"Chief Product Officer"},{"@type":"Person","@id":"https://risespace.com/about/#jonathan-yaney","name":"Jonathan Yaney","jobTitle":"Chief Operating Officer"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
@@ -624,8 +624,8 @@ h1{text-transform:none!important}
 .nav[data-solid="1"] .nav-brand img{height:44px!important}
 /* Altimeter: heading only (one line), block moved up about 10% onto the sky, one-line telemetry on mobile */
 #ascent .lcard p{display:none!important}
-#ascent .lcard h3{white-space:nowrap;font-size:clamp(30px,3.4vw,56px)!important}
-@media (min-width:861px){#ascent .lcard{width:auto!important}}
+#ascent .lcard h3{white-space:normal;font-size:clamp(30px,3.4vw,56px)!important}
+@media (min-width:861px){#ascent .lcard{width:min(620px,46vw)!important}}
 @media (min-width:861px){#ascent .lcard{top:30%!important}}
 @media (max-width:860px){
   #ascent .tele{grid-template-columns:repeat(4,auto)!important;right:var(--gut);left:var(--gut)}
@@ -748,7 +748,7 @@ h1{text-transform:none!important}
 
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100svh; --p: 0.0000;">
 <div class="stage">
-<video data-hero-loop="3" data-loop="" src="assets/home3-hero.mp4" poster="assets/home3-hero-poster.jpg" playsinline="" preload="none"></video>
+<video data-hero-loop="3" data-loop="" src="assets/hero-happy-people.mp4" poster="assets/hero-happy-people-poster.jpg" playsinline="" preload="none"></video>
 <div class="vshade"></div>
 <div class="vhead">
 <h1>Spaceflight in a class of its own.</h1>
@@ -803,13 +803,13 @@ h1{text-transform:none!important}
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
-      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Through the weather.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
-      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Above the airliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
+      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
+      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
       <div class="lcard" data-alt-range="39000,50000"><span class="n">03 / 07 · ≈ 39,000 ft</span><span class="mono">Tropopause</span><h3>Where the weather ends.</h3><p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p></div>
       <div class="lcard" data-alt-range="50000,62000"><span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span><span class="mono">Stratosphere · Ozone layer</span><h3>Inside the ozone layer.</h3><p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p></div>
-      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>Beyond the Armstrong limit.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
-      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Blue turns to black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
-      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>The edge of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
+      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
+      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
+      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
         <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
@@ -947,7 +947,7 @@ h1{text-transform:none!important}
 <!-- 1 HERO -->
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="RISE Space" style="height: 100vh; height: 100svh">
 <div class="stage">
-<video data-hero-loop="3" data-loop="" src="assets/home3-hero.mp4" poster="assets/home3-hero-poster.jpg" autoplay="" muted="" playsinline="" preload="auto"></video>
+<video data-hero-loop="3" data-loop="" src="assets/hero-happy-people.mp4" poster="assets/hero-happy-people-poster.jpg" autoplay="" muted="" playsinline="" preload="auto"></video>
 <div class="vshade"></div>
 <div class="vhead">
 <h1>Spaceflight in a class of its own.</h1>
@@ -1002,13 +1002,13 @@ h1{text-transform:none!important}
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
-      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Through the weather.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
-      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Above the airliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
+      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
+      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
       <div class="lcard" data-alt-range="39000,50000"><span class="n">03 / 07 · ≈ 39,000 ft</span><span class="mono">Tropopause</span><h3>Where the weather ends.</h3><p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p></div>
       <div class="lcard" data-alt-range="50000,62000"><span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span><span class="mono">Stratosphere · Ozone layer</span><h3>Inside the ozone layer.</h3><p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p></div>
-      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>Beyond the Armstrong limit.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
-      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Blue turns to black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
-      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>The edge of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
+      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
+      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
+      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
         <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
@@ -1582,13 +1582,13 @@ class Component extends DCLogic {
         { pos: pct(100000), label: 'Space · apogee' }
       ],
       layers: [
-        { n: '01', range: '-1,30000', alt: '0 – 39,000 ft', name: 'Troposphere', title: 'Through the weather.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
-        { n: '02', range: '30000,39000', alt: '≈ 35,000 ft', name: 'Cruising altitude', title: 'Above the airliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
+        { n: '01', range: '-1,30000', alt: '0 – 39,000 ft', name: 'Troposphere', title: 'Soak in the view. You’re on your way to space.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
+        { n: '02', range: '30000,39000', alt: '≈ 35,000 ft', name: 'Cruising altitude', title: 'Bye-bye biosphere, weather, and jetliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
         { n: '03', range: '39000,50000', alt: '≈ 39,000 ft', name: 'Tropopause', title: 'Where the weather ends.', body: 'The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.' },
         { n: '04', range: '50000,62000', alt: '≈ 50,000 – 115,000 ft', name: 'Stratosphere · Ozone layer', title: 'Inside the ozone layer.', body: 'The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.' },
-        { n: '05', range: '62000,80000', alt: '≈ 62,000 ft', name: 'Armstrong limit', title: 'Beyond the Armstrong limit.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
-        { n: '06', range: '80000,97000', alt: '≈ 80,000 ft', name: 'Black sky', title: 'Blue turns to black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
-        { n: '07', range: '97000,999999', alt: '≈ 100,000 ft · 30 km', name: 'The edge of space', title: 'The edge of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' }
+        { n: '05', range: '62000,80000', alt: '≈ 62,000 ft', name: 'Armstrong limit', title: 'You’re at the Armstrong Line, above 95% of Earth’s air.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
+        { n: '06', range: '80000,97000', alt: '≈ 80,000 ft', name: 'Black sky', title: 'Nearly there, where blue sky is turning black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
+        { n: '07', range: '97000,999999', alt: '≈ 100,000 ft · 30 km', name: 'The edge of space', title: 'Gaze down on Earth’s vivid blue line of air against the deepest black of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' }
       ],
       records: [
         { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: 'Over 100 flights', title: 'Space Balloon flights flown by team members' },
