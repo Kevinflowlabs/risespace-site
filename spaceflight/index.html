@@ -1199,8 +1199,8 @@ mountArtboard('tpl', 'app', Component);
     var go = function () {
       var tr = live(); if (!tr) return;
       var tb = Array.prototype.slice.call(tr.querySelectorAll('button')).filter(function (x) { return /pause tour/i.test(x.textContent); })[0];
-      if (tb) tb.click();
       var r = tr.getBoundingClientRect();
+      if (tb && r.top <= 0) tb.click();   /* scroll-driven only once the module is pinned; the tour autoplays before that */
       var p = Math.min(1, Math.max(0, -r.top / span(tr)));
       var t = Math.min(N - 1, Math.floor(p * N));
       var now = tr.querySelectorAll('.chart .pm');
