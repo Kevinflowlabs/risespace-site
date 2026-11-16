@@ -340,7 +340,7 @@ p{line-height:1.55!important}
 .story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
 /* Nav: centred rounded opaque bar; logo larger before scroll, shrinks on scroll */
 .nav{top:18px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:calc(100% - 2*var(--gut));padding:16px 28px!important;border-radius:999px;border:1px solid transparent;background:none!important;box-shadow:none!important;transition:background .35s,border-color .35s,padding .35s,top .35s}
-.nav[data-solid="1"]{background:#000000bf!important;border-color:var(--line);padding:10px 28px!important;top:12px!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav[data-solid="1"]{background:rgba(0, 0, 0, 0.3)!important;border-color:var(--line);padding:10px 28px!important;top:12px!important;-webkit-backdrop-filter:none;backdrop-filter:none}
 .nav-brand img{height:64px!important;transition:height .35s}
 .nav[data-solid="1"] .nav-brand img{height:40px!important}
 @media (max-width:960px){.nav-brand img{height:48px!important}.nav[data-solid="1"] .nav-brand img{height:34px!important}}
@@ -351,6 +351,65 @@ p{line-height:1.55!important}
 .stats.sf-stats .stat{border:0!important;text-align:center;display:flex;flex-direction:column;align-items:center}
 /* Headlines in sentence case (not all caps) */
 h1{text-transform:none!important}
+/* Nav (Rolls-Royce style): hamburger + Menu label left, larger logo centre, button right; glass when scrolled */
+.nav{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.nav-left{grid-column:1;justify-self:start;display:flex;align-items:center;gap:12px}
+.nav-brand{grid-column:2;justify-self:center}
+.nav-cta{grid-column:3;justify-self:end;display:inline-flex!important;margin-left:0!important}
+.nav-links{display:none!important}
+.nav-burger{display:block!important;margin-left:0!important;flex:none}
+.nav-menu-label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone)}
+.nav-brand img{height:84px!important;transition:height .35s}
+.nav[data-solid="1"] .nav-brand img{height:48px!important}
+.nav[data-solid="1"]{background:rgba(0, 0, 0, 0.3)!important;-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+@media (max-width:600px){.nav-cta{padding:0 12px!important;font-size:12px!important}.nav-brand img{height:64px!important}.nav[data-solid="1"] .nav-brand img{height:40px!important}}
+/* Nav: full-width glass bar when scrolled, as on the Rolls-Royce header (flat edges, 60% black, blur) */
+.nav{top:0!important;left:0!important;right:0!important;transform:none!important;width:auto!important;border-radius:0!important;border:0!important;padding:16px var(--gut)!important;background:none!important;box-shadow:none!important}
+.nav[data-solid="1"]{top:0!important;background:rgba(0, 0, 0, 0.3)!important;border:0!important;box-shadow:none!important;padding:6px var(--gut)!important;-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.nav[data-solid="1"] .nav-brand img{height:44px!important}
+/* Nav hamburger: no background circle */
+.nav-burger{border:0!important;background:none!important;box-shadow:none!important}
+/* Menu sheet: show when the hamburger opens it */
+.sheet{display:flex!important}
+/* Menu sheet: 60% black with the same frosted blur as the nav */
+.sheet{background:rgba(0,0,0,.6)!important;-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+/* Five moments: full-bleed frame, media fills it, flight path sits at the bottom */
+.fp-full{position:relative;width:100vw;margin-left:calc(50% - 50vw);min-height:100vh;background:#000;overflow:hidden}
+.fp-full .stage-panel{position:absolute;inset:0;display:block;border:0!important}
+.fp-full .ph-media{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;background:#000}
+.fp-full .ph-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fp-full .ph-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,0) 55%),linear-gradient(90deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 55%)}
+.fp-full .ph-text{position:absolute;z-index:4;left:var(--gut);top:clamp(110px,18vh,170px);max-width:min(520px,40vw);padding:0;background:none}
+.fp-full .profile{position:absolute;z-index:5;left:var(--gut);right:var(--gut);bottom:clamp(24px,4vh,44px);top:auto;border:0!important;background:none!important;padding:0}
+.fp-full .profile:before{display:none}
+.fp-full .chart{height:clamp(120px,20vh,190px)!important;margin-top:0}
+.fp-full .tline{position:absolute;z-index:5;left:var(--gut);right:var(--gut);bottom:calc(clamp(24px,4vh,44px) - 34px)}
+@media (max-width:860px){.fp-full{min-height:100svh}.fp-full .ph-text{top:96px;max-width:none;right:var(--gut)}.fp-full .chart{height:150px!important}}
+/* Five moments: stage and media fill the full-bleed frame exactly */
+.fp-full .stage-panel{top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;min-height:0!important}
+.fp-full .ph-media{top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;min-height:0!important}
+.fp-full .ph-media video{top:0!important;left:0!important;width:100%!important;height:100%!important}
+/* Five moments: the profile block fills the frame; media is full bleed; chart and timeline sit at the bottom */
+.fp-full .profile{position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;max-width:none!important;padding:0!important;margin:0!important;border:0!important;background:none!important}
+.fp-full .chart{position:absolute!important;left:var(--gut)!important;right:var(--gut)!important;bottom:clamp(70px,13vh,120px)!important;top:auto!important;width:auto!important;height:clamp(120px,20vh,190px)!important;margin:0!important;z-index:5}
+.fp-full .tline{position:absolute!important;left:var(--gut)!important;right:var(--gut)!important;bottom:clamp(22px,4vh,40px)!important;top:auto!important;z-index:5}
+/* Five moments: chart spans the content width and clears the timeline */
+.fp-full .chart{max-width:none!important;min-width:0!important;left:var(--gut)!important;right:var(--gut)!important;bottom:clamp(96px,17vh,150px)!important;width:auto!important}
+.fp-full .chart{aspect-ratio:auto!important;width:auto!important}
+/* Five moments: one spacing system. Content top and total label share a line; chart sits above the timeline; everything aligns to the site gutter */
+.fp-full{--top:clamp(120px,18vh,170px);--base:clamp(28px,4.5vh,44px)}
+.fp-full .ph-text{top:var(--top)!important;left:var(--gut)!important;right:auto!important;max-width:min(520px,40vw)!important;padding:0!important}
+.fp-full .total{position:absolute!important;top:var(--top)!important;right:var(--gut)!important;left:auto!important;padding:0!important;margin:0!important;z-index:5;text-align:right}
+.fp-full .chart{bottom:calc(var(--base) + 84px)!important;height:clamp(150px,24vh,230px)!important}
+.fp-full .chart .ylab{left:0!important;transform:translateY(-50%)!important;white-space:nowrap}
+.fp-full .tline{bottom:var(--base)!important}
+.fp-full .ph-ctrl{margin-top:24px}
+/* Five moments: pinned while you scroll; each fifth of the scroll advances one moment */
+.fp-track{position:relative;height:500vh}
+.fp-track .fp-full{position:sticky!important;top:0;height:100vh;height:100svh;min-height:0!important}
+/* Five moments: space between the arrow buttons and the progress bar */
+.fp-full .ph-ctrl{position:relative!important;padding-bottom:20px!important}
+.fp-full .ph-ctrl .bar{bottom:0!important}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -360,7 +419,7 @@ h1{text-transform:none!important}
 <div class="sf">
 
 
-<header class="nav" data-solid="0">
+<header class="nav" data-solid="0"><div class="nav-left"><button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="false"><i></i><i></i></button><span class="nav-menu-label">Menu</span></div>
 <a class="nav-brand" href="../" aria-label="RISE Space home"><img src="../assets/risespace-logo-web.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 
@@ -381,7 +440,7 @@ h1{text-transform:none!important}
 
 </nav>
 <a class="nav-cta" href="#reserve"><i></i>Join Our Mission</a>
-<button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="false"><i></i><i></i></button>
+
 </header>
 <div class="sheet" id="sf-menu" data-open="false">
 <a href="../">Home</a>
@@ -432,7 +491,7 @@ h1{text-transform:none!important}
 <div><h2>Five moments, one gentle flight.</h2></div>
 <p>Tap any point on the flight path to see that part of the journey, filmed on RISE flights. Or let the tour play through on its own.</p>
 </div>
-<div class="profile" data-reveal="" data-explored="false" style="--prog: 0;">
+<div class="fp-track"><div class="fp-full"><div class="profile" data-reveal="" data-explored="false" style="--prog: 0;">
 
 <div class="total"><span>Total flight</span><b>~6 hours</b></div>
 <div class="chart">
@@ -446,7 +505,7 @@ h1{text-transform:none!important}
 </svg>
 <div class="ylab" style="top: 16.25%;">100,000 ft</div>
 <div class="ylab" style="top: 53.4%;">50,000 ft</div>
-<div class="ylab" style="top: 90.6%;">Sea level</div>
+
 <div class="craft" style="left: 4%; top: 90.625%;"></div>
 
 <button class="pm" type="button" aria-pressed="true" aria-label="1. Gentle launch" style="left: 4%; top: 90.625%;"><b>1</b><span>Launch</span></button>
@@ -527,8 +586,8 @@ h1{text-transform:none!important}
 </div>
 <div class="bar" data-run="true"><i style="animation-name: fillB; animation-duration: 9s;"></i></div>
 </div>
-</div>
-</div>
+</div></div>
+</div></div>
 </section>
 
 
@@ -632,7 +691,7 @@ h1{text-transform:none!important}
 <div class="sf" ref="{{ setRoot }}">
 
 <!-- SITE NAVIGATION -->
-<header class="nav" data-solid="0">
+<header class="nav" data-solid="0"><div class="nav-left"><button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button><span class="nav-menu-label">Menu</span></div>
 <a class="nav-brand" href="../" aria-label="RISE Space home"><img src="../assets/risespace-logo-web.png" alt="RISE Space"></a>
 <nav class="nav-links" aria-label="Primary">
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
@@ -641,7 +700,7 @@ h1{text-transform:none!important}
 </sc-for>
 </nav>
 <a class="nav-cta" href="{{ joinHref }}"><i></i>Join Our Mission</a>
-<button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button>
+
 </header>
 <div class="sheet" id="sf-menu" data-open="{{ menuOpen }}">
 <a href="../" onClick="{{ closeMenu }}">Home</a>
@@ -680,7 +739,7 @@ h1{text-transform:none!important}
 <div><h2>Five moments, one gentle flight.</h2></div>
 <p>Tap any point on the flight path to see that part of the journey, filmed on RISE flights. Or let the tour play through on its own.</p>
 </div>
-<div class="profile" data-reveal="" data-explored="{{ explored }}" style="--prog: {{ prog }}">
+<div class="fp-track"><div class="fp-full"><div class="profile" data-reveal="" data-explored="{{ explored }}" style="--prog: {{ prog }}">
 
 <div class="total"><span>Total flight</span><b>~6 hours</b></div>
 <div class="chart">
@@ -694,7 +753,7 @@ h1{text-transform:none!important}
 </svg>
 <div class="ylab" style="top: 16.25%">100,000 ft</div>
 <div class="ylab" style="top: 53.4%">50,000 ft</div>
-<div class="ylab" style="top: 90.6%">Sea level</div>
+
 <div class="craft" style="left: {{ craftX }}; top: {{ craftY }}"></div>
 <sc-for list="{{ phases }}" as="p" hint-placeholder-count="5">
 <button class="{{ p.cls }}" type="button" style="left: {{ p.x }}; top: {{ p.y }}" aria-pressed="{{ p.on }}" aria-label="{{ p.n }}. {{ p.title }}" onClick="{{ p.pick }}"><b>{{ p.n }}</b><span>{{ p.short }}</span></button>
@@ -731,8 +790,8 @@ h1{text-transform:none!important}
 </div>
 <div class="bar" data-run="{{ touring }}"><i style="animation-name: {{ barAnim }}; animation-duration: {{ barDur }}"></i></div>
 </div>
-</div>
-</div>
+</div></div>
+</div></div>
 </section>
 
 <!-- ONBOARD -->
@@ -1106,6 +1165,48 @@ class Component extends DCLogic {
 }
 
 mountArtboard('tpl', 'app', Component);
+/* Five moments: scroll advances the moments; tapping a point scrolls to it. Always uses the live (React) copy. */
+(function () {
+  var busy = false;
+  function live() { return document.querySelector('.fp-track'); }
+  function start() {
+    var t0 = live();
+    if (!t0 || !t0.querySelector('.chart .pm') || !t0.querySelector('.ph-text .count')) { return setTimeout(start, 200); }
+    var N = 5;
+    var cur = function (tr) { var m = /^(\d+)/.exec(tr.querySelector('.ph-text .count').textContent); return m ? +m[1] - 1 : 0; };
+    var span = function (tr) { return tr.offsetHeight - window.innerHeight; };
+    var go = function () {
+      var tr = live(); if (!tr) return;
+      var tb = Array.prototype.slice.call(tr.querySelectorAll('button')).filter(function (x) { return /pause tour/i.test(x.textContent); })[0];
+      if (tb) tb.click();
+      var r = tr.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, -r.top / span(tr)));
+      var t = Math.min(N - 1, Math.floor(p * N));
+      var now = tr.querySelectorAll('.chart .pm');
+      if (t !== cur(tr) && now[t]) { busy = true; now[t].click(); busy = false; }
+    };
+    document.addEventListener('click', function (e) {
+      if (busy) return;
+      var b = e.target.closest && e.target.closest('.fp-track .chart .pm');
+      if (!b) return;
+      var tr = live(); var idx = Array.prototype.indexOf.call(tr.querySelectorAll('.chart .pm'), b);
+      var top = tr.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top + ((idx + 0.5) / N) * span(tr), behavior: 'smooth' });
+    }, true);
+    window.addEventListener('scroll', go, { passive: true });
+    setInterval(function () {
+      var tr = live(); if (!tr) return;
+      var fill = tr.querySelector('.bar i'), c = tr.querySelector('.ph-text .count');
+      if (!fill || !c) return;
+      var m = /^(\d+)/.exec(c.textContent); var idx = m ? +m[1] - 1 : 0;
+      fill.style.animation = 'none';
+      fill.style.width = (idx / (N - 1) * 100) + '%';
+    }, 200);
+    go();
+  }
+  start();
+})();
+
 </script>
 <script>if(location.protocol==='file:')document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href');if(/^([a-z]+:|#)/i.test(h))return;var u=h.split('#');if(u[0]===''||/\/$/.test(u[0])){e.preventDefault();location.href=(u[0]||'./')+'index.html'+(u[1]?'#'+u[1]:'');}},true);</script>
 <script>
