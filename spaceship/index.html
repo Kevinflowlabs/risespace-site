@@ -28,7 +28,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/favicon-192.png">
 <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
-<link rel="preload" as="image" href="../assets/spaceship-hero-hq-poster.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/spaceship-hero-trim-poster.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://risespace.com/#organization","name":"RISE Space","alternateName":"RISE","url":"https://risespace.com/","logo":{"@type":"ImageObject","url":"https://risespace.com/assets/logo.png"},"image":"https://risespace.com/assets/og/og-home.jpg","description":"RISE Space flies people and research to space aboard a spaceship lifted by a Space Balloon, with no rocket: hours above 100,000 ft, splashdown at sea, and a carbon-neutral flight. RISE offers human spaceflight, the first venue in space, and turnkey space programs for governments and researchers.","slogan":"A new kind of space platform","knowsAbout":["Space tourism","Commercial human spaceflight","Space balloons","Stratospheric flight","Events in space","Government space programs","Stratospheric research"],"sameAs":["https://www.youtube.com/@RiseSpaceInc"],"founder":[{"@id":"https://risespace.com/about/#rave-mehta"},{"@id":"https://risespace.com/about/#taber-maccallum"},{"@id":"https://risespace.com/about/#jane-poynter"},{"@id":"https://risespace.com/about/#jonathan-yaney"}]},{"@type":"WebSite","@id":"https://risespace.com/#website","url":"https://risespace.com/","name":"RISE Space","publisher":{"@id":"https://risespace.com/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://risespace.com/spaceship/#webpage","url":"https://risespace.com/spaceship/","name":"The Spaceship with the Largest Windows to Space | RISE Space","description":"Inside the RISE spaceship: the largest-volume capsule ever flown, panoramic views through the largest windows to space, eight passengers and a captain.","inLanguage":"en","dateModified":"2026-11-02","mainEntity":{"@id":"https://risespace.com/spaceship/#service"},"isPartOf":{"@id":"https://risespace.com/#website"},"about":{"@id":"https://risespace.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://risespace.com/assets/og/og-spaceship.jpg","width":1200,"height":630},"breadcrumb":{"@id":"https://risespace.com/spaceship/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://risespace.com/spaceship/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://risespace.com/"},{"@type":"ListItem","position":2,"name":"Spaceship","item":"https://risespace.com/spaceship/"}]},{"@type":"Service","@id":"https://risespace.com/spaceship/#service","name":"RISE Spaceship","serviceType":"Commercial human spaceflight","provider":{"@id":"https://risespace.com/#organization"},"description":"The largest-volume space capsule ever flown (2,144 cu ft) with a 16 ft diameter cabin and the largest windows ever flown to space (5.25 x 2 ft). Seats up to eight passengers and a captain, with 360 degrees of panoramic views. Regulated by the FAA and designed, built and operated to NASA standards."},{"@type":"Person","@id":"https://risespace.com/about/#rave-mehta","name":"Ravé Mehta","jobTitle":"Chairman and Chief Executive Officer"},{"@type":"Person","@id":"https://risespace.com/about/#taber-maccallum","name":"Taber MacCallum","jobTitle":"Chief Technology Officer"},{"@type":"Person","@id":"https://risespace.com/about/#jane-poynter","name":"Jane Poynter","jobTitle":"Chief Product Officer"},{"@type":"Person","@id":"https://risespace.com/about/#jonathan-yaney","name":"Jonathan Yaney","jobTitle":"Chief Operating Officer"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
@@ -71,7 +71,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .nav-burger[aria-expanded="true"] i:nth-child(2){top:22px;transform:rotate(-45deg)}
 .sheet{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:96px var(--gut) 40px;background:radial-gradient(90% 60% at 80% 0%,rgba(0,0,0,.12),rgba(0,0,0,0) 60%),#000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
 .sheet[data-open="true"]{opacity:1;visibility:visible}
-.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(38px,9vw,64px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
+.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(28px,6vw,44px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
 .sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
 .sheet span.s{color:rgba(247,243,235,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
@@ -260,7 +260,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .textlink svg{width:16px;height:16px}
 
 .hero.short{min-height:0;height:min(calc(56.25vw + 64px),100svh);background:#000}
-.hero video{top:64px;height:calc(100% - 64px);object-fit:cover;object-position:50% 0%;animation:none;transform:none}
+.hero video{top:0;height:100%;object-fit:cover;object-position:50% 0%;animation:none;transform:none}
 @media (max-width:760px){.hero.short{height:auto;min-height:clamp(560px,86svh,760px)}.hero video{object-position:30% 0%}}
 .hero h1,.hero .eyebrow{}
 .hero.short .lede{color:#F7F3EB;font-weight:500;}
@@ -492,7 +492,7 @@ h1{text-transform:none!important}
 
 
 <section class="hero short" aria-label="The Spaceship">
-<video data-hero-loop="3" data-loop="" src="../assets/spaceship-hero-hq.mp4" poster="../assets/spaceship-hero-hq-poster.jpg" playsinline="" preload="none"></video>
+<video data-hero-loop="3" data-loop="" src="../assets/spaceship-hero-trim.mp4" poster="../assets/spaceship-hero-trim-poster.jpg" playsinline="" preload="none"></video>
 <div class="hero-in">
 
 <h1>Finally, a spaceship with a bar.</h1>
@@ -930,7 +930,7 @@ h1{text-transform:none!important}
 
 <!-- HERO -->
 <section class="hero short" aria-label="The Spaceship">
-<video data-hero-loop="3" data-loop="" src="../assets/spaceship-hero-hq.mp4" poster="../assets/spaceship-hero-hq-poster.jpg" autoplay="" muted="" playsinline=""></video>
+<video data-hero-loop="3" data-loop="" src="../assets/spaceship-hero-trim.mp4" poster="../assets/spaceship-hero-trim-poster.jpg" autoplay="" muted="" playsinline=""></video>
 <div class="hero-in">
 
 <h1>Finally, a spaceship with a bar.</h1>

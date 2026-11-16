@@ -71,7 +71,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .nav-burger[aria-expanded="true"] i:nth-child(2){top:22px;transform:rotate(-45deg)}
 .sheet{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:96px var(--gut) 40px;background:radial-gradient(90% 60% at 80% 0%,rgba(0,0,0,.12),rgba(0,0,0,0) 60%),#000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
 .sheet[data-open="true"]{opacity:1;visibility:visible}
-.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(38px,9vw,64px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
+.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(28px,6vw,44px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
 .sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
 .sheet span.s{color:rgba(247,243,235,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
@@ -402,6 +402,7 @@ h1{text-transform:none!important}
 .fp-full .total{position:absolute!important;top:var(--top)!important;right:var(--gut)!important;left:auto!important;padding:0!important;margin:0!important;z-index:5;text-align:right}
 .fp-full .chart{bottom:calc(var(--base) + 84px)!important;height:clamp(150px,24vh,230px)!important}
 .fp-full .chart .ylab{left:0!important;transform:translateY(-50%)!important;white-space:nowrap}
+
 .fp-full .tline{bottom:var(--base)!important}
 .fp-full .ph-ctrl{margin-top:24px}
 /* Five moments: pinned while you scroll; each fifth of the scroll advances one moment */
@@ -410,8 +411,32 @@ h1{text-transform:none!important}
 /* Five moments: space between the arrow buttons and the progress bar */
 .fp-full .ph-ctrl{position:relative!important;padding-bottom:20px!important}
 .fp-full .ph-ctrl .bar{bottom:0!important}
+/* Five moments, desktop: flight path sits at the top of the text column, same width, timeline beneath it */
+@media (min-width:861px){
+  .fp-full{--chart-h:clamp(150px,24vh,230px)}
+  .fp-full .chart{top:var(--top)!important;bottom:auto!important;left:var(--gut)!important;right:auto!important;width:min(520px,40vw)!important;height:var(--chart-h)!important;margin:0!important}
+  .fp-full .tline{top:calc(var(--top) + var(--chart-h) + 12px)!important;bottom:auto!important;left:var(--gut)!important;right:auto!important;width:min(520px,40vw)!important;margin:0!important}
+  .fp-full .ph-text{top:calc(var(--top) + var(--chart-h) + 84px)!important;width:min(520px,40vw)!important}
+/* Five moments, desktop: no progress bar; more vertical room between flight path, timeline, text and controls */
+@media (min-width:861px){
+  .fp-full .tline{top:calc(var(--top) + var(--chart-h) + 30px)!important}
+  .fp-full .ph-text{top:calc(var(--top) + var(--chart-h) + 128px)!important}
+  .fp-full .ph-ctrl{margin-top:40px!important;padding-bottom:0!important}
+}
+/* Five moments, desktop: text on top, flight path and timeline beneath, arrow buttons anchored to the bottom */
+@media (min-width:861px){
+  .fp-full .ph-text{top:var(--top)!important;bottom:var(--base)!important;height:auto!important}
+  .fp-full .chart{top:auto!important;bottom:calc(var(--base) + 250px)!important;height:var(--chart-h)!important}
+  .fp-full .tline{top:auto!important;bottom:calc(var(--base) + 162px)!important}
+  .fp-full .ph-ctrl{position:absolute!important;left:0!important;right:auto!important;top:auto!important;bottom:0!important;margin:0!important;padding-bottom:0!important}
+}
+/* Five moments: the flight path follows the playing moment video */
+.chart .done{transition:none!important}
+/* Five moments, desktop: body copy spans the same width as the flight path */
+@media (min-width:861px){ .fp-full .ph-text p{max-width:none!important} }
 </style>
-<noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}}
+</style></noscript>
 </head>
 <body>
 <div id="app">
@@ -493,7 +518,6 @@ h1{text-transform:none!important}
 </div>
 <div class="fp-track"><div class="fp-full"><div class="profile" data-reveal="" data-explored="false" style="--prog: 0;">
 
-<div class="total"><span>Total flight</span><b>~6 hours</b></div>
 <div class="chart">
 <svg viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true">
 <defs><linearGradient id="sf-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCC448" stop-opacity=".14"></stop><stop offset="1" stop-color="#FCC448" stop-opacity="0"></stop></linearGradient></defs>
@@ -527,15 +551,15 @@ h1{text-transform:none!important}
 <div class="stage-panel">
 <div class="ph-media">
 
-<video data-ph="0" data-on="true" src="../assets/liftoff.mp4" poster="../assets/poster-liftoff.jpg" loop="" playsinline="" preload="none"></video>
+<video data-ph="0" data-on="true" src="../assets/liftoff.mp4" poster="../assets/poster-liftoff.jpg" playsinline="" preload="none"></video>
 
-<video data-ph="1" data-on="false" src="../assets/ascent.mp4" poster="../assets/poster-ascent.jpg" loop="" playsinline="" preload="none"></video>
+<video data-ph="1" data-on="false" src="../assets/ascent.mp4" poster="../assets/poster-ascent.jpg" playsinline="" preload="none"></video>
 
-<video data-ph="2" data-on="false" src="../assets/lounge-hours.mp4" poster="../assets/lounge-hours-poster.jpg" loop="" playsinline="" preload="none"></video>
+<video data-ph="2" data-on="false" src="../assets/lounge-hours.mp4" poster="../assets/lounge-hours-poster.jpg" playsinline="" preload="none"></video>
 
-<video data-ph="3" data-on="false" src="../assets/descent.mp4" poster="../assets/poster-descent.jpg" loop="" playsinline="" preload="none"></video>
+<video data-ph="3" data-on="false" src="../assets/descent.mp4" poster="../assets/poster-descent.jpg" playsinline="" preload="none"></video>
 
-<video data-ph="4" data-on="false" src="../assets/retrieval.mp4" poster="../assets/retrieval-poster.jpg" loop="" playsinline="" preload="none"></video>
+<video data-ph="4" data-on="false" src="../assets/retrieval.mp4" poster="../assets/retrieval-poster.jpg" playsinline="" preload="none"></video>
 
 <div class="tag mono">RISE flight footage</div>
 </div>
@@ -584,7 +608,6 @@ h1{text-transform:none!important}
 <button class="icon-btn" type="button" aria-label="Next phase"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
 <button class="tour" type="button" aria-pressed="true">Pause tour</button>
 </div>
-<div class="bar" data-run="true"><i style="animation-name: fillB; animation-duration: 9s;"></i></div>
 </div>
 </div></div>
 </div></div>
@@ -741,7 +764,6 @@ h1{text-transform:none!important}
 </div>
 <div class="fp-track"><div class="fp-full"><div class="profile" data-reveal="" data-explored="{{ explored }}" style="--prog: {{ prog }}">
 
-<div class="total"><span>Total flight</span><b>~6 hours</b></div>
 <div class="chart">
 <svg viewBox="0 0 1000 320" preserveAspectRatio="none" aria-hidden="true">
 <defs><linearGradient id="sf-area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCC448" stop-opacity=".14"></stop><stop offset="1" stop-color="#FCC448" stop-opacity="0"></stop></linearGradient></defs>
@@ -767,7 +789,7 @@ h1{text-transform:none!important}
 <div class="stage-panel">
 <div class="ph-media">
 <sc-for list="{{ phases }}" as="p" hint-placeholder-count="5">
-<video data-ph="{{ p.i }}" data-on="{{ p.on }}" src="{{ p.src }}" poster="{{ p.poster }}" muted="" loop="" playsinline="" preload="none"></video>
+<video data-ph="{{ p.i }}" data-on="{{ p.on }}" src="{{ p.src }}" poster="{{ p.poster }}" muted="" playsinline="" preload="none"></video>
 </sc-for>
 <sc-if value="{{ showTag }}" hint-placeholder-val="{{ true }}"><div class="tag mono">RISE flight footage</div></sc-if>
 </div>
@@ -788,7 +810,6 @@ h1{text-transform:none!important}
 <button class="icon-btn" type="button" aria-label="Next phase" onClick="{{ next }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
 <button class="tour" type="button" onClick="{{ toggleTour }}" aria-pressed="{{ touring }}">{{ tourLabel }}</button>
 </div>
-<div class="bar" data-run="{{ touring }}"><i style="animation-name: {{ barAnim }}; animation-duration: {{ barDur }}"></i></div>
 </div>
 </div></div>
 </div></div>
@@ -1239,12 +1260,36 @@ mountArtboard('tpl', 'app', Component);
       var v = c === 'all' ? R + 'px' : c === 'left' ? R + 'px 0 0 ' + R + 'px' : c === 'right' ? '0 ' + R + 'px ' + R + 'px 0' : '0';
       f.style.borderRadius = v;
       f.style.overflow = 'hidden';
+      if (item !== f) { item.style.borderRadius = v; item.style.overflow = 'hidden'; }
     });
   }
   var run = function () { apply(); };
   window.addEventListener('load', run);
   window.addEventListener('resize', run);
   [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<script>
+/* Five moments: the yellow flight path fills as the active moment video plays */
+(function () {
+  function start() {
+    var prof = document.querySelector('.fp-track .profile');
+    if (!prof || !prof.querySelector('video[data-ph]')) { return setTimeout(start, 200); }
+    var N = prof.querySelectorAll('video[data-ph]').length;
+    function loop() {
+      var p = document.querySelector('.fp-track .profile');
+      var v = p && p.querySelector('video[data-ph][data-on="true"]');
+      if (v) {
+        var idx = +v.getAttribute('data-ph');
+        var d = v.duration || 0;
+        var frac = d ? Math.min(1, v.currentTime / d) : 0;
+        p.style.setProperty('--prog', ((idx + frac) / (N - 1)).toFixed(4));
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+  start();
 })();
 </script>
 </body>

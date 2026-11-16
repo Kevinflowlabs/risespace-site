@@ -71,7 +71,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 .nav-burger[aria-expanded="true"] i:nth-child(2){top:22px;transform:rotate(-45deg)}
 .sheet{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:96px var(--gut) 40px;background:radial-gradient(90% 60% at 80% 0%,rgba(0,0,0,.12),rgba(0,0,0,0) 60%),#000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
 .sheet[data-open="true"]{opacity:1;visibility:visible}
-.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(38px,9vw,64px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
+.sheet a,.sheet span.s{font-family:var(--serif);font-size:clamp(28px,6vw,44px);line-height:1.15;text-decoration:none;color:var(--bone);display:flex;align-items:baseline;gap:14px;transform:translateY(16px);opacity:0;transition:transform .5s cubic-bezier(.16,.8,.2,1),opacity .5s}
 .sheet[data-open="true"] a,.sheet[data-open="true"] span.s{transform:none;opacity:1}
 .sheet span.s{color:rgba(247,243,235,.35)}
 .sheet small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
@@ -645,7 +645,7 @@ h1{text-transform:none!important}
 }
 /* Mission statement: tighter, smaller type; plain star field instead of the nebula photo */
 .statement .mbg{display:none!important}
-.statement{background:#000 url(assets/statement-stars.jpg) center/cover no-repeat!important}
+.statement{background:#000 url(assets/statement-stars-arav.jpg) center/cover no-repeat!important}
 .statement .big.long{font-size:clamp(28px,2.9vw,44px)!important;letter-spacing:-.02em!important;line-height:1.12!important}
 /* Module: flight, spaceship and lounge in one scroll-or-tap gallery (layout from the new homepage) */
 .cabin{--white:#F7F3EB;--grey:#D2CFC8;position:relative;height:300vh;margin:clamp(60px,10vh,120px) 0}
@@ -654,38 +654,31 @@ h1{text-transform:none!important}
 .cab-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity 1s ease,transform 6s cubic-bezier(.2,.6,.2,1)}
 .cab-shot[data-on="true"]{opacity:1;transform:scale(1)}
 .cab-head{position:absolute;z-index:2;left:var(--gut);top:clamp(96px,15vh,140px);max-width:640px}
-.cab-head h2{font-size:clamp(30px,3.6vw,54px);line-height:1.08;color:var(--white);font-weight:600}
+.cab-head h2{font-size:clamp(30px,3.6vw,54px);line-height:1.1;color:var(--white);font-weight:400;letter-spacing:.005em}
 .cab-caption{position:absolute;z-index:2;left:var(--gut);bottom:clamp(40px,8vh,80px);max-width:560px}
 .cab-count{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--bone)}
 .cab-caption p{margin-top:12px;font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:var(--white);font-weight:500}
 .cab-ctrl{display:flex;align-items:center;gap:12px;margin-top:22px}
-.cab-ctrl .btn{min-height:44px;width:44px;padding:0;font-size:18px;background:rgba(0,0,0,.35)}
+.cab-ctrl .btn{min-height:48px;width:48px;padding:0;justify-content:center;background:rgba(0,0,0,.35)}
+.cab-ctrl .btn svg{width:20px;height:20px;color:var(--bone);flex:none}
 .cab-ctrl .btn:hover{background:var(--white)}
 .cab-ctrl .hint{margin-left:10px;font-size:13px;color:var(--bone)}
-.cab-rail{position:absolute;z-index:3;right:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;align-items:flex-end}
-.cab-tab{display:flex;align-items:center;justify-content:flex-end;gap:12px;background:none;border:0;padding:6px 0;color:var(--grey);cursor:pointer;font:inherit}
-.cab-tab b{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.1em;order:2}
-.cab-tab span{font-size:13px;max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .5s ease,opacity .4s ease;order:1}
-.cab-tab:hover span,.cab-tab[aria-pressed="true"] span{max-width:340px;opacity:1}
-.cab-tab[aria-pressed="true"]{color:var(--white)}
-.cab-tab:focus-visible{outline:2px solid var(--white);outline-offset:4px}
 .cab-bar{position:absolute;left:var(--gut);right:var(--gut);bottom:22px;height:2px;background:rgba(255,255,255,.18);z-index:3}
-.cab-bar i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--white);transition:width .4s linear}
+.cab-bar i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--white)}
 @media (max-width:860px){
   .cabin{height:300vh}
   .cab-head h2{font-size:28px}
   .cab-caption p{font-size:15px}
-  .cab-rail{display:none}
   .cab-caption{bottom:76px}
   .cab-ctrl .hint{display:none}
 }
 /* Module rail: fixed to the right gutter on desktop */
-#modules .cab-rail{left:auto!important;right:clamp(16px,4vw,64px)!important;margin:0!important;width:auto!important}
 /* Module: keep to the page width */
 #modules{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;left:0!important;transform:none!important}
 /* Statement photo runs down into the gap; no black band before the module */
-.statement{padding-bottom:calc(120px + clamp(60px,10vh,120px))!important}
-#modules{margin-top:0!important}
+.statement{padding-top:calc(120px + clamp(30px,5vh,60px))!important;padding-bottom:calc(120px + clamp(30px,5vh,60px))!important}
+#modules{margin-top:0!important;margin-bottom:0!important}
+#modules,#modules *{pointer-events:auto!important}
 /* Menu sheet: show when the hamburger opens it */
 .sheet{display:flex!important}
 /* Menu sheet: 60% black with the same frosted blur as the nav */
@@ -762,7 +755,7 @@ h1{text-transform:none!important}
 <section class="banner" aria-label="Fully demonstrated">
 <video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" playsinline="" preload="none"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
-<div class="watch"><a class="playbtn" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><span>Watch the full demonstration flight</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"></path></svg></a><span class="mono">Best with sound on</span></div></div>
+<div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>RISE demonstration flight</span></div>
 </section>
 
@@ -797,19 +790,15 @@ h1{text-transform:none!important}
         <div class="tick" style="bottom:60%">60k</div>
         <div class="tick" style="bottom:80%">80k</div>
         <div class="tick" style="bottom:100%">100k</div>
-        <div class="mk" style="bottom:35%">Airliners</div>
-        <div class="mk" style="bottom:39%">Tropopause</div>
-        <div class="mk" style="bottom:62%">Armstrong limit</div>
+        <div class="mk" style="bottom:60%">Armstrong limit</div>
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
-      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
-      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
-      <div class="lcard" data-alt-range="39000,50000"><span class="n">03 / 07 · ≈ 39,000 ft</span><span class="mono">Tropopause</span><h3>Where the weather ends.</h3><p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p></div>
-      <div class="lcard" data-alt-range="50000,62000"><span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span><span class="mono">Stratosphere · Ozone layer</span><h3>Inside the ozone layer.</h3><p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p></div>
-      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
-      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
-      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
+      <div class="lcard" data-alt-range="-1,30000"><span class="n">20,000 ft</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
+      <div class="lcard" data-alt-range="30000,50000"><span class="n">40,000 ft</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
+      <div class="lcard" data-alt-range="50000,70000"><span class="n">60,000 ft</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
+      <div class="lcard" data-alt-range="70000,90000"><span class="n">80,000 ft</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
+      <div class="lcard" data-alt-range="90000,999999"><span class="n">100,000 ft · 30 km</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
         <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
@@ -825,7 +814,6 @@ h1{text-transform:none!important}
 
 <section class="statement" aria-label="Our mission">
 <div class="mbg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/mission-limb.jpg" alt=""></div>
-<div class="mref mono">Captured during RISE spaceflight</div>
 <p class="big long"><b>We are opening space to more people than ever before,</b> to have the profound experience of seeing Earth in space… safely, comfortably, and together.</p>
 <p class="lede big2">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
 </section>
@@ -834,25 +822,20 @@ h1{text-transform:none!important}
 <section class="cabin" aria-label="Inside the spaceship and flight">
   <div class="cabin-stick">
     <div class="cab-stage">
-      <video class="cab-shot" data-on="true" muted playsinline preload="none" poster="assets/smooth-spaceflight-poster.jpg" src="assets/smooth-spaceflight.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="none" poster="assets/capsule-hangar-poster.jpg" src="assets/capsule-hangar.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="none" poster="assets/lounge-hours-poster.jpg" src="assets/lounge-hours.mp4"></video>
+      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/lounge-hours-poster.jpg" src="assets/mod-lounge.mp4"></video>
     </div>
     <div class="cab-head"><h2 id="cab-title">A smooth and safe spaceflight without rockets</h2></div>
     <div class="cab-caption" aria-live="polite">
       <span class="cab-count" id="cab-count">01 / 03</span>
       <p id="cab-text">A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
       <div class="cab-ctrl">
-        <button class="btn" type="button" id="cab-prev" aria-label="Previous">&larr;</button>
-        <button class="btn" type="button" id="cab-next" aria-label="Next">&rarr;</button>
+        <button class="btn" type="button" id="cab-prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <button class="btn" type="button" id="cab-next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"></path></svg></button>
         <span class="hint">Scroll or tap</span>
       </div>
     </div>
-    <nav class="cab-rail" aria-label="Sections">
-      <button class="cab-tab" type="button" data-i="0" aria-pressed="true"><b>01</b><span>A smooth and safe spaceflight</span></button>
-      <button class="cab-tab" type="button" data-i="1" aria-pressed="false"><b>02</b><span>Inside a spaceship</span></button>
-      <button class="cab-tab" type="button" data-i="2" aria-pressed="false"><b>03</b><span>In a lounge for hours in space</span></button>
-    </nav>
     <div class="cab-bar"><i></i></div>
   </div>
 </section>
@@ -961,7 +944,7 @@ h1{text-transform:none!important}
 <section class="banner" aria-label="Fully demonstrated">
 <video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
-<div class="watch"><a class="playbtn" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><span>Watch the full demonstration flight</span><svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"></path></svg></a><span class="mono">Best with sound on</span></div></div>
+<div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>RISE demonstration flight</span></div>
 </section>
 
@@ -996,19 +979,15 @@ h1{text-transform:none!important}
         <div class="tick" style="bottom:60%">60k</div>
         <div class="tick" style="bottom:80%">80k</div>
         <div class="tick" style="bottom:100%">100k</div>
-        <div class="mk" style="bottom:35%">Airliners</div>
-        <div class="mk" style="bottom:39%">Tropopause</div>
-        <div class="mk" style="bottom:62%">Armstrong limit</div>
+        <div class="mk" style="bottom:60%">Armstrong limit</div>
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
-      <div class="lcard" data-alt-range="-1,30000"><span class="n">01 / 07 · 0 – 39,000 ft</span><span class="mono">Troposphere</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
-      <div class="lcard" data-alt-range="30000,39000"><span class="n">02 / 07 · ≈ 35,000 ft</span><span class="mono">Cruising altitude</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
-      <div class="lcard" data-alt-range="39000,50000"><span class="n">03 / 07 · ≈ 39,000 ft</span><span class="mono">Tropopause</span><h3>Where the weather ends.</h3><p>The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.</p></div>
-      <div class="lcard" data-alt-range="50000,62000"><span class="n">04 / 07 · ≈ 50,000 – 115,000 ft</span><span class="mono">Stratosphere · Ozone layer</span><h3>Inside the ozone layer.</h3><p>The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.</p></div>
-      <div class="lcard" data-alt-range="62000,80000"><span class="n">05 / 07 · ≈ 62,000 ft</span><span class="mono">Armstrong limit</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
-      <div class="lcard" data-alt-range="80000,97000"><span class="n">06 / 07 · ≈ 80,000 ft</span><span class="mono">Black sky</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
-      <div class="lcard" data-alt-range="97000,999999"><span class="n">07 / 07 · ≈ 100,000 ft · 30 km</span><span class="mono">The edge of space</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
+      <div class="lcard" data-alt-range="-1,30000"><span class="n">20,000 ft</span><h3>Soak in the view. You’re on your way to space.</h3><p>Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.</p></div>
+      <div class="lcard" data-alt-range="30000,50000"><span class="n">40,000 ft</span><h3>Bye-bye biosphere, weather, and jetliners.</h3><p>Passenger jets level off around here. You keep climbing, to nearly three times their height.</p></div>
+      <div class="lcard" data-alt-range="50000,70000"><span class="n">60,000 ft</span><h3>You’re at the Armstrong Line, above 95% of Earth’s air.</h3><p>Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.</p></div>
+      <div class="lcard" data-alt-range="70000,90000"><span class="n">80,000 ft</span><h3>Nearly there, where blue sky is turning black.</h3><p>With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.</p></div>
+      <div class="lcard" data-alt-range="90000,999999"><span class="n">100,000 ft · 30 km</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
         <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
@@ -1024,7 +1003,6 @@ h1{text-transform:none!important}
 <!-- 4 OPENING SPACE -->
 <section class="statement" aria-label="Our mission">
 <div class="mbg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/mission-limb.jpg" alt=""></div>
-<div class="mref mono">Captured during RISE spaceflight</div>
 <p class="big long"><b>We are opening space to more people than ever before,</b> to have the profound experience of seeing Earth in space… safely, comfortably, and together.</p>
 <p class="lede big2">Fewer than <em>800</em> people have ever been to space. RISE is changing that.</p>
 </section>
@@ -1033,25 +1011,20 @@ h1{text-transform:none!important}
 <section class="cabin" id="modules" aria-label="Inside the spaceship and flight">
   <div class="cabin-stick">
     <div class="cab-stage">
-      <video class="cab-shot" data-on="true" muted playsinline preload="none" poster="assets/smooth-spaceflight-poster.jpg" src="assets/smooth-spaceflight.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="none" poster="assets/capsule-hangar-poster.jpg" src="assets/capsule-hangar.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="none" poster="assets/lounge-hours-poster.jpg" src="assets/lounge-hours.mp4"></video>
+      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/lounge-hours-poster.jpg" src="assets/mod-lounge.mp4"></video>
     </div>
     <div class="cab-head"><h2 id="cab-title">A smooth and safe spaceflight without rockets</h2></div>
     <div class="cab-caption" aria-live="polite">
       <span class="cab-count" id="cab-count">01 / 03</span>
       <p id="cab-text">A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
       <div class="cab-ctrl">
-        <button class="btn" type="button" id="cab-prev" aria-label="Previous">&larr;</button>
-        <button class="btn" type="button" id="cab-next" aria-label="Next">&rarr;</button>
+        <button class="btn" type="button" id="cab-prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <button class="btn" type="button" id="cab-next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"></path></svg></button>
         <span class="hint">Scroll or tap</span>
       </div>
     </div>
-    <nav class="cab-rail" aria-label="Sections">
-      <button class="cab-tab" type="button" data-i="0" aria-pressed="true"><b>01</b><span>A smooth and safe spaceflight</span></button>
-      <button class="cab-tab" type="button" data-i="1" aria-pressed="false"><b>02</b><span>Inside a spaceship</span></button>
-      <button class="cab-tab" type="button" data-i="2" aria-pressed="false"><b>03</b><span>In a lounge for hours in space</span></button>
-    </nav>
     <div class="cab-bar"><i></i></div>
   </div>
 </section>
@@ -1576,19 +1549,15 @@ class Component extends DCLogic {
       ],
       ticks: [0, 20000, 40000, 60000, 80000, 100000].map((ft) => ({ pos: pct(ft), label: ft === 0 ? '0' : (ft / 1000) + 'k' })),
       marks: [
-        { pos: pct(35000), label: 'Airliners' },
-        { pos: pct(39000), label: 'Tropopause' },
-        { pos: pct(62000), label: 'Armstrong limit' },
+        { pos: pct(60000), label: 'Armstrong limit' },
         { pos: pct(100000), label: 'Space · apogee' }
       ],
       layers: [
-        { n: '01', range: '-1,30000', alt: '0 – 39,000 ft', name: 'Troposphere', title: 'Soak in the view. You’re on your way to space.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
-        { n: '02', range: '30000,39000', alt: '≈ 35,000 ft', name: 'Cruising altitude', title: 'Bye-bye biosphere, weather, and jetliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
-        { n: '03', range: '39000,50000', alt: '≈ 39,000 ft', name: 'Tropopause', title: 'Where the weather ends.', body: 'The air stops cooling at the top of the troposphere, around −56 °C. Below you, the weather. Above you, a sky that only gets darker. Inside, the cabin stays comfortable throughout.' },
-        { n: '04', range: '50000,62000', alt: '≈ 50,000 – 115,000 ft', name: 'Stratosphere · Ozone layer', title: 'Inside the ozone layer.', body: 'The layer that shields Earth from ultraviolet light. Up here the air begins to warm again as you climb, and the horizon starts to curve.' },
-        { n: '05', range: '62000,80000', alt: '≈ 62,000 ft', name: 'Armstrong limit', title: 'You’re at the Armstrong Line, above 95% of Earth’s air.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
-        { n: '06', range: '80000,97000', alt: '≈ 80,000 ft', name: 'Black sky', title: 'Nearly there, where blue sky is turning black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
-        { n: '07', range: '97000,999999', alt: '≈ 100,000 ft · 30 km', name: 'The edge of space', title: 'Gaze down on Earth’s vivid blue line of air against the deepest black of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' }
+        { n: '01', range: '-1,30000', alt: '20,000 ft', name: 'Troposphere', title: 'Soak in the view. You’re on your way to space.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
+        { n: '02', range: '30000,50000', alt: '40,000 ft', name: 'Cruising altitude', title: 'Bye-bye biosphere, weather, and jetliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
+        { n: '03', range: '50000,70000', alt: '60,000 ft', name: 'Armstrong limit', title: 'You’re at the Armstrong Line, above 95% of Earth’s air.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
+        { n: '04', range: '70000,90000', alt: '80,000 ft', name: 'Black sky', title: 'Nearly there, where blue sky is turning black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
+        { n: '05', range: '90000,999999', alt: '100,000 ft · 30 km', name: 'The edge of space', title: 'Gaze down on Earth’s vivid blue line of air against the deepest black of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' },
       ],
       records: [
         { img: 'assets/rec-flights.jpg', alt: 'A Space Balloon launching at sunrise', stat: 'Over 100 flights', title: 'Space Balloon flights flown by team members' },
@@ -1630,19 +1599,103 @@ mountArtboard('tpl', 'app', Component);
       shots.forEach(function (v, k) {
         var on = k === i;
         v.setAttribute('data-on', on ? 'true' : 'false');
-        if (on) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+        if (!on) v.pause();
       });
       tabs.forEach(function (t, k) { t.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
       title.textContent = TITLES[i];
       text.textContent = TEXTS[i];
       count.textContent = '0' + (i + 1) + ' / 0' + N;
     };
+    /* scroll drives playback in both directions: the locked frame scrubs the active clip to the scroll position,
+       eased per frame so reversing is smooth. Video never plays on its own. */
+    var cur = [], tgt = [], raf = 0;
+    shots.forEach(function (v, k) { cur[k] = 0; tgt[k] = 0; v.pause(); v.addEventListener('loadeddata', kick); });
+    function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+    function tick() {
+      raf = 0;
+      if (autoOn) return;   /* autoplaying: the clip runs at normal speed, no seeking */
+      var busy = false;
+      shots.forEach(function (v, k) {
+        if (!v.duration || isNaN(v.duration) || v.readyState < 2) { busy = true; return; }
+        var want = tgt[k] * v.duration;
+        cur[k] += (want - cur[k]) * 0.3;
+        if (Math.abs(want - cur[k]) < 0.005) cur[k] = want;
+        else busy = true;
+        if (!v.seeking && Math.abs(v.currentTime - cur[k]) > 0.02) { try { v.currentTime = cur[k]; } catch (e) {} }
+      });
+      if (busy) raf = requestAnimationFrame(tick);
+    }
+    /* autoplay: when the frame locks, the first clip plays at normal speed until the user scrolls away from the lock point */
+    var autoOn = false, armed = false, lockP = 0, waitAuto = false;
+    /* playback follows the scroll direction: scrolling forward plays the clip at normal speed,
+       scrolling back pauses and scrubs it. The progress bar follows the playing clip. */
+    var autoOn = false, autoIdx = 0, armed = false, waitAuto = false, lastP = 0;
+    var barLoop = function () {
+      if (!autoOn) return;
+      var v = shots[autoIdx], d = v.duration || 1;
+      bar.style.setProperty('--p', ((autoIdx + clamp(v.currentTime / d)) / N).toFixed(4));
+      requestAnimationFrame(barLoop);
+    };
+    var playClip = function (i) {
+      waitAuto = false;
+      autoOn = true; autoIdx = i;
+      shots[i].muted = true;
+      requestAnimationFrame(barLoop);
+      var pl = shots[i].play();
+      if (pl && pl.catch) pl.catch(function () { autoOn = false; kick(); });
+    };
+    var pauseClip = function () {
+      if (!autoOn) return;
+      autoOn = false;
+      var v = shots[autoIdx];
+      v.pause();
+      cur[autoIdx] = v.currentTime;
+    };
+    /* the first clip starts at lock once about 2 seconds are buffered ahead of the playhead */
+    var aheadOK = function (v) {
+      if (v.readyState < 3) return false;
+      for (var i = 0; i < v.buffered.length; i++) {
+        if (v.buffered.start(i) <= v.currentTime + 0.1 && v.buffered.end(i) - v.currentTime >= 2) return true;
+      }
+      return v.readyState >= 4;
+    };
+    var tryAuto = function () { if (waitAuto && aheadOK(shots[0])) playClip(0); };
+    ['loadeddata', 'canplay', 'progress', 'canplaythrough'].forEach(function (ev) { shots[0].addEventListener(ev, tryAuto); });
     var fromScroll = function () {
       var rect = section.getBoundingClientRect();
       var span = section.offsetHeight - window.innerHeight;
       var p = clamp(-rect.top / span);
-      bar.style.setProperty('--p', p.toFixed(4));
-      show(Math.min(N - 1, Math.floor(p * N)));
+      if (rect.top > 0) {                         /* frame not locked yet: first frame, paused */
+        armed = true; waitAuto = false; lastP = p;
+        pauseClip();
+        shots.forEach(function (v) { v.pause(); });
+        bar.style.setProperty('--p', p.toFixed(4));
+        show(0); tgt[0] = 0; kick(); return;
+      }
+      if (armed) {                                /* just locked into the frame: autoplay once the clip has buffered */
+        armed = false; lastP = p;
+        show(0);
+        if (aheadOK(shots[0])) { playClip(0); }
+        else { waitAuto = true; setTimeout(function () { if (waitAuto) playClip(0); }, 2500); }
+        return;
+      }
+      if (p === lastP) return;
+      var forward = p > lastP; lastP = p;
+      if (!autoOn) bar.style.setProperty('--p', p.toFixed(4));
+      var x = p * N;
+      var i = Math.min(N - 1, Math.floor(x));
+      var local = clamp(x - i);
+      var changed = i !== idx;
+      show(i);
+      if (forward) {
+        if (changed) { try { shots[i].currentTime = 0; } catch (e) {} cur[i] = 0; }
+        if (!autoOn || autoIdx !== i) playClip(i);
+      } else {
+        pauseClip();
+        waitAuto = false;
+        tgt[i] = local;
+        kick();
+      }
     };
     var goTo = function (i) {
       i = Math.max(0, Math.min(N - 1, i));
