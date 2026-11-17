@@ -691,6 +691,10 @@ h1{text-shadow:0 1px 14px rgba(0,0,0,.35)}
 h1 + p,h1 + .lede{margin-left:6px!important}
 /* Photo references: glowing gold dot before each label, site-wide */
 .ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
+/* Cabin module: photo reference per clip, shown while that clip is active; scroll hint in capitals */
+.cab-ref{position:absolute;z-index:2;right:var(--gut);top:clamp(96px,15vh,140px);opacity:0;transition:opacity .6s ease}
+.cab-shot[data-on="true"] + .cab-ref{opacity:1}
+.cab-ctrl .hint{text-transform:uppercase;letter-spacing:.14em}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -830,8 +834,8 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <section class="cabin" aria-label="Inside the spaceship and flight">
   <div class="cabin-stick">
     <div class="cab-stage">
-      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video>
+      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video><div class="ref mono cab-ref">Rise spaceflight</div>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video><div class="ref mono cab-ref">Rise spaceship</div>
       <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/lounge-hours-poster.jpg" src="assets/mod-lounge.mp4"></video>
     </div>
     <div class="cab-head"><h2 id="cab-title">A smooth and safe spaceflight without rockets</h2></div>
@@ -1019,8 +1023,8 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <section class="cabin" id="modules" aria-label="Inside the spaceship and flight">
   <div class="cabin-stick">
     <div class="cab-stage">
-      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video>
-      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video>
+      <video class="cab-shot" data-on="true" muted playsinline preload="auto" poster="assets/smooth-spaceflight-poster.jpg" src="assets/mod-smooth.mp4"></video><div class="ref mono cab-ref">Rise spaceflight</div>
+      <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/capsule-hangar-poster.jpg" src="assets/mod-hangar.mp4"></video><div class="ref mono cab-ref">Rise spaceship</div>
       <video class="cab-shot" data-on="false" muted playsinline preload="auto" poster="assets/lounge-hours-poster.jpg" src="assets/mod-lounge.mp4"></video>
     </div>
     <div class="cab-head"><h2 id="cab-title">A smooth and safe spaceflight without rockets</h2></div>
