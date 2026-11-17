@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found | RISE Space</title>
+<title>Page not found | Rise Space</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#000">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -30,7 +30,7 @@ nav{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 nav a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border:1px solid var(--line);border-radius:999px;color:var(--bone);text-decoration:none;font-size:14px}
 nav a:first-child{background:var(--gold);border-color:var(--gold);color:#000;font-weight:500}
 nav a:hover{border-color:var(--gold)}
-/* ---- RISE brand standards (guidelines 261111): Figtree throughout, JetBrains Mono for telemetry only ---- */
+/* ---- Rise brand standards (guidelines 261111): Figtree throughout, JetBrains Mono for telemetry only ---- */
 .mono{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-weight:500}
 .tele,.tele *,.tick,.mk,.ylab,.count,.count *,.total,.total b,.tline,.tline *,.seg span,.alti *,.lcard .n,.hint,.ph-text .count{font-family:var(--mono)!important}
 h1,h2,h3{font-weight:600;letter-spacing:-.01em}
@@ -39,10 +39,14 @@ p,li{font-weight:500}
 b,strong{font-weight:600}
 em{font-style:normal}
 .nav-link:after{background:var(--sky)!important}
+/* Hero subtext: nudged right to sit optically in line with the big heading */
+h1 + p,h1 + .lede{margin-left:6px!important}
+/* Photo references: glowing gold dot before each label, site-wide */
+.ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 </style>
 </head>
 <body>
-<header><a href="/" aria-label="RISE Space home"><img src="/assets/logo.png" alt="RISE Space"></a></header>
+<header><a href="/" aria-label="Rise Space home"><img src="/assets/logo.png" alt="Rise Space"></a></header>
 <main>
 <div class="eyebrow">404</div>
 <h1>Lost in <em>space.</em></h1>

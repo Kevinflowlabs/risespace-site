@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shop · RISE Space</title>
-<meta name="description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<title>Shop · Rise Space</title>
+<meta name="description" content="Rise Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta name="theme-color" content="#000">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Shop · RISE Space">
-<meta property="og:description" content="RISE Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
+<meta property="og:title" content="Shop · Rise Space">
+<meta property="og:description" content="Rise Space flies passengers to space aboard a spaceship lifted by a Space Balloon. Hours at 100,000 ft, the largest windows ever flown to space, and a gentle, carbon-neutral flight from a marine spaceport.">
 <meta property="og:image" content="assets/invite.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/logo.png">
@@ -241,7 +241,7 @@ a.nav-link:hover:after,.nav-link[aria-current="page"]:after{transform:scaleX(1)}
 
 /* ---- Site cleanup: consistent captions, no frames, no italics ---- */
 em{font-style:normal}
-.mref:before,.ref:before,.hero-tag:before,.tag:before,.tag .live:before,.ph-media .tag:before,.cap .mono:before,.sec-head .mono:before,.o-head .mono:before{display:none}
+.mref:before,.ref:before,.tag:before,.tag .live:before,.ph-media .tag:before,.cap .mono:before,.sec-head .mono:before,.o-head .mono:before{display:none}
 .ref,.mref,.hero-tag,.tag{color:rgba(247,243,235,0.74)}
 .split,.card,.shot.wide,.profile,.stage-panel,.join,.enq{border:0 !important}
 .card .body{border-top:0 !important}
@@ -249,7 +249,7 @@ em{font-style:normal}
 .field textarea{resize:none}
 .soc{border:0 !important;background:none !important}
 .social,.legal{border-top:0 !important}
-/* ---- RISE brand standards (guidelines 261111): Figtree throughout, JetBrains Mono for telemetry only ---- */
+/* ---- Rise brand standards (guidelines 261111): Figtree throughout, JetBrains Mono for telemetry only ---- */
 .mono{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-weight:500}
 .tele,.tele *,.tick,.mk,.ylab,.count,.count *,.total,.total b,.tline,.tline *,.seg span,.alti *,.lcard .n,.hint,.ph-text .count{font-family:var(--mono)!important}
 h1,h2,h3{font-weight:600;letter-spacing:-.01em}
@@ -296,7 +296,11 @@ p{line-height:1.55!important}
 /* Menu sheet: 60% black with the same frosted blur as the nav */
 .sheet{background:rgba(0,0,0,.6)!important;-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
 /* Footer, desktop: follow-the-mission title and social links sit beside the logo with 50px spacing; nav to the right; legal below */
-@media (min-width:761px){.foot{align-items:flex-start}.foot img{order:1;margin-right:10px;height:68px;width:auto}.foot .social{order:2;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{order:3;margin-left:auto}.foot .legal{order:4;flex-basis:100%}}
+@media (min-width:761px){.foot{display:grid;grid-template-columns:auto auto 1fr auto;align-items:start;gap:0 40px;padding-bottom:70px}.foot img{grid-column:1;grid-row:1;margin-right:10px;height:68px;width:auto}.foot .social{grid-column:2;grid-row:1;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{grid-column:4;grid-row:1;justify-self:start;margin-left:0}.foot .legal{grid-column:4;grid-row:2;justify-self:start;margin-top:-24px}}
+/* Hero subtext: nudged right to sit optically in line with the big heading */
+h1 + p,h1 + .lede{margin-left:6px!important}
+/* Photo references: glowing gold dot before each label, site-wide */
+.ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 </style>
 </head>
 <body>
@@ -307,7 +311,7 @@ p{line-height:1.55!important}
 
 <!-- SITE NAVIGATION -->
 <header class="nav" data-solid="0"><div class="nav-left"><button class="nav-burger" type="button" aria-label="Menu" aria-controls="sf-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}"><i></i><i></i></button><span class="nav-menu-label">Menu</span></div>
-<a class="nav-brand" href="index.html" aria-label="RISE Space home"><img src="assets/logo.png" alt="RISE Space"></a>
+<a class="nav-brand" href="index.html" aria-label="Rise Space home"><img src="assets/logo.png" alt="Rise Space"></a>
 <nav class="nav-links" aria-label="Primary">
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
 <sc-if value="{{ n.ready }}" hint-placeholder-val="{{ true }}"><a class="nav-link" href="{{ n.href }}" aria-current="{{ n.current }}">{{ n.label }}</a></sc-if>
@@ -332,7 +336,7 @@ p{line-height:1.55!important}
 <div>
 
 <h1>Mission gear, <em>coming soon.</em></h1>
-<p class="lede">Official RISE goods for the people going to space, and the people cheering them on. Leave your email and you'll be the first to know when the shop opens.</p>
+<p class="lede">Official Rise goods for the people going to space, and the people cheering them on. Leave your email and you'll be the first to know when the shop opens.</p>
 <sc-if value="{{ notNotified }}" hint-placeholder-val="{{ true }}">
 <form onSubmit="{{ notify }}">
 <div class="field"><label for="sh-email">Email</label><input id="sh-email" type="email" autocomplete="email" required=""></div>
@@ -343,7 +347,7 @@ p{line-height:1.55!important}
 <div class="ok"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></b><span class="mono">You're first in line. We'll email you when we open.</span></div>
 </sc-if>
 </div>
-<div class="cap"><img src="assets/capsule-lit.webp" alt="The RISE spaceship"></div>
+<div class="cap"><img src="assets/capsule-lit.webp" alt="The Rise spaceship"></div>
 </section>
 
 <!-- WHILE YOU WAIT -->
@@ -363,7 +367,7 @@ p{line-height:1.55!important}
 
 <!-- FOOTER -->
 <footer class="foot">
-<img class="logo" src="assets/logo.png" alt="RISE Space">
+<img class="logo" src="assets/logo.png" alt="Rise Space">
 <nav aria-label="Footer">
 <a href="index.html">Home</a>
 <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
@@ -371,8 +375,8 @@ p{line-height:1.55!important}
 <sc-if value="{{ n.soon }}" hint-placeholder-val="{{ false }}"><span>{{ n.label }}</span></sc-if>
 </sc-for>
 </nav>
-<div class="social" aria-label="RISE on social media"><span class="mono">Follow the mission</span><a class="soc" href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener" aria-label="RISE on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"></path></svg></a><span class="soc todo" role="img" aria-label="RISE on LinkedIn (link coming soon)" title="LinkedIn: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Facebook (link coming soon)" title="Facebook: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.6c0-.85.2-1.3 1.5-1.3H17V2.2c-.3-.05-1.4-.2-2.6-.2C11.8 2 10 3.6 10 6.5v2H7.2v3.4H10V22h4V11.9h2.9l.45-3.4z"></path></svg></span><span class="soc todo" role="img" aria-label="RISE on Instagram (link coming soon)" title="Instagram: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"></circle></svg></span><span class="soc todo" role="img" aria-label="RISE on X (link coming soon)" title="X: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"></path></svg></span></div>
-<div class="legal"><span>© RISE 2026</span><a href="#top">Privacy</a><a href="#top">Terms</a><span>Press: <span class="ph">[PRESS EMAIL]</span></span></div>
+<div class="social" aria-label="Rise on social media"><span class="mono">Follow the mission</span><a class="soc" href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener" aria-label="Rise on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.75 15.02V8.98L15.5 12z"></path></svg></a><span class="soc todo" role="img" aria-label="Rise on LinkedIn (link coming soon)" title="LinkedIn: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></span><span class="soc todo" role="img" aria-label="Rise on Facebook (link coming soon)" title="Facebook: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.6c0-.85.2-1.3 1.5-1.3H17V2.2c-.3-.05-1.4-.2-2.6-.2C11.8 2 10 3.6 10 6.5v2H7.2v3.4H10V22h4V11.9h2.9l.45-3.4z"></path></svg></span><span class="soc todo" role="img" aria-label="Rise on Instagram (link coming soon)" title="Instagram: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"></circle></svg></span><span class="soc todo" role="img" aria-label="Rise on X (link coming soon)" title="X: link coming soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"></path></svg></span></div>
+<div class="legal"><span>© Rise 2026</span><a href="#top">Privacy</a><a href="#top">Terms</a><span>Press: <span class="ph">[PRESS EMAIL]</span></span></div>
 </footer>
 
 </div>

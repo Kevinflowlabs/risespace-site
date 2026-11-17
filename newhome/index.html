@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RISE Space | A new kind of space platform</title>
-<meta name="description" content="RISE flies people and research to space aboard a spaceship lifted by a Space Balloon. No rocket.">
+<title>Rise Space | A new kind of space platform</title>
+<meta name="description" content="Rise flies people and research to space aboard a spaceship lifted by a Space Balloon. No rocket.">
 <meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,9 +132,9 @@ p{margin:0;line-height:1.55;color:var(--grey)}
 /* ---------- CTA band ---------- */
 .band{position:relative;margin-top:clamp(80px,14vh,160px);min-height:72vh;display:flex;align-items:center;overflow:hidden}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.35) 60%,rgba(0,0,0,.1) 100%)}
+.band:after{content:none}
 .band .copy{position:relative;z-index:2;padding:0 var(--gut);max-width:720px}
-.band h2{font-size:clamp(32px,4.2vw,64px);line-height:1.1}
+.band h2{font-size:clamp(28px,2.9vw,44px);line-height:1.12}
 .band p{margin-top:22px;font-size:17px;color:var(--bone);max-width:46ch}
 
 /* ---------- Footer ---------- */
@@ -248,7 +248,11 @@ p{margin:0;line-height:1.55;color:var(--grey)}
 /* ---- Site-wide: no outlines on boxes; section and column rules stay ---- */
 .story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
 /* Footer, desktop: follow-the-mission title and social links sit beside the logo with 50px spacing; nav to the right; legal below */
-@media (min-width:761px){.foot{align-items:flex-start}.foot img{order:1;margin-right:10px;height:68px;width:auto}.foot .social{order:2;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{order:3;margin-left:auto}.foot .legal{order:4;flex-basis:100%}}
+@media (min-width:761px){.foot{display:grid;grid-template-columns:auto auto 1fr auto;align-items:start;gap:0 40px;padding-bottom:70px}.foot img{grid-column:1;grid-row:1;margin-right:10px;height:68px;width:auto}.foot .social{grid-column:2;grid-row:1;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{grid-column:4;grid-row:1;justify-self:start;margin-left:0}.foot .legal{grid-column:4;grid-row:2;justify-self:start;margin-top:-24px}}
+/* Hero subtext: nudged right to sit optically in line with the big heading */
+h1 + p,h1 + .lede{margin-left:6px!important}
+/* Photo references: glowing gold dot before each label, site-wide */
+.ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 </style>
 </head>
 <body>
@@ -260,7 +264,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
     <a href="https://risespace.com/spaceship/">Spaceship</a>
     <a href="https://risespace.com/space-venue/">Space Venue</a>
   </nav>
-  <a class="logo" href="#top" aria-label="RISE Space home"><img src="assets/risespace-logo-web.png" alt="RISE Space"></a>
+  <a class="logo" href="#top" aria-label="Rise Space home"><img src="assets/rise-logo-nav.png" alt="Rise Space"></a>
   <div class="nav-r-wrap">
     <nav class="nav-r" aria-label="Secondary">
       <a href="https://risespace.com/space-programs/">Space Programs</a>
@@ -290,7 +294,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
   </section>
 
   <!-- INTRO -->
-  <section class="intro" aria-label="About RISE">
+  <section class="intro" aria-label="About Rise">
     <h2>Fully demonstrated spaceship lifted by Space Balloon for hours in space.</h2>
     <p>A gentle spaceflight under a Space Balloon with no high g-forces. NASA and our team have flown over a thousand Space Balloon missions. The flight is carbon neutral.</p>
   </section>
@@ -303,7 +307,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
     </div>
     <div class="cards">
       <a class="card" href="https://risespace.com/spaceflight/">
-        <div class="img"><img loading="lazy" src="assets/card-flight-lounge2.jpg" alt="Passengers looking out at Earth from the RISE lounge"></div>
+        <div class="img"><img loading="lazy" src="assets/card-flight-lounge2.jpg" alt="Passengers looking out at Earth from the Rise lounge"></div>
         <div class="body">
           <h3>Spaceflight</h3>
           <p>Hours to soak in the experience of seeing Earth in space, in a spaceship made for the view.</p>
@@ -311,7 +315,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
         </div>
       </a>
       <a class="card" href="https://risespace.com/space-venue/">
-        <div class="img"><img loading="lazy" src="assets/card-venue-dj2.jpg" alt="A live broadcast event inside the RISE cabin"></div>
+        <div class="img"><img loading="lazy" src="assets/card-venue-dj2.jpg" alt="A live broadcast event inside the Rise cabin"></div>
         <div class="body">
           <h3>Space Venue</h3>
           <p>The first and only venue in space: global media events, weddings and celebrations broadcast to the world.</p>
@@ -319,10 +323,10 @@ p{margin:0;line-height:1.55;color:var(--grey)}
         </div>
       </a>
       <a class="card" href="https://risespace.com/space-programs/">
-        <div class="img"><img loading="lazy" src="assets/gov-ship-balloon.jpg" alt="A Space Balloon rising above the RISE launch site"></div>
+        <div class="img"><img loading="lazy" src="assets/gov-ship-balloon.jpg" alt="A Space Balloon rising above the Rise launch site"></div>
         <div class="body">
           <h3>Space Programs</h3>
-          <p>RISE gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p>
+          <p>Rise gives governments their own space program. Researchers fly experiments at flight rates never before possible.</p>
           <span class="link">Explore Space Programs</span>
         </div>
       </a>
@@ -423,17 +427,17 @@ p{margin:0;line-height:1.55;color:var(--grey)}
     </div>
     <div class="news">
       <a class="card" href="https://www.youtube.com/watch?v=ZVuImwpeosg" target="_blank" rel="noopener">
-        <div class="img"><img loading="lazy" src="assets/mission-edge.jpg" alt="The edge of space seen from a RISE flight"></div>
+        <div class="img"><img loading="lazy" src="assets/mission-edge.jpg" alt="The edge of space seen from a Rise flight"></div>
         <div class="body">
           <h3>Successful demonstration flight of the fully operational spaceship</h3>
           <span class="link">Watch the full flight</span>
         </div>
       </a>
       <a class="card" href="https://risespace.com/about/">
-        <div class="img"><img loading="lazy" src="assets/occ-research2.jpg" alt="A researcher working inside a RISE research lab"></div>
+        <div class="img"><img loading="lazy" src="assets/occ-research2.jpg" alt="A researcher working inside a Rise research lab"></div>
         <div class="body">
-          <h3>RISE acquires Space Perspective</h3>
-          <span class="link">Read about RISE</span>
+          <h3>Rise acquires Space Perspective</h3>
+          <span class="link">Read about Rise</span>
         </div>
       </a>
     </div>
@@ -445,22 +449,22 @@ p{margin:0;line-height:1.55;color:var(--grey)}
       <h2 id="gallery-h">Some things you have to see for yourself.</h2>
     </div>
     <div class="gallery">
-      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-gathering2.jpg" alt="A private gathering in the RISE cabin"><span>Private gatherings</span></a>
-      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wellness2.jpg" alt="A wellness session in the RISE cabin"><span>Wellness</span></a>
-      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wedding2.jpg" alt="A wedding in the RISE cabin"><span>Weddings</span></a>
-      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/dining-space.jpg" alt="Dining in the RISE cabin above the clouds"><span>Dining</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-gathering2.jpg" alt="A private gathering in the Rise cabin"><span>Private gatherings</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wellness2.jpg" alt="A wellness session in the Rise cabin"><span>Wellness</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/occ-wedding2.jpg" alt="A wedding in the Rise cabin"><span>Weddings</span></a>
+      <a class="tile" href="https://risespace.com/space-venue/"><img loading="lazy" src="assets/dining-space.jpg" alt="Dining in the Rise cabin above the clouds"><span>Dining</span></a>
     </div>
   </section>
 
   <!-- CTA BAND -->
   <section class="band" aria-labelledby="mission-h">
-    <img loading="lazy" src="assets/mission-limb.jpg" alt="Earth's limb from high altitude">
+    <img loading="lazy" src="assets/statement-stars-arav.jpg" alt="">
     <div class="copy">
       <h2 id="mission-h">We are opening space to more people than ever before.</h2>
-      <p>Fewer than 800 people have ever been to space. RISE is changing that.</p>
+      <p>Fewer than 800 people have ever been to space. Rise is changing that.</p>
       <div class="actions">
         <a class="btn solid" href="#join">Join our mission</a>
-        <a class="btn" href="https://risespace.com/about/">About RISE</a>
+        <a class="btn" href="https://risespace.com/about/">About Rise</a>
       </div>
     </div>
   </section>
@@ -488,7 +492,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
 
   <div class="foot-cols">
     <div class="brand">
-      <img src="assets/risespace-logo-web.png" alt="RISE Space">
+      <img src="assets/rise-logo-nav.png" alt="Rise Space">
       <div class="soc">
         <a href="https://www.youtube.com/@RiseSpaceInc" target="_blank" rel="noopener">YouTube</a>
       </div>
@@ -517,7 +521,7 @@ p{margin:0;line-height:1.55;color:var(--grey)}
   </div>
 
   <div class="legal">
-    <span>© RISE 2026</span>
+    <span>© Rise 2026</span>
     <span><a href="#top">Privacy</a> &nbsp;·&nbsp; <a href="#top">Terms</a></span>
   </div>
 </footer>
