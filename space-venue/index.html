@@ -361,6 +361,8 @@ h1{text-transform:none!important}
 .sheet{display:flex!important}
 /* Menu sheet: 60% black with the same frosted blur as the nav */
 .sheet{background:rgba(0,0,0,.6)!important;-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+/* Footer, desktop: follow-the-mission title and social links sit beside the logo with 50px spacing; nav to the right; legal below */
+@media (min-width:761px){.foot{align-items:flex-start}.foot img{order:1;margin-right:10px;height:68px;width:auto}.foot .social{order:2;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{order:3;margin-left:auto}.foot .legal{order:4;flex-basis:100%}}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>

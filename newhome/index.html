@@ -247,6 +247,8 @@ p{margin:0;line-height:1.55;color:var(--grey)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* ---- Site-wide: no outlines on boxes; section and column rules stay ---- */
 .story,.press,.panel,.tele,.ring,.card,.split,.shot,.shot.wide,.profile,.stage-panel,.join,.enq{border:0!important;box-shadow:none!important}
+/* Footer, desktop: follow-the-mission title and social links sit beside the logo with 50px spacing; nav to the right; legal below */
+@media (min-width:761px){.foot{align-items:flex-start}.foot img{order:1;margin-right:10px;height:68px;width:auto}.foot .social{order:2;flex:0 0 auto;width:auto;display:grid;grid-template-columns:repeat(5,auto);justify-content:start;justify-items:start;align-items:start;align-content:start;gap:10px 16px;padding-top:0}.foot .social .mono{grid-column:1/-1}.foot nav{order:3;margin-left:auto}.foot .legal{order:4;flex-basis:100%}}
 </style>
 </head>
 <body>
