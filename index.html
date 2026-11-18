@@ -765,7 +765,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 
 
 <section class="banner" aria-label="Fully demonstrated">
-<video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" playsinline="" preload="none"></video>
+<video data-inview="" src="assets/flight-29-flight2.mp4" poster="assets/flight-29-flight2-poster.jpg" loop="" playsinline="" preload="none"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
 <div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>Rise demonstration flight</span></div>
@@ -788,7 +788,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
     <h2 id="ascent-h" class="sr-only">Ascent</h2>
     <div class="flight-stick">
       <div class="fp-media">
-        <video data-scrub muted playsinline preload="auto" src="assets/ascent.mp4"></video>
+        <video data-scrub muted playsinline preload="auto" src="assets/ascent-v2.mp4"></video>
       </div>
       <div class="sky"></div>
       <div class="tag"><span>Flight footage</span><span>04 · Ascent</span></div>
@@ -802,7 +802,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
         <div class="tick" style="bottom:60%">60k</div>
         <div class="tick" style="bottom:80%">80k</div>
         <div class="tick" style="bottom:100%">100k</div>
-        <div class="mk" style="bottom:60%">Armstrong limit</div>
+        <div class="mk" style="bottom:60%">Armstrong Line</div>
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
@@ -954,7 +954,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 
 <!-- 2 FULLY DEMONSTRATED -->
 <section class="banner" aria-label="Fully demonstrated">
-<video data-inview="" src="assets/flight-18c.mp4" poster="assets/flight-18b-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
+<video data-inview="" src="assets/flight-29-flight2.mp4" poster="assets/flight-29-flight2-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
 <div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>Rise demonstration flight</span></div>
@@ -977,7 +977,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
     <h2 id="ascent-h" class="sr-only">Ascent</h2>
     <div class="flight-stick">
       <div class="fp-media">
-        <video data-scrub muted playsinline preload="auto" src="assets/ascent.mp4"></video>
+        <video data-scrub muted playsinline preload="auto" src="assets/ascent-v2.mp4"></video>
       </div>
       <div class="sky"></div>
       <div class="tag"><span>Flight footage</span><span>04 · Ascent</span></div>
@@ -991,7 +991,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
         <div class="tick" style="bottom:60%">60k</div>
         <div class="tick" style="bottom:80%">80k</div>
         <div class="tick" style="bottom:100%">100k</div>
-        <div class="mk" style="bottom:60%">Armstrong limit</div>
+        <div class="mk" style="bottom:60%">Armstrong Line</div>
         <div class="mk" style="bottom:100%">Space · apogee</div>
         <div class="ind"></div>
       </div>
@@ -1561,13 +1561,13 @@ class Component extends DCLogic {
       ],
       ticks: [0, 20000, 40000, 60000, 80000, 100000].map((ft) => ({ pos: pct(ft), label: ft === 0 ? '0' : (ft / 1000) + 'k' })),
       marks: [
-        { pos: pct(60000), label: 'Armstrong limit' },
+        { pos: pct(60000), label: 'Armstrong Line' },
         { pos: pct(100000), label: 'Space · apogee' }
       ],
       layers: [
         { n: '01', range: '-1,30000', alt: '20,000 ft', name: 'Troposphere', title: 'Soak in the view. You’re on your way to space.', body: 'Almost every cloud, storm and raindrop lives in this first layer, along with most of the air on Earth. You rise straight through it, smoothly, at about the speed of a bicycle.' },
         { n: '02', range: '30000,50000', alt: '40,000 ft', name: 'Cruising altitude', title: 'Bye-bye biosphere, weather, and jetliners.', body: 'Passenger jets level off around here. You keep climbing, to nearly three times their height.' },
-        { n: '03', range: '50000,70000', alt: '60,000 ft', name: 'Armstrong limit', title: 'You’re at the Armstrong Line, above 95% of Earth’s air.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
+        { n: '03', range: '50000,70000', alt: '60,000 ft', name: 'Armstrong Line', title: 'You’re at the Armstrong Line, above 95% of Earth’s air.', body: 'Above this line, water boils at body temperature. The pressurized cabin is your world now, with environmental control systems built for total passenger comfort.' },
         { n: '04', range: '70000,90000', alt: '80,000 ft', name: 'Black sky', title: 'Nearly there, where blue sky is turning black.', body: 'With less than 3% of the atmosphere left above you, there is too little air to scatter sunlight. The sky goes black in full daylight.' },
         { n: '05', range: '90000,999999', alt: '100,000 ft · 30 km', name: 'The edge of space', title: 'Gaze down on Earth’s vivid blue line of air against the deepest black of space.', body: 'Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.' },
       ],

@@ -414,6 +414,16 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 /* Careers CTA: text sits in the black space above the photo, which fills the lower part of the section */
 .careers{min-height:820px;padding-top:70px!important;padding-bottom:0!important}
 .careers img{top:auto!important;bottom:0!important;height:55%!important;object-position:50% 40%!important}
+/* Founder: two columns, portrait left, all text left-aligned in the right column */
+.founder-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,120px);align-items:center;margin-top:clamp(40px,6vh,72px)}
+.founder-img{width:100%;max-width:416px;justify-self:end;aspect-ratio:4/5;overflow:hidden;background:#0b0f18}
+.founder-img img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+.founder-t{text-align:left}
+.founder-t h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:1.1;letter-spacing:.005em}
+.founder-t .sub{margin-top:22px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:var(--dim);max-width:44ch}
+.founder-t h3{margin-top:clamp(40px,6vh,64px);font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.8vw,44px);line-height:1.1}
+.founder-t .role{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+@media (max-width:860px){.founder-feature{grid-template-columns:minmax(0,1fr);gap:32px}.founder-img{max-width:none;justify-self:stretch}}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -523,21 +533,15 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 </section>
 
 
-<section class="sec" id="founders" aria-label="Founders">
-<div class="head" data-reveal="">
-<div><h2>Meet our Founders</h2></div>
-<p>Rise leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+<section class="sec" id="founders" aria-label="Meet our Founder">
+<div class="founder-feature" data-reveal="">
+<div class="founder-img"><img src="../assets/team-rave-feature.jpg" alt="Ravé Mehta, Chairman and Chief Executive Officer" loading="lazy"></div>
+<div class="founder-t">
+<h2>Meet our Founder</h2>
+<p class="sub">Rise leadership has unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+<h3>Ravé Mehta</h3>
+<p class="role">Chairman and Chief Executive Officer</p>
 </div>
-<div class="founders" data-reveal="">
-
-<article class="fd"><button class="ph-img" type="button" aria-label="Read Ravé Mehta’s bio"><img src="../assets/team-mehta-v3.jpg" alt="Ravé Mehta, Chairman and Chief Executive Officer" loading="lazy"></button><div class="t"><h3><button class="nm" type="button">Ravé Mehta</button></h3><div class="role">Chairman and Chief Executive Officer</div><div class="links"><button class="bio-link" type="button">Read bio</button><a class="li" href="https://www.linkedin.com/in/ravemehta/" target="_blank" rel="noopener" aria-label="Ravé Mehta on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
-
-<article class="fd"><button class="ph-img" type="button" aria-label="Read Taber MacCallum’s bio"><img src="../assets/team-maccallum.jpg" alt="Taber MacCallum, Chief Technology Officer" loading="lazy"></button><div class="t"><h3><button class="nm" type="button">Taber MacCallum</button></h3><div class="role">Chief Technology Officer</div><div class="links"><button class="bio-link" type="button">Read bio</button><a class="li" href="https://www.linkedin.com/in/tabermaccallum/" target="_blank" rel="noopener" aria-label="Taber MacCallum on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
-
-<article class="fd"><button class="ph-img" type="button" aria-label="Read Jane Poynter’s bio"><img src="../assets/team-poynter.jpg" alt="Jane Poynter, Chief Product Officer" loading="lazy"></button><div class="t"><h3><button class="nm" type="button">Jane Poynter</button></h3><div class="role">Chief Product Officer</div><div class="links"><button class="bio-link" type="button">Read bio</button><a class="li" href="https://www.linkedin.com/in/jane-poynter/" target="_blank" rel="noopener" aria-label="Jane Poynter on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
-
-<article class="fd"><button class="ph-img" type="button" aria-label="Read Jonathan Yaney’s bio"><img src="../assets/team-yaney.jpg" alt="Jonathan Yaney, Chief Operating Officer" loading="lazy"></button><div class="t"><h3><button class="nm" type="button">Jonathan Yaney</button></h3><div class="role">Chief Operating Officer</div><div class="links"><button class="bio-link" type="button">Read bio</button><a class="li" href="https://www.linkedin.com/in/jonathanyaney/" target="_blank" rel="noopener" aria-label="Jonathan Yaney on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
-
 </div>
 </section>
 
@@ -682,15 +686,15 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 </section>
 
 <!-- FOUNDERS -->
-<section class="sec" id="founders" aria-label="Founders">
-<div class="head" data-reveal="">
-<div><h2>Meet our Founders</h2></div>
-<p>Rise leadership are all serial entrepreneurs with unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+<section class="sec" id="founders" aria-label="Meet our Founder">
+<div class="founder-feature" data-reveal="">
+<div class="founder-img"><img src="../assets/team-rave-feature.jpg" alt="Ravé Mehta, Chairman and Chief Executive Officer" loading="lazy"></div>
+<div class="founder-t">
+<h2>Meet our Founder</h2>
+<p class="sub">Rise leadership has unrivaled experience in international business, Space Balloon and human spaceflight.</p>
+<h3>Ravé Mehta</h3>
+<p class="role">Chairman and Chief Executive Officer</p>
 </div>
-<div class="founders" data-reveal="">
-<sc-for list="{{ founders }}" as="f" hint-placeholder-count="4">
-<article class="fd"><button class="ph-img" type="button" onClick="{{ f.open }}" aria-label="Read {{ f.name }}’s bio"><img src="{{ f.img }}" alt="{{ f.name }}, {{ f.role }}" loading="lazy"></button><div class="t"><h3><button class="nm" type="button" onClick="{{ f.open }}">{{ f.name }}</button></h3><div class="role">{{ f.role }}</div><div class="links"><button class="bio-link" type="button" onClick="{{ f.open }}">Read bio</button><a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div></article>
-</sc-for>
 </div>
 </section>
 
