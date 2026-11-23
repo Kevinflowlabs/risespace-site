@@ -366,6 +366,8 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 /* Hero: full frame, fills the screen height */
 .hero.short{min-height:100vh;min-height:100svh}
+/* Hero video: no slow zoom, so the picture stays still and plays smoothly */
+.hero video{animation:none!important;transform:none!important;will-change:auto}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>

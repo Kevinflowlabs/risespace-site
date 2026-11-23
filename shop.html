@@ -301,6 +301,8 @@ p{line-height:1.55!important}
 h1 + p,h1 + .lede{margin-left:6px!important}
 /* Photo references: glowing gold dot before each label, site-wide */
 .ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
+/* Hero video: no slow zoom, so the picture stays still and plays smoothly */
+.hero video{animation:none!important;transform:none!important;will-change:auto}
 </style>
 </head>
 <body>

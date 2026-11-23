@@ -416,7 +416,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .careers img{top:auto!important;bottom:0!important;height:55%!important;object-position:50% 40%!important}
 /* Founder: two columns, portrait left, all text left-aligned in the right column */
 .founder-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,120px);align-items:center;margin-top:clamp(40px,6vh,72px)}
-.founder-img{width:100%;max-width:416px;justify-self:end;aspect-ratio:4/5;overflow:hidden;background:#0b0f18}
+.founder-img{width:100%;max-width:340px;justify-self:end;aspect-ratio:4/5;overflow:hidden;background:#0b0f18}
 .founder-img img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
 .founder-t{text-align:left}
 .founder-t h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,72px);line-height:1.1;letter-spacing:.005em}
@@ -424,6 +424,12 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .founder-t h3{margin-top:clamp(40px,6vh,64px);font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.8vw,44px);line-height:1.1}
 .founder-t .role{margin-top:12px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 @media (max-width:860px){.founder-feature{grid-template-columns:minmax(0,1fr);gap:32px}.founder-img{max-width:none;justify-self:stretch}}
+/* Founder: keep the card hooks for the bio popup, without card styling */
+.founder-feature.fd{border:0;background:none;box-shadow:none}
+/* Founder: only Rave is shown; the other founder copies from the template loop are hidden */
+.founder-feature.fd ~ .founder-feature.fd{display:none!important}
+/* Hero video: no slow zoom, so the picture stays still and plays smoothly */
+.hero video{animation:none!important;transform:none!important;will-change:auto}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -533,17 +539,6 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 </section>
 
 
-<section class="sec" id="founders" aria-label="Meet our Founder">
-<div class="founder-feature" data-reveal="">
-<div class="founder-img"><img src="../assets/team-rave-feature.jpg" alt="Ravé Mehta, Chairman and Chief Executive Officer" loading="lazy"></div>
-<div class="founder-t">
-<h2>Meet our Founder</h2>
-<p class="sub">Rise leadership has unrivaled experience in international business, Space Balloon and human spaceflight.</p>
-<h3>Ravé Mehta</h3>
-<p class="role">Chairman and Chief Executive Officer</p>
-</div>
-</div>
-</section>
 
 
 
@@ -686,17 +681,6 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 </section>
 
 <!-- FOUNDERS -->
-<section class="sec" id="founders" aria-label="Meet our Founder">
-<div class="founder-feature" data-reveal="">
-<div class="founder-img"><img src="../assets/team-rave-feature.jpg" alt="Ravé Mehta, Chairman and Chief Executive Officer" loading="lazy"></div>
-<div class="founder-t">
-<h2>Meet our Founder</h2>
-<p class="sub">Rise leadership has unrivaled experience in international business, Space Balloon and human spaceflight.</p>
-<h3>Ravé Mehta</h3>
-<p class="role">Chairman and Chief Executive Officer</p>
-</div>
-</div>
-</section>
 
 <!-- FOUNDER BIO -->
 <sc-for list="{{ founders }}" as="f" hint-placeholder-count="4"><sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
@@ -707,7 +691,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <div class="bio-head"><img loading="lazy" decoding="async" src="{{ f.img }}" alt=""><div><h3>{{ f.name }}</h3><div class="role">{{ f.role }}</div>
 <a class="li" href="{{ f.li }}" target="_blank" rel="noopener" aria-label="{{ f.name }} on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"></path></svg></a></div></div>
 <div class="bio-body"><sc-for list="{{ f.paras }}" as="t" hint-placeholder-count="5"><p>{{ t }}</p></sc-for></div>
-<div class="bio-nav"><button class="btn" type="button" onClick="{{ prevBio }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><span>{{ f.prevName }}</span></button><button class="btn" type="button" onClick="{{ nextBio }}"><span>{{ f.nextName }}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+
 </div>
 </div>
 </sc-if></sc-for>

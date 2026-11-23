@@ -694,6 +694,10 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .cab-ref{position:absolute;z-index:2;right:var(--gut);top:clamp(96px,15vh,140px);opacity:0;transition:opacity .6s ease}
 .cab-shot[data-on="true"] + .cab-ref{opacity:1}
 .cab-ctrl .hint{text-transform:uppercase;letter-spacing:.14em}
+/* Altimeter: full frame, no zoom, so the altitude numbers in the footage show; first telemetry cell removed */
+#ascent .fp-media video,#ascent .media video{transform:none!important;object-fit:cover!important}
+/* Altimeter footage tag: bottom right */
+#ascent .tag{top:auto!important;bottom:clamp(22px,4vh,40px)!important}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -811,7 +815,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
       <div class="lcard" data-alt-range="90000,999999"><span class="n">100,000 ft · 30 km</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
-        <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
+        <div><span class="k">Miles</span><span class="v" id="tel-km">0.0 mi</span></div>
         <div><span class="k">Outside air</span><span class="v" id="tel-temp">15 °C</span></div>
         <div><span class="k">Air above you</span><span class="v" id="tel-air">100%</span></div>
       </div>
@@ -999,7 +1003,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
       <div class="lcard" data-alt-range="90000,999999"><span class="n">100,000 ft · 30 km</span><h3>Gaze down on Earth’s vivid blue line of air against the deepest black of space.</h3><p>Above about 99% of Earth’s atmosphere. The curve of the planet, the thin blue line of the sky, and the black of space, all at once.</p></div>
       <div class="tele" role="group" aria-label="Live flight telemetry">
         <div><span class="k">Altitude</span><span class="v" id="tel-ft">0 ft</span></div>
-        <div><span class="k">Kilometres</span><span class="v" id="tel-km">0.0 km</span></div>
+        <div><span class="k">Miles</span><span class="v" id="tel-km">0.0 mi</span></div>
         <div><span class="k">Outside air</span><span class="v" id="tel-temp">15 °C</span></div>
         <div><span class="k">Air above you</span><span class="v" id="tel-air">100%</span></div>
       </div>
@@ -1499,7 +1503,7 @@ class Component extends DCLogic {
             s.el.style.setProperty('--alt', (ft / 100000).toFixed(4));
             const a = this.isa(ft);
             if (s.tel.ft) s.tel.ft.textContent = Math.round(ft / 100) * 100 >= 1000 ? (Math.round(ft / 100) * 100).toLocaleString('en-US') + ' ft' : Math.round(ft) + ' ft';
-            if (s.tel.km) s.tel.km.textContent = (ft * 0.0003048).toFixed(1) + ' km';
+            if (s.tel.km) s.tel.km.textContent = (ft / 5280).toFixed(1) + ' mi';
             if (s.tel.temp) s.tel.temp.textContent = (a.c < 0 ? '−' : '') + Math.abs(Math.round(a.c)) + ' °C';
             if (s.tel.air) s.tel.air.textContent = (a.pct >= 10 ? Math.round(a.pct) : a.pct.toFixed(1)) + '%';
             s.alts.forEach((c) => this.setOn(c.n, ft >= c.a && ft < c.b));
@@ -1773,7 +1777,7 @@ mountArtboard('tpl', 'app', Component);
         section.style.setProperty('--alt', (ft / 100000).toFixed(4));
         var a = isa(ft);
         telFt.textContent = (Math.round(ft / 100) * 100 >= 1000 ? (Math.round(ft / 100) * 100).toLocaleString('en-US') : String(ft)) + ' ft';
-        telKm.textContent = (ft * 0.0003048).toFixed(1) + ' km';
+        telKm.textContent = (ft / 5280).toFixed(1) + ' mi';
         telTemp.textContent = (a.c < 0 ? '−' : '') + Math.abs(Math.round(a.c)) + ' °C';
         telAir.textContent = (a.pct >= 10 ? Math.round(a.pct) : a.pct.toFixed(1)) + '%';
         cards.forEach(function (c) {
