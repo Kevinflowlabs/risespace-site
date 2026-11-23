@@ -698,6 +698,8 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 #ascent .fp-media video,#ascent .media video{transform:none!important;object-fit:cover!important}
 /* Altimeter footage tag: bottom right */
 #ascent .tag{top:auto!important;bottom:clamp(22px,4vh,40px)!important}
+/* Cabin module: no zoom on the clips, so the picture stays still; fade between clips only */
+.cab-shot,.cab-shot[data-on="true"]{transform:none!important;transition:opacity 1s ease!important}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
