@@ -700,6 +700,9 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 #ascent .tag{top:auto!important;bottom:clamp(22px,4vh,40px)!important}
 /* Cabin module: no zoom on the clips, so the picture stays still; fade between clips only */
 .cab-shot,.cab-shot[data-on="true"]{transform:none!important;transition:opacity 1s ease!important}
+/* Hero: after the clip has played through, the last frame hovers with a gentle bob */
+@keyframes heroBob{0%,100%{transform:translateY(0) scale(1.03)}50%{transform:translateY(-10px) scale(1.03)}}
+.hero video.is-held{animation:heroBob 7s ease-in-out infinite!important;transform:none}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -758,7 +761,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="Rise Space" style="height: 100svh; --p: 0.0000;">
 <div class="stage">
-<video data-hero-loop="3" data-loop="" src="assets/home3-hero-60.mp4" poster="assets/home3-hero-60-poster.jpg" playsinline="" preload="none"></video>
+<video data-hero-loop="1" data-loop="" src="assets/home3-hero-60.mp4" poster="assets/home3-hero-60-poster.jpg" playsinline="" preload="none"></video>
 <div class="vshade"></div>
 <div class="vhead">
 <h1>Spaceflight in a class of its own.</h1>
@@ -946,7 +949,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <!-- 1 HERO -->
 <section id="opening" class="scene vhero" data-scene="opening" aria-label="Rise Space" style="height: 100vh; height: 100svh">
 <div class="stage">
-<video data-hero-loop="3" data-loop="" src="assets/home3-hero-60.mp4" poster="assets/home3-hero-60-poster.jpg" autoplay="" muted="" playsinline="" preload="auto"></video>
+<video data-hero-loop="1" data-loop="" src="assets/home3-hero-60.mp4" poster="assets/home3-hero-60-poster.jpg" autoplay="" muted="" playsinline="" preload="auto"></video>
 <div class="vshade"></div>
 <div class="vhead">
 <h1>Spaceflight in a class of its own.</h1>
@@ -1112,10 +1115,19 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 /* Header videos play three times, then stay on their final frame. */
 window.__riseCapLoop = function (v) {
   if (v.__capped) return; v.__capped = true; v.__plays = 1;
+  var L = document.createElement('video');
+  L.muted = true; L.setAttribute('muted', ''); L.playsInline = true; L.setAttribute('playsinline', ''); L.setAttribute('loop', ''); L.preload = 'auto';
+  L.src = 'assets/home3-hero-bob.mp4';
+  L.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;transition:opacity 2.5s ease-in-out';
+  v.parentNode.insertBefore(L, v.nextSibling);
   v.addEventListener('ended', function () {
     v.__plays += 1;
-    if (v.__plays <= 3) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    else { v.__done = true; }
+    if (v.__plays <= (+v.getAttribute('data-hero-loop') || 3)) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); return; }
+    v.__done = true;
+    v.removeAttribute('poster');
+    v.pause();
+    L.style.opacity = '1';
+    var q = L.play(); if (q && q.catch) q.catch(function () {});
   });
 };
 </script>
@@ -1297,7 +1309,7 @@ class Component extends DCLogic {
     this.rail = Array.prototype.slice.call(root.querySelectorAll('[data-ch]'));
     Array.prototype.forEach.call(root.querySelectorAll('video[data-loop]'), (v) => {
       v.muted = true; v.loop = !v.hasAttribute('data-hero-loop'); if (v.hasAttribute('data-hero-loop')) window.__riseCapLoop(v); v.playsInline = true; v.setAttribute('playsinline', '');
-      const pr = v.play && v.play(); if (pr && pr.catch) pr.catch(() => {});
+      if (!v.__done) { const pr = v.play && v.play(); if (pr && pr.catch) pr.catch(() => {}); }
     });
   }
 
