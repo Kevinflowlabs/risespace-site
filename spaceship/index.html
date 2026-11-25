@@ -453,6 +453,15 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 /* Hero video: no slow zoom, so the picture stays still and plays smoothly */
 .hero video{animation:none!important;transform:none!important;will-change:auto}
+/* Menu: current page item in bold */
+.sheet a[aria-current="page"]{font-weight:600!important}
+/* Interior hotspots: dots only on the selected point; word buttons and text stay put */
+.cabstage .spot i{background:transparent;box-shadow:none}
+.cabstage .spot:before{display:none}
+.cabstage .spot[aria-pressed="true"] i{background:var(--gold);box-shadow:0 0 0 6px rgba(247,204,46,.2),0 0 24px rgba(247,204,46,.7)}
+.cabstage .spot[aria-pressed="true"]:before{display:block;border-color:var(--gold)}
+.cab .detail>div[aria-live]{min-height:240px}
+.cab .spot-list{min-height:96px;align-content:flex-start}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -658,7 +667,6 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <li><b>03</b><span>A carbon-neutral spaceflight</span></li>
 <li><b>04</b><span>Floats on top of Earth’s atmosphere like an ice cube floats on water</span></li>
 </ul>
-<a class="btn" href="../spaceflight/" style="align-self:flex-start">See the full flight<svg style="width:16px;height:16px;flex:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </section>
@@ -680,7 +688,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 
 <button class="spot hs" type="button" data-show="true" aria-pressed="false" aria-label="Your flight, live" style="left: 50%; top: 7%;"><i></i></button>
 
-<button class="spot hs" type="button" data-show="true" aria-pressed="false" aria-label="We bring Earth with us" style="left: 84%; top: 69%;"><i></i></button>
+<button class="spot hs" type="button" data-show="true" aria-pressed="false" aria-label="We bring Earth with us" style="left: 12%; top: 86%;"><i></i></button>
 
 <button class="spot hs" type="button" data-show="false" aria-pressed="false" aria-label="The captain" style="left: 55%; top: 49%;"><i></i></button>
 
@@ -1019,7 +1027,6 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <li><b>03</b><span>A carbon-neutral spaceflight</span></li>
 <li><b>04</b><span>Floats on top of Earth’s atmosphere like an ice cube floats on water</span></li>
 </ul>
-<a class="btn" href="../spaceflight/" style="align-self:flex-start">See the full flight<svg style="width:16px;height:16px;flex:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 </section>
@@ -1195,11 +1202,22 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 /* Header videos play three times, then stay on their final frame. */
 window.__riseCapLoop = function (v) {
   if (v.__capped) return; v.__capped = true; v.__plays = 1;
-  v.addEventListener('ended', function () {
-    v.__plays += 1;
-    if (v.__plays <= 3) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    else { v.__done = true; }
-  });
+  var max = (+v.getAttribute('data-hero-loop') || 3);
+  var C = document.createElement('video');
+  C.muted = true; C.setAttribute('muted', ''); C.playsInline = true; C.setAttribute('playsinline', ''); C.preload = 'auto';
+  C.src = v.currentSrc || v.getAttribute('src');
+  C.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:' + (getComputedStyle(v).objectFit || 'cover') + ';object-position:' + (getComputedStyle(v).objectPosition || '50% 50%') + ';opacity:0;pointer-events:none;transition:opacity .8s ease;z-index:-1';
+  v.parentNode.insertBefore(C, v.nextSibling);
+  function handover(a, b) {
+    if (v.__plays > max) { return; }
+    b.currentTime = 0;
+    b.style.zIndex = '0'; a.style.zIndex = '-1';
+    b.style.opacity = '1';
+    var p = b.play(); if (p && p.catch) p.catch(function () {});
+    setTimeout(function () { a.pause(); a.style.opacity = '0'; a.currentTime = 0; }, 850);
+  }
+  v.addEventListener('ended', function () { v.__plays += 1; if (v.__plays <= max) { C.style.opacity = '0'; } handover(v, C); });
+  C.addEventListener('ended', function () { v.__plays += 1; handover(C, v); });
 };
 </script>
 <script src="../assets/vendor/dc-lite.js"></script>
@@ -1228,7 +1246,7 @@ class Component extends DCLogic {
       { stop: 0, short: 'Lounge', kicker: 'Standard cabin', title: 'The lounge', body: 'Comfortably seats 8 passengers and a captain in a relaxed environment wrapped in 360 degree panoramic views.', x: 41, y: 57 },
       { stop: 1, short: 'Space Spa', kicker: 'Behind the gray door', title: 'The Space Spa', body: 'A luxurious restroom with the best view in our solar system.', link: '#spa', linkLabel: 'See inside the Space Spa', x: 55, y: 40 },
       { stop: 2, short: 'Flight readout', kicker: 'Overhead', title: 'Your flight, live', body: 'The readout above shows details about the flight as it happens: altitude, distance and where you are flying over.', x: 50, y: 7 },
-      { stop: 3, short: 'Plants', kicker: 'Living cabin', title: 'We bring Earth with us', body: 'Living plants and fragrant herbs fill the cabin with a little of the planet you are looking down on.', x: 84, y: 69 },
+      { stop: 3, short: 'Plants', kicker: 'Living cabin', title: 'We bring Earth with us', body: 'Living plants and fragrant herbs fill the cabin with a little of the planet you are looking down on.', x: 12, y: 86 },
       { stop: 4, short: 'Captain', kicker: 'At the helm', title: 'The captain', body: 'The captain sits behind the bar, next to the telescope.', x: 55, y: 49 },
       { stop: 5, short: 'Refreshments bar', kicker: 'Refreshments', title: 'The refreshments bar', body: 'A refreshments bar and a world-class culinary program, on every flight.', x: 46, y: 72 },
       { stop: 6, short: 'WiFi', kicker: 'Connected', title: 'Share it as it happens', body: 'WiFi for live streaming and posting on every flight, with information systems and customized playlists to create the mood.', x: 30, y: 34 },
@@ -1534,6 +1552,16 @@ mountArtboard('tpl', 'app', Component);
   window.addEventListener('load', run);
   window.addEventListener('resize', run);
   [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<script>
+/* Menu: bold the item for the page you are on */
+(function () {
+  function norm(p) { return p.replace(/index\.html$/, '').replace(/\/+$/, '/'); }
+  var here = norm(location.pathname);
+  document.querySelectorAll('.sheet a[href]').forEach(function (a) {
+    try { if (norm(new URL(a.getAttribute('href'), location.href).pathname) === here) a.setAttribute('aria-current', 'page'); } catch (e) {}
+  });
 })();
 </script>
 </body>

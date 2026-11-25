@@ -703,6 +703,24 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 /* Hero: after the clip has played through, the last frame hovers with a gentle bob */
 @keyframes heroBob{0%,100%{transform:translateY(0) scale(1.03)}50%{transform:translateY(-10px) scale(1.03)}}
 .hero video.is-held{animation:heroBob 7s ease-in-out infinite!important;transform:none}
+/* Menu: current page item in bold */
+.sheet a[aria-current="page"]{font-weight:600!important}
+/* Opening space: full demonstration flight beside the statement */
+.statement .demo{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);width:min(40vw,700px);z-index:2}
+.statement .demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border:1px solid var(--line)}
+.statement .big.long,.statement .lede.big2{max-width:min(46vw,640px)}
+@media (max-width:860px){.statement .demo{position:relative;right:auto;top:auto;transform:none;width:100%;margin-top:40px}.statement .big.long,.statement .lede.big2{max-width:none}}
+/* Flight recap: poster covers the video; click fades it away and plays */
+.statement .demo-play{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer;z-index:3;transition:opacity .7s ease}
+.statement .demo-play img{display:block;width:100%;height:100%;object-fit:cover}
+.statement .demo-play.is-playing{opacity:0;pointer-events:none}
+/* Flight recap lightbox */
+.fv-lb{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
+.fv-lb.is-open{opacity:1;visibility:visible}
+.fv-back{position:absolute;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fv-box{position:relative;width:min(1280px,92vw)}
+.fv-box video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.fv-x{position:absolute;top:-48px;right:0;width:40px;height:40px;border-radius:50%;border:1px solid rgba(247,243,235,.4);background:rgba(0,0,0,.4);color:var(--bone);font-size:24px;line-height:1;cursor:pointer}
 </style>
 <noscript><style>[data-reveal]{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
@@ -775,7 +793,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <section class="banner" aria-label="Fully demonstrated">
 <video data-inview="" src="assets/flight-29-flight2.mp4" poster="assets/flight-29-flight2-poster.jpg" loop="" playsinline="" preload="none"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
-<div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
+<div class="watch"><a class="btn nav-look" href="#flight-video" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>Rise demonstration flight</span></div>
 </section>
 
@@ -831,10 +849,10 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 
 
 
-<section class="statement" aria-label="Our mission">
+<section class="statement" id="demo-flight" aria-label="Our mission">
 <div class="mbg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/mission-limb.jpg" alt=""></div>
 <p class="big long"><b>We are opening space to more people than ever before,</b> to have the profound experience of seeing Earth in space… safely, comfortably, and together.</p>
-<p class="lede big2">Fewer than <em>800</em> people have ever been to space. Rise is changing that.</p>
+<p class="lede big2">Fewer than <em>800</em> people have ever been to space. Rise is changing that.</p><div class="demo" id="flight-video"><video controls playsinline preload="metadata" src="assets/flight-recap.mp4" aria-label="The full RISE spaceflight, from launch to splashdown"></video><button class="demo-play" type="button" aria-label="Play the full flight"><img src="assets/flight-recap-poster.jpg" alt=""></button></div>
 </section>
 
 
@@ -882,7 +900,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <div><h2>Updates on our missions</h2></div>
 </div>
 <div class="news">
-<a class="story" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The Rise spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
+<a class="story" href="#flight-video" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The Rise spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
 <article class="story"><div class="img"><img src="assets/florida.jpg" alt="A Space Balloon above Florida" loading="lazy"></div><div class="t"><span class="mono">Announcement</span><h3>Rise acquires Space Perspective</h3></div></article>
 </div>
 </section>
@@ -963,7 +981,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <section class="banner" aria-label="Fully demonstrated">
 <video data-inview="" src="assets/flight-29-flight2.mp4" poster="assets/flight-29-flight2-poster.jpg" loop="" muted="" playsinline="" preload="auto"></video>
 <div class="say"><h2>Fully demonstrated spaceship lifted by Space Balloon for <em>hours in space.</em></h2>
-<div class="watch"><a class="btn nav-look" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
+<div class="watch"><a class="btn nav-look" href="#flight-video" target="_blank" rel="noopener"><i></i><span>Watch the full demonstration flight</span></a><span class="mono">Best with sound on</span></div></div>
 <div class="tag br"><span>Rise demonstration flight</span></div>
 </section>
 
@@ -1022,7 +1040,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <section class="statement" aria-label="Our mission">
 <div class="mbg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/mission-limb.jpg" alt=""></div>
 <p class="big long"><b>We are opening space to more people than ever before,</b> to have the profound experience of seeing Earth in space… safely, comfortably, and together.</p>
-<p class="lede big2">Fewer than <em>800</em> people have ever been to space. Rise is changing that.</p>
+<p class="lede big2">Fewer than <em>800</em> people have ever been to space. Rise is changing that.</p><div class="demo" id="flight-video"><video controls playsinline preload="metadata" src="assets/flight-recap.mp4" aria-label="The full RISE spaceflight, from launch to splashdown"></video><button class="demo-play" type="button" aria-label="Play the full flight"><img src="assets/flight-recap-poster.jpg" alt=""></button></div>
 </section>
 
 <!-- 5 SMOOTH AND SAFE -->
@@ -1070,7 +1088,7 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 <div><h2>Updates on our missions</h2></div>
 </div>
 <div class="news">
-<a class="story" href="https://www.youtube.com/watch?v=ZVuImwpeosg&amp;t=8s" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The Rise spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
+<a class="story" href="#flight-video" target="_blank" rel="noopener" aria-label="Watch the full demonstration flight on YouTube"><div class="img"><img src="assets/poster-ascent.jpg" alt="The Rise spaceship climbing toward space during its demonstration flight" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"></path></svg></span></div><div class="t"><span class="mono">2024 · Flight</span><h3>Successful demonstration flight of the fully operational spaceship</h3><span class="more">Watch the full flight</span></div></a>
 <article class="story"><div class="img"><img src="assets/florida.jpg" alt="A Space Balloon above Florida" loading="lazy"></div><div class="t"><span class="mono">Announcement</span><h3>Rise acquires Space Perspective</h3></div></article>
 </div>
 </section>
@@ -1858,6 +1876,50 @@ mountArtboard('tpl', 'app', Component);
   window.addEventListener('load', run);
   window.addEventListener('resize', run);
   [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<script>
+/* Menu: bold the item for the page you are on */
+(function () {
+  function norm(p) { return p.replace(/index\.html$/, '').replace(/\/+$/, '/'); }
+  var here = norm(location.pathname);
+  document.querySelectorAll('.sheet a[href]').forEach(function (a) {
+    try { if (norm(new URL(a.getAttribute('href'), location.href).pathname) === here) a.setAttribute('aria-current', 'page'); } catch (e) {}
+  });
+})();
+</script>
+<script>
+/* Flight recap: poster and buttons open the video in a lightbox */
+(function () {
+  var lb = null;
+  function close() {
+    if (!lb) return;
+    lb.classList.remove('is-open');
+    var v = lb.querySelector('video'); v.pause();
+    document.body.style.overflow = '';
+  }
+  function open() {
+    if (!lb) {
+      lb = document.createElement('div');
+      lb.className = 'fv-lb';
+      lb.innerHTML = '<div class="fv-back"></div><div class="fv-box"><button class="fv-x" type="button" aria-label="Close video">&times;</button><video controls playsinline preload="auto" src="assets/flight-recap.mp4"></video></div>';
+      document.body.appendChild(lb);
+      lb.querySelector('.fv-back').addEventListener('click', close);
+      lb.querySelector('.fv-x').addEventListener('click', close);
+    }
+    void lb.offsetWidth;
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    var v = lb.querySelector('video'); v.currentTime = 0;
+    var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('.demo-play, a[href="#flight-video"]');
+    if (!t) return;
+    e.preventDefault();
+    open();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
 </script>
 </body>

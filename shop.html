@@ -303,6 +303,8 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 .ref:before,.mref:before,.tag:before,.hero-tag:before,.ph-media .tag:before{display:inline-block!important;content:""!important;width:6px!important;height:6px!important;border-radius:50%!important;background:var(--gold)!important;box-shadow:0 0 12px var(--gold)!important;flex:none}
 /* Hero video: no slow zoom, so the picture stays still and plays smoothly */
 .hero video{animation:none!important;transform:none!important;will-change:auto}
+/* Menu: current page item in bold */
+.sheet a[aria-current="page"]{font-weight:600!important}
 </style>
 </head>
 <body>
@@ -389,11 +391,22 @@ h1 + p,h1 + .lede{margin-left:6px!important}
 /* Header videos play three times, then stay on their final frame. */
 window.__riseCapLoop = function (v) {
   if (v.__capped) return; v.__capped = true; v.__plays = 1;
-  v.addEventListener('ended', function () {
-    v.__plays += 1;
-    if (v.__plays <= 3) { v.currentTime = 0; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    else { v.__done = true; }
-  });
+  var max = (+v.getAttribute('data-hero-loop') || 3);
+  var C = document.createElement('video');
+  C.muted = true; C.setAttribute('muted', ''); C.playsInline = true; C.setAttribute('playsinline', ''); C.preload = 'auto';
+  C.src = v.currentSrc || v.getAttribute('src');
+  C.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:' + (getComputedStyle(v).objectFit || 'cover') + ';object-position:' + (getComputedStyle(v).objectPosition || '50% 50%') + ';opacity:0;pointer-events:none;transition:opacity .8s ease;z-index:-1';
+  v.parentNode.insertBefore(C, v.nextSibling);
+  function handover(a, b) {
+    if (v.__plays > max) { return; }
+    b.currentTime = 0;
+    b.style.zIndex = '0'; a.style.zIndex = '-1';
+    b.style.opacity = '1';
+    var p = b.play(); if (p && p.catch) p.catch(function () {});
+    setTimeout(function () { a.pause(); a.style.opacity = '0'; a.currentTime = 0; }, 850);
+  }
+  v.addEventListener('ended', function () { v.__plays += 1; if (v.__plays <= max) { C.style.opacity = '0'; } handover(v, C); });
+  C.addEventListener('ended', function () { v.__plays += 1; handover(C, v); });
 };
 </script>
 <script src="assets/vendor/dc-lite.js"></script>
@@ -533,6 +546,16 @@ mountArtboard('tpl', 'app', Component);
   window.addEventListener('load', run);
   window.addEventListener('resize', run);
   [300, 1000, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<script>
+/* Menu: bold the item for the page you are on */
+(function () {
+  function norm(p) { return p.replace(/index\.html$/, '').replace(/\/+$/, '/'); }
+  var here = norm(location.pathname);
+  document.querySelectorAll('.sheet a[href]').forEach(function (a) {
+    try { if (norm(new URL(a.getAttribute('href'), location.href).pathname) === here) a.setAttribute('aria-current', 'page'); } catch (e) {}
+  });
 })();
 </script>
 </body>
